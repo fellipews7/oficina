@@ -1,7 +1,7 @@
 <?php
 include_once 'connection.php';
 require_once 'assets/php/funcao.php';
-
+session_start();
 
 if(isset($_POST['nCadastrarCliente'])){
     $tipoCadastro = ($_POST['nPessoaFJ']);
@@ -152,11 +152,11 @@ function insertOS(){
 function conexaoBdInsert($sql){
     global $connect;
     if(mysqli_query($connect, $sql)){
-        header('location: index.php?deu');
+        $_SESSION['mensagem'] = "Cadastrado com sucesso!";
+        header('Location: index.php');
     }else{
-        var_dump($sql);
-        //header('location: index.php?fodeu');
+        $_SESSION['mensagem'] = "Erro ao cadastrar!";
+        header('Location: index.php');
     }
-
 }
 
