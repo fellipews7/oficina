@@ -10,6 +10,9 @@
             crossorigin="anonymous"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <?php
+        require_once 'assets/php/mensagem.php'
+    ?>
     <title>CSS GRID DASHBOARD</title>
 </head>
 <body id="body">
