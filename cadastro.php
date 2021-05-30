@@ -152,10 +152,10 @@ function insertOS(){
 function conexaoBdInsert($sql){
     global $connect;
     if(mysqli_query($connect, $sql)){
-        $_SESSION['mensagem'] = "Cadastrado com sucesso!";
+        $_SESSION['mensagem'] = "deu";
         header('Location: index.php');
     }else{
-        $_SESSION['mensagem'] = "Erro ao cadastrar!";
+        $_SESSION['mensagem'] = "erro";
         header('Location: index.php');
     }
 }
