@@ -14,7 +14,7 @@
       require_once 'connection.php';
       ?>
       <link rel="stylesheet" href="assets/css/styles.css" />
-      <link rel="stylesheet" href="assets/css/Cadastro.css"/>
+      <link rel="stylesheet" href="assets/css/Consulta.css"/>
     <title>CSS GRID DASHBOARD</title>
   </head>
   <body id="body">

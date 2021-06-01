@@ -50,7 +50,7 @@
             <input type="text" id="AnodoModelo" name="nAnodoModeloCarro" placeholder="Insira o ano do modelo">
 
             <label for="AnoFabricação">Ano Fabricação</label>
-            <input type="text" id="AnoFabricação" name="nAnoFabricaçãoCarro" placeholder="Insira o ano de fabricação">
+            <input type="text" id="AnoFabricação" name="nAnoFabricacaoCarro" placeholder="Insira o ano de fabricação">
             
             <label for="Renavam">Renavam</label>
             <input type="text" id="Renavam" name="nRenavamCarro" placeholder="Insira o renavam do carro">

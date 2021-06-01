@@ -75,11 +75,10 @@ function insertClienteCNPJ(){
 }
 
 function insertCargos(){
-    $idCargo = limpezaVariavel($_POST['nIDCargoCargos']);
     $nomeCargo = limpezaVariavel($_POST['nNomeCargo']);
     $descricaoCargo = limpezaVariavel($_POST['nDescricaoCargo']);
 
-    $sql = ("INSERT INTO cargos (id, nome, descricao) VALUES ('$idCargo', '$nomeCargo', '$descricaoCargo')");
+    $sql = ("INSERT INTO cargos (nome, descricao) VALUES ('$nomeCargo', '$descricaoCargo')");
 
     conexaoBdInsert($sql);
 }
@@ -88,11 +87,10 @@ function insertFuncionario(){
     $nomeFuncionario = limpezaVariavel($_POST['nNomeFuncionario']);
     $cpfFuncionario = limpezaVariavel($_POST['nCPFFuncionario']);
     $telefoneFuncionario = limpezaVariavel($_POST['nTelefoneFuncionario']);
-    $matriculaFuncionario = limpezaVariavel($_POST['nMatriculaFuncionario']);
     $idCargoFuncionario = limpezaVariavel($_POST['nIDCargoFuncionarios']);
 
     $sql = ("INSERT INTO funcionarios (matricula, nome, cpf, telefone_contato, cargos_id) VALUES (
-            '$matriculaFuncionario', '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario')");
+            '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario')");
 
     conexaoBdInsert($sql);
 }
