@@ -10,11 +10,11 @@
       crossorigin="anonymous"
     />
       <?php
-      require_once 'assets/php/funcao.php';
-      require_once 'connection.php';
+      /*require_once 'assets/php/funcao.php';
+      require_once 'connection.php';*/
       ?>
       <link rel="stylesheet" href="assets/css/styles.css" />
-      <link rel="stylesheet" href="assets/css/Cadastro.css"/>
+      <link rel="stylesheet" href="assets/css/Consulta.css"/>
     <title>CSS GRID DASHBOARD</title>
   </head>
   <body id="body">
@@ -93,6 +93,7 @@
             <th>Data Orçamento</th> 
             <th>Status</th>
             <th>Tipo Manutenção</th>
+            <th></th>
           </tr>
           <tr>
               <?php
@@ -168,50 +169,50 @@
 
     
         <div class="sidebar__menu">
-        <div class="sidebar__link active_menu_link">
-            <i class="fa fa-home"></i>
-            <a href="index.php">Dashboard</a>
-        </div>
-        <h2>Cadastros</h2>
-        <div class="sidebar__link">
-                <i class="fa fa-user-secret" aria-hidden="true"></i>
+            <div class="sidebar__link active_menu_link">
+                <i class="fa fa-home"></i>
+                <a href="index.php">Dashboard</a>
+            </div>
+            <h2>Cadastros</h2>
+            <div class="sidebar__link">
+                <i class="fa fa-user" aria-hidden="true"></i>
                 <a href="Cadastro-Cliente.php">Cadastro Cliente</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-building-o"></i>
+                <i class="fa fa-car" aria-hidden="true"></i>
                 <a href="Cadastro-Carro.php">Cadastro Carro</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-wrench"></i>
+                <i class="fa fa-money" aria-hidden="true"></i>
                 <a href="Cadastro-Orcamento.php">Cadastro Orçamento</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-archive"></i>
+                <i class="fa fa-users" aria-hidden="true"></i>
                 <a href="Cadastro-Funcionario.php">Cadastro Funcionário</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-handshake-o"></i>
+                <i class="fa fa-briefcase" aria-hidden="true"></i>
                 <a href="Cadastro-Cargo.php">Cadastro Cargo</a>
             </div>
             <h2>Consultas</h2>
             <div class="sidebar__link">
-                <i class="fa fa-question"></i>
+                <i class="fa fa-user" aria-hidden="true"></i>
                 <a href="Consulta-Cliente.php">Consulta Cliente</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-sign-out"></i>
+                <i class="fa fa-car" aria-hidden="true"></i>
                 <a href="Consulta-Carros.php">Consulta Carro</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-calendar-check-o"></i>
+                <i class="fa fa-money" aria-hidden="true"></i>
                 <a href="Consulta-Orcamento.php">Consulta Orçamento</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-files-o"></i>
+                <i class="fa fa-sitemap" aria-hidden="true"></i>
                 <a href="Consulta-OS.php">Consulta Ordem Serviço</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-files-o"></i>
+                <i class="fa fa-users" aria-hidden="true"></i>
                 <a href="Consulta-Funcionarios.php">Consulta Funcionario</a>
             </div>
             <div class="sidebar__logout">
@@ -219,9 +220,8 @@
                 <a href="#">Log out</a>
             </div>
         </div>
-
-      </div>
     </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="script.js"></script>
   </body>

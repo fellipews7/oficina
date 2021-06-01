@@ -9,6 +9,7 @@
             integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
             crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="assets/css/styles.css" />
     <?php
         require_once 'assets/php/mensagem.php'
@@ -44,8 +45,8 @@
             <div class="main__cards">
                 <div class="card">
                     <i
-                            class="fa fa-user-o fa-2x text-lightblue"
-                            aria-hidden="true"
+                        class="fa fa-money fa-2x text-green" 
+                        aria-hidden="true"
                     ></i>
                     <div class="card_inner">
                         <p class="text-primary-p">Orçamentos em Aberto</p>
@@ -55,8 +56,8 @@
 
                 <div class="card">
                     <i
-                            class="fa fa-thumbs-up fa-2x text-green"
-                            aria-hidden="true"
+                        class="fa fa-calendar-check-o fa-2x text-lightblue" 
+                        aria-hidden="true"
                     ></i>
 
                     <div class="card_inner">
@@ -67,8 +68,8 @@
 
                 <div class="card">
                     <i
-                            class="fa fa-video-camera fa-2x text-yellow"
-                            aria-hidden="true"
+                        class="fa fa-wrench fa-2x text-yellow" 
+                        aria-hidden="true"
                     ></i>
                     <div class="card_inner">
                         <p class="text-primary-p">OS em Andamento</p>
@@ -157,44 +158,44 @@
             </div>
             <h2>Cadastros</h2>
             <div class="sidebar__link">
-                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                <i class="fa fa-user" aria-hidden="true"></i>
                 <a href="Cadastro-Cliente.php">Cadastro Cliente</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-building-o"></i>
+                <i class="fa fa-car" aria-hidden="true"></i>
                 <a href="Cadastro-Carro.php">Cadastro Carro</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-wrench"></i>
+                <i class="fa fa-money" aria-hidden="true"></i>
                 <a href="Cadastro-Orcamento.php">Cadastro Orçamento</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-archive"></i>
+                <i class="fa fa-users" aria-hidden="true"></i>
                 <a href="Cadastro-Funcionario.php">Cadastro Funcionário</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-handshake-o"></i>
+                <i class="fa fa-briefcase" aria-hidden="true"></i>
                 <a href="Cadastro-Cargo.php">Cadastro Cargo</a>
             </div>
             <h2>Consultas</h2>
             <div class="sidebar__link">
-                <i class="fa fa-question"></i>
+                <i class="fa fa-user" aria-hidden="true"></i>
                 <a href="Consulta-Cliente.php">Consulta Cliente</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-sign-out"></i>
+                <i class="fa fa-car" aria-hidden="true"></i>
                 <a href="Consulta-Carros.php">Consulta Carro</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-calendar-check-o"></i>
+                <i class="fa fa-money" aria-hidden="true"></i>
                 <a href="Consulta-Orcamento.php">Consulta Orçamento</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-files-o"></i>
+                <i class="fa fa-sitemap" aria-hidden="true"></i>
                 <a href="Consulta-OS.php">Consulta Ordem Serviço</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-files-o"></i>
+                <i class="fa fa-users" aria-hidden="true"></i>
                 <a href="Consulta-Funcionarios.php">Consulta Funcionario</a>
             </div>
             <div class="sidebar__logout">
