@@ -7,16 +7,26 @@ function limpezaVariavel($value){
     return $value;
 }
 
-function verificaEmail($valor){
+function isNome($nome){
+    $nome = trim($nome);
+    $regex  = "/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/";
+    if (preg_match($regex, $nome)) {
+         return true;
+    }else{
+         return false;
+    }
+}
+
+function isEmail($valor){
 
 if(filter_var($valor, FILTER_VALIDATE_EMAIL)):
-
+    return true;
 else:
-    echo 'E-mail inválido.';
+    return false;
 endif;
 }
 
-function verificaCPF($valor){
+function isCPF($valor){
     $valor = str_replace(array('.','-','/'), "", $valor);
     $cpf = str_pad(preg_replace('[^0-9]', '', $valor), 11, '0', STR_PAD_LEFT);
 
@@ -36,7 +46,7 @@ function verificaCPF($valor){
     endif;
 }
 
-function verificaCNPJ($valor){
+function isCNPJ($valor){
     $cnpj = str_pad(str_replace(array('.','-','/'),'',$valor),14,'0',STR_PAD_LEFT);
 
     if (strlen($cnpj) != 14):
@@ -56,18 +66,91 @@ function verificaCNPJ($valor){
     endif;
 }
 
-function verificaCEP($valor){
+function isCEP($valor){
     if (preg_match('/[0-9]{5,5}([-]?[0-9]{3})?$/', $valor)):
-        echo 'CEP válido';
+        return true;
     else:
-        echo 'CEP inválido';
+        return false;
     endif;
 }
 
-function verificaTelefone($valor){
+function isTelefone($valor){
     if (preg_match('/^\([0-9]{2}\)?\s?[0-9]{4,5}-[0-9]{4}$/', $valor)):
-        echo 'Fone válido';
+        return true;
     else:
-        echo 'Fone inválido';
+        return false;
     endif;
+}
+
+function isData($valor){
+    if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$valor)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
+                          $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
+                          $dataCadastroCliente, $bairroLogradouroCliente){
+
+    if(isNome($nomeCliente)){
+        if(isTelefone($telefoneCliente)){
+            if(isData($dataNascimentoCliente)){
+                if(isCPF($cpfCliente)){
+                    if(isEmail($emailCliente)){
+                        if(isCEP($cepLogradouroCliente)){
+
+                        }else{
+                            $_SESSION['tipoErro'] = 'CEP incorreto!';
+                            header('Location: cadastro-cliente.php?erro');
+                            echo 'CEP';
+                        }
+                    }else{
+                        $_SESSION['tipoErro'] = 'Email incorreto!';
+                        echo 'Email';
+                        header('Location: cadastro-cliente.php?erro');
+                    }
+                }else{
+                    $_SESSION['tipoErro'] = 'CPF incorreto!';
+                    echo 'CPF';
+                    header('Location: cadastro-cliente.php?erro');
+                }
+            }else{
+                $_SESSION['tipoErro'] = 'Data incorreta!';
+                echo 'Data';
+                header('Location: cadastro-cliente.php?erro');
+            }
+        }else{
+            $_SESSION['tipoErro'] = 'Telefone incorreto!';
+            echo 'Telefone';
+            header('Location: cadastro-cliente.php?erro');
+        }
+    }else{
+        $_SESSION['tipoErro'] = 'Nome incorreto!';
+        echo 'Nome';
+        header('Location: cadastro-cliente.php?erro');
+    }
+}
+
+function cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
+                          $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
+                          $dataCadastroCliente, $bairroLogradouroCliente){
+    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, cpf, email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
+            '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cpfCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
+            '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
+
+    conexaoBdInsert($sql);
+}
+
+
+function conexaoBdInsert($sql){
+    global $connect;
+    if(mysqli_query($connect, $sql)){
+        $_SESSION['mensagem'] = "deu";
+        header('Location: index.php?deu');
+    }else{
+        $_SESSION['mensagem'] = "erro";
+        header('Location: cadastro-cliente.php?erro');
+    }
 }

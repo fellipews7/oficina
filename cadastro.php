@@ -46,11 +46,9 @@ function insertClienteCPF(){
     $cepLogradouroCliente = limpezaVariavel($_POST['nCEPCliente']);
     $dataCadastroCliente = date('Y/m/d');
 
-    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, cpf, email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
-            '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cpfCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
-            '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
-
-    conexaoBdInsert($sql);
+    verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
+        $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
+        $dataCadastroCliente, $bairroLogradouroCliente);
 }
 
 function insertClienteCNPJ(){
@@ -147,14 +145,4 @@ function insertOS(){
     conexaoBdInsert($sql);
 }
 
-function conexaoBdInsert($sql){
-    global $connect;
-    if(mysqli_query($connect, $sql)){
-        $_SESSION['mensagem'] = "deu";
-        header('Location: index.php');
-    }else{
-        $_SESSION['mensagem'] = "erro";
-        header('Location: index.php');
-    }
-}
 
