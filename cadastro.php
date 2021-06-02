@@ -46,11 +46,9 @@ function insertClienteCPF(){
     $cepLogradouroCliente = limpezaVariavel($_POST['nCEPCliente']);
     $dataCadastroCliente = date('Y/m/d');
 
-    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, cpf, email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
-            '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cpfCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
-            '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
-
-    conexaoBdInsert($sql);
+    verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
+        $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
+        $dataCadastroCliente, $bairroLogradouroCliente);
 }
 
 function insertClienteCNPJ(){
@@ -75,11 +73,10 @@ function insertClienteCNPJ(){
 }
 
 function insertCargos(){
-    $idCargo = limpezaVariavel($_POST['nIDCargoCargos']);
     $nomeCargo = limpezaVariavel($_POST['nNomeCargo']);
     $descricaoCargo = limpezaVariavel($_POST['nDescricaoCargo']);
 
-    $sql = ("INSERT INTO cargos (id, nome, descricao) VALUES ('$idCargo', '$nomeCargo', '$descricaoCargo')");
+    $sql = ("INSERT INTO cargos (nome, descricao) VALUES ('$nomeCargo', '$descricaoCargo')");
 
     conexaoBdInsert($sql);
 }
@@ -88,11 +85,10 @@ function insertFuncionario(){
     $nomeFuncionario = limpezaVariavel($_POST['nNomeFuncionario']);
     $cpfFuncionario = limpezaVariavel($_POST['nCPFFuncionario']);
     $telefoneFuncionario = limpezaVariavel($_POST['nTelefoneFuncionario']);
-    $matriculaFuncionario = limpezaVariavel($_POST['nMatriculaFuncionario']);
     $idCargoFuncionario = limpezaVariavel($_POST['nIDCargoFuncionarios']);
 
     $sql = ("INSERT INTO funcionarios (matricula, nome, cpf, telefone_contato, cargos_id) VALUES (
-            '$matriculaFuncionario', '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario')");
+            '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario')");
 
     conexaoBdInsert($sql);
 }
@@ -149,14 +145,4 @@ function insertOS(){
     conexaoBdInsert($sql);
 }
 
-function conexaoBdInsert($sql){
-    global $connect;
-    if(mysqli_query($connect, $sql)){
-        $_SESSION['mensagem'] = "Cadastrado com sucesso!";
-        header('Location: index.php');
-    }else{
-        $_SESSION['mensagem'] = "Erro ao cadastrar!";
-        header('Location: index.php');
-    }
-}
 

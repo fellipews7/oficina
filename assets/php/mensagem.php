@@ -8,27 +8,32 @@ if(isset($_SESSION['mensagem'])){
     <script src="assets/js/toastr.min.js"></script>
     <script>
 
-        toastr["success"]("Usuário cadastrado com sucesso!", "Usuário cadastrado!")
+        <?php
+            if(($_SESSION['mensagem']) == 'deu'){
+        ?>
+                toastr["success"]("Usuário cadastrado com sucesso!", "Usuário cadastrado!")
 
-        toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        }
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
     </script>
     <?php
+
+            }
 }
 session_unset();
 ?>
