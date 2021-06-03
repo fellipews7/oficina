@@ -89,47 +89,90 @@ function isData($valor){
         return false;
     }
 }
+function isRenavam ( $renavam ) {
+    $soma = 0;
 
-function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
+    $d = str_split($renavam);
+    $x = 0;
+    $digito = 0;
+
+    for ($i=5; $i >= 2; $i--) {
+        $soma += $d[$x] * $i;
+        $x++;
+    }
+
+    $valor = $soma % 11;
+
+    if ($valor == 11 || $valor == 0 || $valor >= 10) {
+        $digito = 0;
+    } else {
+        $digito = $valor;
+    }
+
+    if ($digito == $d[4]) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function isPlaca(){
+    $regex1 = '[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}';
+    $placa = 'AAA0A00';
+
+    if (preg_match($regex1, $placa) === 1) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
-                          $dataCadastroCliente, $bairroLogradouroCliente){
+                          $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro){
 
     if(isNome($nomeCliente)){
         if(isTelefone($telefoneCliente)){
             if(isData($dataNascimentoCliente)){
-                if(isCPF($cpfCliente)){
+                if(verificaCpfCnpj($cpfCnpjCliente)){
                     if(isEmail($emailCliente)){
                         if(isCEP($cepLogradouroCliente)){
-
+                            cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
+                                $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
+                                $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
                         }else{
                             $_SESSION['tipoErro'] = 'CEP incorreto!';
                             header('Location: cadastro-cliente.php?erro');
-                            echo 'CEP';
                         }
                     }else{
                         $_SESSION['tipoErro'] = 'Email incorreto!';
-                        echo 'Email';
                         header('Location: cadastro-cliente.php?erro');
                     }
                 }else{
                     $_SESSION['tipoErro'] = 'CPF incorreto!';
-                    echo 'CPF';
                     header('Location: cadastro-cliente.php?erro');
                 }
             }else{
                 $_SESSION['tipoErro'] = 'Data incorreta!';
-                echo 'Data';
                 header('Location: cadastro-cliente.php?erro');
             }
         }else{
             $_SESSION['tipoErro'] = 'Telefone incorreto!';
-            echo 'Telefone';
             header('Location: cadastro-cliente.php?erro');
         }
     }else{
         $_SESSION['tipoErro'] = 'Nome incorreto!';
-        echo 'Nome';
         header('Location: cadastro-cliente.php?erro');
+    }
+}
+
+function verificaCpfCnpj($cnpj, $cpf){
+    if(isCNPJ($cnpj)){
+        return true;
+    }elseif (isCPF($cpf)){
+        return true;
+    }else{
+        return false;
     }
 }
 
@@ -139,6 +182,54 @@ function cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
     $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, cpf, email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
             '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cpfCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
             '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
+
+    conexaoBdInsert($sql);
+}
+
+function verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro){
+    if(isRenavam($renavamCarro)){
+        if(isPlaca($placaCarro)){
+            cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$anoModeloCarro,$anoFabricacaoCarro);
+        }else{
+            $_SESSION['tipoErro'] = 'Renavam incorreto!';
+            header('Location: cadastro-cliente.php?erro');
+        }
+    }else{
+        $_SESSION['tipoErro'] = 'Renavam incorreto!';
+        header('Location: cadastro-cliente.php?erro');
+    }
+}
+
+function cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$anoModeloCarro,$anoFabricacaoCarro){
+    $sql = ("INSERT  INTO carros(placa,renavam,marca,modelo,ano_modelo,ano_fabricado) VALUES (
+            '$placaCarro', '$renavamCarro','$marcaCarro','$modeloCarro','$anoModeloCarro','$anoFabricacaoCarro')");
+
+    conexaoBdInsert($sql);
+}
+
+
+function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario){
+    if(isNome($nomeFuncionario)) {
+        if(isCPF($cpfFuncionario)){
+            if(isTelefone($telefoneFuncionario)){
+                cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario);
+            }else {
+                $_SESSION['tipoErro'] = 'Telefone incorreto!';
+                header('Location: cadastro-cliente.php?erro');
+            }
+        }else{
+            $_SESSION['tipoErro'] = 'CPF incorreto!';
+            header('Location: cadastro-cliente.php?erro');
+        }
+    }else{
+            $_SESSION['tipoErro'] = 'Nome incorreto!';
+            header('Location: cadastro-cliente.php?erro');
+    }
+}
+
+function cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario){
+    $sql = ("INSERT INTO funcionarios (matricula, nome, cpf, telefone_contato, cargos_id) VALUES (
+            '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario')");
 
     conexaoBdInsert($sql);
 }

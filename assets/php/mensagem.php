@@ -1,15 +1,16 @@
 <?php
 session_start();
 session_status();
+
 if(isset($_SESSION['mensagem'])){
-    echo 'cheguei';?>
+?>
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <link href="assets/css/toastr.min.css" rel="stylesheet"/>
     <script src="assets/js/toastr.min.js"></script>
     <script>
 
         <?php
-            if(($_SESSION['mensagem']) == 'deu'){
+            if(($_SESSION['mensagem']) != ''){
         ?>
                 toastr["success"]("Usuário cadastrado com sucesso!", "Usuário cadastrado!")
 
@@ -30,6 +31,7 @@ if(isset($_SESSION['mensagem'])){
                     "showMethod": "fadeIn",
                     "hideMethod": "fadeOut"
                 }
+
     </script>
     <?php
 

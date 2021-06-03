@@ -11,12 +11,13 @@
     />
 
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <?php
-        require_once 'assets/php/mensagem.php'
-    ?>
+
     <title>CSS GRID DASHBOARD</title>
 </head>
 <body id="body">
+<?php
+require_once 'assets/php/mensagem.php'
+?>
 <div class="container">
     <nav class="navbar">
         <div class="nav_icon" onclick="toggleSidebar()">
