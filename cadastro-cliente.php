@@ -59,9 +59,9 @@
                 <div id="classificacaoCliente">
                     <!-- Wrapper para trabalhar com input e label dentro de uma div  -->
                     <div class="wrapper">
-                        <input type="radio" id="iJuridica" name="nPessoaFJ" value="2" form="form-cadastro-cliente">
+                        <input type="radio" id="iJuridica" name="nPessoaFJ" value="cnpj" form="form-cadastro-cliente">
                         <label for="iJuridica">Jurídica</label>
-                        <input type="radio" id="iFisica" name="nPessoaFJ" value="1" form="form-cadastro-cliente">
+                        <input type="radio" id="iFisica" name="nPessoaFJ" value="cpf" form="form-cadastro-cliente">
                         <label for="iFisica">Física</label>
                     </div>
                 </div>

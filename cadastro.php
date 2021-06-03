@@ -5,11 +5,7 @@ session_start();
 
 if(isset($_POST['nCadastrarCliente'])){
     $tipoCadastro = ($_POST['nPessoaFJ']);
-    if($tipoCadastro == 1){
-        insertClienteCPF();
-    }else{
-        insertClienteCNPJ();
-    }
+        insertCliente();
 }
 
 if(isset($_POST['nEnviarCargo'])){
@@ -32,13 +28,14 @@ if(isset($_POST['nCadastrarOS'])){
     insertOS();
 }
 
-function insertClienteCPF(){
+function insertCliente(){
+    global $tipoCadastro;
     $nomeCliente = limpezaVariavel($_POST['nNomeCliente']);
     $telefoneCliente = limpezaVariavel($_POST['nTelefoneCliente']);
     $dataNascimentoCliente = limpezaVariavel($_POST['nDataNascCliente']);
     $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicípioCliente']);
     $numeroLogradouroCliente = limpezaVariavel($_POST['nNumeroCliente']);
-    $cpfCliente = limpezaVariavel($_POST['nCPFCNPJCliente']);
+    $cpfCnpjCliente = limpezaVariavel($_POST['nCPFCNPJCliente']);
     $emailCliente = limpezaVariavel($_POST['nEmailCliente']);
     $estadoLogradouroCliente = limpezaVariavel($_POST['nEstadoCliente']);
     $bairroLogradouroCliente = limpezaVariavel('bairro');
@@ -46,30 +43,9 @@ function insertClienteCPF(){
     $cepLogradouroCliente = limpezaVariavel($_POST['nCEPCliente']);
     $dataCadastroCliente = date('Y/m/d');
 
-    verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
+    verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
         $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
-        $dataCadastroCliente, $bairroLogradouroCliente);
-}
-
-function insertClienteCNPJ(){
-    $nomeCliente = limpezaVariavel($_POST['nNomeCliente']);
-    $telefoneCliente = limpezaVariavel($_POST['nTelefoneCliente']);
-    $dataNascimentoCliente = limpezaVariavel($_POST['nDataNascCliente']);
-    $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicípioCliente']);
-    $numeroLogradouroCliente = limpezaVariavel($_POST['nNumeroCliente']);
-    $cnpjCliente = limpezaVariavel($_POST['nCPFCNPJCliente']);
-    $emailCliente = limpezaVariavel($_POST['nEmailCliente']);
-    $estadoLogradouroCliente = limpezaVariavel($_POST['nEstadoCliente']);
-    $bairroLogradouroCliente = limpezaVariavel('bairro');
-    $ruaLogradouroCliente = limpezaVariavel($_POST['nRuaCliente']);
-    $cepLogradouroCliente = limpezaVariavel($_POST['nCEPCliente']);
-    $dataCadastroCliente = date('Y/m/d');
-
-    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, cnpj, email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
-            '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cnpjCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
-            '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
-
-    conexaoBdInsert($sql);
+        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
 }
 
 function insertCargos(){
@@ -87,10 +63,7 @@ function insertFuncionario(){
     $telefoneFuncionario = limpezaVariavel($_POST['nTelefoneFuncionario']);
     $idCargoFuncionario = limpezaVariavel($_POST['nIDCargoFuncionarios']);
 
-    $sql = ("INSERT INTO funcionarios (matricula, nome, cpf, telefone_contato, cargos_id) VALUES (
-            '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario')");
-
-    conexaoBdInsert($sql);
+    verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario);
 }
 
 function insertCarros(){
@@ -101,10 +74,7 @@ function insertCarros(){
     $anoModeloCarro = limpezaVariavel($_POST['nAnodoModeloCarro']);
     $anoFabricacaoCarro = limpezaVariavel($_POST['nAnoFabricacaoCarro']);
 
-    $sql = ("INSERT  INTO carros(placa,renavam,marca,modelo,ano_modelo,ano_fabricado) VALUES (
-            '$placaCarro', '$renavamCarro','$marcaCarro','$modeloCarro','$anoModeloCarro','$anoFabricacaoCarro')");
-    
-    conexaoBdInsert($sql);
+    verificaCarros($placaCarro, $modeloCarro, $marcaCarro, $renavamCarro, $anoModeloCarro, $anoFabricacaoCarro);
 }
 
 function insertOrcamento(){
