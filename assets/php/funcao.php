@@ -75,7 +75,7 @@ function isCEP($valor){
 }
 
 function isTelefone($valor){
-    if (preg_match('/^\([0-9]{2}\)?\s?[0-9]{4,5}-[0-9]{4}$/', $valor)):
+    if (preg_match('/[0-9]{2}[0-9]{4,5}[0-9]{4}$/', $valor)):
         return true;
     else:
         return false;
@@ -90,37 +90,50 @@ function isData($valor){
     }
 }
 function isRenavam ( $renavam ) {
-    $soma = 0;
 
-    $d = str_split($renavam);
-    $x = 0;
-    $digito = 0;
+    $renavam = str_pad($renavam, 11, "0", STR_PAD_LEFT);
 
-    for ($i=5; $i >= 2; $i--) {
-        $soma += $d[$x] * $i;
-        $x++;
-    }
-
-    $valor = $soma % 11;
-
-    if ($valor == 11 || $valor == 0 || $valor >= 10) {
-        $digito = 0;
-    } else {
-        $digito = $valor;
-    }
-
-    if ($digito == $d[4]) {
-        return true;
-    } else {
+    if( !preg_match("/[0-9]{11}/", $renavam) ){
         return false;
     }
+
+    $renavamSemDigito = substr($renavam, 0, 10);
+    $renavamReversoSemDigito = strrev($renavamSemDigito);
+
+    $soma = 0;
+    $multiplicador = 2;
+    for ($i = 0; $i < 10; $i++) {
+        $algarismo = substr($renavamReversoSemDigito, $i, 1);
+        $soma += $algarismo * $multiplicador;
+
+        if( $multiplicador >=9 ){
+            $multiplicador = 2;
+        }else{
+            $multiplicador++;
+        }
+    }
+
+    $mod11 = $soma % 11;
+
+    $ultimoDigitoCalculado = 11 - $mod11;
+
+    $ultimoDigitoCalculado = ($ultimoDigitoCalculado >= 10 ? 0 : $ultimoDigitoCalculado);
+
+    $digitoRealInformado = substr($renavam, -1);
+
+    if($ultimoDigitoCalculado == $digitoRealInformado){
+        return true;
+    }else{
+        return false;
+    }
+
 }
 
-function isPlaca(){
-    $regex1 = '[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}';
-    $placa = 'AAA0A00';
+function isPlaca($placa){
+var_dump($placa);
+    $regex1 = '/[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}/';
 
-    if (preg_match($regex1, $placa) === 1) {
+    if (preg_match($regex1, $placa)) {
         return true;
     }else{
         return false;
@@ -142,45 +155,45 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                                 $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
                         }else{
                             $_SESSION['tipoErro'] = 'CEP incorreto!';
-                            header('Location: cadastro-cliente.php?erro');
+                            header('Location: cadastro-cliente.php?errocep');
                         }
                     }else{
                         $_SESSION['tipoErro'] = 'Email incorreto!';
-                        header('Location: cadastro-cliente.php?erro');
+                        header('Location: cadastro-cliente.php?erroemail');
                     }
                 }else{
                     $_SESSION['tipoErro'] = 'CPF incorreto!';
-                    header('Location: cadastro-cliente.php?erro');
+                    header('Location: cadastro-cliente.php?errocpf');
                 }
             }else{
                 $_SESSION['tipoErro'] = 'Data incorreta!';
-                header('Location: cadastro-cliente.php?erro');
+                header('Location: cadastro-cliente.php?errodata');
             }
         }else{
             $_SESSION['tipoErro'] = 'Telefone incorreto!';
-            header('Location: cadastro-cliente.php?erro');
+            header('Location: cadastro-cliente.php?errotelefone');
         }
     }else{
         $_SESSION['tipoErro'] = 'Nome incorreto!';
-        header('Location: cadastro-cliente.php?erro');
+        header('Location: cadastro-cliente.php?erronome');
     }
 }
 
-function verificaCpfCnpj($cnpj, $cpf){
-    if(isCNPJ($cnpj)){
+function verificaCpfCnpj($cpfCnpj){
+    if(isCNPJ($cpfCnpj)){
         return true;
-    }elseif (isCPF($cpf)){
+    }elseif (isCPF($cpfCnpj)){
         return true;
     }else{
         return false;
     }
 }
 
-function cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
+function cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
-                          $dataCadastroCliente, $bairroLogradouroCliente){
-    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, cpf, email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
-            '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cpfCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
+                          $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro){
+    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, ".$tipoCadastro.", email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
+            '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cpfCnpjCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
             '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
 
     conexaoBdInsert($sql);
@@ -191,12 +204,12 @@ function verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $
         if(isPlaca($placaCarro)){
             cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$anoModeloCarro,$anoFabricacaoCarro);
         }else{
-            $_SESSION['tipoErro'] = 'Renavam incorreto!';
-            header('Location: cadastro-cliente.php?erro');
+            $_SESSION['tipoErro'] = 'Placa incorreto!';
+            header('Location: Cadastro-Carros.php?erroplaca');
         }
     }else{
         $_SESSION['tipoErro'] = 'Renavam incorreto!';
-        header('Location: cadastro-cliente.php?erro');
+        header('Location: Cadastro-Carro.php?errorenavam');
     }
 }
 
@@ -215,15 +228,15 @@ function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
                 cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario);
             }else {
                 $_SESSION['tipoErro'] = 'Telefone incorreto!';
-                header('Location: cadastro-cliente.php?erro');
+                header('Location: Cadastro-Funcionario.php?erro');
             }
         }else{
             $_SESSION['tipoErro'] = 'CPF incorreto!';
-            header('Location: cadastro-cliente.php?erro');
+            header('Location: Cadastro-Funcionario.php?erro');
         }
     }else{
             $_SESSION['tipoErro'] = 'Nome incorreto!';
-            header('Location: cadastro-cliente.php?erro');
+            header('Location: Cadastro-Funcionario.php?erro');
     }
 }
 
@@ -242,6 +255,6 @@ function conexaoBdInsert($sql){
         header('Location: index.php?deu');
     }else{
         $_SESSION['mensagem'] = "erro";
-        header('Location: cadastro-cliente.php?erro');
+        header('Location: cadastro-cliente.php?errofinal');
     }
 }
