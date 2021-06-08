@@ -1,11 +1,10 @@
 <?php
 include_once 'connection.php';
-require_once 'assets/php/funcao.php';
+include_once 'assets/php/funcao.php';
 session_start();
 
 if(isset($_POST['nCadastrarCliente'])){
-    $tipoCadastro = ($_POST['nPessoaFJ']);
-        insertCliente();
+    insertCliente();
 }
 
 if(isset($_POST['nEnviarCargo'])){
@@ -29,7 +28,7 @@ if(isset($_POST['nCadastrarOS'])){
 }
 
 function insertCliente(){
-    global $tipoCadastro;
+    $tipoCadastro = limpezaVariavel($_POST['nPessoaFJ']);
     $nomeCliente = limpezaVariavel($_POST['nNomeCliente']);
     $telefoneCliente = limpezaVariavel($_POST['nTelefoneCliente']);
     $dataNascimentoCliente = limpezaVariavel($_POST['nDataNascCliente']);
@@ -73,8 +72,8 @@ function insertCarros(){
     $renavamCarro = limpezaVariavel($_POST['nRenavamCarro']);
     $anoModeloCarro = limpezaVariavel($_POST['nAnodoModeloCarro']);
     $anoFabricacaoCarro = limpezaVariavel($_POST['nAnoFabricacaoCarro']);
-
-    verificaCarros($placaCarro, $modeloCarro, $marcaCarro, $renavamCarro, $anoModeloCarro, $anoFabricacaoCarro);
+    echo 'aqui';
+    verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro);
 }
 
 function insertOrcamento(){
