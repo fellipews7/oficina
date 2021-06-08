@@ -94,7 +94,7 @@
             <th>Data Prevista</th> 
             <th>Funcionário</th> 
             <th>Status</th> 
-            <th></th>
+            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
           </tr>
           <tr>
               <?php
@@ -131,7 +131,7 @@
 
                       echo '<td id="iCantoBotao">';
 
-                      echo '<a href="VerMaisCliente.php" id="VerMaisCliente">Ver Mais</a>';
+                      echo '<a href="VerMaisCliente.php" id="VerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
 
                       echo '</td>';
                       echo '</tr>';

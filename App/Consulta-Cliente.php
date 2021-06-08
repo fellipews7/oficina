@@ -24,7 +24,7 @@
           <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
         <div class="navbar__left">
-          <h2>Consulta Carro</h2>
+          <h2>Consulta Cliente</h2>
         </div>
       </nav>
 
@@ -36,7 +36,7 @@
           <form>
         <!--Inicia a coluna-->
         <label for="iPalavraChave">Palavra Chave</label>
-        <input type="text" id="iPalavraChave" name="nPalavraChaveCarroCon"
+        <input type="text" id="iPalavraChave" name="nPalavraChaveClienteCon"
         placeholder="Insira a palavra chave para pesquisa">
         <div class="columns">
 
@@ -44,10 +44,25 @@
             <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
 
             <div class="wrapper">
-              <input type="radio" id="iPlaca" name="nTipoPalavraChave" value="Placa">
-              <label for="iPlaca">Placa</label>
-              <input type="radio" id="iModelo" name="nTipoPalavraChave" value="Modelo">
-              <label for="iModelo">Modelo</label>
+              <input type="radio" id="Nome" name="nTipoPalavraChave" value="Nome">
+              <label for="Nome">Nome</label>
+              <input type="radio" id="CPF" name="nTipoPalavraChave" value="CPF">
+              <label for="CPF">CPF</label>
+              <input type="radio" id="Cidade" name="nTipoPalavraChave" value="Cidade">
+              <label for="Cidade">Cidade</label>
+            </div>
+          </div>
+
+          <div class="column 2">
+            <label for="nSttsCad" id="LabelsRadios">Status do Cadastro</label>
+            
+            <div class="wrapper">
+              <input type="radio" id="Ativo" name="nSttsCad" value="Ativo">
+              <label for="Ativo">Ativo</label>
+              <input type="radio" id="Andamento" name="nSttsCad" value="Andamento">
+              <label for="Andamento">Andamento</label>
+              <input type="radio" id="Inativo" name="nSttsCad" value="Inativo">
+              <label for="Inativo">Inativo</label>
             </div>
           </div>
         </div>
@@ -56,9 +71,9 @@
         <br>
 
         <div class="btn-group">
-          <button name="nPesquisarCarroCon" value="Enviar" class="btn">Pesquisar</button>
+          <button name="nPesquisarClienteCon" value="Enviar" class="btn">Pesquisar</button>
 
-          <button type="reset" name="nLimparCarroCon" value="Limpar" class="btn">Limpar</button>
+          <button type="reset" name="nLimparClienteCon" value="Limpar" class="btn">Limpar</button>
         </div>
 
         <br>
@@ -67,57 +82,51 @@
         <table rules=all>
           <tr>
             <th>ID</th>
-            <th>Placa</th> 
-            <th>Modelo</th>
-            <th>Ano Modelo</th>
-            <th>Ano Fabricado</th>
-            <th>Cliente Atual</th> 
-            <th></th>
+            <th>Nome</th>
+            <th>Endereço</th> 
+            <th>Telefone</th>
+            <th>CPF</th>
+            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
           </tr>
           <tr>
               <?php
-              if(isset($_GET['nPesquisarCarroCon'])) {
-                  $palavraChave = limpezaVariavel($_GET['nPalavraChaveCarroCon']);
+              if(isset($_GET['nPesquisarClienteCon'])) {
                   $tipoPalavraChave = limpezaVariavel($_GET['nTipoPalavraChave']);
+                  $palavraChave = limpezaVariavel($_GET['nPalavraChaveClienteCon']);
 
-                  $sql = "SELECT id, placa, modelo, ano_modelo, ano_fabricado FROM carros WHERE ".$tipoPalavraChave." LIKE '$palavraChave%'";
+                  $sql = "SELECT id, nome, logradouro, numero_logradouro, telefone, cpf, cnpj FROM clientes 
+                                WHERE " . $tipoPalavraChave . " LIKE '$palavraChave%'";
                   insercaoDados($sql);
-
               }
+
               function insercaoDados($sql)
               {
                   global $connect;
                   $resultado = mysqli_query($connect, $sql);
                   while ($dados = mysqli_fetch_array($resultado)):
+                      echo '<td>'. $dados['id'] .'</td>';
+                      echo '<td>'. $dados['nome'] .'</td>';
+                      echo '<td>'. $dados['logradouro']. ', ' .$dados['numero_logradouro'] .'</td>';
+                      echo '<td>'. $dados['telefone'] .'</td>';
+                      echo '<td>'. $dados['cnpj'] .'</td>';
 
-                      echo '<tr>';
-                      echo "<td> " . $dados['id'] . "</td>";
-                      echo "<td>" . $dados['placa'] . "</td>";
-                      echo "<td>" . $dados['modelo'] . "</td>;";
-                      echo "<td>" . $dados['ano_modelo'] . "</td>";
-                      echo "<td>" . $dados['ano_fabricado'] . "</td>";
-                      echo "<td></td>";
+
                       echo '<td id="iCantoBotao">';
-
-                      echo '<a href="VerMaisCarro.php?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
-
+                      echo '<a href="VerMaisCliente.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                       echo '</td>';
-                      echo '</tr>';
 
                   endwhile;
               }
-
               ?>
           </tr>
         </table>
 
     </div>
-
-  
-  </div>
+    <!--Acaba a coluna-->
 
   </form>
-    
+    </div>
+ 
         </div>
      </main>
 

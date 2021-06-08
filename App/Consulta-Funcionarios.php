@@ -24,7 +24,7 @@
           <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
         <div class="navbar__left">
-          <h2>Consulta Orçamento</h2>
+          <h2>Consulta Funcionário</h2>
         </div>
       </nav>
 
@@ -35,36 +35,22 @@
           <div class="form">
           <form>
         <!--Inicia a coluna-->
-        <label for="iClientePesq">Cliente</label>
-        <input type="text" id="iClientePesq" name="nClienteOrcamentoCon"
-        placeholder="Insira o cliente para pesquisa">
-        
+        <label for="iPalavraChave">Palavra Chave</label>
+        <input type="text" id="iPalavraChave" name="nPalavraChaveFuncionarioCon"
+        placeholder="Insira a palavra chave para pesquisa">
         <div class="columns">
 
           <div class="column 1">
+            <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
 
-            <label for="LabelsRadios" id="LabelsRadios">Data Inicial</label><br>
-            <input class="data" type="date" id="LabelsRadios" name="nDataInOS" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01"><br>
-
-            <label for="nSttsOS" id="LabelsRadios">Status do Orçamento</label>
-
-            <div class="wrapper" id="LabelsRadios">
-              <input type="radio" id="iAprovado" name="nSttsOrcamento" value="1">
-              <label for="iAprovado">Aprovado</label>
-              <input type="radio" id="iAguardando" name="nSttsOrcamento" value="2">
-              <label for="iAguardando">Aguardando</label>
-              <input type="radio" id="iCancelado" name="nSttsOrcamento" value="3">
-              <label for="iCancelado">Cancelado</label>
+            <div class="wrapper">
+              <input type="radio" id="Nome" name="nTipoPalavraChave" value="Nome">
+              <label for="Nome">Nome</label>
+              <input type="radio" id="CPF" name="nTipoPalavraChave" value="CPF">
+              <label for="CPF">CPF</label>
+              <input type="radio" id="iCargo" name="nTipoPalavraChave" value="Cargo">
+              <label for="iCargo">Cargo</label>
             </div>
-          </div>
-
-          <div class="column 2">
-            
-            <label for="iDataFin">Data Final</label>
-            <input class="data" type="date" id="iDataFin" name="nDataFinOS" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01">
-
           </div>
 
 
@@ -74,9 +60,9 @@
         <br>
 
         <div class="btn-group">
-          <button name="nPesquisarOrcamentoCon" value="Enviar" class="btn">Pesquisar</button>
+          <button name="nPesquisarFuncionarioCon" value="Enviar" class="btn">Pesquisar</button>
 
-          <button type="reset" name="nLimparOrcamentoCon" value="Limpar" class="btn">Limpar</button>
+          <button type="reset" name="nLimparFuncionarioCon" value="Limpar" class="btn">Limpar</button>
         </div>
 
         <br>
@@ -84,61 +70,41 @@
 
         <table rules=all>
           <tr>
-            <th>ID Orçamento</th>
-            <th>ID Cliente</th>
-            <th>ID Carro</th> 
-            <th>Descrição Serviço</th>
-            <th>Preço Mão de Obra</th>
-            <th>Preço Total</th> 
-            <th>Data Orçamento</th> 
-            <th>Status</th>
-            <th>Tipo Manutenção</th>
-            <th></th>
+            <th>Matricula</th>
+            <th>Cargo</th> 
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
           </tr>
-          <tr>
-              <?php
-              if(isset($_GET['nPesquisarOrcamentoCon'])){
-                  $nomeCliente = limpezaVariavel($_GET['nClienteOrcamentoCon']);
-                  $dataFinal = limpezaVariavel($_GET['nDataFinOrc']);
-                  $dataInicial = limpezaVariavel($_GET['nDataInOrc']);
-                  $status = limpezaVariavel($_GET['nSttsOrcamento']);
-                  $sql = "SELECT orc.id as orcamento_id,cli.id as cliente_id,car.id as carro_id,orc.descricao_servicos,orc.valor_total_servicos,
-                                orc.data, orc.status FROM orcamentos orc
-                                INNER JOIN clientes cli ON orc.clientes_id = cli.id
-                                INNER JOIN carros car ON orc.carros_id = car.id
-                                WHERE orc.data BETWEEN '$dataInicial' AND '$dataFinal'
-                                AND orc.status = '$status'
-                                AND cli.nome LIKE '%$nomeCliente%'";
+            <?php
+            if(isset($_GET['nPesquisarClienteCon'])) {
+                $tipoPalavraChave = limpezaVariavel($_GET['nTipoPalavraChave']);
+                $palavraChave = limpezaVariavel($_GET['nPalavraChaveClienteCon']);
 
-                  insercaoDados($sql);
-              }
+                $sql = "SELECT id, nome, logradouro, numero_logradouro, telefone, cpf, cnpj FROM clientes 
+                                WHERE " . $tipoPalavraChave . " LIKE '$palavraChave%'";
+                insercaoDados($sql);
+            }
 
-              function insercaoDados($sql)
-              {
-                  global $connect;
-                  $resultado = mysqli_query($connect, $sql);
-                  while ($dados = mysqli_fetch_array($resultado)):
-                      echo '<td>'. $dados['orcamento_id'] .'</td>';
-                      echo '<td>'. $dados['cliente_id'] .'</td>';
-                      echo '<td>'. $dados['carro_id'] .'</td>';
-                      echo '<td></td>';
-                      echo '<td>'. $dados['descricao_servicos'] .'</td>';
-                      echo '<td>'. $dados['valor_total_servicos'] .'</td>';
-                      echo '<td>'. $dados['data'] .'</td>';
-                      echo '<td>'. $dados['status'] .'</td>';
+            function insercaoDados($sql)
+            {
+                global $connect;
+                $resultado = mysqli_query($connect, $sql);
+                while ($dados = mysqli_fetch_array($resultado)):
+                    echo '<td>'. $dados['id'] .'</td>';
+                    echo '<td>'. $dados['nome'] .'</td>';
+                    echo '<td>'. $dados['logradouro']. ', ' .$dados['numero_logradouro'] .'</td>';
+                    echo '<td>'. $dados['telefone'] .'</td>';
+                    echo '<td>'. $dados['cnpj'] .'</td>';
 
 
-                      echo '<td id="iCantoBotao">';
+                    echo '<td id="iCantoBotao">';
+                    echo '<a href="VerMaisCliente.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                    echo '</td>';
 
-                        echo '<a href="VerMaisOrcamento/index.php" id="VerMaisOrcamento">Ver Mais</a>';
-                        echo '<a href="Cadastro-OS.php" id="GerarOS">Gerar OS</a>';
-
-                      echo '</td>';
-                      echo '</tr>';
-                  endwhile;
-              }
-
-          ?>
+                endwhile;
+            }
+            ?>
           </tr>
         </table>
 
