@@ -90,6 +90,17 @@ function isData($valor){
     }
 }
 
+function limpaNumero($valor){
+    $valor = preg_replace('/[^0-9]/', '', $valor);
+       return $valor;
+    }
+
+function limpaPlaca($valor){
+    $valor = preg_replace('/^[A-Za-z0-9-]+$/', '', $valor);
+    return $valor;
+
+}
+
 function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
                           $dataCadastroCliente, $bairroLogradouroCliente){
@@ -103,33 +114,33 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
 
                         }else{
                             $_SESSION['tipoErro'] = 'CEP incorreto!';
-                            header('Location: cadastro-cliente.php?erro');
+                            header('Location: cadastro-cliente.php?erroCEP');
                             echo 'CEP';
                         }
                     }else{
                         $_SESSION['tipoErro'] = 'Email incorreto!';
                         echo 'Email';
-                        header('Location: cadastro-cliente.php?erro');
+                        header('Location: cadastro-cliente.php?erroEMAIL');
                     }
                 }else{
                     $_SESSION['tipoErro'] = 'CPF incorreto!';
                     echo 'CPF';
-                    header('Location: cadastro-cliente.php?erro');
+                    header('Location: cadastro-cliente.php?erroCPF');
                 }
             }else{
                 $_SESSION['tipoErro'] = 'Data incorreta!';
                 echo 'Data';
-                header('Location: cadastro-cliente.php?erro');
+                header('Location: cadastro-cliente.php?erroDATA');
             }
         }else{
             $_SESSION['tipoErro'] = 'Telefone incorreto!';
             echo 'Telefone';
-            header('Location: cadastro-cliente.php?erro');
+            header('Location: cadastro-cliente.php?erroTELEFONE');
         }
     }else{
         $_SESSION['tipoErro'] = 'Nome incorreto!';
         echo 'Nome';
-        header('Location: cadastro-cliente.php?erro');
+        header('Location: cadastro-cliente.php?erroNOME');
     }
 }
 
@@ -151,6 +162,6 @@ function conexaoBdInsert($sql){
         header('Location: index.php?deu');
     }else{
         $_SESSION['mensagem'] = "erro";
-        header('Location: cadastro-cliente.php?erro');
+        header('Location: cadastro-cliente.php?erroSESSAO');
     }
 }
