@@ -82,12 +82,12 @@
           <div class="column">
             <div id="divCPF">
                <label for="iCPF">CPF</label>
-               <input type="text" id="iCPF" name="nCPFCliente" placeholder="Insira o CPF">
+               <input type="text" id="iCPF" name="nCPFCNPJCliente" placeholder="Insira o CPF">
             </div>
           
             <div id="divCNPJ">
                 <label for="iCNPJ">CNPJ</label>
-          	    <input type="text" id="iCNPJ" name="nCNPJCliente" placeholder="Insira o CNPJ">
+          	    <input type="text" id="iCNPJ" name="nCPFCNPJCliente" placeholder="Insira o CNPJ">
             
                <script type="text/javascript">
                 $("#iCPFCNPJ").mask("00.000.000/0000-00");
