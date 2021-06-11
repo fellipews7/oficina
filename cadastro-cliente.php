@@ -92,7 +92,7 @@
                 <label for="iCNPJ">CNPJ</label>
           	    <input type="text" id="iCNPJ" name="nCPFCNPJCliente" placeholder="Insira o CNPJ">
                   <script type="text/javascript">
-                   $("#iCPFCNPJ").mask("00.000.000/0000-00");
+                   $("#iCNPJ").mask("00.000.000/0000-00");
                   </script>
             </div>
 
