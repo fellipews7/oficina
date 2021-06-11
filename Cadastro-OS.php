@@ -1,3 +1,7 @@
+<?php
+include_once 'assets/php/mensagem.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
