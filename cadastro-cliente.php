@@ -83,15 +83,17 @@
             <div id="divCPF">
                <label for="iCPF">CPF</label>
                <input type="text" id="iCPF" name="nCPFCNPJCliente" placeholder="Insira o CPF">
+                <script type="text/javascript">
+                 $("#iCPF").mask("000.000.000-00");
+                </script>
             </div>
           
             <div id="divCNPJ">
                 <label for="iCNPJ">CNPJ</label>
           	    <input type="text" id="iCNPJ" name="nCPFCNPJCliente" placeholder="Insira o CNPJ">
-            
-               <script type="text/javascript">
-                $("#iCPFCNPJ").mask("00.000.000/0000-00");
-               </script>
+                  <script type="text/javascript">
+                   $("#iCPFCNPJ").mask("00.000.000/0000-00");
+                  </script>
             </div>
 
             <label for="iEmail">Email</label>
@@ -99,10 +101,9 @@
 
             <label for="iCEP">CEP</label>
             <input type="text" id="iCEP" name="nCEPCliente" placeholder="Insira o CEP">
-
-            <script type="text/javascript">
-              $("#iCEP").mask("00000-000");
-            </script>
+              <script type="text/javascript">
+                $("#iCEP").mask("00000-000");
+              </script>
 
 
             <label for="iMunicípio">Município</label>
