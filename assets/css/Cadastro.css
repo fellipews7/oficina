@@ -323,7 +323,6 @@ main {
   align-items: right;
   color: #f3f4f6;
   margin-bottom: 10px;
-  /* color: #E85B6B; */
 }
 
 .sidebar__img {
@@ -400,13 +399,6 @@ main {
   font-size: 18px;
 }
 
-.sidebar_responsive {
-  display: inline !important;
-  z-index: 9999 !important;
-  left: 0 !important;
-  position: absolute;
-}
-
 @media only screen and (max-width: 978px) {
   .container {
     grid-template-columns: 1fr;
@@ -443,11 +435,6 @@ main {
   }
 }
 
-@media only screen and (max-width: 480px) {
-  .navbar__left {
-    display: none;
-  }
-}
 
 /*------------------------------------------------------------------------*/
 

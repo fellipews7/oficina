@@ -398,13 +398,6 @@ main {
   font-size: 18px;
 }
 
-.sidebar_responsive {
-  display: inline !important;
-  z-index: 9999 !important;
-  left: 0 !important;
-  position: absolute;
-}
-
 @media only screen and (max-width: 978px) {
   .container {
     grid-template-columns: 1fr;
@@ -437,12 +430,6 @@ main {
   .charts {
     grid-template-columns: 1fr;
     margin-top: 30px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .navbar__left {
-    display: none;
   }
 }
 
