@@ -64,8 +64,8 @@
         <br>
         <br>
 
-        <table rules=all>
-          <tr>
+        <table>
+          <thead>
             <th>ID</th>
             <th>Placa</th> 
             <th>Modelo</th>
@@ -73,7 +73,7 @@
             <th>Ano Fabricado</th>
             <th>Cliente Atual</th> 
             <th></th>
-          </tr>
+          </thead>
           <tr>
               <?php
               if(isset($_GET['nPesquisarCarroCon'])) {

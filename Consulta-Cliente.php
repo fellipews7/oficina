@@ -86,7 +86,6 @@
             <th>Endereço</th> 
             <th>Telefone</th>
             <th>CPF</th>
-            <th></th>
           </tr>
           <tr>
               <?php
