@@ -3,18 +3,17 @@ session_start();
 session_status();
 
 if(isset($_SESSION['mensagem'])){
-    var_dump($_SESSION['mensagem']);
 ?>
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <link href="assets/css/toastr.min.css" rel="stylesheet"/>
     <script src="assets/js/toastr.min.js"></script>
-    <script>
+
 
         <?php
-            if(($_SESSION['mensagem']) == 'deu'){
-                echo 'cheguei';
+            if($_SESSION['mensagem'] == 'deu'){
         ?>
-                toastr["success"]("<?php ($_SESSION['tipoMensagem'])?>", "Cadastro feito com sucesso!")
+            <script>
+                toastr["success"]("Sucesso!", "Cadastro feito com sucesso!")
 
                 toastr.options = {
                     "closeButton": true,
@@ -33,13 +32,14 @@ if(isset($_SESSION['mensagem'])){
                     "showMethod": "fadeIn",
                     "hideMethod": "fadeOut"
                 }
-
     </script>
     <?php
-            }elseif ($_SESSION['mensagem'] == 'erro'){?>
+            }
+            if($_SESSION['mensagem'] == 'erro'){
+
+    ?>
                 <script>
-                    alert('oi')
-                    Command: toastr["error"]("<?php ($_SESSION['tipoMensagem'])?>", "Erro ao cadastrar!")
+                   toastr["error"]("<?php echo ($_SESSION['tipoErro'])?>", "Erro!")
 
                     toastr.options = {
                         "closeButton": true,

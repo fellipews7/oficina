@@ -155,26 +155,32 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                                 $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
                         }else{
                             $_SESSION['tipoErro'] = 'CEP incorreto!';
+                            $_SESSION['mensagem'] = 'erro';
                             header('Location: cadastro-cliente.php?errocep');
                         }
                     }else{
                         $_SESSION['tipoErro'] = 'Email incorreto!';
+                        $_SESSION['mensagem'] = 'erro';
                         header('Location: cadastro-cliente.php?erroemail');
                     }
                 }else{
                     $_SESSION['tipoErro'] = 'CPF incorreto!';
+                    $_SESSION['mensagem'] = 'erro';
                     header('Location: cadastro-cliente.php?errocpf');
                 }
             }else{
                 $_SESSION['tipoErro'] = 'Data incorreta!';
+                $_SESSION['mensagem'] = 'erro';
                 header('Location: cadastro-cliente.php?errodata');
             }
         }else{
             $_SESSION['tipoErro'] = 'Telefone incorreto!';
+            $_SESSION['mensagem'] = 'erro';
             header('Location: cadastro-cliente.php?errotelefone');
         }
     }else{
         $_SESSION['tipoErro'] = 'Nome incorreto!';
+        $_SESSION['mensagem'] = 'erro';
         header('Location: cadastro-cliente.php?erronome');
     }
 }
@@ -205,10 +211,12 @@ function verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $
             cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$anoModeloCarro,$anoFabricacaoCarro);
         }else{
             $_SESSION['tipoErro'] = 'Placa incorreto!';
-            header('Location: Cadastro-Carros.php?erroplaca');
+            $_SESSION['mensagem'] = 'erro';
+            header('Location: Cadastro-Carro.php?erroplaca');
         }
     }else{
         $_SESSION['tipoErro'] = 'Renavam incorreto!';
+        $_SESSION['mensagem'] = 'erro';
         header('Location: Cadastro-Carro.php?errorenavam');
     }
 }
@@ -228,15 +236,18 @@ function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
                 cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario);
             }else {
                 $_SESSION['tipoErro'] = 'Telefone incorreto!';
-                header('Location: Cadastro-Funcionario.php?erro');
+                $_SESSION['mensagem'] = 'erro';
+                header('Location: Cadastro-Funcionario.php?errotelefone');
             }
         }else{
             $_SESSION['tipoErro'] = 'CPF incorreto!';
-            header('Location: Cadastro-Funcionario.php?erro');
+            $_SESSION['mensagem'] = 'erro';
+            header('Location: Cadastro-Funcionario.php?errocpf');
         }
     }else{
             $_SESSION['tipoErro'] = 'Nome incorreto!';
-            header('Location: Cadastro-Funcionario.php?erro');
+            $_SESSION['mensagem'] = 'erro';
+            header('Location: Cadastro-Funcionario.php?erronome');
     }
 }
 
@@ -252,9 +263,11 @@ function conexaoBdInsert($sql){
     global $connect;
     if(mysqli_query($connect, $sql)){
         $_SESSION['mensagem'] = "deu";
+        $_SESSION['tipoErro'] = "sem";
         header('Location: index.php?deu');
     }else{
         $_SESSION['mensagem'] = "erro";
+        $_SESSION['tipoErro'] = "Erro ao escrever no banco!";
         header('Location: cadastro-cliente.php?errofinal');
     }
 }
