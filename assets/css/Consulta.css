@@ -441,7 +441,7 @@ table, table th {
 
 .form {
   margin-top: 0rem;
-	width: 200%;
+	width: 60vw;
 	height: 75%;
 	border: 2px solid rgb(255, 255, 255);
 	border-radius: 0px;
@@ -469,7 +469,7 @@ table, table th {
 }
 
 .wrapper label {
-    margin: 0 .5rem;
+    margin: 0 .3rem;
 }
 
 /* Aparencia do botão rádio classificação cliente */
@@ -488,8 +488,8 @@ table, table th {
 
 .btn-group {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .btn-group button {
@@ -530,10 +530,10 @@ h1 {
 }
 
 .form input {
-	width: 100%;
+  display: block;
+	width: 60vw;
 	margin-bottom: 21px;
-
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 label {
@@ -589,8 +589,8 @@ transition: 0.2s;
 	color: rgb(0, 0, 0);
 }
 
-table{
-  width: 90%;
+table {
+  width: 60vw;
   table-layout: fixed;
   word-wrap: break-word;
   border: 1px solid rgb(0, 0, 0);
@@ -640,12 +640,46 @@ transition: 0.2s;
   }
 }
 
+.dates {
+  display: flex;
+  gap: 30px;
+}
+
+#os-title {
+  font-size: .9rem;
+}
+
+.dates input {
+  width: 300px;
+  max-width: 350px;
+  display: block;
+}
+
+@media (max-width: 810px) {
+  .dates {
+    display: block;
+  }
+}
+
 @media (max-width: 645px) {
     .form input[type="text"], .form input[type="date"] {
       width: 70vw;
       display: block;
     }
+
+    .form {
+      width: 100vw;
+    }
+
+    table {
+     width: 100vw;
+    }
+
+    table th {
+      width: 90px;
+    }
 }
+
 
 @media (max-width: 515px) {
   .btn-group {
