@@ -109,7 +109,6 @@
                         INNER JOIN funcionarios AS func ON os.funcionarios_matricula = func.matricula
                         WHERE cl.nome = '$cliente' AND func.nome = '$funcionario' AND so.data_cadastro = '$data_cadastro'";
 
-                  //var_dump($sql);
                   insercaoDados($sql);
               }
 

@@ -1,6 +1,6 @@
 <?php
 include_once 'includes/header.php';
-require_once 'phpaction/db_connect.php';
+require_once '../connection.php';
 include_once 'includes/mensagem.php';
 ?>
 
