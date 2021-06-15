@@ -11,19 +11,19 @@ function isNome($nome){
     $nome = trim($nome);
     $regex  = "/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/";
     if (preg_match($regex, $nome)) {
-         return true;
+        return true;
     }else{
-         return false;
+        return false;
     }
 }
 
 function isEmail($valor){
 
-if(filter_var($valor, FILTER_VALIDATE_EMAIL)):
-    return true;
-else:
-    return false;
-endif;
+    if(filter_var($valor, FILTER_VALIDATE_EMAIL)):
+        return true;
+    else:
+        return false;
+    endif;
 }
 
 function isCPF($valor){
@@ -130,7 +130,7 @@ function isRenavam ( $renavam ) {
 }
 
 function isPlaca($placa){
-var_dump($placa);
+    var_dump($placa);
     $regex1 = '/[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}/';
 
     if (preg_match($regex1, $placa)) {
@@ -245,9 +245,9 @@ function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
             header('Location: Cadastro-Funcionario.php?errocpf');
         }
     }else{
-            $_SESSION['tipoErro'] = 'Nome incorreto!';
-            $_SESSION['mensagem'] = 'erro';
-            header('Location: Cadastro-Funcionario.php?erronome');
+        $_SESSION['tipoErro'] = 'Nome incorreto!';
+        $_SESSION['mensagem'] = 'erro';
+        header('Location: Cadastro-Funcionario.php?erronome');
     }
 }
 
