@@ -1,3 +1,7 @@
+<?php
+include_once 'assets/php/mensagem.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,14 +15,11 @@
     />
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Cadastro.css"/>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-    
-
-
     <title>CSS GRID DASHBOARD</title>
   </head>
+  <?php
+  require_once 'assets/php/mensagem.php'
+  ?>
   <body id="body">
     <div class="container">
       <nav class="navbar">
@@ -44,10 +45,6 @@
             <label for="iTelefone">Telefone</label>
             <input type="text" id="iTelefone" name="nTelefoneCliente" placeholder="Insira o telefone">
 
-            <script type="text/javascript">
-              $("#iTelefone").mask("(00) 0000-0000");
-            </script>
-
             <label for="iDataNasc">Data Nascimento</label>
             <input class="data" type="date" id="iDataNasc" name="nDataNascCliente" data-date=""
               data-date-format="DD MMMM YYYY" value="2000-01-01">
@@ -69,9 +66,9 @@
                 <div id="classificacaoCliente">
                     <!-- Wrapper para trabalhar com input e label dentro de uma div  -->
                     <div class="wrapper">
-                        <input type="radio" id="iJuridica" name="nPessoaFJ" value="2" form="form-cadastro-cliente">
+                        <input type="radio" id="iJuridica" name="nPessoaFJ" value="cnpj" form="form-cadastro-cliente">
                         <label for="iJuridica">Jurídica</label>
-                        <input type="radio" id="iFisica" name="nPessoaFJ" value="1" form="form-cadastro-cliente" checked>
+                        <input type="radio" id="iFisica" name="nPessoaFJ" value="cpf" form="form-cadastro-cliente">
                         <label for="iFisica">Física</label>
                     </div>
                 </div>
@@ -80,31 +77,15 @@
           </div>
 
           <div class="column">
-            <div id="divCPF">
-               <label for="iCPF">CPF</label>
-               <input type="text" id="iCPF" name="nCPFCNPJCliente" placeholder="Insira o CPF">
-                <script type="text/javascript">
-                 $("#iCPF").mask("000.000.000-00");
-                </script>
-            </div>
-          
-            <div id="divCNPJ">
-                <label for="iCNPJ">CNPJ</label>
-          	    <input type="text" id="iCNPJ" name="nCPFCNPJCliente" placeholder="Insira o CNPJ">
-                  <script type="text/javascript">
-                   $("#iCNPJ").mask("00.000.000/0000-00");
-                  </script>
-            </div>
+
+            <label for="iCPFCNPJ">CPF/CNPJ</label>
+            <input type="text" id="iCPFCNPJ" name="nCPFCNPJCliente" placeholder="Insira o CPF ou CNPJ">
 
             <label for="iEmail">Email</label>
             <input type="text" id="iEmail" name="nEmailCliente" placeholder="Insira o email">
 
             <label for="iCEP">CEP</label>
             <input type="text" id="iCEP" name="nCEPCliente" placeholder="Insira o CEP">
-              <script type="text/javascript">
-                $("#iCEP").mask("00000-000");
-              </script>
-
 
             <label for="iMunicípio">Município</label>
             <input type="text" id="iMunicípio" name="nMunicípioCliente" placeholder="Insira o município">
@@ -208,7 +189,5 @@
 </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="script.js"></script>
-    <script src="assets/js/verificaJuridicaFisica.js"></script>
-  
   </body>
 </html>
