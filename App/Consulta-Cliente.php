@@ -112,7 +112,7 @@
 
 
                       echo '<td id="iCantoBotao">';
-                      echo '<a href="VerMaisCliente.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                      echo '<a href="VerMaisCliente/index.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                       echo '</td>';
 
                   endwhile;
