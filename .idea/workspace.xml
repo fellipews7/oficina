@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bd95e3f7-bb77-42ab-8794-baa7447ea024" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" notifyAboutMissingVendor="false" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/dompdf/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1s2n6GkL16cDYR9s115xHieaJpF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\oficina\Mecanica" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd95e3f7-bb77-42ab-8794-baa7447ea024" name="Default Changelist" comment="" />
+      <created>1620079375660</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620079375660</updated>
+      <workItem from="1620079376811" duration="3685000" />
+      <workItem from="1620128506687" duration="2120000" />
+      <workItem from="1620240748266" duration="12000" />
+      <workItem from="1620252277657" duration="9708000" />
+      <workItem from="1620338822393" duration="615000" />
+      <workItem from="1620432641903" duration="635000" />
+      <workItem from="1620513968508" duration="106000" />
+      <workItem from="1620681789834" duration="14292000" />
+      <workItem from="1620737484008" duration="3944000" />
+      <workItem from="1620770847309" duration="7512000" />
+      <workItem from="1621032754045" duration="6085000" />
+      <workItem from="1621290014093" duration="3250000" />
+      <workItem from="1621463869595" duration="4671000" />
+      <workItem from="1621537113456" duration="1788000" />
+      <workItem from="1621554884847" duration="867000" />
+      <workItem from="1621634667048" duration="5086000" />
+      <workItem from="1621981318716" duration="2083000" />
+      <workItem from="1622068021722" duration="5529000" />
+      <workItem from="1622076454915" duration="1283000" />
+      <workItem from="1622151639545" duration="2858000" />
+      <workItem from="1622205024055" duration="11924000" />
+      <workItem from="1622244884101" duration="7141000" />
+      <workItem from="1622292796024" duration="1254000" />
+      <workItem from="1622312325468" duration="795000" />
+      <workItem from="1622402831078" duration="10739000" />
+      <workItem from="1622506748371" duration="557000" />
+      <workItem from="1622584088589" duration="3729000" />
+      <workItem from="1622637511439" duration="1321000" />
+      <workItem from="1622646020213" duration="5032000" />
+      <workItem from="1622672911211" duration="9229000" />
+      <workItem from="1622722278885" duration="1673000" />
+      <workItem from="1622730521266" duration="2058000" />
+      <workItem from="1623104471240" duration="8427000" />
+      <workItem from="1623197144862" duration="3009000" />
+      <workItem from="1623281086166" duration="4489000" />
+      <workItem from="1623449713938" duration="1947000" />
+      <workItem from="1623542880137" duration="1253000" />
+      <workItem from="1623710412386" duration="2616000" />
+<<<<<<< HEAD
+      <workItem from="1623714727473" duration="605000" />
+=======
+>>>>>>> HelenaOliveira
+    </task>
+    <task id="LOCAL-00001" summary="Adicionando arquivo Validacoes.php">
+      <created>1622313107659</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1622313107660</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Criando funções de verificação">
+      <created>1622407080709</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1622407080709</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adicionando arquivos para fazer Toastr">
+      <created>1622408781406</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1622408781406</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fazendo o toastr funcionar">
+      <created>1622412715161</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1622412715161</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Adicionando o arquivo do toastr">
+      <created>1622412758834</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622412758834</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Atualiazando o toastr">
+      <created>1622414147774</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1622414147774</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Adicionando arquivos de imagem e deletando o fundo">
+      <created>1622414185803</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622414185803</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Arrumando as tags SQL erradas">
+      <created>1622585681316</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1622585681316</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fazendo as validações">
+      <created>1622673449804</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1622673449804</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fazendo as validações pt2">
+      <created>1622684804997</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1622684804997</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Arrumando as validações pt3">
+      <created>1623114430842</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1623114430842</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Adicionando os toastr de erro">
+      <created>1623451988506</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1623451988507</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Modificações mensagem">
+      <created>1623714611341</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1623714611341</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adicionando arquivo Validacoes.php" />
+    <MESSAGE value="Criando funções de verificação" />
+    <MESSAGE value="Adicionando arquivos para fazer Toastr" />
+    <MESSAGE value="Fazendo o toastr funcionar" />
+    <MESSAGE value="Adicionando o arquivo do toastr" />
+    <MESSAGE value="Atualiazando o toastr" />
+    <MESSAGE value="Adicionando arquivos de imagem e deletando o fundo" />
+    <MESSAGE value="Arrumando as tags SQL erradas" />
+    <MESSAGE value="Fazendo as validações" />
+    <MESSAGE value="Fazendo as validações pt2" />
+    <MESSAGE value="Arrumando as validações pt3" />
+    <MESSAGE value="Adicionando os toastr de erro" />
+    <MESSAGE value="Modificações mensagem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificações mensagem" />
+  </component>
+</project>

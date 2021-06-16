@@ -35,10 +35,10 @@ function isCPF($valor){
     else:
         for ($t = 9; $t < 11; $t++):
             for ($d = 0, $c = 0; $c < $t; $c++) :
-                $d += $cpf[$c] * (($t + 1) - $c);
+                $d += $cpf{$c} * (($t + 1) - $c);
             endfor;
             $d = ((10 * $d) % 11) % 10;
-            if ($cpf[$c] != $d):
+            if ($cpf{$c} != $d):
                 return false;
             endif;
         endfor;
@@ -54,11 +54,11 @@ function isCNPJ($valor){
     else:
         for($t = 12; $t < 14; $t++):
             for($d = 0, $p = $t - 7, $c = 0; $c < $t; $c++):
-                $d += $cnpj[$c] * $p;
+                $d += $cnpj{$c} * $p;
                 $p  = ($p < 3) ? 9 : --$p;
             endfor;
             $d = ((10 * $d) % 11) % 10;
-            if($cnpj[$c] != $d):
+            if($cnpj{$c} != $d):
                 return false;
             endif;
         endfor;
@@ -115,18 +115,32 @@ function isRenavam ( $renavam ) {
 
     $mod11 = $soma % 11;
 
-function limpaNumero($valor){
-    $valor = preg_replace('/[^0-9]/', '', $valor);
-       return $valor;
-    }
+    $ultimoDigitoCalculado = 11 - $mod11;
 
-function limpaPlaca($valor){
-    $valor = preg_replace('/^[A-Za-z0-9-]+$/', '', $valor);
-    return $valor;
+    $ultimoDigitoCalculado = ($ultimoDigitoCalculado >= 10 ? 0 : $ultimoDigitoCalculado);
+
+    $digitoRealInformado = substr($renavam, -1);
+
+    if($ultimoDigitoCalculado == $digitoRealInformado){
+        return true;
+    }else{
+        return false;
+    }
 
 }
 
-function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
+function isPlaca($placa){
+    var_dump($placa);
+    $regex1 = '/[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}/';
+
+    if (preg_match($regex1, $placa)) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
                           $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro){
 
