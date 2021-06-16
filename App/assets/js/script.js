@@ -78,3 +78,4 @@ function closeSidebar() {
     sidebarOpen = false;
   }
 }
+
