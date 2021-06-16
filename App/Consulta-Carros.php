@@ -9,15 +9,16 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
-      <?php
-      require_once 'assets/php/funcao.php';
-      require_once 'connection.php';
-      ?>
+
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
     <title>CSS GRID DASHBOARD</title>
   </head>
   <body id="body">
+  <?php
+  require_once 'assets/php/funcao.php';
+  require_once 'connection.php';
+  ?>
     <div class="container">
       <nav class="navbar">
       <div class="nav_icon" onclick="toggleSidebar()">

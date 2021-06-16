@@ -1,7 +1,3 @@
-<?php
-require_once 'assets/php/mensagem.php';
-include_once 'connection.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +14,10 @@ include_once 'connection.php';
     <title>CSS GRID DASHBOARD</title>
 </head>
 <body id="body">
+<?php
+require_once 'assets/php/mensagem.php';
+include_once 'connection.php';
+?>
 <div class="container">
     <nav class="navbar">
         <div class="nav_icon" onclick="toggleSidebar()">
