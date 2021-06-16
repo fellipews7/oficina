@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -232,7 +232,7 @@ require_once 'assets/php/mensagem.php'
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
->>>>>>> HelenaOliveira
+
 
 </body>
 </html>
