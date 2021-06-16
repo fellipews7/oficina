@@ -72,7 +72,6 @@ function insertCarros(){
     $renavamCarro = limpezaVariavel($_POST['nRenavamCarro']);
     $anoModeloCarro = limpezaVariavel($_POST['nAnodoModeloCarro']);
     $anoFabricacaoCarro = limpezaVariavel($_POST['nAnoFabricacaoCarro']);
-    echo 'aqui';
     verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro);
 }
 
