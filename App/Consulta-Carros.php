@@ -99,7 +99,7 @@
                       echo "<td></td>";
                       echo '<td id="iCantoBotao">';
 
-                      echo '<a href="VerMaisCarro.php?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                      echo '<a href="VerMaisCarro/index?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
 
                       echo '</td>';
                       echo '</tr>';
