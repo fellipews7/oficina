@@ -587,6 +587,10 @@ transition: 0.2s;
   cursor: pointer;
 }
 
+#GerarOS{
+  padding-left: 10px;
+}
+
 /*Aparencia dos Inputs com foco*/
 .form input[type="text"]:focus,
 .form input[type="date"]:focus{

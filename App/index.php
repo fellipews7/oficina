@@ -11,13 +11,12 @@
     />
 
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <?php
+        require_once 'assets/php/mensagem.php'
+    ?>
     <title>CSS GRID DASHBOARD</title>
 </head>
 <body id="body">
-<?php
-require_once 'assets/php/mensagem.php';
-include_once 'connection.php';
-?>
 <div class="container">
     <nav class="navbar">
         <div class="nav_icon" onclick="toggleSidebar()">
@@ -49,17 +48,9 @@ include_once 'connection.php';
                         class="fa fa-money fa-2x text-green" 
                         aria-hidden="true"
                     ></i>
-                    <?php
-                    $sql1 = "SELECT * FROM ordens_de_servicos WHERE status = 1";
-                    $calculoOsAberto = 0;
-                    $resultado = mysqli_query($connect, $sql1);
-                    while($dados = mysqli_fetch_array($resultado)){
-                        $calculoOsAberto ++;
-                    }
-                    ?>
                     <div class="card_inner">
                         <p class="text-primary-p">Orçamentos em Aberto</p>
-                        <span class="font-bold text-title"><?php echo $calculoOsAberto;?></span>
+                        <span class="font-bold text-title">Valor</span>
                     </div>
                 </div>
 
@@ -68,17 +59,10 @@ include_once 'connection.php';
                         class="fa fa-calendar-check-o fa-2x text-lightblue" 
                         aria-hidden="true"
                     ></i>
-                    <?php
-                    $sql2 = "SELECT * FROM ordens_de_servicos WHERE status = 3";
-                    $calculoOsConcluida = 0;
-                    $resultado = mysqli_query($connect, $sql2);
-                    while($dados = mysqli_fetch_array($resultado)){
-                        $calculoOsConcluida ++;
-                    }
-                    ?>
+
                     <div class="card_inner">
                         <p class="text-primary-p">OS Consluidas</p>
-                        <span class="font-bold text-title"><?php echo $calculoOsConcluida;?></span>
+                        <span class="font-bold text-title">Valor</span>
                     </div>
                 </div>
 
@@ -87,36 +71,17 @@ include_once 'connection.php';
                         class="fa fa-wrench fa-2x text-yellow" 
                         aria-hidden="true"
                     ></i>
-                    <?php
-                    $sql3 = "SELECT * FROM ordens_de_servicos WHERE status = 3";
-                    $calculoOsAndamento = 0;
-                    $resultado = mysqli_query($connect, $sql3);
-                    while($dados = mysqli_fetch_array($resultado)){
-                        $calculoOsAndamento ++;
-                    }
-                    ?>
                     <div class="card_inner">
                         <p class="text-primary-p">OS em Andamento</p>
-                        <span class="font-bold text-title"><?php echo $calculoOsAndamento;?></span>
+                        <span class="font-bold text-title">Valor</span>
                     </div>
                 </div>
 
-
-                <?php
-                $sql4 = "SELECT * FROM ordens_de_servicos";
-                $calculoOsAtraso = 0;
-                $resultado = mysqli_query($connect, $sql4);
-                while($dados = mysqli_fetch_array($resultado)){
-                    if($dados['data_previsao'] < date('y/m/d') AND $dados['status'] != 3){
-                        $calculoOsAtraso++;
-                    }
-                }
-                ?>
                 <div class="card">
                     <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
                     <div class="card_inner">
                         <p class="text-primary-p">OS em Atraso</p>
-                        <span class="font-bold text-title"><?php echo $calculoOsAtraso;?></span>
+                        <span class="font-bold text-title">Valor</span>
                     </div>
                 </div>
             </div>
