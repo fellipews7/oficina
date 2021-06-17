@@ -17,7 +17,7 @@ if(isset($_GET['id'])){
     <div class="col s12 m6 push-m3 ">
         <h3 class="light">Editar Orçamento</h3>
 
-        <form action="phpaction/atualizar.php" method="post">
+        <form action="../VerMaisOrcamento/phpaction/atualizar.php" method="post">
 
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
