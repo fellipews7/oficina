@@ -10,12 +10,12 @@
       crossorigin="anonymous"
     />
       <?php
-      /*require_once 'assets/php/funcao.php';
-      require_once 'connection.php';*/
+      require_once 'assets/php/funcao.php';
+      require_once 'connection.php';
       ?>
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
-    <title>Oficina Schulz</title>
+    <title>CSS GRID DASHBOARD</title>
   </head>
   <body id="body">
     <div class="container">
@@ -93,7 +93,7 @@
             <th>Data Orçamento</th> 
             <th>Status</th>
             <th>Tipo Manutenção</th>
-            <th><a href="Cadastro-OS.php"><i class="fa fa-list" aria-hidden="true"></i></a><a href="VerMaisOrcamento/index.php"><i class="fa fa-search-plus" aria-hidden="true"></i></a></th>
+            <th><i class="fa fa-list" aria-hidden="true"></i><i class="fa fa-search-plus" aria-hidden="true"></i></th>
           </tr>
           <tr>
               <?php

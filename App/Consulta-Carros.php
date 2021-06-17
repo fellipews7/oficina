@@ -9,15 +9,16 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
-      <?php
-      /*require_once 'assets/php/funcao.php';
-      require_once 'connection.php';*/
-      ?>
+
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
-    <title>Oficina Schulz</title>
+    <title>CSS GRID DASHBOARD</title>
   </head>
   <body id="body">
+  <?php
+  require_once 'assets/php/funcao.php';
+  require_once 'connection.php';
+  ?>
     <div class="container">
       <nav class="navbar">
       <div class="nav_icon" onclick="toggleSidebar()">
@@ -72,7 +73,7 @@
             <th>Ano Modelo</th>
             <th>Ano Fabricado</th>
             <th>Cliente Atual</th> 
-            <th><a href="VerMaisCarro/index.php"><i class="fa fa-search-plus" aria-hidden="true"></i></a></th>
+            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
           </tr>
           <tr>
               <?php
@@ -99,7 +100,7 @@
                       echo "<td></td>";
                       echo '<td id="iCantoBotao">';
 
-                      echo '<a href="VerMaisCarro/index.php?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                      echo '<a href="VerMaisCarro/index?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
 
                       echo '</td>';
                       echo '</tr>';
