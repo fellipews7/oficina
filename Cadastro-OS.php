@@ -19,7 +19,7 @@
       <div class="nav_icon" onclick="toggleSidebar()">
           <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
-        <div class="navbar__left">
+        <div class="navbar__left" id="cadastroOSTitulo">
           <h2>Cadastro Ordem de Serviço</h2>
         </div>
       </nav>
@@ -31,7 +31,7 @@
           <div class="form">
           <form action="cadastro.php" method="post">
         <div class="inputs-form">
-          <div class="column one">
+          <div class="column-os">
             
             <label for="iIDOrcamento">ID Orçamento</label>
             <input type="text" id="iIDOrcamento" name="nIDOrcamentoOS" placeholder="Insira o ID do orçamento">
@@ -56,7 +56,7 @@
 
           </div>
 
-          <div class="column two">
+          <div class="column-os">
             
             <label for="iDataPrev">Data da Previsao de Entrega</label>
             <input class="data" type="date" id="iDataPrev" name="nDataPrevOS" data-date=""

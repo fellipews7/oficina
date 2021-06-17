@@ -488,6 +488,11 @@ main {
     padding: 0 0 0 40px;
 }
 
+.column-os {
+  width: 50%;
+  padding: 0 0 0 40px;
+}
+
 .btn-group {
     display: flex;
     justify-content: center;
@@ -584,6 +589,10 @@ button.btn:hover {
         margin-bottom: 1rem;
     }
 
+    .column-os input {
+      width: 80vw;
+    }
+
     .btn-group {
         margin-bottom: 3rem;
     }
@@ -599,12 +608,21 @@ button.btn:hover {
       align-items: unset;
     }
 
-    .column {
+    .column,
+    .column-os {
       padding: 0;
     }
 }
 
 @media (max-width: 645px) {
+  #cadastroOSTitulo {
+    font-size: .9rem;
+  }
+
+  .column-os label{
+    width: 400px;
+  }
+
   #iComplemento {
     margin: 0;
     padding: 0;
