@@ -115,18 +115,32 @@ function isRenavam ( $renavam ) {
 
     $mod11 = $soma % 11;
 
-function limpaNumero($valor){
-    $valor = preg_replace('/[^0-9]/', '', $valor);
-       return $valor;
-    }
+    $ultimoDigitoCalculado = 11 - $mod11;
 
-function limpaPlaca($valor){
-    $valor = preg_replace('/^[A-Za-z0-9-]+$/', '', $valor);
-    return $valor;
+    $ultimoDigitoCalculado = ($ultimoDigitoCalculado >= 10 ? 0 : $ultimoDigitoCalculado);
+
+    $digitoRealInformado = substr($renavam, -1);
+
+    if($ultimoDigitoCalculado == $digitoRealInformado){
+        return true;
+    }else{
+        return false;
+    }
 
 }
 
-function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
+function isPlaca($placa){
+    var_dump($placa);
+    $regex1 = '/[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}/';
+
+    if (preg_match($regex1, $placa)) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
                           $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro){
 

@@ -1,3 +1,7 @@
+<?php
+include_once 'assets/php/mensagem.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,9 +18,6 @@
     <title>CSS GRID DASHBOARD</title>
   </head>
   <body id="body">
-  <?php
-  include_once 'assets/php/mensagem.php';
-  ?>
     <div class="container">
       <nav class="navbar">
       <div class="nav_icon" onclick="toggleSidebar()">
@@ -94,7 +95,7 @@
     
               <button type="reset" name="nLimparOS" value="Limpar" class="btn">Limpar</button>
 
-              <a href="ImprimirOS.php" target="_blank" id="ImprimirOS">Imprimir</a>
+              <a href="ImprimirOS.php" target="_blank" id="ImprimirOS"><i class="fa fa-print fa-2x"></i></a>
             </div>
 
         </div>

@@ -1,3 +1,7 @@
+<?php
+include_once 'assets/php/mensagem.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,10 +17,10 @@
       <link rel="stylesheet" href="assets/css/Cadastro.css"/>
     <title>CSS GRID DASHBOARD</title>
   </head>
-  <body id="body">
   <?php
-  include_once 'assets/php/mensagem.php';
+  require_once 'assets/php/mensagem.php'
   ?>
+  <body id="body">
     <div class="container">
       <nav class="navbar">
       <div class="nav_icon" onclick="toggleSidebar()">

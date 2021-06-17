@@ -10,12 +10,12 @@
       crossorigin="anonymous"
     />
       <?php
-      require_once 'assets/php/funcao.php';
-      require_once 'connection.php';
+      /*require_once 'assets/php/funcao.php';
+      require_once 'connection.php';*/
       ?>
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
-    <title>CSS GRID DASHBOARD</title>
+    <title>Oficina Schulz</title>
   </head>
   <body id="body">
     <div class="container">
@@ -94,7 +94,7 @@
             <th>Data Prevista</th> 
             <th>Funcionário</th> 
             <th>Status</th> 
-            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+            <th><a href="VerMaisOS/index.php"><i class="fa fa-search-plus" aria-hidden="true"></i></a></th>
           </tr>
           <tr>
               <?php
@@ -109,6 +109,7 @@
                         INNER JOIN funcionarios AS func ON os.funcionarios_matricula = func.matricula
                         WHERE cl.nome = '$cliente' AND func.nome = '$funcionario' AND so.data_cadastro = '$data_cadastro'";
 
+                  //var_dump($sql);
                   insercaoDados($sql);
               }
 
@@ -130,7 +131,7 @@
 
                       echo '<td id="iCantoBotao">';
 
-                      echo '<a href="VerMaisCliente.php" id="VerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                      echo '<a href="VerMaisOS/index.php" id="VerMaisOS"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
 
                       echo '</td>';
                       echo '</tr>';
