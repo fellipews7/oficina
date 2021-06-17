@@ -53,7 +53,7 @@
                             <td><?php echo $dados['ano_fabricado']?></td>
                             <td id="iCantoBotao">
 
-                                <a href="#" id="EditarCarro">Editar</a>
+                                <a href="VerMaisCarro/index.php?id=<?php echo $dados['id'] ?>" id="EditarCarro">Editar</a>
 
                             </td>
                     <?php
