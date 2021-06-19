@@ -33,13 +33,13 @@
           <!-- MAIN CARDS STARTS HERE -->
           <div class="main__cards">
           <div class="form">
-          <form>
+          <form method="post" action="">
         <!--Inicia a coluna-->
         <label for="iClientePesq">Cliente</label>
         <input type="text" id="iClientePesq" name="nClienteOSCon"
         placeholder="Insira o cliente para pesquisa">
         <label for="iFuncionarioPes">Funcionário</label>
-        <input type="text" id="iFuncionarioPes" name="nClienteOSCon"
+        <input type="text" id="iFuncionarioPes" name="nFuncionarioOSCon"
         placeholder="Insira o funcionário responsável para pesquisa">
         <div class="columns">
 
@@ -103,12 +103,16 @@
                   $funcionario = limpezaVariavel($_POST['nFuncionarioOSCon']);
                   $data_cadastro = limpezaVariavel($_POST['nDataFinOS']);
                   $status = limpezaVariavel($_POST['nSttsOS']);
-                  $sql = "SELECT (so.id, so.orcamentos_id, cl.nome, ca.modelo, so.data_cadastro, so.data_previsao,func.nome,
-                        so.status) FROM ordem_de_servico so INNER JOIN orcamentos AS orc ON orc.id = so.orcamentos_id
-                        INNER JOIN clientes AS cl ON orc.clientes_id = cl.id
-                        INNER JOIN funcionarios AS func ON os.funcionarios_matricula = func.matricula
-                        WHERE cl.nome = '$cliente' AND func.nome = '$funcionario' AND so.data_cadastro = '$data_cadastro'";
-
+                  $sql = "SELECT so.id, so.orcamentos_id, cl.nome, ca.modelo, so.data_cadastro, so.data_previsao,
+                                 func.nome, so.status 
+                                 FROM ordens_de_servicos AS so 
+                                 INNER JOIN orcamentos   AS orc  ON orc.id = so.orcamentos_id 
+                                 INNER JOIN clientes     AS cl   ON orc.clientes_id = cl.id 
+                                 INNER JOIN funcionarios AS func ON so.funcionarios_matricula = func.matricula 
+                                 INNER JOIN carros       AS ca   ON orc.carros_id = ca.id 
+                                 WHERE cl.nome = 'Fé' AND func.nome = 'Bruno Schulz' 
+                                                      AND so.data_cadastro = '$data_cadastro'";
+                  var_dump($sql);
                   insercaoDados($sql);
               }
 
@@ -130,7 +134,7 @@
 
                       echo '<td id="iCantoBotao">';
 
-                      echo '<a href="VerMaisCliente.php" id="VerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                      echo '<a href="VerMais/OS.php" id="VerMaisOS"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
 
                       echo '</td>';
                       echo '</tr>';

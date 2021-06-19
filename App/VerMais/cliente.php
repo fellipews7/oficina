@@ -36,7 +36,7 @@ include_once 'includes/mensagem.php';
                     <td><?php echo $dados['idade']?></td>
                     <td><?php echo $dados['idade']?></td>
                     <td><?php echo $dados['idade']?></td>
-                    <td><a href="editar.php?id=<?php echo $dados['id']?>" class="btn black"><i class="material-icons">Editar</i> </a></td>
+                    <td><a href="editarCliente.php?id=<?php echo $dados['id']?>" class="btn black"><i class="material-icons">Editar</i> </a></td>
                     <td></td>
 
                 </tr>

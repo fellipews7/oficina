@@ -44,11 +44,11 @@
             <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
 
             <div class="wrapper">
-              <input type="radio" id="Nome" name="nTipoPalavraChave" value="Nome">
+              <input type="radio" id="Nome" name="nTipoPalavraChave" value="nome">
               <label for="Nome">Nome</label>
-              <input type="radio" id="CPF" name="nTipoPalavraChave" value="CPF">
+              <input type="radio" id="CPF" name="nTipoPalavraChave" value="cpf">
               <label for="CPF">CPF</label>
-              <input type="radio" id="iCargo" name="nTipoPalavraChave" value="Cargo">
+              <input type="radio" id="iCargo" name="nTipoPalavraChave" value="cargo">
               <label for="iCargo">Cargo</label>
             </div>
           </div>
@@ -77,12 +77,19 @@
             <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
           </tr>
             <?php
-            if(isset($_GET['nPesquisarClienteCon'])) {
+            if(isset($_GET['nPesquisarFuncionarioCon'])) {
                 $tipoPalavraChave = limpezaVariavel($_GET['nTipoPalavraChave']);
-                $palavraChave = limpezaVariavel($_GET['nPalavraChaveClienteCon']);
+                $palavraChave = limpezaVariavel($_GET['nPalavraChaveFuncionarioCon']);
 
-                $sql = "SELECT id, nome, logradouro, numero_logradouro, telefone, cpf, cnpj FROM clientes 
-                                WHERE " . $tipoPalavraChave . " LIKE '$palavraChave%'";
+                if($tipoPalavraChave <> 'cargo') {
+                    $sql = "SELECT matricula, nome, logradouro, numero_logradouro, telefone, cpf, cnpj FROM funcionarios 
+                                WHERE " . $tipoPalavraChave . " LIKE  '$palavraChave%'";
+                }elseif ($tipoPalavraChave){
+                    $sql = "SELECT func.matricula AS matricula, func.nome AS nome, func.telefone_contato AS telefone, func.cpf AS cpf, cargos.nome AS cargo 
+                            FROM cargos AS cargos
+                            INNER JOIN funcionarios AS func ON func.cargos_id = cargos.id
+                            WHERE cargos.nome  LIKE '$palavraChave%'";
+                }   var_dump($sql);
                 insercaoDados($sql);
             }
 
@@ -91,15 +98,15 @@
                 global $connect;
                 $resultado = mysqli_query($connect, $sql);
                 while ($dados = mysqli_fetch_array($resultado)):
-                    echo '<td>'. $dados['id'] .'</td>';
-                    echo '<td>'. $dados['nome'] .'</td>';
-                    echo '<td>'. $dados['logradouro']. ', ' .$dados['numero_logradouro'] .'</td>';
+                    echo '<td>'. $dados['matricula'] .'</td>';
+                    echo '<td>'. $dados['cargo'] .'</td>';
+                    echo '<td>'. $dados['nome'].'</td>';
                     echo '<td>'. $dados['telefone'] .'</td>';
-                    echo '<td>'. $dados['cnpj'] .'</td>';
+
 
 
                     echo '<td id="iCantoBotao">';
-                    echo '<a href="VerMaisCliente.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                    echo '<a href="VerMais/funcionario.php?matricula= '.$dados["matricula"].'" id="VerMaisFuncionario" name="nVerMaisFuncionario"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                     echo '</td>';
 
                 endwhile;
