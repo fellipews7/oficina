@@ -36,7 +36,6 @@ if(isset($_SESSION['mensagem'])){
         <?php
     }
     if($_SESSION['mensagem'] == 'erro'){
-
         ?>
         <script>
             toastr["error"]("<?php echo ($_SESSION['tipoErro'])?>", "Erro!")
