@@ -33,6 +33,8 @@ include_once 'includes/mensagem.php';
                     <td><?php echo $dados['ano_modelo']?></td>
                     <td><?php echo $dados['ano_fabricado']?></td>
                     <td><?php echo $dados['renavam']?></td>
+                    <td><a href="editarCarro.php?id=<?php echo $dados['id']?>" class="btn black">Editar </a></td>
+
                     <td></td>
 
                 </tr>

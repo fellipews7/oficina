@@ -18,7 +18,7 @@ include_once 'includes/mensagem.php';
                 <th>Descrição Serviços<th>
                 <th>Valor Serviços<th>
                 <th>Data Cadastro<th>
-                <th>Data PRevisão<th>
+                <th>Data Previsão<th>
                 <th>Data Entrega<th>
                 <th>Valor total<th>
                 <th>Quilometragem<th>
@@ -29,15 +29,15 @@ include_once 'includes/mensagem.php';
 
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM clientes";
+                    $sql = "SELECT os.id, orc.id, cli.id, FROM ordens_de_servicos";
                     $resultado = mysqli_query($connect, $sql);
                     while($dados = mysqli_fetch_array($resultado)):
                 ?>
                 <tr>
-                    <td><?php echo $dados['nome']?></td>
-                    <td><?php echo $dados['sobrenome']?></td>
-                    <td><?php echo $dados['email']?></td>
-                    <td><?php echo $dados['idade']?></td>
+                    <td><?php echo $dados['id']?></td>
+                    <td><?php echo $dados['orcamentos_id']?></td>
+                    <td><?php echo $dados['clientes_id']?></td>
+                    <td><?php echo $dados['carros_id']?></td>
                     <td><?php echo $dados['idade']?></td>
                     <td><?php echo $dados['idade']?></td>
                     <td><?php echo $dados['idade']?></td>
@@ -51,6 +51,7 @@ include_once 'includes/mensagem.php';
                     <td><?php echo $dados['idade']?></td>
                     <td><?php echo $dados['idade']?></td>
                     <td><a href="editar.php?id=<?php echo $dados['id']?>" class="btn black"><i class="material-icons">Editar</i> </a></td>
+                    <td><a href="ImprimirOS.php?id=<?php echo $dados['id']?>" class="btn black"><i class="material-icons">Imprimir</i> </a></td>
                     <td></td>
 
                 </tr>

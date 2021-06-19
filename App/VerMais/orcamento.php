@@ -5,7 +5,7 @@ include_once 'includes/mensagem.php';
 ?>
 
 <div  class="row">
-    <div class="col s12 m6 push-m3">
+    <div class="col s1 m6 push-m3">
     <a href="../Consulta-Orcamento.php" class="btn black">Retornar</a><h3 class="light">Orçamentos</h3>
         <table class="striped">
             <thead>
@@ -18,27 +18,25 @@ include_once 'includes/mensagem.php';
                 <th>Preço Produtos</th> 
                 <th>Data Orçamento</th> 
                 <th>Status</th>
-                <th>Tipo Manutenção</th>
             </thead>
 
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM clientes";
+                    $sql = "SELECT * FROM orcamentos";
                     $resultado = mysqli_query($connect, $sql);
                     while($dados = mysqli_fetch_array($resultado)):
                 ?>
                 <tr>
-                    <td><?php echo $dados['nome']?></td>
-                    <td><?php echo $dados['sobrenome']?></td>
-                    <td><?php echo $dados['email']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><a href="editar.php?id=<?php echo $dados['id']?>" class="btn black"><i class="material-icons">Editar</i> </a></td>
+                    <td><?php echo $dados['id']?></td>
+                    <td><?php echo $dados['clientes_id']?></td>
+                    <td><?php echo $dados['carros_id']?></td>
+                    <td><?php echo $dados['descricao_servicos']?></td>
+                    <td><?php echo $dados['valor_total_servicos']?></td>
+                    <td><?php echo $dados['descricao_produtos']?></td>
+                    <td><?php echo $dados['valor_total_produtos']?></td>
+                    <td><?php echo $dados['data']?></td>
+                    <td><?php echo $dados['status']?></td>
+                    <td><a href="editarOrcamento.php?id=<?php echo $dados['id']?>" class="btn black"><i class="material-icons">Editar</i> </a></td>
                     <td></td>
 
                 </tr>
