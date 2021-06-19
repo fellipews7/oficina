@@ -1,13 +1,12 @@
 <?php
-include_once 'phpaction/db_connect.php';
+include_once '../connection.php';
 include_once 'includes/header.php';
-require_once 'phpaction/db_connect.php';
 include_once 'includes/funcao.php';
 
-if(isset($_GET['id'])){
-    $id = clear($_GET['id']);
+if(isset($_GET['matricula'])){
+    $matricula = clear($_GET['matricula']);
 
-    $sql = "SELECT * FROM clientes WHERE id = '$id'";
+    $sql = "SELECT * FROM funcionarios WHERE matricula = '$matricula'";
     $resultado = mysqli_query($connect, $sql);
     $dados = mysqli_fetch_array($resultado);
 }
@@ -19,7 +18,7 @@ if(isset($_GET['id'])){
 
         <form action="../VerMaisFuncionario/phpaction/atualizar.php" method="post">
 
-            <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
+            <input type="hidden" name="nId" value="<?php echo $dados['matricula']?>">
 
             <div class="input-field col s12">
                 <label for="iMatricula">Matrícula</label>
@@ -27,8 +26,8 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
-                <label for="iCargo">Cargo</label>
-                <input type="text" name="nCargo" id="iCargo" value="<?php echo $dados['cargo']?>">
+                <label for="iCargo">Id Cargo</label>
+                <input type="text" name="nCargo" id="iCargo" value="<?php echo $dados['cargos_id']?>">
             </div>
 
             <div class="input-field col s12">
@@ -37,8 +36,23 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
+                <label for="iCpf">CPF</label>
+                <input type="text" name="nCpf" id="iCpf" value="<?php echo $dados['cpf']?>">
+            </div>
+
+            <div class="input-field col s12">
                 <label for="iTelefone">Telefone</label>
-                <input type="text" name="nTelefone" id="iTelefone" value="<?php echo $dados['telefone']?>">
+                <input type="text" name="nTelefone" id="iTelefone" value="<?php echo $dados['telefone_contato']?>">
+            </div>
+
+            <div class="input-field col s12">
+                <label for="iLogin">Login</label>
+                <input type="text" name="nLogin" id="iLogin" value="<?php echo $dados['login']?>">
+            </div>
+
+            <div class="input-field col s12">
+                <label for="iSenha">Senha</label>
+                <input type="password" name="nSenha" id="iSenha" value="<?php echo $dados['senha']?>">
             </div>
 
             <button type="submit" name="btn-editar" class="btn black">Atualizar</button>
