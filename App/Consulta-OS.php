@@ -64,7 +64,7 @@
           <div class="column 2">
             
             <label for="iDataFin">Data Final</label>
-            <input class="data" type="date" id="iDataFin" name="nDataFinOS" data-date=""
+            <input class="data" type="date" id="iDataFin" name="nDataFimOS" data-date=""
             data-date-format="DD MMMM YYYY" value="2000-01-01">
 
           </div>
@@ -101,18 +101,18 @@
               if(isset($_POST['nPesquisarOSCon'])){
                   $cliente = limpezaVariavel($_POST['nClienteOSCon']);
                   $funcionario = limpezaVariavel($_POST['nFuncionarioOSCon']);
-                  $data_cadastro = limpezaVariavel($_POST['nDataFinOS']);
+                  $data_cadastro_ini = limpezaVariavel($_POST['nDataInOS']);
+                  $data_cadastro_fim = limpezaVariavel($_POST['nDataFimOS']);
                   $status = limpezaVariavel($_POST['nSttsOS']);
-                  $sql = "SELECT so.id, so.orcamentos_id, cl.nome, ca.modelo, so.data_cadastro, so.data_previsao,
-                                 func.nome, so.status 
-                                 FROM ordens_de_servicos AS so 
-                                 INNER JOIN orcamentos   AS orc  ON orc.id = so.orcamentos_id 
-                                 INNER JOIN clientes     AS cl   ON orc.clientes_id = cl.id 
-                                 INNER JOIN funcionarios AS func ON so.funcionarios_matricula = func.matricula 
-                                 INNER JOIN carros       AS ca   ON orc.carros_id = ca.id 
-                                 WHERE cl.nome = 'Fé' AND func.nome = 'Bruno Schulz' 
-                                                      AND so.data_cadastro = '$data_cadastro'";
-                  var_dump($sql);
+                  $sql = "SELECT so.id AS so_id, so.orcamentos_id AS orc_id, cl.nome AS cl_nome, ca.modelo AS ca_modelo, 
+                          so.data_cadastro AS so_data_cadastro, so.data_previsao AS so_data_previsao, func.nome AS func_nome, 
+                          so.status AS status FROM orcamentos AS orc 
+                          INNER JOIN ordens_de_servicos AS so ON so.orcamentos_id = orc.id 
+                          INNER JOIN clientes AS cl ON orc.clientes_id = cl.id 
+                          INNER JOIN funcionarios AS func ON so.funcionarios_matricula = func.matricula 
+                          INNER JOIN carros AS ca ON orc.carros_id = ca.id
+                          WHERE cl.nome = '$cliente' AND func.nome = '$funcionario' 
+                          AND so.data_cadastro BETWEEN '$data_cadastro_ini' and '$data_cadastro_fim'";
                   insercaoDados($sql);
               }
 
@@ -122,19 +122,19 @@
                   $resultado = mysqli_query($connect, $sql);
                   while ($dados = mysqli_fetch_array($resultado)):
                       echo '<tr>';
-                      echo '<td>'. $dados['so.id'] .'</td>';
-                      echo '<td>'. $dados['so.orcamentos_id'] .'</td>';
-                      echo '<td>'. $dados['cl.nome'] .'</td>';
-                      echo '<td>'. $dados['ca.modelo'] .'</td>';
-                      echo '<td>'. $dados['so.data_cadastro'] .'</td>';
-                      echo '<td>'. $dados['so.data_previsao'] .'</td>';
-                      echo '<td>'. $dados['func.nome'] .'</td>';
-                      echo '<td>'. $dados['so.status'] .'</td>';
+                      echo '<td>'. $dados['so_id'] .'</td>';
+                      echo '<td>'. $dados['orc_id'] .'</td>';
+                      echo '<td>'. $dados['cl_nome'] .'</td>';
+                      echo '<td>'. $dados['ca_modelo'] .'</td>';
+                      echo '<td>'. $dados['so_data_cadastro'] .'</td>';
+                      echo '<td>'. $dados['so_data_previsao'] .'</td>';
+                      echo '<td>'. $dados['func_nome'] .'</td>';
+                      echo '<td>'. $dados['status'] .'</td>';
 
 
                       echo '<td id="iCantoBotao">';
 
-                      echo '<a href="VerMais/OS.php" id="VerMaisOS"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                      echo '<a href="VerMais/OS.php?id='.$dados['so_id'].'" id="VerMaisOS"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
 
                       echo '</td>';
                       echo '</tr>';

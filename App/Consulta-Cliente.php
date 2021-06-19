@@ -45,11 +45,11 @@
             <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
 
             <div class="wrapper">
-              <input type="radio" id="Nome" name="nTipoPalavraChave" value="Nome">
+              <input type="radio" id="Nome" name="nTipoPalavraChave" value="nome">
               <label for="Nome">Nome</label>
-              <input type="radio" id="CPF" name="nTipoPalavraChave" value="CPF">
+              <input type="radio" id="CPF" name="nTipoPalavraChave" value="cpf">
               <label for="CPF">CPF</label>
-              <input type="radio" id="Cidade" name="nTipoPalavraChave" value="Cidade">
+              <input type="radio" id="Cidade" name="nTipoPalavraChave" value="municipio">
               <label for="Cidade">Cidade</label>
             </div>
           </div>
