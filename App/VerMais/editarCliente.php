@@ -1,79 +1,65 @@
 <?php
-include_once 'phpaction/db_connect.php';
 include_once 'includes/header.php';
-require_once 'phpaction/db_connect.php';
-include_once 'includes/funcao.php';
-
-if(isset($_GET['id'])){
-    $id = clear($_GET['id']);
-
-    $sql = "SELECT * FROM clientes WHERE id = '$id'";
-    $resultado = mysqli_query($connect, $sql);
-    $dados = mysqli_fetch_array($resultado);
-}
+require_once '../connection.php';
+include_once 'includes/mensagem.php';
 ?>
 
-<div class="row">
-    <div class="col s12 m6 push-m3 ">
-        <h3 class="light">Editar Cliente</h3>
+    <div  class="row" >
+        <div class="col s12 m6 push-m3">
+            <a href="../Consulta-Cliente.php" class="btn black">Retornar</a><h3 class="light">Clientes</h3>
+            <table class="striped">
+                <thead>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF/CNPJ</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Data Nascimento</th>
+                <th>Estado</th>
+                <th>Municipio</th>
+                <th>Bairro</th>
+                <th>Endereço</th>
+                <th>Número</th>
+                <th>Complemento</th>
+                <th>Data Cadastro</th>
 
-        <form action="../VerMaisCliente/phpaction/atualizar.php" method="post">
+                </thead>
 
-            <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
+                <tbody>
+                <?php
+                $id = $_GET['id'];
+                $sql = "SELECT * FROM clientes WHERE id = ".$id;
+                $resultado = mysqli_query($connect, $sql);
+                while($dados = mysqli_fetch_array($resultado)):
+                    ?>
+                    <tr>
+                        <td><?php echo $dados['id']?></td>
+                        <td><?php echo $dados['nome']?></td>
+                        <td><?php echo $dados['cpf']. $dados['cnpj']?></td>
+                        <td><?php echo $dados['email']?></td>
+                        <td><?php echo $dados['telefone']?></td>
+                        <td><?php echo $dados['data_nascimento']?></td>
+                        <td><?php echo $dados['estado']?></td>
+                        <td><?php echo $dados['municipio']?></td>
+                        <td><?php echo $dados['bairro']?></td>
+                        <td><?php echo $dados['logradouro']?></td>
+                        <td><?php echo $dados['numero_logradouro']?></td>
+                        <td><?php echo $dados['complemento_logradouro']?></td>
+                        <td><?php echo $dados['data_cadastro']?></td>
+                        <td><a href="editar.php?id=<?php echo $dados['id']?>" class="btn black"><i class="material-icons">Editar</i> </a></td>
+                        <td></td>
 
-            <div class="input-field col s12">
-                <label for="iID">ID</label>
-                <input type="text" name="nID" id="iID" value="<?php echo $dados['ID']?>">
-            </div>
+                    </tr>
 
-            <div class="input-field col s12">
-                <label for="iNome">Nome</label>
-                <input type="text" name="nNome" id="iNome" value="<?php echo $dados['nome']?>">
-            </div>
-
-            <div class="input-field col s12">
-                <label for="iTelefone">Telefone</label>
-                <input type="text" name="nTelefone" id="iTelefone" value="<?php echo $dados['telefone']?>">
-            </div>
-
-            <div class="input-field col s12">
-                <label for="iCPF-CNPJ">CPF/CNPJ</label>
-                <input type="text" name="nCPF-CNPJ" id="iCPF-CNPJ" value="<?php echo $dados['cpf_cnpj']?>">
-            </div>
-
-            <div class="input-field col s12">
-                <label for="iEmail">Email</label>
-                <input type="text" name="nEmail" id="iEmail" value="<?php echo $dados['email']?>">
-            </div>
-
-            <div class="input-field col s12">
-                <label for="iDatNasc">Data Nascimento</label>
-                <input type="text" name="nDatNasc" id="iDatNasc" value="<?php echo $dados['data_nascimento']?>">
-            </div>
-
-            <div class="input-field col s12">
-                <label for="iEstado">Estado</label>
-                <input type="text" name="nEstado" id="iEstado" value="<?php echo $dados['estado']?>">
-            </div>
-
-            <div class="input-field col s12">
-                <label for="iMunicipio">Município</label>
-                <input type="text" name="nMunicipio" id="iMunicipio" value="<?php echo $dados['municipio']?>">
-            </div>
-
-            <div class="input-field col s12">
-                <label for="iEndereço">Endereço</label>
-                <input type="text" name="nEndereço" id="iEndereço" value="<?php echo $dados['endereço']?>">
-            </div>
-
-            <button type="submit" name="btn-editar" class="btn black">Atualizar</button>
-            <a href="index.php" class="btn black">Lista de clientes</a>
-        </form>
+                <?php endwhile; ?>
+                </tbody>
+            </table>
+            <br>
+        </div>
     </div>
-</div>
+
+
 
 <?php
 include_once 'includes/footer.php';
 ?>
-
-
