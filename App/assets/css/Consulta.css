@@ -434,10 +434,14 @@ main {
 }
 
 /*------------------------------------------------------------------------*/
+table, table th {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
 
 .form {
   margin-top: 0rem;
-	width: 200%;
+	width: 60vw;
 	height: 75%;
 	border: 2px solid rgb(255, 255, 255);
 	border-radius: 0px;
@@ -448,16 +452,6 @@ main {
 	padding: 50px 20px;
   display: flex;
   flex-direction: column;
-}
-
-.columns {
-  display: flex;
-  justify-content: left;
-  align-items: left;
-}
-
-.column:nth-child(2) {
-  padding-left: 50px;
 }
 
 .inputs-form{
@@ -475,7 +469,7 @@ main {
 }
 
 .wrapper label {
-    margin: 0 .5rem;
+    margin: 0 .3rem;
 }
 
 /* Aparencia do botão rádio classificação cliente */
@@ -494,8 +488,8 @@ main {
 
 .btn-group {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .btn-group button {
@@ -536,10 +530,10 @@ h1 {
 }
 
 .form input {
-	width: 100%;
+  display: block;
+	width: 60vw;
 	margin-bottom: 21px;
-
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 label {
@@ -595,8 +589,8 @@ transition: 0.2s;
 	color: rgb(0, 0, 0);
 }
 
-table{
-  width: 90%;
+table {
+  width: 60vw;
   table-layout: fixed;
   word-wrap: break-word;
   border: 1px solid rgb(0, 0, 0);
@@ -621,26 +615,85 @@ transition: 0.2s;
   border: none;
 }
 
-@media (max-width: 912px) {
-    .inputs-form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+@media (max-width: 980px) {
+  .form input[type="text"], .form input[type="date"] {
+    width: 70vw;
+    display: block;
+  }
 
-        flex-direction: column;
+  .inputs-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 1rem;
+  }
 
-        margin-bottom: 1rem;
+  .btn-group {
+      margin-bottom: 3rem;
+      justify-content: unset;
+      align-items: unset;
+  }
+
+  .wrapper label {
+    margin: 0;
+  }
+}
+
+.dates {
+  display: flex;
+  gap: 30px;
+}
+
+#os-title {
+  font-size: .9rem;
+}
+
+.dates input {
+  width: 300px;
+  max-width: 350px;
+  display: block;
+}
+
+@media (max-width: 810px) {
+  .dates {
+    display: block;
+  }
+}
+
+@media (max-width: 645px) {
+    .form input[type="text"], .form input[type="date"] {
+      width: 70vw;
+      display: block;
     }
 
-    .btn-group {
-        margin-bottom: 3rem;
+    .form {
+      width: 100vw;
+    }
+
+    table {
+     width: 100vw;
+    }
+
+    table th {
+      width: 90px;
     }
 }
 
-@media (max-width: 640px) {
-    .form {
-        width: 100%;
-    }
+
+@media (max-width: 515px) {
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn-group button {
+    margin: 0;
+    width: 75vw;
+  }
+
+  .btn-group button:first-child {
+    margin-bottom: 3vh;
+  }
 }
 
 @media (max-width: 400px) {

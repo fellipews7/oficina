@@ -65,16 +65,21 @@
         <br>
         <br>
 
-        <table rules=all>
-          <tr>
+        <table>
+          <thead>
             <th>ID</th>
             <th>Placa</th> 
             <th>Modelo</th>
             <th>Ano Modelo</th>
             <th>Ano Fabricado</th>
             <th>Cliente Atual</th> 
+<<<<<<< HEAD:Consulta-Carros.php
+            <th></th>
+          </thead>
+=======
             <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
           </tr>
+>>>>>>> 9a5a34c79899769dc758df5b388e392cb723ae36:App/Consulta-Carros.php
           <tr>
               <?php
               if(isset($_GET['nPesquisarCarroCon'])) {

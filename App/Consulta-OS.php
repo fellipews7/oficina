@@ -23,7 +23,7 @@
       <div class="nav_icon" onclick="toggleSidebar()">
           <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
-        <div class="navbar__left">
+        <div class="navbar__left" id="os-title">
           <h2>Consulta Ordem de Serviço</h2>
         </div>
       </nav>
@@ -44,13 +44,21 @@
         <div class="columns">
 
           <div class="column 1">
-
-            <label for="LabelsRadios" id="LabelsRadios">Data Inicial</label><br>
-            <input class="data" type="date" id="LabelsRadios" name="nDataInOS" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01"><br>
+            <div class="dates">
+              <div>
+                <label for="LabelsRadios" id="LabelsRadios">Data Inicial</label><br>
+                <input class="data" type="date" id="LabelsRadios" name="nDataInOS" data-date=""
+                data-date-format="DD MMMM YYYY" value="2020-01-01">
+              </div>
+              
+              <div>
+                <label for="iDataFin">Data Final</label>
+                <input class="data" type="date" id="iDataFin" name="nDataFinOS" data-date=""
+              data-date-format="DD MMMM YYYY" value="2020-01-01">
+              </div>
+            </div>
 
             <label for="nSttsOS" id="LabelsRadios">Status da Ordem de Serviço</label>
-
             <div class="wrapper" id="LabelsRadios">
               <input type="radio" id="iConcluido" name="nSttsOS" value="1">
               <label for="iConcluido">Concluido</label>
@@ -60,16 +68,6 @@
               <label for="iAtraso">Atraso</label>
             </div>
           </div>
-
-          <div class="column 2">
-            
-            <label for="iDataFin">Data Final</label>
-            <input class="data" type="date" id="iDataFin" name="nDataFinOS" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01">
-
-          </div>
-
-
         </div>
         
         <br>
