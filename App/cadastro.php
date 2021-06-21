@@ -48,6 +48,7 @@ function insertCliente(){
 }
 
 function insertClienteCNPJ(){
+    $tipoCadastro = limpezaVariavel($_POST['nPessoaFJ']);
     $nomeCliente = limpezaVariavel($_POST['nNomeCliente']);
     $telefoneCliente = limpaNumero($_POST['nTelefoneCliente']);
     $dataNascimentoCliente = limpezaVariavel($_POST['nDataNascCliente']);

@@ -26,6 +26,16 @@ function isEmail($valor){
     endif;
 }
 
+function limpaNumero($valor){
+    $valor = preg_replace('/[^0-9]/', '', $valor);
+       return $valor;
+}
+
+function limpaPlaca($valor){
+    $valor = preg_replace('/^[A-Za-z0-9-]+$/', '', $valor);
+    return $valor;
+}
+
 function isCPF($valor){
     $valor = str_replace(array('.','-','/'), "", $valor);
     $cpf = str_pad(preg_replace('[^0-9]', '', $valor), 11, '0', STR_PAD_LEFT);
@@ -140,7 +150,7 @@ function isPlaca($placa){
     }
 }
 
-function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
+function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
                           $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro){
 
