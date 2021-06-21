@@ -23,7 +23,7 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iID">ID</label>
-                <input type="text" name="nID" id="iID" value="<?php echo $dados['ID']?>">
+                <input type="text" name="nID" id="iID" value="<?php echo $dados['nome']?>">
             </div>
 
             <div class="input-field col s12">
@@ -33,37 +33,37 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iTelefone">Telefone</label>
-                <input type="text" name="nTelefone" id="iTelefone" value="<?php echo $dados['telefone']?>">
+                <input type="text" name="nTelefone" id="iTelefone" value="<?php echo $dados['nome']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iCPF-CNPJ">CPF/CNPJ</label>
-                <input type="text" name="nCPF-CNPJ" id="iCPF-CNPJ" value="<?php echo $dados['cpf_cnpj']?>">
+                <input type="text" name="nCPF-CNPJ" id="iCPF-CNPJ" value="<?php echo $dados['nome']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iEmail">Email</label>
-                <input type="text" name="nEmail" id="iEmail" value="<?php echo $dados['email']?>">
+                <input type="text" name="nEmail" id="iEmail" value="<?php echo $dados['nome']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iDatNasc">Data Nascimento</label>
-                <input type="text" name="nDatNasc" id="iDatNasc" value="<?php echo $dados['data_nascimento']?>">
+                <input type="text" name="nDatNasc" id="iDatNasc" value="<?php echo $dados['nome']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iEstado">Estado</label>
-                <input type="text" name="nEstado" id="iEstado" value="<?php echo $dados['estado']?>">
+                <input type="text" name="nEstado" id="iEstado" value="<?php echo $dados['nome']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iMunicipio">Município</label>
-                <input type="text" name="nMunicipio" id="iMunicipio" value="<?php echo $dados['municipio']?>">
+                <input type="text" name="nMunicipio" id="iMunicipio" value="<?php echo $dados['nome']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iEndereço">Endereço</label>
-                <input type="text" name="nEndereço" id="iEndereço" value="<?php echo $dados['endereço']?>">
+                <input type="text" name="nEndereço" id="iEndereço" value="<?php echo $dados['nome']?>">
             </div>
 
             <button type="submit" name="btn-editar" class="btn black">Atualizar</button>

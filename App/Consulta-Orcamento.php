@@ -15,7 +15,7 @@
       ?>
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
-    <title>CSS GRID DASHBOARD</title>
+    <title>Oficina Schulz</title>
   </head>
   <body id="body">
     <div class="container">
@@ -93,7 +93,7 @@
             <th>Data Orçamento</th> 
             <th>Status</th>
             <th>Tipo Manutenção</th>
-            <th><i class="fa fa-list" aria-hidden="true"></i><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+            <th><a href="Cadastro-OS.php" id="GerarOS"><i class="fa fa-list" aria-hidden="true"></i></a><a href="VerMaisOrcamento/index.php" id="VerMaisOrcamento"><i class="fa fa-search-plus" aria-hidden="true"></i></a></th>
           </tr>
           <tr>
               <?php

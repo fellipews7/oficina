@@ -15,7 +15,7 @@
       ?>
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
-    <title>CSS GRID DASHBOARD</title>
+    <title>Oficina Schulz</title>
   </head>
   <body id="body">
     <div class="container">
@@ -94,7 +94,7 @@
             <th>Data Prevista</th> 
             <th>Funcionário</th> 
             <th>Status</th> 
-            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+            <th><a href="VerMaisOS/index.php" id="VerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a></th>
           </tr>
           <tr>
               <?php
@@ -130,7 +130,7 @@
 
                       echo '<td id="iCantoBotao">';
 
-                      echo '<a href="VerMaisCliente.php" id="VerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                      echo '<a href="VerMaisOS/index.php" id="VerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
 
                       echo '</td>';
                       echo '</tr>';

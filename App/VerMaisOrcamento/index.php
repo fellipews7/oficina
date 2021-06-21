@@ -28,9 +28,9 @@ include_once 'includes/mensagem.php';
                     while($dados = mysqli_fetch_array($resultado)):
                 ?>
                 <tr>
-                    <td><?php echo $dados['nome']?></td>
-                    <td><?php echo $dados['sobrenome']?></td>
-                    <td><?php echo $dados['email']?></td>
+                    <td><?php echo $dados['idade']?></td>
+                    <td><?php echo $dados['idade']?></td>
+                    <td><?php echo $dados['idade']?></td>
                     <td><?php echo $dados['idade']?></td>
                     <td><?php echo $dados['idade']?></td>
                     <td><?php echo $dados['idade']?></td>

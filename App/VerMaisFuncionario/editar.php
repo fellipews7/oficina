@@ -23,12 +23,12 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iMatricula">Matrícula</label>
-                <input type="text" name="nMatricula" id="iMatricula" value="<?php echo $dados['matricula']?>">
+                <input type="text" name="nMatricula" id="iMatricula" value="<?php echo $dados['nome']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iCargo">Cargo</label>
-                <input type="text" name="nCargo" id="iCargo" value="<?php echo $dados['cargo']?>">
+                <input type="text" name="nCargo" id="iCargo" value="<?php echo $dados['nome']?>">
             </div>
 
             <div class="input-field col s12">
@@ -38,7 +38,7 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iTelefone">Telefone</label>
-                <input type="text" name="nTelefone" id="iTelefone" value="<?php echo $dados['telefone']?>">
+                <input type="text" name="nTelefone" id="iTelefone" value="<?php echo $dados['nome']?>">
             </div>
 
             <button type="submit" name="btn-editar" class="btn black">Atualizar</button>
