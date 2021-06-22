@@ -1,13 +1,18 @@
 <?php
-include_once 'phpaction/db_connect.php';
+include_once '../connection.php';
 include_once 'includes/header.php';
-require_once 'phpaction/db_connect.php';
 include_once 'includes/funcao.php';
 
 if(isset($_GET['id'])){
     $id = clear($_GET['id']);
 
-    $sql = "SELECT * FROM clientes WHERE id = '$id'";
+    $sql = "SELECT so.id AS so_id, orc.id AS orcamento_id, orc.clientes_id AS clientes_id, orc.carros_id AS carros_id
+            orc.descricao_servicos AS descricao_servicos, orc.valor_total_servicos AS valor_total_servicos,
+            orc.descricao_produtos ,orc.valor_total_produtos AS valor_total_produtos, os.data_cadastro AS data_cadastro
+            os.data_previsao AS data_previsao, os.data_entrega AS data_entrega
+            FROM ordens_de_servico AS so 
+            INNER JOIN orcamentos AS orc ON orc.id = so.orcamentos_id
+            WHERE so.id = '$id'";
     $resultado = mysqli_query($connect, $sql);
     $dados = mysqli_fetch_array($resultado);
 }
@@ -17,28 +22,28 @@ if(isset($_GET['id'])){
     <div class="col s12 m6 push-m3 ">
         <h3 class="light">Editar Ordem de Serviço</h3>
 
-        <form action="phpaction/atualizar.php" method="post">
+        <form action="../VerMaisOS/phpaction/atualizar.php" method="post">
 
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
             <div class="input-field col s12">
-                <label for="iIDOrcamento">Nº Ordem de Serviço</label>
-                <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['IDorcamento']?>">
+                <label for="iIDOs">Nº Ordem de Serviço</label>
+                <input type="text" name="nIDOs" id="iIDOs" value="<?php echo $dados['id']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iIDOrcamento">Nº Orçamento</label>
-                <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['IDorcamento']?>">
+                <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['orcamento_id']?>" reandoly>
             </div>
 
             <div class="input-field col s12">
                 <label for="iCliente"> Cliente</label>
-                <input type="text" name="nCliente" id="iCliente" value="<?php echo $dados['cliente']?>">
+                <input type="text" name="nCliente" id="iCliente" value="<?php echo $dados['clientes_id']?>" reandoly>
             </div>
 
             <div class="input-field col s12">
                 <label for="iCarro">Carro</label>
-                <input type="text" name="nCarro" id="iCarro" value="<?php echo $dados['carro']?>">
+                <input type="text" name="nCarro" id="iCarro" value="<?php echo $dados['carros_id']?>" reandoly>
             </div>
 
             <div class="input-field col s12">

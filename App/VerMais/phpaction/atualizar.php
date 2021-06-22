@@ -1,6 +1,6 @@
 <?php
 require_once 'db_connect.php';
-include_once '../includes/funcao.php';
+include_once '../../includes/funcao.php';
 
 session_start();
 

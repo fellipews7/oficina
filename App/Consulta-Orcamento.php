@@ -44,7 +44,7 @@
           <div class="column 1">
 
             <label for="LabelsRadios" id="LabelsRadios">Data Inicial</label><br>
-            <input class="data" type="date" id="LabelsRadios" name="nDataInOS" data-date=""
+            <input class="data" type="date" id="LabelsRadios" name="nDataInOrc" data-date=""
             data-date-format="DD MMMM YYYY" value="2000-01-01"><br>
 
             <label for="nSttsOS" id="LabelsRadios">Status do Orçamento</label>
@@ -62,7 +62,7 @@
           <div class="column 2">
             
             <label for="iDataFin">Data Final</label>
-            <input class="data" type="date" id="iDataFin" name="nDataFinOS" data-date=""
+            <input class="data" type="date" id="iDataFin" name="nDataFimOrc" data-date=""
             data-date-format="DD MMMM YYYY" value="2000-01-01">
 
           </div>
@@ -99,7 +99,7 @@
               <?php
               if(isset($_GET['nPesquisarOrcamentoCon'])){
                   $nomeCliente = limpezaVariavel($_GET['nClienteOrcamentoCon']);
-                  $dataFinal = limpezaVariavel($_GET['nDataFinOrc']);
+                  $dataFinal = limpezaVariavel($_GET['nDataFimOrc']);
                   $dataInicial = limpezaVariavel($_GET['nDataInOrc']);
                   $status = limpezaVariavel($_GET['nSttsOrcamento']);
                   $sql = "SELECT orc.id as orcamento_id,cli.id as cliente_id,car.id as carro_id,orc.descricao_servicos,orc.valor_total_servicos,
@@ -126,11 +126,12 @@
                       echo '<td>'. $dados['valor_total_servicos'] .'</td>';
                       echo '<td>'. $dados['data'] .'</td>';
                       echo '<td>'. $dados['status'] .'</td>';
+                      echo '<td></td>';
 
 
                       echo '<td id="iCantoBotao">';
 
-                        echo '<a href="VerMaisOrcamento/index.php" id="VerMaisOrcamento"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                        echo '<a href="VerMais/orcamento.php?id='.$dados['orcamento_id'].'" id="VerMaisOrcamento"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                         echo '<a href="Cadastro-OS.php" id="GerarOS"><i class="fa fa-list" aria-hidden="true"></i></a>';
 
                       echo '</td>';

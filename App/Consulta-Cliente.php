@@ -9,6 +9,7 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
+
       <?php
       require_once 'assets/php/funcao.php';
       require_once 'connection.php';
@@ -44,11 +45,11 @@
             <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
 
             <div class="wrapper">
-              <input type="radio" id="Nome" name="nTipoPalavraChave" value="Nome">
+              <input type="radio" id="Nome" name="nTipoPalavraChave" value="nome">
               <label for="Nome">Nome</label>
-              <input type="radio" id="CPF" name="nTipoPalavraChave" value="CPF">
+              <input type="radio" id="CPF" name="nTipoPalavraChave" value="cpf">
               <label for="CPF">CPF</label>
-              <input type="radio" id="Cidade" name="nTipoPalavraChave" value="Cidade">
+              <input type="radio" id="Cidade" name="nTipoPalavraChave" value="municipio">
               <label for="Cidade">Cidade</label>
             </div>
           </div>
@@ -115,7 +116,7 @@
 
 
                       echo '<td id="iCantoBotao">';
-                      echo '<a href="VerMaisCliente/index.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                      echo '<a href="VerMais/cliente.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                       echo '</td>';
 
                   endwhile;
