@@ -84,7 +84,7 @@
             <input type="text" id="iCEP" name="nCEPCliente" placeholder="Insira o CEP">
 
             <label for="iMunicípio">Município</label>
-            <input type="text" id="iMunicípio" name="nMunicípioCliente" placeholder="Insira o município">
+            <input type="text" id="iMunicípio" name="nMunicipioCliente" placeholder="Insira o município">
 
             <label for="iRua">Logradouro</label>
             <input type="text" id="iRua" name="nRuaCliente" placeholder="Insira a rua">
@@ -96,6 +96,7 @@
             </div>
         </div>
 
+              <input type="hidden" name="nTipoAcao" value="1">
         <BR>
         <BR>
 

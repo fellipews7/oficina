@@ -55,7 +55,9 @@ if(isset($_GET['id'])){
                 <input type="text" name="nRenavam" id="iRenavam" value="<?php echo $dados['renavam']?>">
             </div>
 
-            <button type="submit" name="btn-editar" class="btn black">Atualizar</button>
+            <input type="hidden" name="nTipoAcao" value="2">
+
+            <button type="submit" name="btn-editar-carro" class="btn black">Atualizar</button>
             <a href="../Consulta-Carros.php" class="btn black">Lista de carros</a>
         </form>
     </div>

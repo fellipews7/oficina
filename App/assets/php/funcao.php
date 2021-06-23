@@ -142,7 +142,7 @@ function isPlaca($placa){
 
 function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
-                          $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro){
+                          $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id){
 
     if(isNome($nomeCliente)){
         if(isTelefone($telefoneCliente)){
@@ -150,45 +150,80 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                 if(verificaCpfCnpj($cpfCnpjCliente)){
                     if(isEmail($emailCliente)){
                         if(isCEP($cepLogradouroCliente)){
-                            cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
-                                $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
-                                $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
+                            if($tipoAcao= 1) {
+                                cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
+                                    $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
+                                    $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
+                            }elseif ($tipoAcao = 2){
+                                updateClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
+                                    $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
+                                    $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
+                            }
                         }else{
                             $_SESSION['tipoErro'] = 'CEP incorreto!';
                             $_SESSION['mensagem'] = 'erro';
-                            header('Location: cadastro-cliente.php?errocep');
+
+                            if($tipoAcao = 1) {
+                                header('Location: cadastro-cliente.php?errocep');
+                            }elseif ($tipoAcao = 2){
+                                header('Location: VerMais/editarCliente.php?errocep');
+                            }
                         }
                     }else{
                         $_SESSION['tipoErro'] = 'Email incorreto!';
                         $_SESSION['mensagem'] = 'erro';
-                        header('Location: cadastro-cliente.php?erroemail');
+
+                        if($tipoAcao = 1) {
+                            header('Location: cadastro-cliente.php?erroemail');
+                        }elseif ($tipoAcao = 2){
+                            header('Location: VerMais/editarCliente.php?erroemail');
+                        }
+
                     }
                 }else{
                     $_SESSION['tipoErro'] = 'CPF incorreto!';
                     $_SESSION['mensagem'] = 'erro';
-                    header('Location: cadastro-cliente.php?errocpf');
+
+                    if($tipoAcao = 1) {
+                        header('Location: cadastro-cliente.php?errocpf');
+                    }elseif ($tipoAcao = 2){
+                        header('Location: VerMais/editarCliente.php?errocpf');
+                    }
                 }
             }else{
                 $_SESSION['tipoErro'] = 'Data incorreta!';
                 $_SESSION['mensagem'] = 'erro';
-                header('Location: cadastro-cliente.php?errodata');
+
+                if($tipoAcao = 1) {
+                    header('Location: editarCliente.php?errodata');
+                }elseif ($tipoAcao = 2){
+                    header('Location: VerMais/seditarCliente.php?errodata');
+                }
             }
         }else{
             $_SESSION['tipoErro'] = 'Telefone incorreto!';
             $_SESSION['mensagem'] = 'erro';
-            header('Location: cadastro-cliente.php?errotelefone');
+
+            if($tipoAcao = 1) {
+                header('Location: cadastro-cliente.php?errotelefone');
+            }elseif ($tipoAcao = 2){
+                header('Location: VerMais/editarCliente.php?errotelefone');
+            }
         }
     }else{
         $_SESSION['tipoErro'] = 'Nome incorreto!';
         $_SESSION['mensagem'] = 'erro';
         header('Location: cadastro-cliente.php?erronome');
+        if($tipoAcao = 1) {
+
+        }elseif ($tipoAcao = 2){
+
+        }
     }
 }
 
 function verificaCpfCnpj($cpfCnpj){
-    if(isCNPJ($cpfCnpj)){
-        return true;
-    }elseif (isCPF($cpfCnpj)){
+    if(isCNPJ($cpfCnpj) or isCPF($cpfCnpj)){
         return true;
     }else{
         return false;
@@ -198,14 +233,28 @@ function verificaCpfCnpj($cpfCnpj){
 function cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
                           $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro){
-    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, ".$tipoCadastro.", email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
+    $sql = ("update INTO clientes (nome, telefone, data_nascimento, ".$tipoCadastro.", email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
             '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cpfCnpjCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
             '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
 
     conexaoBdInsert($sql);
 }
 
-function verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro){
+function updateClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
+                       $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
+                       $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id){
+
+    $sql = ("UPDATE clientes SET nome = '$nomeCliente', telefone = '$telefoneCliente', data_nascimento = $dataNascimentoCliente
+            ".$tipoCadastro." = '$cpfCnpjCliente', email = '$emailCliente', municipio = '$municipioLogradouroCliente'
+            numero_logradouro = '$numeroLogradouroCliente', estado = '$estadoLogradouroCliente', logradouro = '$ruaLogradouroCliente'
+            cep = '$cepLogradouroCliente', data_cadastro = '$dataCadastroCliente', bairro = '$bairroLogradouroCliente'
+            WHERE id = '$id'");
+
+    conexaoBdInsert($sql);
+}
+
+function verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro,
+                        $anoFabricacaoCarro, $tipoAcao, $id){
     if(isRenavam($renavamCarro)){
         if(isPlaca($placaCarro)){
             cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$anoModeloCarro,$anoFabricacaoCarro);
@@ -229,7 +278,7 @@ function cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$ano
 }
 
 
-function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario){
+function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $tipoAcao, $matricula){
     if(isNome($nomeFuncionario)) {
         if(isCPF($cpfFuncionario)){
             if(isTelefone($telefoneFuncionario)){
