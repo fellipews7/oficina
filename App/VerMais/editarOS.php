@@ -22,7 +22,7 @@ if(isset($_GET['id'])){
     <div class="col s12 m6 push-m3 ">
         <h3 class="light">Editar Ordem de Serviço</h3>
 
-        <form action="../VerMaisOS/phpaction/atualizar.php" method="post">
+        <form action="phpaction/atualizar.php" method="post">
 
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
@@ -104,7 +104,7 @@ if(isset($_GET['id'])){
                 <input type="text" name="nTipoManu" id="iTipoManu" value="<?php echo $dados['tipomanutencao']?>">
             </div>
 
-            <button type="submit" name="btn-editar" class="btn black">Atualizar</button>
+            <button type="submit" name="btn-editar-os" class="btn black">Atualizar</button>
             <a href="index.php" class="btn black">Lista de clientes</a>
         </form>
     </div>
