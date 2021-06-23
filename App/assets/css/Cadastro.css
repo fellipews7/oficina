@@ -422,7 +422,7 @@ main {
   }
 }
 
-@media only screen and (max-width: 855px) {
+@media only screen and (max-width: 980px) {
   .main__cards {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -437,7 +437,6 @@ main {
 
 
 /*------------------------------------------------------------------------*/
-
 .form {
   margin-top: 0rem;
 	width: 200%;
@@ -487,6 +486,11 @@ main {
 
 .column {
     padding: 0 0 0 40px;
+}
+
+.column-os {
+  width: 50%;
+  padding: 0 0 0 40px;
 }
 
 .btn-group {
@@ -585,15 +589,57 @@ button.btn:hover {
         margin-bottom: 1rem;
     }
 
+    .column-os input {
+      width: 80vw;
+    }
+
     .btn-group {
         margin-bottom: 3rem;
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 980px) {
     .form {
-        width: 100%;
+        width: 95%;
+        height: 75%;
     }
+
+    .inputs-form {
+      align-items: unset;
+    }
+
+    .column,
+    .column-os {
+      padding: 0;
+    }
+}
+
+@media (max-width: 645px) {
+  #cadastroOSTitulo {
+    font-size: .9rem;
+  }
+
+  .column-os label{
+    width: 400px;
+  }
+
+  #iComplemento {
+    margin: 0;
+    padding: 0;
+  }
+
+  .form input[type="text"], .form input[type="date"] {
+    width: 70vw;
+    display: block;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn-group button:first-child {
+    margin-bottom: 3vh;
+  }
 }
 
 @media (max-width: 400px) {

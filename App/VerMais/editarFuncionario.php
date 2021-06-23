@@ -16,9 +16,9 @@ if(isset($_GET['matricula'])){
     <div class="col s12 m6 push-m3 ">
         <h3 class="light">Editar Funcionário</h3>
 
-        <form action="../VerMaisFuncionario/phpaction/atualizar.php" method="post">
+        <form action="phpaction/atualizar.php" method="post">
 
-            <input type="hidden" name="nId" value="<?php echo $dados['matricula']?>">
+            <input type="hidden" name="nMatricula" value="<?php echo $dados['matricula']?>">
 
             <div class="input-field col s12">
                 <label for="iMatricula">Matrícula</label>
@@ -55,7 +55,9 @@ if(isset($_GET['matricula'])){
                 <input type="password" name="nSenha" id="iSenha" value="<?php echo $dados['senha']?>">
             </div>
 
-            <button type="submit" name="btn-editar" class="btn black">Atualizar</button>
+            <input type="hidden" name="nTipoAcao" value="2">
+
+            <button type="submit" name="btn-editar-funcionario" class="btn black">Atualizar</button>
             <a href="index.php" class="btn black">Lista de funcionários</a>
         </form>
     </div>

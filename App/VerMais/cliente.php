@@ -1,6 +1,6 @@
 <?php
 include_once 'includes/header.php';
-require_once 'phpaction/db_connect.php';
+require_once '../connection.php';
 include_once 'includes/mensagem.php';
 ?>
 
@@ -9,7 +9,7 @@ include_once 'includes/mensagem.php';
     <a href="../Consulta-Cliente.php" class="btn black">Retornar</a><h3 class="light">Clientes</h3>
         <table class="striped">
             <thead>
-                    <th>ID</th>
+                    <th>Id</th>
                     <th>Nome</th>
                     <th>Telefone</th>
                     <th>CPF/CNPJ</th>
@@ -22,21 +22,22 @@ include_once 'includes/mensagem.php';
 
             <tbody>
                 <?php
-                    $sql = "SELECT * FROM clientes";
+                    $id = $_GET['id'];
+                    $sql = "SELECT * FROM clientes WHERE id = '$id'";
                     $resultado = mysqli_query($connect, $sql);
                     while($dados = mysqli_fetch_array($resultado)):
                 ?>
                 <tr>
+                    <td><?php echo $dados['id']?></td>
                     <td><?php echo $dados['nome']?></td>
-                    <td><?php echo $dados['sobrenome']?></td>
+                    <td><?php echo $dados['telefone']?></td>
+                    <td><?php echo $dados['cpf']. $dados['cnpj']?></td>
                     <td><?php echo $dados['email']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><?php echo $dados['idade']?></td>
-                    <td><a href="editarCliente.php?id=<?php echo $dados['id']?>" class="btn black"><i class="material-icons">Editar</i> </a></td>
+                    <td><?php echo $dados['data_nascimento']?></td>
+                    <td><?php echo $dados['estado']?></td>
+                    <td><?php echo $dados['municipio']?></td>
+                    <td><?php echo $dados['logradouro']. ',' .$dados['numero_logradouro']?></td>
+                    <td><a href="editarCliente.php?id=<?php echo $dados['id']?>" class="btn black">Editar </a></td>
                     <td></td>
 
                 </tr>

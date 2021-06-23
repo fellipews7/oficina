@@ -437,7 +437,16 @@ main {
   }
 }
 
-@media only screen and (max-width: 855px) {
+@media only screen and (max-width: 980px) {
+  .form {
+    width: 95%;
+    height: 75%;
+  }
+
+  .column {
+    padding: 0;
+  }
+
   .main__cards {
     grid-template-columns: 1fr;
     gap: 10px;

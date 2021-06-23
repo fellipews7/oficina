@@ -49,6 +49,8 @@
           </div>
         </div>
 
+              <input type="hidden" name="nTipoAcao" value="1">
+
         <div class="btn-group">
           <button type="submit" name="nCadastrarFuncionarios" value="Cadastrar" class="btn">Cadastrar</button>
 

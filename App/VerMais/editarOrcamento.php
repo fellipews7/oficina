@@ -16,7 +16,7 @@ if(isset($_GET['id'])){
     <div class="col s12 m6 push-m3 ">
         <h3 class="light">Editar Orçamento</h3>
 
-        <form action="../VerMaisOrcamento/phpaction/atualizar.php" method="post">
+        <form action="phpaction/atualizar.php" method="post">
 
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
@@ -65,8 +65,9 @@ if(isset($_GET['id'])){
                 <input type="text" name="iStatus" id="iStatus" value="<?php echo $dados['status']?>">
             </div>
 
+            <input type="hidden" name="nTipoAcao" value="2">
 
-            <button type="submit" name="btn-editar" class="btn black">Atualizar</button>
+            <button type="submit" name="btn-editar-orcamento" class="btn black">Atualizar</button>
             <a href="../Consulta-Orcamento.php" class="btn black">Lista de orçamentos</a>
         </form>
     </div>
