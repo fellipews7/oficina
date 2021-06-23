@@ -45,7 +45,7 @@
             <label for="iTelefone">Telefone</label>
             <input type="text" id="iTelefone" name="nTelefoneCliente" placeholder="Insira o telefone">
             <script type="text/javascript">
-              $("#iTelefone").mask("(00)0000-0000");
+              $("#iTelefone").mask("+000 (00) 0-0000-0000");
             </script>
 
             <label for="iDataNasc">Data Nascimento</label>
@@ -83,7 +83,7 @@
 
           <div id="divCPF">
                <label for="iCPF">CPF</label>
-               <input type="text" id="iCPF" name="nCPFCliente" placeholder="Insira o CPF">
+               <input type="text" id="iCPF" name="nCPFCNPJCliente" placeholder="Insira o CPF">
                <script type="text/javascript">
                     $("#iCPF").mask("000.000.000-00");
                </script>
@@ -91,7 +91,7 @@
 
             <div id="divCNPJ">
                 <label for="iCNPJ">CNPJ</label>
-          	    <input type="text" id="iCNPJ" name="nCNPJCliente" placeholder="Insira o CNPJ">
+          	    <input type="text" id="iCNPJ" name="nCPFCNPJCliente" placeholder="Insira o CNPJ">
               <script type="text/javascript">
                      $("#iCNPJ").mask("00.000.000/0000-00");
               </script>
