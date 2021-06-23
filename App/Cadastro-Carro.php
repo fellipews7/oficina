@@ -11,7 +11,7 @@
     />
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Cadastro.css"/>
-    <title>CSS GRID DASHBOARD</title>
+    <title>Cadastro de Carros</title>
   </head>
   <body id="body">
   <?php

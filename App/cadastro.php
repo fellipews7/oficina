@@ -45,7 +45,33 @@ function insertCliente(){
 
     verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
         $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
+
+        $dataCadastroCliente, $bairroLogradouroCliente);
+}
+
+function insertClienteCNPJ(){
+    $tipoCadastro = limpezaVariavel($_POST['nPessoaFJ']);
+    $nomeCliente = limpezaVariavel($_POST['nNomeCliente']);
+    $telefoneCliente = limpaNumero($_POST['nTelefoneCliente']);
+    $dataNascimentoCliente = limpezaVariavel($_POST['nDataNascCliente']);
+    $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicípioCliente']);
+    $numeroLogradouroCliente = limpezaVariavel($_POST['nNumeroCliente']);
+    $cnpjCliente = limpaNumero($_POST['nCPFCNPJCliente']);
+    $emailCliente = limpezaVariavel($_POST['nEmailCliente']);
+    $estadoLogradouroCliente = limpezaVariavel($_POST['nEstadoCliente']);
+    $bairroLogradouroCliente = limpezaVariavel('bairro');
+    $ruaLogradouroCliente = limpezaVariavel($_POST['nRuaCliente']);
+    $cepLogradouroCliente = limpaNumero($_POST['nCEPCliente']);
+    $dataCadastroCliente = date('Y/m/d');
+
+    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, cnpj, email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
+            '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cnpjCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
+            '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
+
+    conexaoBdInsert($sql);
+
         $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao);
+
 }
 
 function insertCargos(){

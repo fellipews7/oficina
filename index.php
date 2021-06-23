@@ -1,37 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
 
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-			crossorigin="anonymous"
-		/>
+<head>
 
-		<link rel="stylesheet" href="assets/css/styles.css" />
-		<title>Login Oficina Schulz</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!--===============================================================================================-->	
-		<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-		<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-		<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-		<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-		<!--===============================================================================================-->	
-		<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-		<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-		<!--===============================================================================================-->
-		<link rel="stylesheet" type="text/css" href="css/util.css">
-		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<!--===============================================================================================-->
-	</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+            crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title>Tela de Login</title>
+</head>
+
 	<body>
 		
 		<div class="limiter">
@@ -39,6 +24,7 @@
 				<div class="wrap-login100">
 					<div class="login100-pic js-tilt" data-tilt>
 						<img src="images/img-01.png" alt="IMG">
+
 					</div>
 
 					<form class="login100-form validate-form">

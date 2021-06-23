@@ -15,7 +15,7 @@
       ?>
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
-    <title>CSS GRID DASHBOARD</title>
+    <title>Consulta de Orçamentos</title>
   </head>
   <body id="body">
     <div class="container">
