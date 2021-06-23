@@ -67,7 +67,7 @@ if(isset($_GET['id'])){
 
 
             <button type="submit" name="btn-editar" class="btn black">Atualizar</button>
-            <a href="index.php" class="btn black">Lista de orçamentos</a>
+            <a href="../Consulta-Orcamento.php" class="btn black">Lista de orçamentos</a>
         </form>
     </div>
 </div>
