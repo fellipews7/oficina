@@ -43,10 +43,21 @@
         <div class="columns">
 
           <div class="column 1">
-
-            <label for="LabelsRadios" id="LabelsRadios">Data Inicial</label><br>
-            <input class="data" type="date" id="LabelsRadios" name="nDataInOrc" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01"><br>
+            
+          <div class="column 1">
+            <div class="dates">
+              <div>
+                <label for="LabelsRadios" id="LabelsRadios">Data Inicial</label><br>
+                <input class="data" type="date" id="LabelsRadios" name="nDataInOrc" data-date=""
+                data-date-format="DD MMMM YYYY" value="2000-01-01"><br>
+              </div>
+              
+              <div>
+                <label for="iDataFin">Data Final</label>
+                <input class="data" type="date" id="iDataFin" name="nDataFimOrc" data-date=""
+                data-date-format="DD MMMM YYYY" value="2000-01-01">
+              </div>
+            </div>
 
             <label for="nSttsOS" id="LabelsRadios">Status do Orçamento</label>
 
@@ -59,15 +70,6 @@
               <label for="iCancelado">Cancelado</label>
             </div>
           </div>
-
-          <div class="column 2">
-            
-            <label for="iDataFin">Data Final</label>
-            <input class="data" type="date" id="iDataFin" name="nDataFimOrc" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01">
-
-          </div>
-
 
         </div>
         
@@ -94,7 +96,7 @@
             <th>Data Orçamento</th> 
             <th>Status</th>
             <th>Tipo Manutenção</th>
-            <th><a href="Cadastro-OS.php" id="GerarOS"><i class="fa fa-list" aria-hidden="true"></i></a><a href="VerMaisOrcamento/index.php" id="VerMaisOrcamento"><i class="fa fa-search-plus" aria-hidden="true"></i></a></th>
+            <th></th>
           </tr>
           <tr>
               <?php

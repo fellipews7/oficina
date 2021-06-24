@@ -15,11 +15,8 @@
       ?>
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
-<<<<<<< HEAD
-    <title>Oficina Schulz</title>
-=======
+
     <title>Consulta de Funcionarios</title>
->>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709
   </head>
   <body id="body">
     <div class="container">
@@ -78,7 +75,7 @@
             <th>Cargo</th> 
             <th>Nome</th>
             <th>Telefone</th>
-            <th><a href="VerMaisFuncionario/index.php"><i class="fa fa-search-plus" aria-hidden="true"></i></a></th>
+            <th></th>
           </tr>
             <?php
             if(isset($_GET['nPesquisarFuncionarioCon'])) {
@@ -111,11 +108,9 @@
 
 
                     echo '<td id="iCantoBotao">';
-<<<<<<< HEAD
-                    echo '<a href="VerMaisFuncionario/index.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
-=======
+
                     echo '<a href="VerMais/funcionario.php?matricula= '.$dados["matricula"].'" id="VerMaisFuncionario" name="nVerMaisFuncionario"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
->>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709
+
                     echo '</td>';
 
                 endwhile;

@@ -36,8 +36,8 @@
         <div class="inputs-form">
           <div class="column one">
 
-            <label for="iIDCLiente">ID do Cliente</label>
-            <input type="text" id="iIDCLiente" name="nIDCLienteOrcamento" placeholder="Insira o ID do cliente">
+            <label for="iIDCLiente">Código do Cliente</label>
+            <input type="text" id="iIDCLiente" name="nIDCLienteOrcamento" placeholder="Insira o código do cliente">
 
             <label for="iDescricaoServico">Descrição do Serviço</label>
             <input type="text" id="iDescricaoServico" name="nDescricaoServico" placeholder="Insira a descrição do serviço feito">
@@ -60,8 +60,8 @@
 
           <div class="column two">
 
-            <label for="iIDCarro">ID do Carro</label>
-            <input type="text" id="iIDCarro" name="nIDCarroOrcamento" placeholder="Insira o ID do carro">
+            <label for="iIDCarro">Código do Carro</label>
+            <input type="text" id="iIDCarro" name="nIDCarroOrcamento" placeholder="Insira o código do carro">
 
             <label for="iPrecoMaoObra">Preço Mão de Obra</label>
             <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" placeholder="Insira o preço da mão de obra">

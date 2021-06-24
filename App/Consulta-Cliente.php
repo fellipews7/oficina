@@ -16,11 +16,8 @@
       ?>
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
-<<<<<<< HEAD
-    <title>Oficina Schulz</title>
-=======
+
     <title>Consulta de Clientes</title>
->>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709
   </head>
   <body id="body">
     <div class="container">
@@ -91,7 +88,7 @@
             <th>Endereço</th> 
             <th>Telefone</th>
             <th>CPF</th>
-            <th><a href="VerMaisCliente/index.php"><i class="fa fa-search-plus" aria-hidden="true"></i></a></th>
+            <th></th>
           </tr>
           <tr>
               <?php

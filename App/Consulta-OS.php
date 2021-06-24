@@ -15,11 +15,9 @@
       ?>
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
-<<<<<<< HEAD
-    <title>Oficina Schulz</title>
-=======
+
     <title>Consulta Ordem de Serviços</title>
->>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709
+
   </head>
   <body id="body">
     <div class="container">
@@ -73,14 +71,6 @@
             </div>
           </div>
 
-          <div class="column 2">
-            
-            <label for="iDataFin">Data Final</label>
-            <input class="data" type="date" id="iDataFin" name="nDataFimOS" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01">
-
-          </div>
-
         </div>
         
         <br>
@@ -105,7 +95,7 @@
             <th>Data Prevista</th> 
             <th>Funcionário</th> 
             <th>Status</th> 
-            <th><a href="VerMaisOS/index.php" id="VerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a></th>
+            <th></th>
           </tr>
           <tr>
               <?php
@@ -145,11 +135,7 @@
 
                       echo '<td id="iCantoBotao">';
 
-<<<<<<< HEAD
-                      echo '<a href="VerMaisOS/index.php" id="VerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
-=======
                       echo '<a href="VerMais/OS.php?id='.$dados['so_id'].'" id="VerMaisOS"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
->>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709
 
                       echo '</td>';
                       echo '</tr>';
