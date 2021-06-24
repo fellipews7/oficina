@@ -11,7 +11,7 @@
     />
 
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <title>CSS GRID DASHBOARD</title>
+    <title>Dashboard</title>
 </head>
 <body id="body">
 <?php

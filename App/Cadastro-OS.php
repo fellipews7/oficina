@@ -11,7 +11,11 @@
     />
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Cadastro.css"/>
+<<<<<<< HEAD
     <title>Oficina Schulz</title>
+=======
+    <title>Cadastro de Ordem de Serviços</title>
+>>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709
   </head>
   <body id="body">
   <?php
@@ -22,7 +26,7 @@
       <div class="nav_icon" onclick="toggleSidebar()">
           <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
-        <div class="navbar__left">
+        <div class="navbar__left" id="cadastroOSTitulo">
           <h2>Cadastro Ordem de Serviço</h2>
         </div>
       </nav>
@@ -34,10 +38,39 @@
           <div class="form">
           <form action="cadastro.php" method="post">
         <div class="inputs-form">
+<<<<<<< HEAD
           <div class="column">
             
             <label for="iIDOrcamento">Nº Orçamento</label>
             <input type="text" id="iIDOrcamento" name="nIDOrcamentoOS" placeholder="Insira o número do orçamento">
+=======
+          <div class="column-os">
+            
+            <label for="iIDOrcamento">ID Orçamento</label>
+            <input type="text" id="iIDOrcamento" name="nIDOrcamentoOS" placeholder="Insira o ID do orçamento">
+
+            <label for="iIDCliente">ID do Cliente</label>
+            <input type="text" id="iIDCliente" name="nIDClienteOS" placeholder="Insira o ID do cliente">
+
+            <label for="iIDCarro">ID Carro</label>
+            <input type="text" id="iIDCarro" name="nIDCarroOS" placeholder="Insira o ID do orçamento">
+
+            <label for="iDesProdutos">Descrição Produtos</label>
+            <input type="text" id="iDesProdutos" name="nDesProdutos" placeholder="Insira os produtos usados">
+            
+            <label for="iValorTotalPro">Valor Total Produtos</label>
+            <input type="text" id="iValorTotalPro" name="nValorTotalPro" placeholder="Insira o valor totald os produtos utilizados">
+
+            <label for="iDesServicos">Descrição Serviços</label>
+            <input type="text" id="iDesServicos" name="nDesServicos" placeholder="Insira os serviços feitos">
+            
+            <label for="iValorTotalSer">Valor Total Serviços</label>
+            <input type="text" id="iValorTotalSer" name="nValorTotalSer" placeholder="Insira o valor total dos serviços">
+
+          </div>
+
+          <div class="column-os">
+>>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709
             
             <label for="iDataPrev">Data da Previsao de Entrega</label>
             <input class="data" type="date" id="iDataPrev" name="nDataPrevOS" data-date=""

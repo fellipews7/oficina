@@ -11,7 +11,7 @@
     />
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Cadastro.css"/>
-    <title>CSS GRID DASHBOARD</title>
+    <title>Cadastro de Funcionario</title>
   </head>
   <body id="body">
   <?php
@@ -48,6 +48,8 @@
             <input type="text" id="iIDCargo" name="nIDCargoFuncionarios" placeholder="Insira o ID do cargo do funcionario">
           </div>
         </div>
+
+              <input type="hidden" name="nTipoAcao" value="1">
 
         <div class="btn-group">
           <button type="submit" name="nCadastrarFuncionarios" value="Cadastrar" class="btn">Cadastrar</button>

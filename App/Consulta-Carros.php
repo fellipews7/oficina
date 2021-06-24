@@ -12,7 +12,11 @@
 
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
+<<<<<<< HEAD
     <title>Oficina Schulz</title>
+=======
+    <title>Consulta de Carros</title>
+>>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709
   </head>
   <body id="body">
   <?php
@@ -65,16 +69,25 @@
         <br>
         <br>
 
-        <table rules=all>
-          <tr>
+        <table>
+          <thead>
             <th>ID</th>
             <th>Placa</th> 
             <th>Modelo</th>
             <th>Ano Modelo</th>
             <th>Ano Fabricado</th>
             <th>Cliente Atual</th> 
+<<<<<<< HEAD
             <th><a href="VerMaisCarro/index.php"><i class="fa fa-search-plus" aria-hidden="true"></i></a></th>
+=======
+<<<<<<< HEAD:Consulta-Carros.php
+            <th></th>
+          </thead>
+=======
+            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+>>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709
           </tr>
+>>>>>>> 9a5a34c79899769dc758df5b388e392cb723ae36:App/Consulta-Carros.php
           <tr>
               <?php
               if(isset($_GET['nPesquisarCarroCon'])) {
@@ -100,7 +113,11 @@
                       echo "<td></td>";
                       echo '<td id="iCantoBotao">';
 
+<<<<<<< HEAD
                       echo '<a href="VerMaisCarro/index.php?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+=======
+                      echo '<a href="VerMais/carro?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+>>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709
 
                       echo '</td>';
                       echo '</tr>';

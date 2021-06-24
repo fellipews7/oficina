@@ -11,7 +11,7 @@
     />
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Cadastro.css"/>
-    <title>CSS GRID DASHBOARD</title>
+    <title>Cadastro de Carros</title>
   </head>
   <body id="body">
   <?php
@@ -60,6 +60,8 @@
 
           </div>
         </div>
+
+          <input type="hidden" name="nTipoAcao" value="1">
 
         <div class="btn-group">
           <button type="submit" name="nCadastrarCarros" value="Cadastrar" class="btn">Cadastrar</button>
