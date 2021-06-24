@@ -84,9 +84,9 @@
 
         <table rules=all>
           <tr>
-            <th>ID Orçamento</th>
-            <th>ID Cliente</th>
-            <th>ID Carro</th> 
+            <th>Nº Orçamento</th>
+            <th>Código Cliente</th>
+            <th>Código Carro</th> 
             <th>Descrição Serviço</th>
             <th>Preço Mão de Obra</th>
             <th>Preço Total</th> 
