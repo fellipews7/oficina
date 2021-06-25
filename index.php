@@ -65,10 +65,8 @@
 							</span>
 						</div>
 						
-						<div class="container-login100-form-btn">
-							<button class="login100-form-btn">
-								<a href="App/index.php"> Login </a>
-							</button>
+						<div class="container-login100-form-btn">			
+							<input type="button" onclick="location.href='App/index.php';" value="Login" class="login100-form-btn" />
 						</div>
 					</form>
 				</div>
