@@ -11,7 +11,7 @@
     />
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Cadastro.css"/>
-    <title>CSS GRID DASHBOARD</title>
+    <title>Cadastro de Orçamentos</title>
   </head>
   <body id="body">
   <?php
@@ -74,9 +74,9 @@
             </div>
             
             <div class="btn-group">
-              <button type="submit" name="nCadastrarOrcamento" value="ECadastrarnviar" class="btn">Cadastrar</button>
+              <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
     
-              <button type="reset" name="nLimparOrcamento" value="Limpar" class="btn">Limpar</button>
+              <button type="reset" name="nLimparOrcamento" class="btn">Limpar</button>
             </div>
 
         <br>

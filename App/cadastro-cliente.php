@@ -9,9 +9,13 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
+      
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Cadastro.css"/>
-    <title>CSS GRID DASHBOARD</title>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <title>Cadastro de Cliente</title>
   </head>
   <body id="body">
   <?php
@@ -40,6 +44,9 @@
 
             <label for="iTelefone">Telefone</label>
             <input type="text" id="iTelefone" name="nTelefoneCliente" placeholder="Insira o telefone">
+            <script type="text/javascript">
+              $("#iTelefone").mask("+000 (00) 0-0000-0000");
+            </script>
 
             <label for="iDataNasc">Data Nascimento</label>
             <input class="data" type="date" id="iDataNasc" name="nDataNascCliente" data-date=""
@@ -62,29 +69,45 @@
                 <div id="classificacaoCliente">
                     <!-- Wrapper para trabalhar com input e label dentro de uma div  -->
                     <div class="wrapper">
+                        <input type="radio" id="iFisica" name="nPessoaFJ" value="cpf" form="form-cadastro-cliente" checked>
+                        <label for="iFisica">Física</label>
                         <input type="radio" id="iJuridica" name="nPessoaFJ" value="cnpj" form="form-cadastro-cliente">
                         <label for="iJuridica">Jurídica</label>
-                        <input type="radio" id="iFisica" name="nPessoaFJ" value="cpf" form="form-cadastro-cliente">
-                        <label for="iFisica">Física</label>
                     </div>
-                </div>
+                </div> 
            
 
           </div>
 
           <div class="column">
 
-            <label for="iCPFCNPJ">CPF/CNPJ</label>
-            <input type="text" id="iCPFCNPJ" name="nCPFCNPJCliente" placeholder="Insira o CPF ou CNPJ">
+          <div id="divCPF">
+               <label for="iCPF">CPF</label>
+               <input type="text" id="iCPF" name="nCPFCNPJCliente" placeholder="Insira o CPF">
+               <script type="text/javascript">
+                    $("#iCPF").mask("000.000.000-00");
+               </script>
+           </div>
+
+            <div id="divCNPJ">
+                <label for="iCNPJ">CNPJ</label>
+          	    <input type="text" id="iCNPJ" name="nCPFCNPJCliente" placeholder="Insira o CNPJ">
+              <script type="text/javascript">
+                     $("#iCNPJ").mask("00.000.000/0000-00");
+              </script>
+            </div>
 
             <label for="iEmail">Email</label>
             <input type="text" id="iEmail" name="nEmailCliente" placeholder="Insira o email">
 
             <label for="iCEP">CEP</label>
             <input type="text" id="iCEP" name="nCEPCliente" placeholder="Insira o CEP">
+            <script type="text/javascript">
+                $("#iCEP").mask("00000-000");
+            </script>
 
             <label for="iMunicípio">Município</label>
-            <input type="text" id="iMunicípio" name="nMunicípioCliente" placeholder="Insira o município">
+            <input type="text" id="iMunicípio" name="nMunicipioCliente" placeholder="Insira o município">
 
             <label for="iRua">Logradouro</label>
             <input type="text" id="iRua" name="nRuaCliente" placeholder="Insira a rua">
@@ -96,6 +119,7 @@
             </div>
         </div>
 
+              <input type="hidden" name="nTipoAcao" value="1">
         <BR>
         <BR>
 
@@ -189,6 +213,6 @@
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets\js\verificaJuridicaFisica.js"></script>
   </body>
 </html>
