@@ -27,40 +27,23 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
             <div class="input-field col s12">
-<<<<<<< HEAD:App/VerMaisOS/editar.php
-                <label for="iIDOrcamento">Nº Ordem de Serviço</label>
-                <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['nome']?>">
-=======
                 <label for="iIDOs">Nº Ordem de Serviço</label>
                 <input type="text" name="nIDOs" id="iIDOs" value="<?php echo $dados['id']?>">
->>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709:App/VerMais/editarOS.php
             </div>
 
             <div class="input-field col s12">
                 <label for="iIDOrcamento">Nº Orçamento</label>
-<<<<<<< HEAD:App/VerMaisOS/editar.php
-                <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['nome']?>">
-=======
                 <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['orcamento_id']?>" reandoly>
->>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709:App/VerMais/editarOS.php
             </div>
 
             <div class="input-field col s12">
                 <label for="iCliente"> Cliente</label>
-<<<<<<< HEAD:App/VerMaisOS/editar.php
-                <input type="text" name="nCliente" id="iCliente" value="<?php echo $dados['nome']?>">
-=======
                 <input type="text" name="nCliente" id="iCliente" value="<?php echo $dados['clientes_id']?>" reandoly>
->>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709:App/VerMais/editarOS.php
             </div>
 
             <div class="input-field col s12">
                 <label for="iCarro">Carro</label>
-<<<<<<< HEAD:App/VerMaisOS/editar.php
-                <input type="text" name="nCarro" id="iCarro" value="<?php echo $dados['nome']?>">
-=======
                 <input type="text" name="nCarro" id="iCarro" value="<?php echo $dados['carros_id']?>" reandoly>
->>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709:App/VerMais/editarOS.php
             </div>
 
             <div class="input-field col s12">
@@ -121,13 +104,8 @@ if(isset($_GET['id'])){
                 <input type="text" name="nTipoManu" id="iTipoManu" value="<?php echo $dados['nome']?>">
             </div>
 
-<<<<<<< HEAD:App/VerMaisOS/editar.php
-            <button type="submit" name="btn-editar" class="btn black">Atualizar</button>
-            <a href="index.php" class="btn black">Lista de OS</a>
-=======
             <button type="submit" name="btn-editar-os" class="btn black">Atualizar</button>
             <a href="index.php" class="btn black">Lista de clientes</a>
->>>>>>> 79de5357c8faec5e5afca6d1ba099a6e86052709:App/VerMais/editarOS.php
         </form>
     </div>
 </div>
