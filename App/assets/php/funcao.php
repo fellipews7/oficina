@@ -35,10 +35,10 @@ function isCPF($valor){
     else:
         for ($t = 9; $t < 11; $t++):
             for ($d = 0, $c = 0; $c < $t; $c++) :
-                $d += $cpf{$c} * (($t + 1) - $c);
+                $d += $cpf[$c] * (($t + 1) - $c);
             endfor;
             $d = ((10 * $d) % 11) % 10;
-            if ($cpf{$c} != $d):
+            if ($cpf[$c] != $d):
                 return false;
             endif;
         endfor;
@@ -54,11 +54,11 @@ function isCNPJ($valor){
     else:
         for($t = 12; $t < 14; $t++):
             for($d = 0, $p = $t - 7, $c = 0; $c < $t; $c++):
-                $d += $cnpj{$c} * $p;
+                $d += $cnpj[$c] * $p;
                 $p  = ($p < 3) ? 9 : --$p;
             endfor;
             $d = ((10 * $d) % 11) % 10;
-            if($cnpj{$c} != $d):
+            if($cnpj[$c] != $d):
                 return false;
             endif;
         endfor;

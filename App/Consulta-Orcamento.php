@@ -93,7 +93,7 @@
             <th>Data Orçamento</th> 
             <th>Status</th>
             <th>Tipo Manutenção</th>
-            <th><i class="fa fa-list" aria-hidden="true"></i><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+            <th id="IListaeProcurar"><i class="fa fa-list" aria-hidden="true"></i><i class="fa fa-search-plus" aria-hidden="true"></i></th>
           </tr>
           <tr>
               <?php

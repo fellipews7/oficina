@@ -80,17 +80,14 @@
         <br>
 
         <table rules=all>
-          <tr>
+          <thead>
             <th>ID</th>
             <th>Nome</th>
             <th>Endereço</th> 
             <th>Telefone</th>
             <th>CPF</th>
-<<<<<<< HEAD:Consulta-Cliente.php
-=======
             <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
->>>>>>> 9a5a34c79899769dc758df5b388e392cb723ae36:App/Consulta-Cliente.php
-          </tr>
+          </thead>
           <tr>
               <?php
               if(isset($_GET['nPesquisarClienteCon'])) {

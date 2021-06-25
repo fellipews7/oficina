@@ -73,13 +73,8 @@
             <th>Ano Modelo</th>
             <th>Ano Fabricado</th>
             <th>Cliente Atual</th> 
-<<<<<<< HEAD:Consulta-Carros.php
-            <th></th>
-          </thead>
-=======
             <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
-          </tr>
->>>>>>> 9a5a34c79899769dc758df5b388e392cb723ae36:App/Consulta-Carros.php
+          </thead>
           <tr>
               <?php
               if(isset($_GET['nPesquisarCarroCon'])) {
