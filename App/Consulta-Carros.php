@@ -12,7 +12,7 @@
 
       <link rel="stylesheet" href="assets/css/styles.css" />
       <link rel="stylesheet" href="assets/css/Consulta.css"/>
-    <title>CSS GRID DASHBOARD</title>
+    <title>Consulta de Carros</title>
   </head>
   <body id="body">
   <?php
@@ -100,7 +100,7 @@
                       echo "<td></td>";
                       echo '<td id="iCantoBotao">';
 
-                      echo '<a href="VerMaisCarro/index?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                      echo '<a href="VerMais/carro?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
 
                       echo '</td>';
                       echo '</tr>';

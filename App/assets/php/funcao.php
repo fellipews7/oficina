@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 function limpezaVariavel($value){
     global $connect;
     $value = mysqli_escape_string($connect, $value);
@@ -155,38 +157,49 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                           $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id){
 
     if(isNome($nomeCliente)){
+
         if(isTelefone($telefoneCliente)){
+
             if(isData($dataNascimentoCliente)){
+
                 if(verificaCpfCnpj($cpfCnpjCliente)){
+
                     if(isEmail($emailCliente)){
+
                         if(isCEP($cepLogradouroCliente)){
-                            if($tipoAcao= 1) {
+
+
+                            if($tipoAcao == "1") {
                                 cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
                                     $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
                                     $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
-                            }elseif ($tipoAcao = 2){
+                            }elseif ($tipoAcao == "2"){
                                 updateClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
                                     $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
-                                    $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
+                                    $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id);
+
                             }
                         }else{
                             $_SESSION['tipoErro'] = 'CEP incorreto!';
                             $_SESSION['mensagem'] = 'erro';
 
-                            if($tipoAcao = 1) {
+                            if($tipoAcao == "1") {
                                 header('Location: cadastro-cliente.php?errocep');
-                            }elseif ($tipoAcao = 2){
-                                header('Location: VerMais/editarCliente.php?errocep');
+                            }elseif ($tipoAcao = "2"){
+                                header('Location: ../editarCliente.php?id='.$id);
+
                             }
                         }
                     }else{
                         $_SESSION['tipoErro'] = 'Email incorreto!';
                         $_SESSION['mensagem'] = 'erro';
 
-                        if($tipoAcao = 1) {
+
+                        if($tipoAcao == "1") {
                             header('Location: cadastro-cliente.php?erroemail');
-                        }elseif ($tipoAcao = 2){
-                            header('Location: VerMais/editarCliente.php?erroemail');
+                        }elseif ($tipoAcao == "2"){
+                            header('Location: ../editarCliente.php?id='.$id);
+
                         }
 
                     }
@@ -194,42 +207,47 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                     $_SESSION['tipoErro'] = 'CPF incorreto!';
                     $_SESSION['mensagem'] = 'erro';
 
-                    if($tipoAcao = 1) {
+                    if($tipoAcao == "1") {
                         header('Location: cadastro-cliente.php?errocpf');
-                    }elseif ($tipoAcao = 2){
-                        header('Location: VerMais/editarCliente.php?errocpf');
+                    }elseif ($tipoAcao == "2"){
+                        header('Location: ../editarCliente.php?id='.$id);
+
                     }
                 }
             }else{
                 $_SESSION['tipoErro'] = 'Data incorreta!';
                 $_SESSION['mensagem'] = 'erro';
 
-                if($tipoAcao = 1) {
-                    header('Location: editarCliente.php?errodata');
-                }elseif ($tipoAcao = 2){
-                    header('Location: VerMais/seditarCliente.php?errodata');
+                if($tipoAcao == "1") {
+                    header('Location: Consultar-Cliente.php?errodata');
+                }elseif ($tipoAcao == "2"){
+                    header('Location: ../editarCliente.php?id='.$id);
+
                 }
             }
         }else{
             $_SESSION['tipoErro'] = 'Telefone incorreto!';
             $_SESSION['mensagem'] = 'erro';
 
-            if($tipoAcao = 1) {
+            if($tipoAcao == "1") {
                 header('Location: cadastro-cliente.php?errotelefone');
-            }elseif ($tipoAcao = 2){
-                header('Location: VerMais/editarCliente.php?errotelefone');
+            }elseif ($tipoAcao == "2"){
+                header('Location: ../editarCliente.php?id='.$id);
+
             }
         }
     }else{
         $_SESSION['tipoErro'] = 'Nome incorreto!';
         $_SESSION['mensagem'] = 'erro';
-        header('Location: cadastro-cliente.php?erronome');
-        if($tipoAcao = 1) {
 
-        }elseif ($tipoAcao = 2){
+        if($tipoAcao == "1") {
+            header('Location: cadastro-cliente.php?erronome');
+        }elseif ($tipoAcao == "2"){
+            header('Location: ../editarCliente.php?id='.$id);
 
         }
     }
+
 }
 
 function verificaCpfCnpj($cpfCnpj){
@@ -243,7 +261,9 @@ function verificaCpfCnpj($cpfCnpj){
 function cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
                           $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro){
-    $sql = ("update INTO clientes (nome, telefone, data_nascimento, ".$tipoCadastro.", email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
+
+    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, ".$tipoCadastro.", email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
+
             '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cpfCnpjCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
             '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
 
@@ -254,9 +274,10 @@ function updateClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, 
                        $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id){
 
-    $sql = ("UPDATE clientes SET nome = '$nomeCliente', telefone = '$telefoneCliente', data_nascimento = $dataNascimentoCliente
-            ".$tipoCadastro." = '$cpfCnpjCliente', email = '$emailCliente', municipio = '$municipioLogradouroCliente'
-            numero_logradouro = '$numeroLogradouroCliente', estado = '$estadoLogradouroCliente', logradouro = '$ruaLogradouroCliente'
+    $sql = ("UPDATE clientes SET nome = '$nomeCliente', telefone = '$telefoneCliente', data_nascimento = '$dataNascimentoCliente',
+            ".$tipoCadastro." = '$cpfCnpjCliente', email = '$emailCliente', municipio = '$municipioLogradouroCliente',
+            numero_logradouro = '$numeroLogradouroCliente', estado = '$estadoLogradouroCliente', logradouro = '$ruaLogradouroCliente',
+
             cep = '$cepLogradouroCliente', data_cadastro = '$dataCadastroCliente', bairro = '$bairroLogradouroCliente'
             WHERE id = '$id'");
 
@@ -265,9 +286,13 @@ function updateClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, 
 
 function verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro,
                         $anoFabricacaoCarro, $tipoAcao, $id){
+                  
     if(isRenavam($renavamCarro)){
+
         if(isPlaca($placaCarro)){
+
             cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$anoModeloCarro,$anoFabricacaoCarro);
+
         }else{
             $_SESSION['tipoErro'] = 'Placa incorreto!';
             $_SESSION['mensagem'] = 'erro';
@@ -290,29 +315,61 @@ function cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$ano
 
 function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $tipoAcao, $matricula){
     if(isNome($nomeFuncionario)) {
+
         if(isCPF($cpfFuncionario)){
+
             if(isTelefone($telefoneFuncionario)){
-                cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario);
+
+                if($tipoAcao == "1") {
+                    cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario);
+                }elseif ($tipoAcao == "2"){
+                    updateFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, matricula);
+                }
+
             }else {
                 $_SESSION['tipoErro'] = 'Telefone incorreto!';
                 $_SESSION['mensagem'] = 'erro';
-                header('Location: Cadastro-Funcionario.php?errotelefone');
+
+                if($tipoAcao == "1") {
+                    header('Location: Cadastro-Funcionario.php?errotelefone');
+                }elseif ($tipoAcao == "2"){
+                    header('Location: ../editarFuncionario.php?id='.$id);
+                }
+
             }
         }else{
             $_SESSION['tipoErro'] = 'CPF incorreto!';
             $_SESSION['mensagem'] = 'erro';
-            header('Location: Cadastro-Funcionario.php?errocpf');
+
+            if($tipoAcao == "1") {
+                header('Location: Cadastro-Funcionario.php?errocpf');
+            }elseif ($tipoAcao == "2"){
+                header('Location: ../editarFuncionario.php?id='.$id);
+            }
         }
     }else{
         $_SESSION['tipoErro'] = 'Nome incorreto!';
         $_SESSION['mensagem'] = 'erro';
-        header('Location: Cadastro-Funcionario.php?erronome');
+
+        if($tipoAcao == "1") {
+            header('Location: Cadastro-Funcionario.php?erronome');
+        }elseif ($tipoAcao == "2"){
+            header('Location: ../editarFuncionario.php?id='.$id);
+        }
     }
 }
 
 function cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario){
+
     $sql = ("INSERT INTO funcionarios (matricula, nome, cpf, telefone_contato, cargos_id) VALUES (
             '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario')");
+
+    conexaoBdInsert($sql);
+}
+
+function updateFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $matricula){
+    $sql = ("UPDATE clientes SET nome = '$nomeFuncionario', telefone = '$telefoneFuncionario', cpf =  '$cpfFuncionario', 
+                                 cargos_id = '$idCargoFuncionario', matricula = '$matricula' WHERE matricula = '$matricula'");
 
     conexaoBdInsert($sql);
 }
@@ -322,11 +379,22 @@ function conexaoBdInsert($sql){
     global $connect;
     if(mysqli_query($connect, $sql)){
         $_SESSION['mensagem'] = "deu";
-        $_SESSION['tipoErro'] = "sem";
-        header('Location: index.php?deu');
+
+        if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
+            $_SESSION['tipoErro'] = "Atualização feita com sucesso!";
+            header('Location: ../../index.php');
+        }else{
+            $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
+            header('Location: index.php?deu');
+        }
     }else{
         $_SESSION['mensagem'] = "erro";
         $_SESSION['tipoErro'] = "Erro ao escrever no banco!";
-        header('Location: cadastro-cliente.php?errofinal');
+
+        if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
+            header('Location: ../../index.php');
+        }else{
+            header('Location: index.php?errofinal');
+        }
     }
 }
