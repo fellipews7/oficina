@@ -45,25 +45,12 @@
             <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
 
             <div class="wrapper">
-              <input type="radio" id="Nome" name="nTipoPalavraChave" value="nome">
+              <input type="radio" id="Nome" name="nTipoPalavraChave" value="nome" checked>
               <label for="Nome">Nome</label>
               <input type="radio" id="CPF" name="nTipoPalavraChave" value="cpf">
               <label for="CPF">CPF</label>
               <input type="radio" id="Cidade" name="nTipoPalavraChave" value="municipio">
               <label for="Cidade">Cidade</label>
-            </div>
-          </div>
-
-          <div class="column 2">
-            <label for="nSttsCad" id="LabelsRadios">Status do Cadastro</label>
-            
-            <div class="wrapper">
-              <input type="radio" id="Ativo" name="nSttsCad" value="Ativo">
-              <label for="Ativo">Ativo</label>
-              <input type="radio" id="Andamento" name="nSttsCad" value="Andamento">
-              <label for="Andamento">Andamento</label>
-              <input type="radio" id="Inativo" name="nSttsCad" value="Inativo">
-              <label for="Inativo">Inativo</label>
             </div>
           </div>
         </div>

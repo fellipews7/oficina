@@ -75,6 +75,7 @@
             <th>Cliente Atual</th> 
             <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
           </thead>
+          
           <tr>
               <?php
               if(isset($_GET['nPesquisarCarroCon'])) {
