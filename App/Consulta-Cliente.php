@@ -81,7 +81,7 @@
         <br>
 
         <table rules=all>
-          <tr>
+          <thead>
             <th>ID</th>
             <th>Nome</th>
             <th>Endereço</th> 
@@ -89,7 +89,8 @@
             <th>CPF</th>
             <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
 
-          </tr>
+          </thead>
+
           <tr>
               <?php
               if(isset($_GET['nPesquisarClienteCon'])) {

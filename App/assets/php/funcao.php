@@ -47,10 +47,10 @@ function isCPF($valor){
     else:
         for ($t = 9; $t < 11; $t++):
             for ($d = 0, $c = 0; $c < $t; $c++) :
-                $d += $cpf{$c} * (($t + 1) - $c);
+                $d += $cpf[$c] * (($t + 1) - $c);
             endfor;
             $d = ((10 * $d) % 11) % 10;
-            if ($cpf{$c} != $d):
+            if ($cpf[$c] != $d):
                 return false;
             endif;
         endfor;
@@ -66,11 +66,11 @@ function isCNPJ($valor){
     else:
         for($t = 12; $t < 14; $t++):
             for($d = 0, $p = $t - 7, $c = 0; $c < $t; $c++):
-                $d += $cnpj{$c} * $p;
+                $d += $cnpj[$c] * $p;
                 $p  = ($p < 3) ? 9 : --$p;
             endfor;
             $d = ((10 * $d) % 11) % 10;
-            if($cnpj{$c} != $d):
+            if($cnpj[$c] != $d):
                 return false;
             endif;
         endfor;
@@ -152,7 +152,7 @@ function isPlaca($placa){
     }
 }
 
-function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
+function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
                           $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id){
 
@@ -168,6 +168,7 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
 
                         if(isCEP($cepLogradouroCliente)){
 
+
                             if($tipoAcao == "1") {
                                 cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
                                     $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
@@ -176,6 +177,7 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                                 updateClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
                                     $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
                                     $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id);
+
                             }
                         }else{
                             $_SESSION['tipoErro'] = 'CEP incorreto!';
@@ -185,16 +187,19 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                                 header('Location: cadastro-cliente.php?errocep');
                             }elseif ($tipoAcao = "2"){
                                 header('Location: ../editarCliente.php?id='.$id);
+
                             }
                         }
                     }else{
                         $_SESSION['tipoErro'] = 'Email incorreto!';
                         $_SESSION['mensagem'] = 'erro';
 
+
                         if($tipoAcao == "1") {
                             header('Location: cadastro-cliente.php?erroemail');
                         }elseif ($tipoAcao == "2"){
                             header('Location: ../editarCliente.php?id='.$id);
+
                         }
 
                     }
@@ -206,6 +211,7 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                         header('Location: cadastro-cliente.php?errocpf');
                     }elseif ($tipoAcao == "2"){
                         header('Location: ../editarCliente.php?id='.$id);
+
                     }
                 }
             }else{
@@ -216,24 +222,29 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                     header('Location: Consultar-Cliente.php?errodata');
                 }elseif ($tipoAcao == "2"){
                     header('Location: ../editarCliente.php?id='.$id);
+
                 }
             }
         }else{
             $_SESSION['tipoErro'] = 'Telefone incorreto!';
             $_SESSION['mensagem'] = 'erro';
+
             if($tipoAcao == "1") {
                 header('Location: cadastro-cliente.php?errotelefone');
             }elseif ($tipoAcao == "2"){
                 header('Location: ../editarCliente.php?id='.$id);
+
             }
         }
     }else{
         $_SESSION['tipoErro'] = 'Nome incorreto!';
         $_SESSION['mensagem'] = 'erro';
+
         if($tipoAcao == "1") {
             header('Location: cadastro-cliente.php?erronome');
         }elseif ($tipoAcao == "2"){
             header('Location: ../editarCliente.php?id='.$id);
+
         }
     }
 
@@ -252,6 +263,7 @@ function cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                           $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro){
 
     $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, ".$tipoCadastro.", email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
+
             '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cpfCnpjCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
             '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
 
@@ -262,10 +274,10 @@ function updateClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, 
                        $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id){
 
-
     $sql = ("UPDATE clientes SET nome = '$nomeCliente', telefone = '$telefoneCliente', data_nascimento = '$dataNascimentoCliente',
             ".$tipoCadastro." = '$cpfCnpjCliente', email = '$emailCliente', municipio = '$municipioLogradouroCliente',
             numero_logradouro = '$numeroLogradouroCliente', estado = '$estadoLogradouroCliente', logradouro = '$ruaLogradouroCliente',
+
             cep = '$cepLogradouroCliente', data_cadastro = '$dataCadastroCliente', bairro = '$bairroLogradouroCliente'
             WHERE id = '$id'");
 
@@ -273,7 +285,8 @@ function updateClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, 
 }
 
 function verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro,
-                        $anoFabricacaoCarro/*, $tipoAcao, $id*/){
+                        $anoFabricacaoCarro, $tipoAcao, $id){
+                  
     if(isRenavam($renavamCarro)){
 
         if(isPlaca($placaCarro)){
