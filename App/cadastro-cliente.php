@@ -45,7 +45,8 @@
             <label for="iTelefone">Telefone</label>
             <input type="text" id="iTelefone" name="nTelefoneCliente" placeholder="Insira o telefone">
             <script type="text/javascript">
-              $("#iTelefone").mask("+000 (00) 0-0000-0000");
+              $("#iTelefone").mask("" +
+                  "(00) 0-0000-0000");
             </script>
 
             <label for="iDataNasc">Data Nascimento</label>

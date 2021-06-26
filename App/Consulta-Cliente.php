@@ -88,6 +88,7 @@
             <th>Telefone</th>
             <th>CPF</th>
             <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+
           </tr>
           <tr>
               <?php
