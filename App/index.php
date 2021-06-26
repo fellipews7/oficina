@@ -10,7 +10,9 @@
             crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="assets/css/styles.css"/>
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
     <title>Dashboard</title>
 </head>
 <body id="body">

@@ -610,9 +610,20 @@ background: rgb(255, 0, 0);
 transition: 0.2s;
 }
 
-#iCantoBotao{
-  padding-left: 50px;
+#IListaeProcurar {
+  display: flex;
   border: none;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+#IListaeProcurar i:last-child {
+    padding-left: 25px;
+}
+
+.CantoBotao {
+  background-color: red;
 }
 
 @media (max-width: 980px) {

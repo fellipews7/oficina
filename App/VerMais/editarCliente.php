@@ -34,7 +34,9 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iCpfCnpj">CPF/CNPJ</label>
+
                 <input type="text" name="nCPFCNPJCLiente" id="iCpf" value="<?php echo $dados['cpf'].$dados['cnpj']?>">
+
             </div>
 
             <div class="input-field col s12">
@@ -49,7 +51,9 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iDataNasc">Data Nascimento</label>
+
                 <input type="date" name="nDataNascCliente" id="iDataNasc" value="<?php echo $dados['data_nascimento']?>">
+
             </div>
 
             <div class="input-field col s12">
@@ -87,6 +91,7 @@ if(isset($_GET['id'])){
                 <input type="text" name="nComplementoCliente" id="iComplemento" value="<?php echo $dados['complemento_logradouro']?>">
             </div>
 
+
             <input type="hidden" name="nTipoAcaoCliente" value="2">
             <input type="hidden" name="nTipoCadastroCliente" value="<?php if($dados['cpf'] == ''){ echo 'cnpj';
                                                                           }else{ echo 'cpf';
@@ -95,6 +100,7 @@ if(isset($_GET['id'])){
 
 
             <button type="submit" name="btn-editar-cliente" class="btn black">Atualizar</button>
+
             <a href="../Consulta-Carros.php" class="btn black">Lista de carros</a>
         </form>
     </div>

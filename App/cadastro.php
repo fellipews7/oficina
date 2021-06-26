@@ -28,7 +28,8 @@ if(isset($_POST['nCadastrarOS'])){
 }
 
 function insertCliente(){
-    $id                         = 0;
+
+    $id                         = null;
     $tipoAcao                   = limpezaVariavel($_POST['nTipoAcao']);
     $tipoCadastro               = limpezaVariavel($_POST['nPessoaFJ']);
     $nomeCliente                = limpezaVariavel($_POST['nNomeCliente']);
@@ -45,10 +46,10 @@ function insertCliente(){
     $dataCadastroCliente        = date('Y/m/d');
 
 
-
     verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
         $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
         $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id);
+
 }
 
 function insertCargos(){
@@ -68,6 +69,7 @@ function insertFuncionario(){
     $idCargoFuncionario  = limpezaVariavel($_POST['nIDCargoFuncionarios']);
 
     verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario/*, $tipoAcao*/);
+
 }
 
 function insertCarros(){
