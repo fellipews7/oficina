@@ -3,17 +3,26 @@ session_start();
 session_status();
 
 if(isset($_SESSION['mensagem'])){
+    if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2) ){
+
     ?>
-    <script src="assets/js/jquery-3.1.1.min.js"></script>
-    <link href="assets/css/toastr.min.css" rel="stylesheet"/>
-    <script src="assets/js/toastr.min.js"></script>
+    <script src="../assets/js/jquery-3.1.1.min.js"></script>
+    <link href="../assets/css/toastr.min.css" rel="stylesheet"/>
+    <script src="../assets/js/toastr.min.js"></script>
 
 
     <?php
+        $_SESSION['tipoAcao'] = null;
+    }else{?>
+        <script src="assets/js/jquery-3.1.1.min.js"></script>
+        <link href="assets/css/toastr.min.css" rel="stylesheet"/>
+        <script src="assets/js/toastr.min.js"></script>
+    <?php }
+
     if($_SESSION['mensagem'] == 'deu'){
         ?>
         <script>
-            toastr["success"]("Sucesso!", "Cadastro feito com sucesso!")
+            toastr["success"]("<?php echo ($_SESSION['tipoErro'])?>", "Sucesso!")
 
             toastr.options = {
                 "closeButton": true,
@@ -38,6 +47,7 @@ if(isset($_SESSION['mensagem'])){
     if($_SESSION['mensagem'] == 'erro'){
         ?>
         <script>
+
             toastr["error"]("<?php echo ($_SESSION['tipoErro'])?>", "Erro!")
 
             toastr.options = {

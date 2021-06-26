@@ -26,20 +26,24 @@ if(isset($_POST['btn-editar-os'])){
 
 function updateCliente(){
     $id                         = limpezaVariavel($_POST['nId']);
-    $tipoAcao                   = limpezaVariavel($_POST['nTipoAcao']);
-    $tipoCadastro               = limpezaVariavel($_POST['nPessoaFJ']);
+
+    $_SESSION['tipoAcao']       = limpezaVariavel($_POST['nTipoAcaoCliente']);
+    $tipoAcao                   = limpezaVariavel($_POST['nTipoAcaoCliente']);
+    $tipoCadastro               = limpezaVariavel($_POST['nTipoCadastroCliente']);
     $nomeCliente                = limpezaVariavel($_POST['nNomeCliente']);
     $telefoneCliente            = limpaNumero($_POST['nTelefoneCliente']);
     $dataNascimentoCliente      = limpezaVariavel($_POST['nDataNascCliente']);
-    $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicípioCliente']);
+    $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicipioCliente']);
     $numeroLogradouroCliente    = limpezaVariavel($_POST['nNumeroCliente']);
-    $cpfCnpjCliente             = limpezaVariavel($_POST['nCPFCNPJCliente']);
+    $cpfCnpjCliente             = limpaNumero($_POST['nCPFCNPJCLiente']);
+
     $emailCliente               = limpezaVariavel($_POST['nEmailCliente']);
     $estadoLogradouroCliente    = limpezaVariavel($_POST['nEstadoCliente']);
     $bairroLogradouroCliente    = limpezaVariavel($_POST['nBairroCliente']);
     $ruaLogradouroCliente       = limpezaVariavel($_POST['nRuaCliente']);
     $cepLogradouroCliente       = limpezaVariavel($_POST['nCEPCliente']);
     $dataCadastroCliente        = date('Y/m/d');
+
 
     verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
         $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
@@ -48,11 +52,13 @@ function updateCliente(){
 
 function updateFuncionario(){
     $matricula                  = limpezaVariavel($_POST['nMatricula']);
-    $tipoAcao            = limpezaVariavel($_POST['nTipoAcao']);
-    $nomeFuncionario     = limpezaVariavel($_POST['nNomeFuncionario']);
-    $cpfFuncionario      = limpezaVariavel($_POST['nCPFFuncionario']);
-    $telefoneFuncionario = limpezaVariavel($_POST['nTelefoneFuncionario']);
-    $idCargoFuncionario  = limpezaVariavel($_POST['nIDCargoFuncionarios']);
+    $_SESSION['tipoAcao']       = limpezaVariavel($_POST['nTipoAcaoCliente']);
+    $tipoAcao                   = limpezaVariavel($_POST['nTipoAcao']);
+    $nomeFuncionario            = limpezaVariavel($_POST['nNomeFuncionario']);
+    $cpfFuncionario             = limpaNumero($_POST['nCPFFuncionario']);
+    $telefoneFuncionario        = limpezaVariavel($_POST['nTelefoneFuncionario']);
+    $idCargoFuncionario         = limpezaVariavel($_POST['nIDCargoFuncionarios']);
+
 
     verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $tipoAcao, $matricula);
 }
