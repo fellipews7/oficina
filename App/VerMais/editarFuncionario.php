@@ -1,10 +1,10 @@
 <?php
 include_once '../connection.php';
 include_once 'includes/header.php';
-include_once 'includes/funcao.php';
+
 
 if(isset($_GET['matricula'])){
-    $matricula = clear($_GET['matricula']);
+    $matricula = limpaVariavel($_GET['matricula']);
 
     $sql = "SELECT * FROM funcionarios WHERE matricula = '$matricula'";
     $resultado = mysqli_query($connect, $sql);
@@ -22,7 +22,7 @@ if(isset($_GET['matricula'])){
 
             <div class="input-field col s12">
                 <label for="iMatricula">Matrícula</label>
-                <input type="text" name="nMatricula" id="iMatricula" value="<?php echo $dados['matricula']?>">
+                <input type="text" readonly name="nMatricula" id="iMatricula" value="<?php echo $dados['matricula']?>">
             </div>
 
             <div class="input-field col s12">
@@ -58,7 +58,7 @@ if(isset($_GET['matricula'])){
             <input type="hidden" name="nTipoAcao" value="2">
 
             <button type="submit" name="btn-editar-funcionario" class="btn black">Atualizar</button>
-            <a href="index.php" class="btn black">Lista de funcionários</a>
+            <a href="funcionario.php" class="btn black">Lista de funcionários</a>
         </form>
     </div>
 </div>
