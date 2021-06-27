@@ -21,37 +21,37 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
             <div class="input-field col s12">
-                <label for="iID">ID</label>
+                <label for="iID">Código do Carro</label><br>
                 <input type="text" name="nID" id="iID" value="<?php echo $dados['id']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iPlaca">Placa</label>
+                <label for="iPlaca">Placa</label><br>
                 <input type="text" name="nPlaca" id="iPlaca" value="<?php echo $dados['placa']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iModelo">Modelo</label>
+                <label for="iModelo">Modelo</label><br>
                 <input type="text" name="nModelo" id="iModelo" value="<?php echo $dados['modelo']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iMarca">Marca</label>
+                <label for="iMarca">Marca</label><br>
                 <input type="text" name="nMarca" id="iModelo" value="<?php echo $dados['marca']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iAnoMod">Ano Modelo</label>
+                <label for="iAnoMod">Ano Modelo</label><br>
                 <input type="text" name="nAnoMod" id="iAnoMod" value="<?php echo $dados['ano_modelo']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iAnoFab">Ano Fabricação</label>
+                <label for="iAnoFab">Ano Fabricação</label><br>
                 <input type="text" name="nAnoFab" id="iAnoFab" value="<?php echo $dados['ano_fabricado']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iRenavam">Renavam</label>
+                <label for="iRenavam">Renavam</label><br>
                 <input type="text" name="nRenavam" id="iRenavam" value="<?php echo $dados['renavam']?>">
             </div>
 
