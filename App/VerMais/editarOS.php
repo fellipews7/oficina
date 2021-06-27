@@ -1,16 +1,17 @@
 <?php
 include_once '../connection.php';
 include_once 'includes/header.php';
-include_once 'includes/funcao.php';
+
 
 if(isset($_GET['id'])){
-    $id = clear($_GET['id']);
+    $id = limpaVariavel($_GET['id']);
 
-    $sql = "SELECT so.id AS so_id, orc.id AS orcamento_id, orc.clientes_id AS clientes_id, orc.carros_id AS carros_id
+    $sql = "SELECT so.id AS so_id, orc.id AS orcamento_id, orc.clientes_id AS clientes_id, orc.carros_id AS carros_id,
             orc.descricao_servicos AS descricao_servicos, orc.valor_total_servicos AS valor_total_servicos,
-            orc.descricao_produtos ,orc.valor_total_produtos AS valor_total_produtos, os.data_cadastro AS data_cadastro
-            os.data_previsao AS data_previsao, os.data_entrega AS data_entrega
-            FROM ordens_de_servico AS so 
+            orc.descricao_produtos ,orc.valor_total_produtos AS valor_total_produtos, so.data_cadastro AS data_cadastro,
+            so.data_previsao AS data_previsao, so.data_conclusao AS data_entrega, so.valor_final AS valor_final,
+            so.km_atual AS km_atual, so.funcionarios_matricula AS matricula_funcionarios, so.status AS status
+            FROM ordens_de_servicos AS so 
             INNER JOIN orcamentos AS orc ON orc.id = so.orcamentos_id
             WHERE so.id = '$id'";
     $resultado = mysqli_query($connect, $sql);
@@ -24,11 +25,13 @@ if(isset($_GET['id'])){
 
         <form action="phpaction/atualizar.php" method="post">
 
-            <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
+            <input type="hidden" name="nId" value="<?php echo $dados['so_id']?>">
 
             <div class="input-field col s12">
+
                 <label for="iIDOs">Nº Ordem de Serviço</label><br>
                 <input type="text" name="nIDOs" id="iIDOs" value="<?php echo $dados['id']?>">
+
             </div>
 
             <div class="input-field col s12">
@@ -47,6 +50,7 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
+
                 <label for="iDescServ">Descrição do Serviço</label><br>
                 <input type="text" name="nDescServ" id="iDescServ" value="<?php echo $dados['descricao_servico']?>">
             </div>
@@ -92,6 +96,7 @@ if(isset($_GET['id'])){
             div class="input-field col s12">
                 <label for="iMatFun">Matrícula Funcionário</label><br>
                 <input type="text" name="nMatFun" id="iMatFun" value="<?php echo $dados['matriculafuncionario']?>">
+
             </div>
 
             <div class="input-field col s12">
@@ -100,8 +105,10 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
+
                 <label for="iTipoManu">Tipo Manutenção</label><br>
                 <input type="text" name="nTipoManu" id="iTipoManu" value="<?php echo $dados['tipomanutencao']?>">
+
             </div>
 
             <button type="submit" name="btn-editar-os" class="btn black">Atualizar</button>

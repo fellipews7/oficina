@@ -67,8 +67,10 @@ function insertFuncionario(){
     $cpfFuncionario      = limpezaVariavel($_POST['nCPFFuncionario']);
     $telefoneFuncionario = limpezaVariavel($_POST['nTelefoneFuncionario']);
     $idCargoFuncionario  = limpezaVariavel($_POST['nIDCargoFuncionarios']);
+    $senhaFuncionario    = limpezaVariavel('1');
+    $loginFuncionario    = limpezaVariavel('1');
 
-    verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario/*, $tipoAcao*/);
+    verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $tipoAcao, $loginFuncionario, $senhaFuncionario);
 
 }
 

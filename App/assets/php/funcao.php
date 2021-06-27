@@ -34,7 +34,7 @@ function limpaNumero($valor){
 }
 
 function limpaPlaca($valor){
-    $valor = preg_replace('/^[A-Za-z0-9-]+$/', '', $valor);
+    $valor = preg_replace('/[^ a-zA-Z0-9]/', '', $valor);
     return $valor;
 }
 
@@ -142,7 +142,7 @@ function isRenavam ( $renavam ) {
 }
 
 function isPlaca($placa){
-    var_dump($placa);
+
     $regex1 = '/[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}/';
 
     if (preg_match($regex1, $placa)) {
@@ -162,7 +162,7 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
 
             if(isData($dataNascimentoCliente)){
 
-                if(verificaCpfCnpj($cpfCnpjCliente)){
+                if(verificaCpfCnpj($cpfCliente)){
 
                     if(isEmail($emailCliente)){
 
@@ -170,11 +170,11 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
 
 
                             if($tipoAcao == "1") {
-                                cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
+                                cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
                                     $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
                                     $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
                             }elseif ($tipoAcao == "2"){
-                                updateClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
+                                atualizaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
                                     $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
                                     $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id);
 
@@ -270,7 +270,7 @@ function cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
     conexaoBdInsert($sql);
 }
 
-function updateClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
+function atualizaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
                        $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id){
 
@@ -291,18 +291,38 @@ function verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $
 
         if(isPlaca($placaCarro)){
 
-            cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$anoModeloCarro,$anoFabricacaoCarro);
+            if($tipoAcao == "1") {
+                cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$anoModeloCarro,$anoFabricacaoCarro);
+            }elseif ($tipoAcao == "2") {
+                atualizaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro, $id);
+            }
 
         }else{
             $_SESSION['tipoErro'] = 'Placa incorreto!';
             $_SESSION['mensagem'] = 'erro';
-            header('Location: Cadastro-Carro.php?erroplaca');
+
+            if($tipoAcao == "1") {
+                header('Location: Cadastro-Carro.php?erroplaca');
+            }elseif ($tipoAcao == "2") {
+                //header('Location: ../editarCarro.php?id=' . $id);
+            }
+
         }
     }else{
+
         $_SESSION['tipoErro'] = 'Renavam incorreto!';
         $_SESSION['mensagem'] = 'erro';
-        header('Location: Cadastro-Carro.php?errorenavam');
+
+
+        if($tipoAcao == "1") {
+            header('Location: Cadastro-Carro.php?errorenavam');
+        }elseif ($tipoAcao == "2") {
+            echo 'renavam';
+            header('Location: ../editarCarro.php?id=' . $id);
+        }
+
     }
+
 }
 
 function cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$anoModeloCarro,$anoFabricacaoCarro){
@@ -312,20 +332,39 @@ function cadastraCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$ano
     conexaoBdInsert($sql);
 }
 
+function atualizaCarros($placaCarro, $renavamCarro,$marcaCarro,$modeloCarro,$anoModeloCarro,$anoFabricacaoCarro, $id){
+    $sql = ("UPDATE carros  SET placa = '$placaCarro', renavam = '$renavamCarro', marca =  '$marcaCarro', 
+                                modelo = '$modeloCarro', ano_modelo = '$anoModeloCarro', ano_fabricado = '$anoFabricacaoCarro'
+                                WHERE id = '$id'");
 
-function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $tipoAcao, $matricula){
+    conexaoBdInsert($sql);
+}
+
+
+function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $tipoAcao, $matricula, $loginFuncionario, $senhaFuncionario){
     if(isNome($nomeFuncionario)) {
 
         if(isCPF($cpfFuncionario)){
 
             if(isTelefone($telefoneFuncionario)){
 
-                if($tipoAcao == "1") {
-                    cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario);
-                }elseif ($tipoAcao == "2"){
-                    updateFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, matricula);
-                }
+                if($senhaFuncionario != "" or $loginFuncionario != "") {
 
+                    if ($tipoAcao == "1") {
+                        cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $loginFuncionario, $senhaFuncionario);
+                    } elseif ($tipoAcao == "2") {
+                        atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $matricula, $loginFuncionario, $senhaFuncionario);
+                    }
+                }else{
+                    $_SESSION['tipoErro'] = 'Login ou senha incorreto!';
+                    $_SESSION['mensagem'] = 'erro';
+
+                    if($tipoAcao == "1") {
+                        header('Location: Cadastro-Funcionario.php?errologin');
+                    }elseif ($tipoAcao == "2"){
+                        header('Location: ../editarFuncionario.php?id='.$matricula);
+                    }
+                }
             }else {
                 $_SESSION['tipoErro'] = 'Telefone incorreto!';
                 $_SESSION['mensagem'] = 'erro';
@@ -333,7 +372,7 @@ function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
                 if($tipoAcao == "1") {
                     header('Location: Cadastro-Funcionario.php?errotelefone');
                 }elseif ($tipoAcao == "2"){
-                    header('Location: ../editarFuncionario.php?id='.$id);
+                    header('Location: ../editarFuncionario.php?id='.$matricula);
                 }
 
             }
@@ -344,7 +383,7 @@ function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
             if($tipoAcao == "1") {
                 header('Location: Cadastro-Funcionario.php?errocpf');
             }elseif ($tipoAcao == "2"){
-                header('Location: ../editarFuncionario.php?id='.$id);
+                header('Location: ../editarFuncionario.php?id='.$matricula);
             }
         }
     }else{
@@ -354,26 +393,26 @@ function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
         if($tipoAcao == "1") {
             header('Location: Cadastro-Funcionario.php?erronome');
         }elseif ($tipoAcao == "2"){
-            header('Location: ../editarFuncionario.php?id='.$id);
+            header('Location: ../editarFuncionario.php?id='.$matricula);
         }
     }
 }
 
-function cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario){
+function cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $loginFuncionario, $senhaFuncionario){
 
-    $sql = ("INSERT INTO funcionarios (matricula, nome, cpf, telefone_contato, cargos_id) VALUES (
+    $sql = ("INSERT INTO funcionarios (matricula, nome, cpf, telefone_contato, cargos_id, login, senha) VALUES (
             '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario')");
 
     conexaoBdInsert($sql);
 }
 
-function updateFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $matricula){
-    $sql = ("UPDATE clientes SET nome = '$nomeFuncionario', telefone = '$telefoneFuncionario', cpf =  '$cpfFuncionario', 
-                                 cargos_id = '$idCargoFuncionario', matricula = '$matricula' WHERE matricula = '$matricula'");
+function atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $matricula){
+    $sql = ("UPDATE funcionarios SET nome = '$nomeFuncionario', telefone_contato = '$telefoneFuncionario', cpf =  '$cpfFuncionario', 
+                                cargos_id = '$idCargoFuncionario' WHERE matricula = '$matricula'");
+
 
     conexaoBdInsert($sql);
 }
-
 
 function conexaoBdInsert($sql){
     global $connect;
@@ -392,8 +431,11 @@ function conexaoBdInsert($sql){
         $_SESSION['tipoErro'] = "Erro ao escrever no banco!";
 
         if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
+
             header('Location: ../../index.php');
+
         }else{
+
             header('Location: index.php?errofinal');
         }
     }

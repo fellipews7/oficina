@@ -1,10 +1,10 @@
 <?php
 include_once '../connection.php';
 include_once 'includes/header.php';
-include_once 'includes/funcao.php';
+
 
 if(isset($_GET['id'])){
-    $id = clear($_GET['id']);
+    $id = limpaVariavel($_GET['id']);
 
     $sql = "SELECT * FROM orcamentos WHERE id = '$id'";
     $resultado = mysqli_query($connect, $sql);
@@ -21,8 +21,10 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
             <div class="input-field col s12">
+
                 <label for="iIDOrcamento">Nº do Orçamento</label><br>
                 <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['id']?>">
+
             </div>
 
             <div class="input-field col s12">
@@ -61,8 +63,10 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
+
                 <label for="iStatus">Status</label><br>
                 <input type="text" name="iStatus" id="iStatus" value="<?php echo $dados['status']?>">
+
             </div>
 
             <input type="hidden" name="nTipoAcao" value="2">
