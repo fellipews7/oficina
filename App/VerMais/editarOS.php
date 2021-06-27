@@ -28,81 +28,87 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['so_id']?>">
 
             <div class="input-field col s12">
-                <label for="iIDOs">Nº Ordem de Serviço</label>
-                <input type="text" name="nIDOs" id="iIDOs" value="<?php echo $dados['so_id']?>">
+
+                <label for="iIDOs">Nº Ordem de Serviço</label><br>
+                <input type="text" name="nIDOs" id="iIDOs" value="<?php echo $dados['id']?>">
+
             </div>
 
             <div class="input-field col s12">
-                <label for="iIDOrcamento">Nº Orçamento</label>
+                <label for="iIDOrcamento">Nº Orçamento</label><br>
                 <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['orcamento_id']?>" reandoly>
             </div>
 
             <div class="input-field col s12">
-                <label for="iCliente"> Cliente</label>
+                <label for="iCliente"> Cliente</label><br>
                 <input type="text" name="nCliente" id="iCliente" value="<?php echo $dados['clientes_id']?>" reandoly>
             </div>
 
             <div class="input-field col s12">
-                <label for="iCarro">Carro</label>
+                <label for="iCarro">Carro</label><br>
                 <input type="text" name="nCarro" id="iCarro" value="<?php echo $dados['carros_id']?>" reandoly>
             </div>
 
             <div class="input-field col s12">
-                <label for="iDescServ">Descrição do Serviço</label>
-                <input type="text" name="nDescServ" id="iDescServ" value="<?php echo $dados['descricao_servicos']?>">
+
+                <label for="iDescServ">Descrição do Serviço</label><br>
+                <input type="text" name="nDescServ" id="iDescServ" value="<?php echo $dados['descricao_servico']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iPrecoObra">Preço Mão de Obra</label>
-                <input type="text" name="nPrecoObra" id="iPrecoObra" value="<?php echo $dados['valor_total_servicos']?>">
+                <label for="iPrecoObra">Preço Mão de Obra</label><br>
+                <input type="text" name="nPrecoObra" id="iPrecoObra" value="<?php echo $dados['precoobra']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iDescPro">Descrição dos Produtos</label>
-                <input type="text" name="nDescPro" id="iDescPro" value="<?php echo $dados['descricao_produtos']?>">
+                <label for="iDescPro">Descrição dos Produtos</label><br>
+                <input type="text" name="nDescPro" id="iDescPro" value="<?php echo $dados['descricaoproduto']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iPrecoPro">Preço dos Produtos</label>
-                <input type="text" name="nPrecoPro" id="iPrecoPro" value="<?php echo $dados['valor_total_produtos']?>">
+                <label for="iPrecoPro">Preço dos Produtos</label><br>
+                <input type="text" name="nPrecoPro" id="iPrecoPro" value="<?php echo $dados['precoproduto']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iDataOrc">Data do Cadastro Orçamento</label>
-                <input type="text" name="nDataOrc" id="iDataOrc" value="<?php echo $dados['data_cadastro']?>">
+                <label for="iDataOrc">Data do Cadastro Orçamento</label><br>
+                <input type="text" name="nDataOrc" id="iDataOrc" value="<?php echo $dados['dataorcamento']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iDataPrev">Data Previsão</label>
-                <input type="text" name="nDataPrev" id="iDataPrev" value="<?php echo $dados['data_previsao']?>">
+                <label for="iDataPrev">Data Previsão</label><br>
+                <input type="text" name="nDataPrev" id="iDataPrev" value="<?php echo $dados['dataprevisao']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iDataEnt">Data Entrega</label>
-                <input type="text" name="nDataEnt" id="iDataEnt" value="<?php echo $dados['data_entrega']?>">
+                <label for="iDataEnt">Data Entrega</label><br>
+                <input type="text" name="nDataEnt" id="iDataEnt" value="<?php echo $dados['dataentrega']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iVT">Valor Total</label>
-                <input type="text" name="nVT" id="iVT" value="<?php echo $dados['valor_final']?>">
+                <label for="iVT">Valor Total</label><br>
+                <input type="text" name="nVT" id="iVT" value="<?php echo $dados['valortotal']?>">
             </div>
             <div class="input-field col s12">
-                <label for="iKM">Quilometragem</label>
-                <input type="text" name="iKM" id="iKM" value="<?php echo $dados['km_atual']?>">
+                <label for="iKM">Quilometragem</label><br>
+                <input type="text" name="iKM" id="iKM" value="<?php echo $dados['quilometragem']?>">
             </div
             div class="input-field col s12">
-                <label for="iMatFun">Matrícula Funcionário</label>
-                <input type="text" name="nMatFun" id="iMatFun" value="<?php echo $dados['matricula_funcionarios']?>">
+                <label for="iMatFun">Matrícula Funcionário</label><br>
+                <input type="text" name="nMatFun" id="iMatFun" value="<?php echo $dados['matriculafuncionario']?>">
+
             </div>
 
             <div class="input-field col s12">
-                <label for="iStatus">Status</label>
+                <label for="iStatus">Status</label><br>
                 <input type="text" name="iStatus" id="iStatus" value="<?php echo $dados['status']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iTipoManu">Tipo Manutenção</label>
-                <input type="text" name="nTipoManu" id="iTipoManu" value="<?php /* echo $dados['tipomanutencao']*/?>">
+
+                <label for="iTipoManu">Tipo Manutenção</label><br>
+                <input type="text" name="nTipoManu" id="iTipoManu" value="<?php echo $dados['tipomanutencao']?>">
+
             </div>
 
             <button type="submit" name="btn-editar-os" class="btn black">Atualizar</button>
