@@ -1,12 +1,11 @@
 <?php
 include_once '../connection.php';
 include_once 'includes/header.php';
-include_once 'includes/funcao.php';
 include_once '../assets/php/mensagem.php';
 
 
 if(isset($_GET['id'])){
-    $id = clear($_GET['id']);
+    $id = limpaVariavel($_GET['id']);
 
     $sql = "SELECT * FROM clientes WHERE id = '$id'";
     $resultado = mysqli_query($connect, $sql);
