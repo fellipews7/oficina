@@ -45,28 +45,30 @@
 
             <label for="LabelsRadios" id="LabelsRadios">Data Inicial</label><br>
             <input class="data" type="date" id="LabelsRadios" name="nDataInOrc" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01"><br>
+            data-date-format="DD MMMM YYYY" value="2021-01-01"><br>
+
+            <div class="column 2">
+            
+             <label for="iDataFin">Data Final</label>
+             <input class="data" type="date" id="iDataFin" name="nDataFimOrc" data-date=""
+             data-date-format="DD MMM YYYY" value="<?php echo date("Y-m-d");?>">
+
+            </div>
 
             <label for="nSttsOS" id="LabelsRadios">Status do Orçamento</label>
 
             <div class="wrapper" id="LabelsRadios">
+              <input type="radio" id="iCancelado" name="nSttsOrcamento" value="0" checked>
+              <label for="iCancelado">Todos</label>
               <input type="radio" id="iAprovado" name="nSttsOrcamento" value="1">
               <label for="iAprovado">Aprovado</label>
               <input type="radio" id="iAguardando" name="nSttsOrcamento" value="2">
               <label for="iAguardando">Aguardando</label>
               <input type="radio" id="iCancelado" name="nSttsOrcamento" value="3">
               <label for="iCancelado">Cancelado</label>
+
             </div>
           </div>
-
-          <div class="column 2">
-            
-            <label for="iDataFin">Data Final</label>
-            <input class="data" type="date" id="iDataFin" name="nDataFimOrc" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01">
-
-          </div>
-
 
         </div>
         
