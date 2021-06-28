@@ -22,15 +22,14 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
             <div class="input-field col s12">
-<<<<<<< HEAD
 
                 <label for="iID">Código do Carro</label><br>
                 <input type="text" name="nID" id="iID" value="<?php echo $dados['id']?>">
 
-=======
                 <label for="iID">ID</label>
                 <input type="text" readonly name="nID" id="iID" value="<?php echo $dados['id']?>">
->>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
+
+
             </div>
 
             <div class="input-field col s12">

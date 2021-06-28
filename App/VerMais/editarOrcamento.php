@@ -21,15 +21,10 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
             <div class="input-field col s12">
-<<<<<<< HEAD
 
-                <label for="iIDOrcamento">Nº do Orçamento</label><br>
-                <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['id']?>">
-
-=======
                 <label for="iIDOrcamento">ID Orçamento</label>
                 <input type="text" reandoly name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['id']?>">
->>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
+
             </div>
 
             <div class="input-field col s12">
@@ -68,16 +63,10 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
-<<<<<<< HEAD
 
-
-                <label for="iStatus">Status</label><br>
-                <input type="text" name="iStatus" id="iStatus" value="<?php echo $dados['status']?>">
-
-=======
                 <label for="iStatus">Status</label>
                 <input type="text" name="nStatus" id="iStatus" value="<?php echo $dados['status']?>">
->>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
+
             </div>
 
             <input type="hidden" name="nTipoAcao" value="2">

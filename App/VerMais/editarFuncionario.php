@@ -21,15 +21,10 @@ if(isset($_GET['matricula'])){
             <input type="hidden" name="nMatricula" value="<?php echo $dados['matricula']?>">
 
             <div class="input-field col s12">
-<<<<<<< HEAD
 
-                <label for="iMatricula">Matrícula</label><br>
-                <input type="text" name="nMatricula" id="iMatricula" value="<?php echo $dados['matricula']?>">
-
-=======
                 <label for="iMatricula">Matrícula</label>
                 <input type="text" readonly name="nMatricula" id="iMatricula" value="<?php echo $dados['matricula']?>">
->>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
+
             </div>
 
             <div class="input-field col s12">

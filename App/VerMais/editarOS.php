@@ -28,15 +28,10 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['so_id']?>">
 
             <div class="input-field col s12">
-<<<<<<< HEAD
 
-                <label for="iIDOs">Nº Ordem de Serviço</label><br>
-                <input type="text" name="nIDOs" id="iIDOs" value="<?php echo $dados['id']?>">
-
-=======
                 <label for="iIDOs">Nº Ordem de Serviço</label>
                 <input type="text" name="nIDOs" id="iIDOs" value="<?php echo $dados['so_id']?>">
->>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
+
             </div>
 
             <div class="input-field col s12">
@@ -102,8 +97,12 @@ if(isset($_GET['id'])){
             div class="input-field col s12">
                 <label for="iMatFun">Matrícula Funcionário</label>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <input type="text" name="nMatFun" id="iMatFun" value="<?php echo $dados['matriculafuncionario']?>">
 
+=======
+                <input type="text" name="nMatFun" id="iMatFun" value="<?php echo $dados['matricula_funcionarios']?>">
+>>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
 =======
                 <input type="text" name="nMatFun" id="iMatFun" value="<?php echo $dados['matricula_funcionarios']?>">
 >>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
@@ -121,9 +120,13 @@ if(isset($_GET['id'])){
 =======
                 <label for="iTipoManu">Tipo Manutenção</label>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of e2ced22 (Colocado descrição dos campos das telas Editar para cima dos pinput)
                 <input type="text" name="nTipoManu" id="iTipoManu" value="<?php echo $dados['tipomanutencao']?>">
 
+=======
+                <input type="text" name="nTipoManu" id="iTipoManu" value="<?php /* echo $dados['tipomanutencao']*/?>">
+>>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
 =======
                 <input type="text" name="nTipoManu" id="iTipoManu" value="<?php /* echo $dados['tipomanutencao']*/?>">
 >>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
