@@ -22,71 +22,71 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
             <div class="input-field col s12">
-                <label for="iID">Código do Cliente</label><br>
+                <label for="iID">ID</label>
                 <input type="text" readonly name="nID" id="iID" value="<?php echo $dados['id']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iPlaca">Nome</label><br>
+                <label for="iPlaca">Nome</label>
                 <input type="text" name="nNomeCliente" id="iNome" value="<?php echo $dados['nome']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iCpfCnpj">CPF/CNPJ</label><br>
+                <label for="iCpfCnpj">CPF/CNPJ</label>
 
                 <input type="text" name="nCPFCNPJCLiente" id="iCpf" value="<?php echo $dados['cpf'].$dados['cnpj']?>">
 
             </div>
 
             <div class="input-field col s12">
-                <label for="iTelefone">Número para Contato</label><br>
+                <label for="iTelefone"></label>
                 <input type="text" name="nTelefoneCliente" id="iTelefone" value="<?php echo $dados['telefone']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iEmail">E-mail</label><br>
+                <label for="iEmail">Email</label>
                 <input type="text" name="nEmailCliente" id="iEmail" value="<?php echo $dados['email']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iDataNasc">Data Nascimento</label><br>
+                <label for="iDataNasc">Data Nascimento</label>
 
                 <input type="date" name="nDataNascCliente" id="iDataNasc" value="<?php echo $dados['data_nascimento']?>">
 
             </div>
 
             <div class="input-field col s12">
-                <label for="iEstado">Estado</label><br>
+                <label for="iEstado">Estado</label>
                 <input type="text" name="nEstadoCliente" id="iEstado" value="<?php echo $dados['estado']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iEstado">Municipio</label><br>
+                <label for="iEstado">Municipio</label>
                 <input type="text" name="nMunicipioCliente" id="nMunicipioCliente" value="<?php echo $dados['municipio']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iCep">CEP</label><br>
+                <label for="iCep">CEP</label>
                 <input type="text" name="nCEPCliente" id="iCep" value="<?php echo $dados['cep']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iBairro">Bairro</label><br>
+                <label for="iBairro">Bairro</label>
                 <input type="text" name="nBairroCliente" id="iBairro" value="<?php echo $dados['bairro']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iLogradouro">Logradouro</label><br>
+                <label for="iLogradouro">Logradouro</label>
                 <input type="text" name="nRuaCliente" id="iLogradouro" value="<?php echo $dados['logradouro']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iNumero">Número</label><br>
+                <label for="iNumero">Número</label>
                 <input type="text" name="nNumeroCliente" id="iNumero" value="<?php echo $dados['numero_logradouro']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iComplemento">Complemento</label><br>
+                <label for="iComplemento">Complemento</label>
                 <input type="text" name="nComplementoCliente" id="iComplemento" value="<?php echo $dados['complemento_logradouro']?>">
             </div>
 
