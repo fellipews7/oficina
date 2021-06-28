@@ -75,13 +75,7 @@
             <th>Telefone</th>
             <th>CPF</th>
             <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
-<<<<<<< HEAD
           </thead>
-=======
-
-          </thead>
-
->>>>>>> 27ff5c9f0c0eb23ea86c95073a505b7ffbf925af
           <tr>
               <?php
               if(isset($_GET['nPesquisarClienteCon'])) {

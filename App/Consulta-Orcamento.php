@@ -133,8 +133,9 @@
 
                       echo '<td id="iCantoBotao">';
 
-                        echo '<a href="VerMais/orcamento.php?id='.$dados['orcamento_id'].'" id="VerMaisOrcamento"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                         echo '<a href="Cadastro-OS.php" id="GerarOS"><i class="fa fa-list" aria-hidden="true"></i></a>';
+                        echo '<a href="VerMais/orcamento.php?id='.$dados['orcamento_id'].'" id="VerMaisOrcamento"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+
 
                       echo '</td>';
                       echo '</tr>';

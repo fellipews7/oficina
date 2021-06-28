@@ -504,6 +504,25 @@ main {
     margin: 0 1rem;
 }
 
+.imprimirOS {
+  text-align: center;
+  padding-bottom: 2vw;
+}
+
+.imprimirOS a {
+  font-size: .9rem;
+  color: red;
+  text-decoration: none;
+  border: 1px solid rgb(66, 66, 66);
+  padding: 5px;
+  border-radius: .25rem;
+  transition: .2s;
+}
+
+.imprimirOS a:hover {
+  color: black;
+}
+
 .header-form {
     display: flex;
     justify-content: space-between;
@@ -616,11 +635,33 @@ button.btn:hover {
 }
 
 @media (max-width: 645px) {
+  .wrapper input[type=radio] {
+      width: 60px;
+  }
+
+  .imprimirOS {
+    margin-bottom: 5vw;
+    margin-left: -8vw;
+  }
+
+  .btn-group {
+    align-items: unset;
+  }
+
+  .wrapper {
+    width: 200px;
+  }
+
+    .main__cards {
+      display: block;
+    }
+
   #cadastroOSTitulo {
     font-size: .9rem;
   }
 
   .column-os label{
+    display: block;
     width: 400px;
   }
 

@@ -442,7 +442,7 @@ table, table th {
 }
 
 table th:last-child {
-  width: 50px;
+  width: 80px;
 }
 
 table td {
@@ -456,7 +456,7 @@ table .fa {
 
 .form {
   margin-top: 0rem;
-	width: 60vw;
+	width: 70vw;
 	height: 75%;
 	border: 2px solid rgb(255, 255, 255);
 	border-radius: 0px;
@@ -589,7 +589,7 @@ button.btn {
 }
 
 table {
-  width: 60vw;
+  width: 70vw;
   word-wrap: break-word;
   border: 1px solid rgb(0, 0, 0);
   color: rgb(0, 0, 0);
@@ -606,14 +606,16 @@ button.btn:hover {
 #VerMaisCliente i,
 #VerMaisCarro i,
 #VerMaisFuncionario i,
-#VerMaisOrcamento i {
+#VerMaisOrcamento i,
+#GerarOS i {
   transition: all ease-out .2s;
 }
 
 #VerMaisCliente i:hover ,
 #VerMaisCarro i:hover,
 #VerMaisFuncionario i:hover,
-#VerMaisOrcamento i:hover {
+#VerMaisOrcamento i:hover,
+#GerarOS i:hover {
   transform: scale(1.15);
   color: red;
 }
@@ -626,7 +628,8 @@ button.btn:hover {
   align-items: center;
 }
 
-#IListaeProcurar i:last-child {
+#IListaeProcurar i:last-child,
+#VerMaisOrcamento {
     padding-left: 25px;
 }
 
@@ -687,7 +690,7 @@ button.btn:hover {
     }
 
     table {
-     width: 100vw;
+     width: 200vw;
     }
 
     table th {
