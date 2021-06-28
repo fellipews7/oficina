@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/header.php';
 require_once '../connection.php';
-include_once 'includes/mensagem.php';
+include_once '../assets/php/mensagem.php';
 ?>
 
 <div  class="row">

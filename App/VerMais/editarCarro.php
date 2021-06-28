@@ -1,10 +1,11 @@
 <?php
 include_once '../connection.php';
 include_once 'includes/header.php';
-include_once 'includes/funcao.php';
+include_once '../assets/php/mensagem.php';
+
 
 if(isset($_GET['id'])){
-    $id = clear($_GET['id']);
+    $id = limpaVariavel($_GET['id']);
 
     $sql = "SELECT * FROM carros WHERE id = '$id'";
     $resultado = mysqli_query($connect, $sql);
@@ -21,8 +22,15 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
             <div class="input-field col s12">
-                <label for="iID">ID</label>
+<<<<<<< HEAD
+
+                <label for="iID">Código do Carro</label><br>
                 <input type="text" name="nID" id="iID" value="<?php echo $dados['id']?>">
+
+=======
+                <label for="iID">ID</label>
+                <input type="text" readonly name="nID" id="iID" value="<?php echo $dados['id']?>">
+>>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
             </div>
 
             <div class="input-field col s12">

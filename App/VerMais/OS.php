@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/header.php';
 require_once '../connection.php';
-include_once 'includes/mensagem.php';
+
 ?>
 
 <div  class="row">
@@ -56,7 +56,7 @@ include_once 'includes/mensagem.php';
                     <td></td>
                     <td></td>
                     <td><?php echo $dados['status']?></td>
-                    <td><a href="editar.php?id=<?php echo $dados['id']?>" class="btn black">Editar </a></td>
+                    <td><a href="editarOS.php?id=<?php echo $dados['id']?>" class="btn black">Editar </a></td>
                     <td><a href="ImprimirOS.php?id=<?php echo $dados['id']?>" class="btn black">Imprimir </a></td>
                     <td></td>
 
