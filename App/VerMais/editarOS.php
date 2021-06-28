@@ -73,7 +73,7 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iDataOrc">Data do Cadastro Orçamento</label>
-                <input type="text" name="nDataOrc" id="iDataOrc" value="<?php echo $dados['data_cadastro']?>">
+                <input type="text" name="nDataCad" id="iDataOrc" value="<?php echo $dados['data_cadastro']?>">
             </div>
 
             <div class="input-field col s12">
@@ -88,48 +88,26 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iVT">Valor Total</label>
-                <input type="text" name="nVT" id="iVT" value="<?php echo $dados['valor_final']?>">
+                <input type="text" name="nValor" id="iVT" value="<?php echo $dados['valor_final']?>">
             </div>
             <div class="input-field col s12">
                 <label for="iKM">Quilometragem</label>
-                <input type="text" name="iKM" id="iKM" value="<?php echo $dados['km_atual']?>">
+                <input type="text" name="nKM" id="iKM" value="<?php echo $dados['km_atual']?>">
             </div
             div class="input-field col s12">
                 <label for="iMatFun">Matrícula Funcionário</label>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <input type="text" name="nMatFun" id="iMatFun" value="<?php echo $dados['matriculafuncionario']?>">
+                <input type="text" name="nMatriFun" id="iMatFun" value="<?php echo $dados['matricula_funcionarios']?>">
 
-=======
-                <input type="text" name="nMatFun" id="iMatFun" value="<?php echo $dados['matricula_funcionarios']?>">
->>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
-=======
-                <input type="text" name="nMatFun" id="iMatFun" value="<?php echo $dados['matricula_funcionarios']?>">
->>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
             </div>
 
             <div class="input-field col s12">
                 <label for="iStatus">Status</label>
-                <input type="text" name="iStatus" id="iStatus" value="<?php echo $dados['status']?>">
+                <input type="text" name="nStatus" id="iStatus" value="<?php echo $dados['status']?>">
             </div>
 
             <div class="input-field col s12">
-<<<<<<< HEAD
-
-                <label for="iTipoManu">Tipo Manutenção</label><br>
-=======
                 <label for="iTipoManu">Tipo Manutenção</label>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of e2ced22 (Colocado descrição dos campos das telas Editar para cima dos pinput)
-                <input type="text" name="nTipoManu" id="iTipoManu" value="<?php echo $dados['tipomanutencao']?>">
-
-=======
                 <input type="text" name="nTipoManu" id="iTipoManu" value="<?php /* echo $dados['tipomanutencao']*/?>">
->>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
-=======
-                <input type="text" name="nTipoManu" id="iTipoManu" value="<?php /* echo $dados['tipomanutencao']*/?>">
->>>>>>> 8f214bacd85793b16f875694e3029226cb5a012a
             </div>
 
             <button type="submit" name="btn-editar-os" class="btn black">Atualizar</button>
