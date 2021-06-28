@@ -99,24 +99,24 @@ function updateOrcamento(){
 
 function updateOS()
 {
+    $_SESSION['tipoAcao'] = 2;
     $id                   = limpezaVariavel($_POST['nId']);
-    $idOrcamento          = limpezaVariavel($_POST['nIDOrcamentoOS']);
-    $dataCadastro         = limpezaVariavel($_POST['nDataCadOS']);
-    $dataPrevisaoEntrega  = limpezaVariavel($_POST['nDataPrevOS']);
-    $dataEntregaOs        = limpezaVariavel($_POST['nDataEntregaOS']);
-    $problemaRegistrado   = limpezaVariavel($_POST['nProblemaOS']);
-    $valorOs              = limpezaVariavel($_POST['nValorOS']);
-    $kmCarro              = limpezaVariavel($_POST['nKMOS']);
-    $matriculaFuncionario = limpezaVariavel($_POST['nMatriFunOS']);
-    //$servicos             = limpezaVariavel($_POST['nServicosOS']);
-    $statusOs             = limpezaVariavel($_POST['nSttsOS']);
+    $idOrcamento          = limpezaVariavel($_POST['nIDOrcamento']);
+    $dataCadastro         = limpezaVariavel($_POST['nDataCad']);
+    $dataPrevisaoEntrega  = limpezaVariavel($_POST['nDataPrev']);
+    $dataEntregaOs        = limpezaVariavel($_POST['nDataEnt']);
+    $valorOs              = limpezaVariavel($_POST['nValor']);
+    $kmCarro              = limpezaVariavel($_POST['nKM']);
+    $matriculaFuncionario = limpezaVariavel($_POST['nMatriFun']);
+    //$servicos             = limpezaVariavel($_POST['nServicos']);
+    $statusOs             = limpezaVariavel($_POST['nStatus']);
     //$desconto             = limpezaVariavel(0);
 
     $sql = ("UPDATE ordens_de_servicos SET data_cadastro = '$dataCadastro', data_previsao = '$dataPrevisaoEntrega', 
-                                           data_conclusao =  '$dataEntregaOs', problema_registrado = '$problemaRegistrado'
+                                           data_conclusao =  '$dataEntregaOs', 
                                            valor_final = '$valorOs', km_atual = '$kmCarro', funcionarios_matricula = '$matriculaFuncionario',
                                            status = '$statusOs', orcamentos_id = '$idOrcamento' 
                                            WHERE id = '$id'");
-    conexaoBdupdate($sql);
+    conexaoBdInsert($sql);
 
 }
