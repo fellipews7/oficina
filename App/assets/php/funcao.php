@@ -29,8 +29,11 @@ function isEmail($valor){
 }
 
 function limpaNumero($valor){
+    var_dump($valor);
     $valor = preg_replace('/[^0-9]/', '', $valor);
+
        return $valor;
+
 }
 
 function limpaPlaca($valor){
@@ -422,6 +425,8 @@ function conexaoBdInsert($sql){
         if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
             $_SESSION['tipoErro'] = "Atualização feita com sucesso!";
             header('Location: ../../index.php');
+
+            $_SESSION['tipoAcao'] = null;
         }else{
             $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
             header('Location: index.php?deu');
@@ -435,8 +440,8 @@ function conexaoBdInsert($sql){
             header('Location: ../../index.php');
 
         }else{
-
-            header('Location: index.php?errofinal');
+            var_dump($sql);
+            //header('Location: index.php?errofinal');
         }
     }
 }
