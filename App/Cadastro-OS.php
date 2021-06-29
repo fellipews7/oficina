@@ -34,32 +34,10 @@
           <div class="form">
           <form action="cadastro.php" method="post">
         <div class="inputs-form">
-          <div class="column-os">
+          <div class="column">
             
             <label for="iIDOrcamento">ID Orçamento</label>
             <input type="text" id="iIDOrcamento" name="nIDOrcamentoOS" placeholder="Insira o ID do orçamento">
-
-            <label for="iIDCliente">ID do Cliente</label>
-            <input type="text" id="iIDCliente" name="nIDClienteOS" placeholder="Insira o ID do cliente">
-
-            <label for="iIDCarro">ID Carro</label>
-            <input type="text" id="iIDCarro" name="nIDCarroOS" placeholder="Insira o ID do orçamento">
-
-            <label for="iDesProdutos">Descrição Produtos</label>
-            <input type="text" id="iDesProdutos" name="nDesProdutos" placeholder="Insira os produtos usados">
-            
-            <label for="iValorTotalPro">Valor Total Produtos</label>
-            <input type="text" id="iValorTotalPro" name="nValorTotalPro" placeholder="Insira o valor totald os produtos utilizados">
-
-            <label for="iDesServicos">Descrição Serviços</label>
-            <input type="text" id="iDesServicos" name="nDesServicos" placeholder="Insira os serviços feitos">
-            
-            <label for="iValorTotalSer">Valor Total Serviços</label>
-            <input type="text" id="iValorTotalSer" name="nValorTotalSer" placeholder="Insira o valor total dos serviços">
-
-          </div>
-
-          <div class="column-os">
             
             <label for="iDataPrev">Data da Previsao de Entrega</label>
             <input class="data" type="date" id="iDataPrev" name="nDataPrevOS" data-date=""
@@ -90,7 +68,7 @@
             </div>
 
             <div class="imprimirOS">
-              <a href="ImprimirOS.php" target="_blank" id="ImprimirOS">Imprimir</a>
+              <a href="ImprimirOS.php" target="_blank" id="ImprimirOS"><i class="fa fa-print fa-2x"></i></a>
             </div>
 
             <div class="btn-group">
