@@ -73,7 +73,7 @@
             <th>Ano Modelo</th>
             <th>Ano Fabricado</th>
             <th>Cliente Atual</th> 
-            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+            <th></th>
           </thead>
           
           <tr>

@@ -101,7 +101,7 @@
             <th>Data Prevista</th> 
             <th>Funcionário</th> 
             <th>Status</th> 
-            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+            <th></th>
           </tr>
           <tr>
               <?php
