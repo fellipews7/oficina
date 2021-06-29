@@ -74,7 +74,7 @@
             <th>Endereço</th> 
             <th>Telefone</th>
             <th>CPF</th>
-            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+            <th></th>
           </thead>
           <tr>
               <?php
