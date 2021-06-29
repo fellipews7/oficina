@@ -40,20 +40,19 @@
         placeholder="Insira o cliente para pesquisa">
         
         <div class="columns">
-
-          <div class="column 1">
-
+          <div class="dates">
+            <div>
             <label for="LabelsRadios" id="LabelsRadios">Data Inicial</label><br>
             <input class="data" type="date" id="LabelsRadios" name="nDataInOrc" data-date=""
             data-date-format="DD MMMM YYYY" value="2021-01-01"><br>
-
-            <div class="column 2">
-            
-             <label for="iDataFin">Data Final</label>
-             <input class="data" type="date" id="iDataFin" name="nDataFimOrc" data-date=""
-             data-date-format="DD MMM YYYY" value="<?php echo date("Y-m-d");?>">
-
             </div>
+
+            <div>
+            <label for="iDataFin">Data Final</label>
+            <input class="data" type="date" id="iDataFin" name="nDataFimOrc" data-date=""
+            data-date-format="DD MMM YYYY" value="<?php echo date("Y-m-d");?>">
+            </div>
+          </div>
 
             <label for="nSttsOS" id="LabelsRadios">Status do Orçamento</label>
 
@@ -68,8 +67,6 @@
               <label for="iCancelado">Cancelado</label>
 
             </div>
-          </div>
-
         </div>
         
         <br>
