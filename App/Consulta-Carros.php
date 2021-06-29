@@ -65,7 +65,7 @@
         <br>
         <br>
 
-        <table>
+        <table rules=all>
           <thead>
             <th>ID</th>
             <th>Placa</th> 
@@ -93,16 +93,14 @@
                   while ($dados = mysqli_fetch_array($resultado)):
 
                       echo '<tr>';
-                      echo "<td> " . $dados['id'] . "</td>";
-                      echo "<td>" . $dados['placa'] . "</td>";
-                      echo "<td>" . $dados['modelo'] . "</td>;";
-                      echo "<td>" . $dados['ano_modelo'] . "</td>";
-                      echo "<td>" . $dados['ano_fabricado'] . "</td>";
-                      echo "<td></td>";
+                      echo '<td> '. $dados['id'] .'</td>';
+                      echo '<td>'. $dados['placa'] .'</td>';
+                      echo '<td>'. $dados['modelo'] .'</td>';
+                      echo '<td>'. $dados['ano_modelo'] .'</td>';
+                      echo '<td>'. $dados['ano_fabricado'] .'</td>';
+                      echo '<td></td>';
                       echo '<td id="iCantoBotao">';
-
-                      echo '<a href="VerMais/carro?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
-
+                      echo '<a href="VerMais/carro?id=' .$dados['id']. '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                       echo '</td>';
                       echo '</tr>';
 

@@ -89,14 +89,15 @@
                   
             </div>
 
+            <div class="imprimirOS">
+              <a href="ImprimirOS.php" target="_blank" id="ImprimirOS">Imprimir</a>
+            </div>
+
             <div class="btn-group">
               <button type="submit" name="nCadastrarOS" value="Cadastrar" class="btn">Cadastrar</button>
     
               <button type="reset" name="nLimparOS" value="Limpar" class="btn">Limpar</button>
-
-              <a href="ImprimirOS.php" target="_blank" id="ImprimirOS">Imprimir</a>
             </div>
-
         </div>
 
         

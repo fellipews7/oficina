@@ -4,10 +4,11 @@ require_once '../connection.php';
 
 ?>
 
-<div  class="row">
-    <div class="col s12 m6 push-m3">
-    <a href="../Consulta-Cliente.php" class="btn black">Retornar</a><h3 class="light">Clientes</h3>
-        <table class="striped">
+<div class="container-custom">
+    <div>
+    <a href="../Consulta-Cliente.php" class="btn black">Retornar</a>
+    <h3 class="light">Clientes</h3>
+        <table class="striped responsive-table" id="table">
             <thead>
                     <th>Id</th>
                     <th>Nome</th>
@@ -38,8 +39,6 @@ require_once '../connection.php';
                     <td><?php echo $dados['municipio']?></td>
                     <td><?php echo $dados['logradouro']. ',' .$dados['numero_logradouro']?></td>
                     <td><a href="editarCliente.php?id=<?php echo $dados['id']?>" class="btn black">Editar </a></td>
-                    <td></td>
-
                 </tr>
 
                 <?php endwhile; ?>
