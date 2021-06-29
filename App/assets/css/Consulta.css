@@ -577,7 +577,9 @@ button.btn {
 	background: rgb(0, 0, 0);
 	border-radius: 20px;
 	transition: 0.2s;
-    cursor: pointer;
+  cursor: pointer;
+  transition: all ease-out .2s;
+
 }
 
 /*Aparencia dos Inputs com foco*/
@@ -601,6 +603,7 @@ button.btn:hover {
 	cursor: pointer;
 	background: rgb(255, 0, 0);
 	transition: 0.2s;
+  transform: scale(1.02);
 }
 
 #VerMaisCliente i,
