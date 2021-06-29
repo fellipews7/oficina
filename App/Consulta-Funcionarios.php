@@ -74,7 +74,7 @@
             <th>Cargo</th> 
             <th>Nome</th>
             <th>Telefone</th>
-            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+            <th></th>
           </tr>
             <?php
             if(isset($_GET['nPesquisarFuncionarioCon'])) {

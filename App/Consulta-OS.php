@@ -68,15 +68,6 @@
               <label for="iAtraso">Atraso</label>
             </div>
           </div>
-
-          <div class="column 2">
-            
-            <label for="iDataFin">Data Final</label>
-            <input class="data" type="date" id="iDataFin" name="nDataFimOS" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01">
-
-          </div>
-
         </div>
         
         <br>
@@ -101,7 +92,7 @@
             <th>Data Prevista</th> 
             <th>Funcionário</th> 
             <th>Status</th> 
-            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+            <th></th>
           </tr>
           <tr>
               <?php

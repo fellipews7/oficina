@@ -74,10 +74,8 @@
             <th>Endereço</th> 
             <th>Telefone</th>
             <th>CPF</th>
-            <th><i class="fa fa-search-plus" aria-hidden="true"></i></th>
-
+            <th></th>
           </thead>
-
           <tr>
               <?php
               if(isset($_GET['nPesquisarClienteCon'])) {
@@ -94,16 +92,16 @@
                   global $connect;
                   $resultado = mysqli_query($connect, $sql);
                   while ($dados = mysqli_fetch_array($resultado)):
+                      echo '<tr>';
                       echo '<td>'. $dados['id'] .'</td>';
                       echo '<td>'. $dados['nome'] .'</td>';
                       echo '<td>'. $dados['logradouro']. ', ' .$dados['numero_logradouro'] .'</td>';
                       echo '<td>'. $dados['telefone'] .'</td>';
                       echo '<td>'. $dados['cnpj'] .'</td>';
-
-
                       echo '<td id="iCantoBotao">';
                       echo '<a href="VerMais/cliente.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                       echo '</td>';
+                      echo '</tr>';
 
                   endwhile;
               }

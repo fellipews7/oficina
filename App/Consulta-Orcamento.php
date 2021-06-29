@@ -40,20 +40,19 @@
         placeholder="Insira o cliente para pesquisa">
         
         <div class="columns">
-
-          <div class="column 1">
-
+          <div class="dates">
+            <div>
             <label for="LabelsRadios" id="LabelsRadios">Data Inicial</label><br>
             <input class="data" type="date" id="LabelsRadios" name="nDataInOrc" data-date=""
             data-date-format="DD MMMM YYYY" value="2021-01-01"><br>
-
-            <div class="column 2">
-            
-             <label for="iDataFin">Data Final</label>
-             <input class="data" type="date" id="iDataFin" name="nDataFimOrc" data-date=""
-             data-date-format="DD MMM YYYY" value="<?php echo date("Y-m-d");?>">
-
             </div>
+
+            <div>
+            <label for="iDataFin">Data Final</label>
+            <input class="data" type="date" id="iDataFin" name="nDataFimOrc" data-date=""
+            data-date-format="DD MMM YYYY" value="<?php echo date("Y-m-d");?>">
+            </div>
+          </div>
 
             <label for="nSttsOS" id="LabelsRadios">Status do Orçamento</label>
 
@@ -68,8 +67,6 @@
               <label for="iCancelado">Cancelado</label>
 
             </div>
-          </div>
-
         </div>
         
         <br>
@@ -95,7 +92,7 @@
             <th>Data Orçamento</th> 
             <th>Status</th>
             <th>Tipo Manutenção</th>
-            <th id="IListaeProcurar"><i class="fa fa-list" aria-hidden="true"></i><i class="fa fa-search-plus" aria-hidden="true"></i></th>
+            <th id="IListaeProcurar"></th>
           </tr>
           <tr>
               <?php
@@ -133,8 +130,9 @@
 
                       echo '<td id="iCantoBotao">';
 
-                        echo '<a href="VerMais/orcamento.php?id='.$dados['orcamento_id'].'" id="VerMaisOrcamento"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                         echo '<a href="Cadastro-OS.php" id="GerarOS"><i class="fa fa-list" aria-hidden="true"></i></a>';
+                        echo '<a href="VerMais/orcamento.php?id='.$dados['orcamento_id'].'" id="VerMaisOrcamento"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+
 
                       echo '</td>';
                       echo '</tr>';
