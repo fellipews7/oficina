@@ -69,7 +69,7 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iDataOrc">Data do Cadastro Orçamento</label>
-                <input type="text" name="nDataOrc" id="iDataOrc" value="<?php echo $dados['data_cadastro']?>">
+                <input type="text" name="nDataCad" id="iDataOrc" value="<?php echo $dados['data_cadastro']?>">
             </div>
 
             <div class="input-field col s12">
@@ -84,20 +84,20 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iVT">Valor Total</label>
-                <input type="text" name="nVT" id="iVT" value="<?php echo $dados['valor_final']?>">
+                <input type="text" name="nValor" id="iVT" value="<?php echo $dados['valor_final']?>">
             </div>
             <div class="input-field col s12">
                 <label for="iKM">Quilometragem</label>
-                <input type="text" name="iKM" id="iKM" value="<?php echo $dados['km_atual']?>">
+                <input type="text" name="nKM" id="iKM" value="<?php echo $dados['km_atual']?>">
             </div
             div class="input-field col s12">
                 <label for="iMatFun">Matrícula Funcionário</label>
-                <input type="text" name="nMatFun" id="iMatFun" value="<?php echo $dados['matricula_funcionarios']?>">
+                <input type="text" name="nMatriFun" id="iMatFun" value="<?php echo $dados['matricula_funcionarios']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iStatus">Status</label>
-                <input type="text" name="iStatus" id="iStatus" value="<?php echo $dados['status']?>">
+                <input type="text" name="nStatus" id="iStatus" value="<?php echo $dados['status']?>">
             </div>
 
             <div class="input-field col s12">
