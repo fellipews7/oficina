@@ -53,7 +53,7 @@
               
               <div>
                 <label for="iDataFin">Data Final</label>
-                <input class="data" type="date" id="iDataFin" name="nDataFinOS" data-date=""
+                <input class="data" type="date" id="iDataFin" name="nDataFimOS" data-date=""
               data-date-format="DD MMMM YYYY" value="2020-01-01">
               </div>
             </div>
@@ -109,7 +109,7 @@
                           INNER JOIN clientes AS cl ON orc.clientes_id = cl.id 
                           INNER JOIN funcionarios AS func ON so.funcionarios_matricula = func.matricula 
                           INNER JOIN carros AS ca ON orc.carros_id = ca.id
-                          WHERE cl.nome = '$cliente' AND func.nome = '$funcionario' 
+                          WHERE cl.nome LIKE '%$cliente%' AND func.nome LIKE '%$funcionario%' 
                           AND so.data_cadastro BETWEEN '$data_cadastro_ini' and '$data_cadastro_fim'";
                   insercaoDados($sql);
               }
