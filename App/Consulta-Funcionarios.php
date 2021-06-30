@@ -84,13 +84,14 @@
                 if($tipoPalavraChave <> 'cargo') {
                     $sql = "SELECT matricula, cargos.nome AS cargo, funcionarios.nome, telefone_contato AS telefone, cpf FROM funcionarios 
                             INNER JOIN cargos ON cargos.id = funcionarios.cargos_id 
-                            WHERE funcionarios.nome LIKE  '$palavraChave%'";
+                            WHERE funcionarios.".$tipoPalavraChave ." LIKE  '$palavraChave%'";
                 }elseif ($tipoPalavraChave){
                     $sql = "SELECT func.matricula AS matricula, func.nome AS nome, func.telefone_contato AS telefone, func.cpf AS cpf, cargos.nome AS cargo 
                             FROM cargos AS cargos
                             INNER JOIN funcionarios AS func ON func.cargos_id = cargos.id
                             WHERE cargos.nome  LIKE '$palavraChave%'";
                 }
+
                 insercaoDados($sql);
             }
 
