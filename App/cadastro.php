@@ -37,7 +37,7 @@ function insertCliente(){
     $dataNascimentoCliente      = limpezaVariavel($_POST['nDataNascCliente']);
     $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicipioCliente']);
     $numeroLogradouroCliente    = limpezaVariavel($_POST['nNumeroCliente']);
-    $cpfCnpjCliente             = limpaNumero($_POST['nCPFCNPJCliente']);
+    $cpfCnpjCliente             = limpaNumero(($_POST['nCpfCliente']) . ($_POST['nCnpjCliente']));
     $emailCliente               = limpezaVariavel($_POST['nEmailCliente']);
     $estadoLogradouroCliente    = limpezaVariavel($_POST['nEstadoCliente']);
     $bairroLogradouroCliente    = limpezaVariavel($_POST['nBairroCliente']);
@@ -64,7 +64,7 @@ function insertCargos(){
 function insertFuncionario(){
     $tipoAcao            = limpezaVariavel($_POST['nTipoAcao']);
     $nomeFuncionario     = limpezaVariavel($_POST['nNomeFuncionario']);
-    $cpfFuncionario      = limpezaVariavel($_POST['nCPFFuncionario']);
+    $cpfFuncionario      = limpaNumero($_POST['nCPFFuncionario']);
     $telefoneFuncionario = limpezaVariavel($_POST['nTelefoneFuncionario']);
     $idCargoFuncionario  = limpezaVariavel($_POST['nIDCargoFuncionarios']);
     $senhaFuncionario    = limpezaVariavel('1');
@@ -75,6 +75,7 @@ function insertFuncionario(){
 }
 
 function insertCarros(){
+    $id                 = null;
     $tipoAcao           = limpezaVariavel($_POST['nTipoAcao']);
     $placaCarro         = limpaPlaca($_POST['nPlacaCarro']);
     $modeloCarro        = limpezaVariavel($_POST['nModeloCarro']);
@@ -83,7 +84,7 @@ function insertCarros(){
     $anoModeloCarro     = limpezaVariavel($_POST['nAnodoModeloCarro']);
     $anoFabricacaoCarro = limpezaVariavel($_POST['nAnoFabricacaoCarro']);
 
-    verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro, $tipoAcao);
+    verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro, $tipoAcao, $id);
 }
 
 function insertOrcamento(){
@@ -120,4 +121,44 @@ function insertOS(){
 '$kmCarro', '$problemaRegistrado', '$dataCadastro', '$dataEntregaOs', '$dataPrevisaoEntrega', '$statusOs', '$idOrcamento', '$matriculaFuncionario', '$desconto', '$valorOs')");
 
     conexaoBdInsert($sql);
+}
+
+function setSessaoClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
+                        $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
+                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id){
+
+    $_SESSION['nomeCliente'] = $nomeCliente;
+    $_SESSION['telefoneCliente'] = $telefoneCliente;
+    $_SESSION['dataNascimentoClietne'] = $dataNascimentoCliente;
+    $_SESSION['cpfCnpjCliente'] = $cpfCnpjCliente;
+    $_SESSION['emailCliente'] = $emailCliente;
+    $_SESSION['municipioCliente'] = $municipioLogradouroCliente;
+    $_SESSION['numeroLogradouroCliente'] = $numeroLogradouroCliente;
+    $_SESSION['estadoLogradouroCliente'] = $estadoLogradouroCliente;
+    $_SESSION['logradouroCliente'] = $ruaLogradouroCliente;
+    $_SESSION['cepCliente'] = $cepLogradouroCliente;
+    $_SESSION['dataCadastroCliente'] = $dataCadastroCliente;
+    $_SESSION['bairroCliente'] = $bairroLogradouroCliente;
+    $_SESSION['idCliente'] = $id;
+    $_SESSION['tipoCadastroCliente'] = $tipoCadastro;
+
+}
+
+function unsetSessaoClientes(){
+
+    $_SESSION['nomeCliente'] = null;
+    $_SESSION['telefoneCliente'] = null;
+    $_SESSION['dataNascimentoClietne'] = null;
+    $_SESSION['cpfCnpjCliente'] = null;
+    $_SESSION['emailCliente'] = null;
+    $_SESSION['municipioCliente'] = null;
+    $_SESSION['numeroLogradouroCliente'] = null;
+    $_SESSION['estadoLogradouroCliente'] = null;
+    $_SESSION['logradouroCliente'] = null;
+    $_SESSION['cepCliente'] = null;
+    $_SESSION['dataCadastroCliente'] = null;
+    $_SESSION['bairroCliente'] = null;
+    $_SESSION['idCliente'] = null;
+    $_SESSION['tipoCadastroCliente'] = null;
+
 }

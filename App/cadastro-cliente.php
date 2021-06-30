@@ -40,10 +40,10 @@
         <div class="inputs-form">
           <div class="column">
             <label for="iNome">Nome</label>
-            <input type="text" id="iNome" name="nNomeCliente" placeholder="Insira o nome do cliente">
+            <input type="text" id="iNome" name="nNomeCliente" placeholder="Insira o nome do cliente" value="<?php echo $_SESSION['nomeCliente']?>">
 
             <label for="iTelefone">Telefone</label>
-            <input type="text" id="iTelefone" name="nTelefoneCliente" placeholder="Insira o telefone">
+            <input type="text" id="iTelefone" name="nTelefoneCliente" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneCliente']?>">
             <script type="text/javascript">
 
               $("#iTelefone").mask("" +
@@ -53,10 +53,10 @@
 
             <label for="iDataNasc">Data Nascimento</label>
             <input class="data" type="date" id="iDataNasc" name="nDataNascCliente" data-date=""
-              data-date-format="DD MMMM YYYY" value="2000-01-01">
+              data-date-format="DD MMMM YYYY" value="2000-01-01" value="<?php echo $_SESSION['dataNascimentoCliente']?>>
 
             <label for="iEstado">Estado</label>
-            <input type="text" id="iEstado" name="nEstadoCliente" placeholder="Insira o estado">
+            <input type="text" id="iEstado" name="nEstadoCliente" placeholder="Insira o estado" value="<?php echo $_SESSION['estadoLogradouroClientes']?>>
 
             <label for="iBairro">Bairro</label>
             <input type="text" id="iBairro" name="nBairroCliente" placeholder="Insira o bairro">
@@ -86,7 +86,7 @@
 
           <div id="divCPF">
                <label for="iCPF">CPF</label>
-               <input type="text" id="iCPF" name="nCPFCNPJCliente" placeholder="Insira o CPF">
+               <input type="text" id="iCPF" name="nCpfCliente" placeholder="Insira o CPF">
                <script type="text/javascript">
                     $("#iCPF").mask("000.000.000-00");
                </script>
@@ -94,7 +94,7 @@
 
             <div id="divCNPJ">
                 <label for="iCNPJ">CNPJ</label>
-          	    <input type="text" id="iCNPJ" name="nCPFCNPJCliente" placeholder="Insira o CNPJ">
+          	    <input type="text" id="iCNPJ" name="nCnpjCliente" placeholder="Insira o CNPJ">
               <script type="text/javascript">
                      $("#iCNPJ").mask("00.000.000/0000-00");
               </script>

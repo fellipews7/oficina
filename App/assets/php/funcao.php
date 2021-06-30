@@ -29,9 +29,8 @@ function isEmail($valor){
 }
 
 function limpaNumero($valor){
-    var_dump($valor);
-    $valor = preg_replace('/[^0-9]/', '', $valor);
 
+    $valor = preg_replace('/[^0-9]/', '', $valor);
        return $valor;
 
 }
@@ -422,6 +421,10 @@ function conexaoBdInsert($sql){
     if(mysqli_query($connect, $sql)){
         $_SESSION['mensagem'] = "deu";
 
+        if(isset($_SESSION['nomeCliente'])){
+            unsetSessaoClientes();
+        }
+
         if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
             $_SESSION['tipoErro'] = "Atualização feita com sucesso!";
             header('Location: ../../index.php');
@@ -433,15 +436,14 @@ function conexaoBdInsert($sql){
         }
     }else{
         $_SESSION['mensagem'] = "erro";
-        $_SESSION['tipoErro'] = "Erro ao escrever no banco!";
+        $_SESSION['tipoErro'] = "Dados únicos duplicados!";
 
         if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
 
             header('Location: ../../index.php');
 
         }else{
-            var_dump($sql);
-            //header('Location: index.php?errofinal');
+            header('Location: index.php?errofinal');
         }
     }
 }
