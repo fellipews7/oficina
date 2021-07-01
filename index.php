@@ -35,7 +35,7 @@
 	</head>
 
 	<body>
-		
+	<?php include_once "assets\php\mensagem.php";?>
 		<div class="limiter">
 			<div class="container-login100">
 				<div class="wrap-login100">
@@ -44,13 +44,14 @@
 
 					</div>
 
-					<form class="login100-form validate-form">
+					<form method="POST" action="App/validaLogin.php">
+					<?php $_SESSION['tipoAcao'] = "3" ?>
 						<span class="login100-form-title">
 							Login
 						</span>
 
 						<div class="wrap-input100 validate-input" data-validate = "Email Inválido: ex@abc.xyz">
-							<input class="input100" type="text" name="email" placeholder="Email">
+							<input class="input100" type="text" name="nLogin" placeholder="Login">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -58,7 +59,7 @@
 						</div>
 
 						<div class="wrap-input100 validate-input" data-validate = "Senha Inválida!">
-							<input class="input100" type="password" name="pass" placeholder="Password">
+							<input class="input100" type="password" name="nSenha" placeholder="Password">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-lock" aria-hidden="true"></i>
@@ -66,7 +67,8 @@
 						</div>
 						
 						<div class="container-login100-form-btn">			
-							<input type="button" onclick="location.href='App/index.php';" value="Login" class="login100-form-btn" />
+							<!-- <input type="button" onclick="location.href='App/index.php';" value="Login" class="login100-form-btn" /> -->
+							<button type="submit" class="login100-form-btn"> Login </button>
 						</div>
 					</form>
 				</div>

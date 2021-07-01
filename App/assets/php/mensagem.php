@@ -13,10 +13,14 @@ if(isset($_SESSION['mensagem'])){
 
     <?php
         $_SESSION['tipoAcao'] = null;
-    }else{?>
+    }else if($_SESSION['tipoAcao'] == 1){?>
         <script src="assets/js/jquery-3.1.1.min.js"></script>
         <link href="assets/css/toastr.min.css" rel="stylesheet"/>
         <script src="assets/js/toastr.min.js"></script>
+    <?php }else{?>
+           <script src="app/assets/js/jquery-3.1.1.min.js"></script>
+           <link href="app/assets/css/toastr.min.css" rel="stylesheet"/>
+           <script src="app/assets/js/toastr.min.js"></script>
     <?php }
 
     if($_SESSION['mensagem'] == 'deu'){
