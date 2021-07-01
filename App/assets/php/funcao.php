@@ -159,15 +159,15 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                           $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id){
 
     if(isNome($nomeCliente)){
-
+        echo '1';
         if(isTelefone($telefoneCliente)){
-
+            echo '2';
             if(isData($dataNascimentoCliente)){
-
+                echo $tipoAcao;
                 if(verificaCpfCnpj($cpfCliente)){
-
+                    echo '4';
                     if(isEmail($emailCliente)){
-
+                        echo '5';
                         if(isCEP($cepLogradouroCliente)){
 
 
