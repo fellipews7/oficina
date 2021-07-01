@@ -19,7 +19,16 @@
   </head>
   <body id="body">
   <?php
+
   include_once 'assets/php/mensagem.php';
+  if(isset($_SESSION['setSession']) and $_SESSION['setSession'] = true){
+    
+  }else{
+    unsetSessaoClientes();
+  }
+  var_dump($_SESSION['cpfCnpjCliente']);
+  $_SESSION['setSession'] = false;
+
   ?>
     <div class="container">
       <nav class="navbar">
@@ -53,16 +62,16 @@
 
             <label for="iDataNasc">Data Nascimento</label>
             <input class="data" type="date" id="iDataNasc" name="nDataNascCliente" data-date=""
-              data-date-format="DD MMMM YYYY" value="2000-01-01" value="<?php echo $_SESSION['dataNascimentoCliente']?>>
+              data-date-format="DD MMMM YYYY" value="2000-01-01" value="<?php echo $_SESSION['dataNascimentoCliente']?>">
 
             <label for="iEstado">Estado</label>
-            <input type="text" id="iEstado" name="nEstadoCliente" placeholder="Insira o estado" value="<?php echo $_SESSION['estadoLogradouroClientes']?>>
+            <input type="text" id="iEstado" name="nEstadoCliente" placeholder="Insira o estado" value="<?php echo $_SESSION['estadoLogradouroCliente']?>">
 
             <label for="iBairro">Bairro</label>
-            <input type="text" id="iBairro" name="nBairroCliente" placeholder="Insira o bairro">
+            <input type="text" id="iBairro" name="nBairroCliente" placeholder="Insira o bairro" value="<?php echo $_SESSION['bairroLogradouroCliente']?>">
 
             <label for="iNumero">Numero</label>
-            <input type="text" id="iNumero" name="nNumeroCliente" placeholder="Insira o numero">
+            <input type="text" id="iNumero" name="nNumeroCliente" placeholder="Insira o numero" value="<?php echo $_SESSION['numeroLogradouroCliente']?>"> 
 
             <BR>
             <BR>
@@ -86,7 +95,7 @@
 
           <div id="divCPF">
                <label for="iCPF">CPF</label>
-               <input type="text" id="iCPF" name="nCpfCliente" placeholder="Insira o CPF">
+               <input type="text" id="iCPF" name="nCpfCliente" placeholder="Insira o CPF" value="<?php echo $_SESSION['cpfCnpjCliente']?>">
                <script type="text/javascript">
                     $("#iCPF").mask("000.000.000-00");
                </script>
@@ -94,35 +103,36 @@
 
             <div id="divCNPJ">
                 <label for="iCNPJ">CNPJ</label>
-          	    <input type="text" id="iCNPJ" name="nCnpjCliente" placeholder="Insira o CNPJ">
+          	    <input type="text" id="iCNPJ" name="nCnpjCliente" placeholder="Insira o CNPJ" value="<?php echo $_SESSION['cpfCnpjCliente']?>">
               <script type="text/javascript">
                      $("#iCNPJ").mask("00.000.000/0000-00");
               </script>
             </div>
 
             <label for="iEmail">Email</label>
-            <input type="text" id="iEmail" name="nEmailCliente" placeholder="Insira o email">
+            <input type="text" id="iEmail" name="nEmailCliente" placeholder="Insira o email" value="<?php echo $_SESSION['emailCliente']?>">
 
             <label for="iCEP">CEP</label>
-            <input type="text" id="iCEP" name="nCEPCliente" placeholder="Insira o CEP">
+            <input type="text" id="iCEP" name="nCEPCliente" placeholder="Insira o CEP" value="<?php echo $_SESSION['cepLogradouroCliente']?>">
             <script type="text/javascript">
                 $("#iCEP").mask("00000-000");
             </script>
 
             <label for="iMunicípio">Município</label>
-            <input type="text" id="iMunicípio" name="nMunicipioCliente" placeholder="Insira o município">
+            <input type="text" id="iMunicípio" name="nMunicipioCliente" placeholder="Insira o município" value="<?php echo $_SESSION['municipioLogradouroCliente']?>">
 
             <label for="iRua">Logradouro</label>
-            <input type="text" id="iRua" name="nRuaCliente" placeholder="Insira a rua">
+            <input type="text" id="iRua" name="nRuaCliente" placeholder="Insira a rua" value="<?php echo $_SESSION['logradouroCliente']?>">
             
             <label for="iComplemento">Complemento</label>
             <input type="text" id="iComplemento" name="nComplementoCliente"
-              placeholder="Insira o complemento (casa/apartamento)">
+              placeholder="Insira o complemento (casa/apartamento)" value="<?php echo $_SESSION['complementoLogradouroCliente']?>">
             
             </div>
         </div>
 
               <input type="hidden" name="nTipoAcao" value="1">
+            <?php $_SESSION['setSession'] = true; ?>
         <BR>
         <BR>
 

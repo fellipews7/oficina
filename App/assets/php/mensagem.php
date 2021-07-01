@@ -71,5 +71,5 @@ if(isset($_SESSION['mensagem'])){
         <?php
     }
 }
-session_unset();
+
 ?>

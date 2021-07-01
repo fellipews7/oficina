@@ -37,7 +37,7 @@ function insertCliente(){
     $dataNascimentoCliente      = limpezaVariavel($_POST['nDataNascCliente']);
     $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicipioCliente']);
     $numeroLogradouroCliente    = limpezaVariavel($_POST['nNumeroCliente']);
-    $cpfCnpjCliente             = limpaNumero(($_POST['nCpfCliente']) . ($_POST['nCnpjCliente']));
+    $cpfCnpjCliente             = limpaNumero(/*($_POST['nCpfCliente'])*/  ($_POST['nCnpjCliente']));
     $emailCliente               = limpezaVariavel($_POST['nEmailCliente']);
     $estadoLogradouroCliente    = limpezaVariavel($_POST['nEstadoCliente']);
     $bairroLogradouroCliente    = limpezaVariavel($_POST['nBairroCliente']);
@@ -45,6 +45,7 @@ function insertCliente(){
     $cepLogradouroCliente       = limpezaVariavel($_POST['nCEPCliente']);
     $dataCadastroCliente        = date('Y/m/d');
 
+    setSessaoClientes();
 
     verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
         $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
@@ -123,26 +124,25 @@ function insertOS(){
     conexaoBdInsert($sql);
 }
 
-function setSessaoClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
-                        $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
-                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id){
+function setSessaoClientes(){
 
-    $_SESSION['nomeCliente'] = $nomeCliente;
-    $_SESSION['telefoneCliente'] = $telefoneCliente;
-    $_SESSION['dataNascimentoClietne'] = $dataNascimentoCliente;
-    $_SESSION['cpfCnpjCliente'] = $cpfCnpjCliente;
-    $_SESSION['emailCliente'] = $emailCliente;
-    $_SESSION['municipioCliente'] = $municipioLogradouroCliente;
-    $_SESSION['numeroLogradouroCliente'] = $numeroLogradouroCliente;
-    $_SESSION['estadoLogradouroCliente'] = $estadoLogradouroCliente;
-    $_SESSION['logradouroCliente'] = $ruaLogradouroCliente;
-    $_SESSION['cepCliente'] = $cepLogradouroCliente;
-    $_SESSION['dataCadastroCliente'] = $dataCadastroCliente;
-    $_SESSION['bairroCliente'] = $bairroLogradouroCliente;
-    $_SESSION['idCliente'] = $id;
-    $_SESSION['tipoCadastroCliente'] = $tipoCadastro;
+    if($_SESSION['setSession']){
+        $_SESSION['nomeCliente']                  = $_POST['nNomeCliente'];
+        $_SESSION['telefoneCliente']              = $_POST['nTelefoneCliente'];
+        $_SESSION['dataNascimentoCliente']        = $_POST['nDataNascCliente'];
+        $_SESSION['cpfCnpjCliente']               = $_POST['nCpfCliente'] . $_POST['nCnpjCliente'];
+        $_SESSION['emailCliente']                 = $_POST['nEmailCliente'];
+        $_SESSION['municipioLogradouroCliente']   = $_POST['nMunicipioCliente'];
+        $_SESSION['numeroLogradouroCliente']      = $_POST['nNumeroCliente'];
+        $_SESSION['estadoLogradouroCliente']      = $_POST['nEstadoCliente'];
+        $_SESSION['logradouroCliente']            = $_POST['nRuaCliente'];
+        $_SESSION['cepLogradouroCliente']         = $_POST['nCEPCliente'];
+        $_SESSION['bairroLogradouroCliente']      = $_POST['nBairrosCliente'];
+        $_SESSION['complementoLogradouroCliente'] = $_POST['nComplementoCliente'];
 
+    }
 }
+
 
 function unsetSessaoClientes(){
 
@@ -151,14 +151,15 @@ function unsetSessaoClientes(){
     $_SESSION['dataNascimentoClietne'] = null;
     $_SESSION['cpfCnpjCliente'] = null;
     $_SESSION['emailCliente'] = null;
-    $_SESSION['municipioCliente'] = null;
+    $_SESSION['municipioLogradouroCliente'] = null;
     $_SESSION['numeroLogradouroCliente'] = null;
     $_SESSION['estadoLogradouroCliente'] = null;
     $_SESSION['logradouroCliente'] = null;
-    $_SESSION['cepCliente'] = null;
+    $_SESSION['cepLogradouroCliente'] = null;
     $_SESSION['dataCadastroCliente'] = null;
-    $_SESSION['bairroCliente'] = null;
+    $_SESSION['bairroLogradouroCliente'] = null;
     $_SESSION['idCliente'] = null;
     $_SESSION['tipoCadastroCliente'] = null;
+    $_SESSION['complementoLogradouroCliente'] = null;
 
 }
