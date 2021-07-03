@@ -38,15 +38,13 @@ require_once '../connection.php';
                         <td><?php echo $dados['valor_total_produtos']?></td>
                         <td><?php echo $dados['data']?></td>
                         <td><?php echo $dados['status']?></td>
-                        <td><a href="editarOrcamento.php?id=<?php echo $dados['id']?>" class="btn black">Editar</a></td>
-                        <td></td>
-
                     </tr>
-
-                    <?php endwhile; ?>
                 </tbody>
             </table>
-            <br>
+            <div class="center-align margin top-20">
+                <a href="editarOrcamento.php?id=<?php echo $dados['id']?>" class="btn black">Editar</a>
+            </div>
+            <?php endwhile; ?>
         </div>
     </div>
 </div>

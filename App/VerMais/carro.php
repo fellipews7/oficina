@@ -34,13 +34,14 @@ require_once '../connection.php';
                         <td><?php echo $dados['ano_modelo']?></td>
                         <td><?php echo $dados['ano_fabricado']?></td>
                         <td><?php echo $dados['renavam']?></td>
-                        <td><a href="editarCarro.php?id=<?php echo $dados['id']?>" class="btn black">Editar </a></td>
                     </tr>
-                    <?php endwhile; ?>
                 </tbody>
             </table>
+            <div class="center-align margin top-20">
+                <a href="editarCarro.php?id=<?php echo $dados['id']?>" class="btn black">Editar</a>
+            </div>
+            <?php endwhile; ?>
         </div>
-        <br>
     </div>
 </div>
 
