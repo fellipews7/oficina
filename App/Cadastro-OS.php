@@ -16,7 +16,7 @@
   <body id="body">
   <?php
   include_once 'assets/php/mensagem.php';
-  ?>
+   ?>
     <div class="container">
       <nav class="navbar">
       <div class="nav_icon" onclick="toggleSidebar()">
@@ -71,10 +71,23 @@
               <a href="ImprimirOS.php" target="_blank" id="ImprimirOS"><i class="fa fa-print fa-2x"></i></a>
             </div>
 
+              <script>
+
+                  document.getElementById("Cadastrar").onclick = function (){
+                      <?php setSessaoOs(); ?>
+
+                  }
+
+                  document.getElementById("Limpar").onclick = function (){
+                      <?php unsetSessaoOs(); ?>
+
+                  }
+
+              </script>
             <div class="btn-group">
-              <button type="submit" name="nCadastrarOS" value="Cadastrar" class="btn">Cadastrar</button>
+              <button type="submit" name="nCadastrarOS" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
     
-              <button type="reset" name="nLimparOS" value="Limpar" class="btn">Limpar</button>
+              <button type="reset" name="nLimparOS" value="Limpar" id="Limpar" class="btn">Limpar</button>
             </div>
         </div>
 

@@ -43,6 +43,8 @@ if(isset($_SESSION['mensagem'])){
             }
         </script>
         <?php
+        $_SESSION['mensagem'] = null;
+        $_SESSION['tipoErro'] = null;
     }
     if($_SESSION['mensagem'] == 'erro'){
         ?>
@@ -69,6 +71,8 @@ if(isset($_SESSION['mensagem'])){
             }
         </script>
         <?php
+        $_SESSION['deu'] = null;
+        $_SESSION['tipoErro'] = null;
     }
 }
 

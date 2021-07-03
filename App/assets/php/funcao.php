@@ -421,10 +421,6 @@ function conexaoBdInsert($sql){
     if(mysqli_query($connect, $sql)){
         $_SESSION['mensagem'] = "deu";
 
-        if(isset($_SESSION['nomeCliente'])){
-            unsetSessaoClientes();
-        }
-
         if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
             $_SESSION['tipoErro'] = "Atualização feita com sucesso!";
             header('Location: ../../index.php');
@@ -434,6 +430,7 @@ function conexaoBdInsert($sql){
             $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
             header('Location: index.php?deu');
         }
+        unsetSessoes();
     }else{
         $_SESSION['mensagem'] = "erro";
         $_SESSION['tipoErro'] = "Dados únicos duplicados!";

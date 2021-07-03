@@ -16,6 +16,14 @@
   <body id="body">
   <?php
   include_once 'assets/php/mensagem.php';
+  include_once 'assets/php/sessoes.php';
+
+  if(isset($_SESSION['setSessionCarros']) and $_SESSION['setSessionCarros'] = true){
+
+  }else{
+      unsetSessaoCarros();
+  }
+
   ?>
     <div class="container">
       <nav class="navbar">
@@ -37,36 +45,49 @@
           <div class="column">
 
             <label for="Placa">Placa</label>
-            <input type="text" id="Placa" name="nPlacaCarro" placeholder="Insira a placa do carro">
+            <input type="text" id="Placa" name="nPlacaCarro" placeholder="Insira a placa do carro" value="<?php echo $_SESSION['placaCarros']?>">
 
             <label for="Modelo">Modelo</label>
-            <input type="text" id="Modelo" name="nModeloCarro" placeholder="Insira o modelo do carro">
+            <input type="text" id="Modelo" name="nModeloCarro" placeholder="Insira o modelo do carro" value="<?php echo $_SESSION['modeloCarros']?>">
 
             <label for="Marca">Marca</label>
-            <input type="text" id="Marca" name="nMarcaCarro" placeholder="Insira a marca do carro">
+            <input type="text" id="Marca" name="nMarcaCarro" placeholder="Insira a marca do carro" value="<?php echo $_SESSION['marcaCarros']?>">
 
           </div>
           <div class="column">
             
 
             <label for="AnodoModelo">Ano do Modelo</label>
-            <input type="text" id="AnodoModelo" name="nAnodoModeloCarro" placeholder="Insira o ano do modelo">
+            <input type="text" id="AnodoModelo" name="nAnodoModeloCarro" placeholder="Insira o ano do modelo" value="<?php echo $_SESSION['anoModeloCarros']?>">
 
             <label for="AnoFabricação">Ano Fabricação</label>
-            <input type="text" id="AnoFabricação" name="nAnoFabricacaoCarro" placeholder="Insira o ano de fabricação">
+            <input type="text" id="AnoFabricação" name="nAnoFabricacaoCarro" placeholder="Insira o ano de fabricação" value="<?php echo $_SESSION['anoFabricacaoCarros']?>">
             
             <label for="Renavam">Renavam</label>
-            <input type="text" id="Renavam" name="nRenavamCarro" placeholder="Insira o renavam do carro">
+            <input type="text" id="Renavam" name="nRenavamCarro" placeholder="Insira o renavam do carro" value="<?php echo $_SESSION['renavamCarros']?>">
 
           </div>
         </div>
 
           <input type="hidden" name="nTipoAcao" value="1">
 
-        <div class="btn-group">
-          <button type="submit" name="nCadastrarCarros" value="Cadastrar" class="btn">Cadastrar</button>
+          <script>
 
-          <button type="reset" name="nLimparCarros" value="Limpar" class="btn">Limpar</button>
+              document.getElementById("Cadastrar").onclick = function (){
+                  <?php setSessaoCarros(); ?>
+
+              }
+
+              document.getElementById("Limpar").onclick = function (){
+                  <?php unsetSessaoCarros(); ?>
+
+              }
+
+          </script>
+        <div class="btn-group">
+          <button type="submit" name="nCadastrarCarros" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
+
+          <button type="reset" name="nLimparCarros" value="Limpar" id="Limpar" class="btn">Limpar</button>
         </div>
       </form>
     </div>
