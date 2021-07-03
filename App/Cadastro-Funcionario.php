@@ -16,6 +16,17 @@
   <body id="body">
   <?php
   include_once 'assets/php/mensagem.php';
+
+  if(isset($_SESSION['setSession']) and $_SESSION['setSession'] = true){
+
+  }else{
+      $_SESSION['nomeFunc']     = "";
+      $_SESSION['cpfFunc']      = "";
+      $_SESSION['telefoneFunc'] = "";
+      $_SESSION['cargoFunc']    = "";
+      $_SESSION['loginFunc']    = "";
+      $_SESSION['senhaFunc']    = "";
+  }
   ?>
     <div class="container">
       <nav class="navbar">
@@ -36,20 +47,21 @@
         <div class="inputs-form">
           <div class="column">
             <label for="iNome">Nome</label>
-            <input type="text" id="iNome" name="nNomeFuncionario" placeholder="Insira o nome do funcionário">
+            <input type="text" id="iNome" name="nNomeFuncionario" placeholder="Insira o nome do funcionário" value="<?php echo $_SESSION['nomeFunc']?>">
 
             <label for="iCPF">CPF</label>
-            <input type="text" id="iCPF" name="nCPFFuncionario" placeholder="Insira o CPF ">
+            <input type="text" id="iCPF" name="nCPFFuncionario" placeholder="Insira o CPF " value="<?php echo $_SESSION['cpfFunc']?>">
 
             <label for="iTelefone">Telefone</label>
-            <input type="text" id="iTelefone" name="nTelefoneFuncionario" placeholder="Insira o telefone">
+            <input type="text" id="iTelefone" name="nTelefoneFuncionario" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneFunc']?>">
 
             <label for="iIDCargo">ID do Cargo</label>
-            <input type="text" id="iIDCargo" name="nIDCargoFuncionarios" placeholder="Insira o ID do cargo do funcionario">
+            <input type="text" id="iIDCargo" name="nIDCargoFuncionarios" placeholder="Insira o ID do cargo do funcionario" value="<?php echo $_SESSION['cargoFunc']?>">
           </div>
         </div>
 
               <input type="hidden" name="nTipoAcao" value="1">
+              <?php $_SESSION['setSession'] = true; ?>
 
         <div class="btn-group">
           <button type="submit" name="nCadastrarFuncionarios" value="Cadastrar" class="btn">Cadastrar</button>
