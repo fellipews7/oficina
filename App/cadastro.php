@@ -1,6 +1,7 @@
 <?php
 include_once 'connection.php';
 include_once 'assets/php/funcao.php';
+include_once 'assets/php/sessoes.php';
 session_start();
 
 if(isset($_POST['nCadastrarCliente'])){
@@ -100,10 +101,11 @@ function insertOrcamento(){
     $precoMaoObraOrcamento = limpezaVariavel($_POST['nPrecoMaoObraOrcamento']);
     $dataOrcamento         = date('Y/m/d');
     $statusOrcamento       = limpezaVariavel($_POST['nSttsOrcamento']);
+    $tipoManutencao        = limpezaVariavel($_POST['nTipoManu']);
     $valorTotalProduto     = limpezaVariavel(50.4);
 
-    $sql = ("INSERT INTO orcamentos(descricao_produtos,valor_total_produtos,descricao_servicos,valor_total_servicos,data,status,clientes_id,carros_id) VALUES(
-'$descricaoProduto', '$valorTotalProduto', '$descricaoServico', '$precoMaoObraOrcamento', '$dataOrcamento', '$statusOrcamento', '$idCliente', '$idCarro')");
+    $sql = ("INSERT INTO orcamentos(descricao_produtos,valor_total_produtos,descricao_servicos,valor_total_servicos,data,status,clientes_id,carros_id, tipo_de_manutencao) VALUES(
+            '$descricaoProduto', '$valorTotalProduto', '$descricaoServico', '$precoMaoObraOrcamento', '$dataOrcamento', '$statusOrcamento', '$idCliente', '$idCarro', '$tipoManutencao')");
 
     conexaoBdInsert($sql);
 }
@@ -117,76 +119,11 @@ function insertOS(){
     $valorOs = limpezaVariavel($_POST['nValorOS']);
     $kmCarro = limpezaVariavel($_POST['nKMOS']);
     $matriculaFuncionario = limpezaVariavel($_POST['nMatriFunOS']);
-    $servicos = limpezaVariavel($_POST['nServicosOS']);
     $statusOs = limpezaVariavel($_POST['nSttsOS']);
     $desconto = limpezaVariavel(0);
 
     $sql = ("INSERT INTO ordem_de_servico(km_atual, problema_registrado, data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,desconto,valor_final) VALUES(
-'$kmCarro', '$problemaRegistrado', '$dataCadastro', '$dataEntregaOs', '$dataPrevisaoEntrega', '$statusOs', '$idOrcamento', '$matriculaFuncionario', '$desconto', '$valorOs')");
+    '$kmCarro', '$problemaRegistrado', '$dataCadastro', '$dataEntregaOs', '$dataPrevisaoEntrega', '$statusOs', '$idOrcamento', '$matriculaFuncionario', '$desconto', '$valorOs')");
 
     conexaoBdInsert($sql);
 }
-
-function setSessaoClientes(){
-
-    if($_SESSION['setSession']){
-        $_SESSION['nomeCliente']                  = $_POST['nNomeCliente'];
-        $_SESSION['telefoneCliente']              = $_POST['nTelefoneCliente'];
-        $_SESSION['dataNascimentoCliente']        = $_POST['nDataNascCliente'];
-        $_SESSION['cpfCnpjCliente']               = $_POST['nCpfCliente'] . $_POST['nCnpjCliente'];
-        $_SESSION['emailCliente']                 = $_POST['nEmailCliente'];
-        $_SESSION['municipioLogradouroCliente']   = $_POST['nMunicipioCliente'];
-        $_SESSION['numeroLogradouroCliente']      = $_POST['nNumeroCliente'];
-        $_SESSION['estadoLogradouroCliente']      = $_POST['nEstadoCliente'];
-        $_SESSION['logradouroCliente']            = $_POST['nRuaCliente'];
-        $_SESSION['cepLogradouroCliente']         = $_POST['nCEPCliente'];
-        $_SESSION['bairroLogradouroCliente']      = $_POST['nBairrosCliente'];
-        $_SESSION['complementoLogradouroCliente'] = $_POST['nComplementoCliente'];
-
-    }
-}
-
-
-function unsetSessaoClientes(){
-
-    $_SESSION['nomeCliente']                  = null;
-    $_SESSION['telefoneCliente']              = null;
-    $_SESSION['dataNascimentoCliente']        = null;
-    $_SESSION['cpfCnpjCliente']               = null;
-    $_SESSION['emailCliente']                 = null;
-    $_SESSION['municipioLogradouroCliente']   = null;
-    $_SESSION['numeroLogradouroCliente']      = null;
-    $_SESSION['estadoLogradouroCliente']      = null;
-    $_SESSION['logradouroCliente']            = null;
-    $_SESSION['cepLogradouroCliente']         = null;
-    $_SESSION['bairroLogradouroCliente']      = null;
-    $_SESSION['idCliente']                    = null;
-    $_SESSION['tipoCadastroCliente']          = null;
-    $_SESSION['complementoLogradouroCliente'] = null;
-    $_SESSION['setSessionCliente']            = false;
-
-}
-
-function setSessaoFunc(){
-
-    $_SESSION['nomeFunc']     =  limpezaVariavel($_POST['nNomeFuncionario']);
-    $_SESSION['cpfFunc']      =  limpaNumero($_POST['nCPFFuncionario']);
-    $_SESSION['telefoneFunc'] =  limpezaVariavel($_POST['nTelefoneFuncionario']);
-    $_SESSION['cargoFunc']    =  limpezaVariavel($_POST['nIDCargoFuncionarios']);
-    $_SESSION['loginFunc']    =  limpezaVariavel('1');
-    $_SESSION['senhaFunc']    =  limpezaVariavel('1');
-
-}
-
-function unsetSessaoFunc(){
-    $_SESSION['nomeFunc']     = null;
-    $_SESSION['cpfFunc']      = null;
-    $_SESSION['telefoneFunc'] = null;
-    $_SESSION['cargoFunc']    = null;
-    $_SESSION['loginFunc']    = null;
-    $_SESSION['senhaFunc']    = null;
-    $_SESSION['setSessionFunc'] = true;
-}
-
-
-
