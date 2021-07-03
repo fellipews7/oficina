@@ -21,13 +21,6 @@
   <?php
 
   include_once 'assets/php/mensagem.php';
-  if(isset($_SESSION['setSession']) and $_SESSION['setSession'] = true){
-    
-  }else{
-    unsetSessaoClientes();
-  }
-  var_dump($_SESSION['cpfCnpjCliente']);
-  $_SESSION['setSession'] = false;
 
   ?>
     <div class="container">

@@ -37,7 +37,7 @@ function insertCliente(){
     $dataNascimentoCliente      = limpezaVariavel($_POST['nDataNascCliente']);
     $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicipioCliente']);
     $numeroLogradouroCliente    = limpezaVariavel($_POST['nNumeroCliente']);
-    $cpfCnpjCliente             = limpaNumero(/*($_POST['nCpfCliente'])*/  ($_POST['nCnpjCliente']));
+    $cpfCnpjCliente             = limpaNumero(($_POST['nCpfCliente']) . ($_POST['nCnpjCliente']));
     $emailCliente               = limpezaVariavel($_POST['nEmailCliente']);
     $estadoLogradouroCliente    = limpezaVariavel($_POST['nEstadoCliente']);
     $bairroLogradouroCliente    = limpezaVariavel($_POST['nBairroCliente']);
@@ -63,6 +63,7 @@ function insertCargos(){
 }
 
 function insertFuncionario(){
+    $matricula           = null;
     $tipoAcao            = limpezaVariavel($_POST['nTipoAcao']);
     $nomeFuncionario     = limpezaVariavel($_POST['nNomeFuncionario']);
     $cpfFuncionario      = limpaNumero($_POST['nCPFFuncionario']);
@@ -71,7 +72,9 @@ function insertFuncionario(){
     $senhaFuncionario    = limpezaVariavel('1');
     $loginFuncionario    = limpezaVariavel('1');
 
-    verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $tipoAcao, $loginFuncionario, $senhaFuncionario);
+    setSessaoFunc();
+
+    verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $tipoAcao, $matricula, $loginFuncionario, $senhaFuncionario);
 
 }
 
@@ -163,3 +166,26 @@ function unsetSessaoClientes(){
     $_SESSION['complementoLogradouroCliente'] = null;
 
 }
+
+function setSessaoFunc(){
+
+    $_SESSION['nomeFunc']     =  limpezaVariavel($_POST['nNomeFuncionario']);
+    $_SESSION['cpfFunc']      =  limpaNumero($_POST['nCPFFuncionario']);
+    $_SESSION['telefoneFunc'] =  limpezaVariavel($_POST['nTelefoneFuncionario']);
+    $_SESSION['cargoFunc']    =  limpezaVariavel($_POST['nIDCargoFuncionarios']);
+    $_SESSION['loginFunc']    =  limpezaVariavel('1');
+    $_SESSION['senhaFunc']    =  limpezaVariavel('1');
+
+}
+
+function unsetSessaoFunc(){
+    $_SESSION['nomeFunc']     = null;
+    $_SESSION['cpfFunc']      = null;
+    $_SESSION['telefoneFunc'] = null;
+    $_SESSION['cargoFunc']    = null;
+    $_SESSION['loginFunc']    = null;
+    $_SESSION['senhaFunc']    = null;
+}
+
+
+
