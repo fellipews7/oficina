@@ -21,7 +21,25 @@
   <?php
 
   include_once 'assets/php/mensagem.php';
+  if(isset($_SESSION['setSessionCliente']) and $_SESSION['setSessionCliente'] = true){
 
+  }else{
+      $_SESSION['nomeCliente'] = null;
+      $_SESSION['telefoneCliente'] = null;
+      $_SESSION['dataNascimentoCliente'] = null;
+      $_SESSION['cpfCnpjCliente'] = null;
+      $_SESSION['emailCliente'] = null;
+      $_SESSION['municipioLogradouroCliente'] = null;
+      $_SESSION['numeroLogradouroCliente'] = null;
+      $_SESSION['estadoLogradouroCliente'] = null;
+      $_SESSION['logradouroCliente'] = null;
+      $_SESSION['cepLogradouroCliente'] = null;
+      $_SESSION['dataCadastroCliente'] = null;
+      $_SESSION['bairroLogradouroCliente'] = null;
+      $_SESSION['idCliente'] = null;
+      $_SESSION['tipoCadastroCliente'] = null;
+      $_SESSION['complementoLogradouroCliente'] = null;
+  }
   ?>
     <div class="container">
       <nav class="navbar">
@@ -125,7 +143,7 @@
         </div>
 
               <input type="hidden" name="nTipoAcao" value="1">
-            <?php $_SESSION['setSession'] = true; ?>
+            <?php $_SESSION['setSessionCliente'] = true; ?>
         <BR>
         <BR>
 

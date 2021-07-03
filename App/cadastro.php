@@ -149,21 +149,21 @@ function setSessaoClientes(){
 
 function unsetSessaoClientes(){
 
-    $_SESSION['nomeCliente'] = null;
-    $_SESSION['telefoneCliente'] = null;
-    $_SESSION['dataNascimentoClietne'] = null;
-    $_SESSION['cpfCnpjCliente'] = null;
-    $_SESSION['emailCliente'] = null;
-    $_SESSION['municipioLogradouroCliente'] = null;
-    $_SESSION['numeroLogradouroCliente'] = null;
-    $_SESSION['estadoLogradouroCliente'] = null;
-    $_SESSION['logradouroCliente'] = null;
-    $_SESSION['cepLogradouroCliente'] = null;
-    $_SESSION['dataCadastroCliente'] = null;
-    $_SESSION['bairroLogradouroCliente'] = null;
-    $_SESSION['idCliente'] = null;
-    $_SESSION['tipoCadastroCliente'] = null;
+    $_SESSION['nomeCliente']                  = null;
+    $_SESSION['telefoneCliente']              = null;
+    $_SESSION['dataNascimentoCliente']        = null;
+    $_SESSION['cpfCnpjCliente']               = null;
+    $_SESSION['emailCliente']                 = null;
+    $_SESSION['municipioLogradouroCliente']   = null;
+    $_SESSION['numeroLogradouroCliente']      = null;
+    $_SESSION['estadoLogradouroCliente']      = null;
+    $_SESSION['logradouroCliente']            = null;
+    $_SESSION['cepLogradouroCliente']         = null;
+    $_SESSION['bairroLogradouroCliente']      = null;
+    $_SESSION['idCliente']                    = null;
+    $_SESSION['tipoCadastroCliente']          = null;
     $_SESSION['complementoLogradouroCliente'] = null;
+    $_SESSION['setSessionCliente']            = false;
 
 }
 
@@ -185,6 +185,7 @@ function unsetSessaoFunc(){
     $_SESSION['cargoFunc']    = null;
     $_SESSION['loginFunc']    = null;
     $_SESSION['senhaFunc']    = null;
+    $_SESSION['setSessionFunc'] = true;
 }
 
 

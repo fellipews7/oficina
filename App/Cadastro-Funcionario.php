@@ -17,7 +17,7 @@
   <?php
   include_once 'assets/php/mensagem.php';
 
-  if(isset($_SESSION['setSession']) and $_SESSION['setSession'] = true){
+  if(isset($_SESSION['setSessionFunc']) and $_SESSION['setSessionFunc'] = true){
 
   }else{
       $_SESSION['nomeFunc']     = "";
@@ -61,7 +61,7 @@
         </div>
 
               <input type="hidden" name="nTipoAcao" value="1">
-              <?php $_SESSION['setSession'] = true; ?>
+              <?php $_SESSION['setSessionFunc'] = true; ?>
 
         <div class="btn-group">
           <button type="submit" name="nCadastrarFuncionarios" value="Cadastrar" class="btn">Cadastrar</button>
