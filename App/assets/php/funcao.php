@@ -353,7 +353,7 @@ function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
                 if($senhaFuncionario != "" or $loginFuncionario != "") {
 
                     if ($tipoAcao == "1") {
-                        cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $loginFuncionario, $senhaFuncionario);
+                        cadastraFuncionarios($matricula,$nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $loginFuncionario, $senhaFuncionario);
                     } elseif ($tipoAcao == "2") {
                         atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $matricula, $loginFuncionario, $senhaFuncionario);
                     }
@@ -400,17 +400,17 @@ function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
     }
 }
 
-function cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $loginFuncionario, $senhaFuncionario){
+function cadastraFuncionarios($matriculaFuncionario, $nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $loginFuncionario, $senhaFuncionario){
 
-    $sql = ("INSERT INTO funcionarios (matricula, nome, cpf, telefone_contato, cargos_id, login, senha) VALUES (
-            '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario')");
-
+    $sql = ("INSERT INTO funcionarios (nome, cpf, telefone_contato, cargos_id, login, senha) VALUES (
+          '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario', '$loginFuncionario', '$senhaFuncionario')");
+    var_dump($sql);
     conexaoBdInsert($sql);
 }
 
-function atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $matricula){
+function atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $matricula, $loginFuncionario, $senhaFuncionario){
     $sql = ("UPDATE funcionarios SET nome = '$nomeFuncionario', telefone_contato = '$telefoneFuncionario', cpf =  '$cpfFuncionario', 
-                                cargos_id = '$idCargoFuncionario' WHERE matricula = '$matricula'");
+                                cargos_id = '$idCargoFuncionario', login = '$loginFuncionario', senha = '$senhaFuncionario' WHERE matricula = '$matricula'");
 
 
     conexaoBdInsert($sql);
