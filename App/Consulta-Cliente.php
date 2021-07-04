@@ -102,7 +102,6 @@
                       echo '<a href="VerMais/cliente.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                       echo '</td>';
                       echo '</tr>';
-
                   endwhile;
               }
               ?>

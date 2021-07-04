@@ -94,11 +94,10 @@ if(isset($_GET['id'])){
                                                                           }else{ echo 'cpf';
                                                                           } ?>">
 
-
-
-            <button type="submit" name="btn-editar-cliente" class="btn black">Atualizar</button>
-
-            <a href="../Consulta-Carros.php" class="btn black">Lista de carros</a>
+            <div class="center-align">
+                <button type="submit" name="btn-editar-cliente" class="btn black">Atualizar</button>
+                <a href="../Consulta-Carros.php" class="btn black">Lista de carros</a>
+            </div>
         </form>
     </div>
 </div>

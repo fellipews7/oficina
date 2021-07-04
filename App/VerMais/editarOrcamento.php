@@ -71,8 +71,10 @@ if(isset($_GET['id'])){
 
             <input type="hidden" name="nTipoAcao" value="2">
 
-            <button type="submit" name="btn-editar-orcamento" class="btn black">Atualizar</button>
-            <a href="../Consulta-Orcamento.php" class="btn black">Lista de orçamentos</a>
+            <div class="center-align">
+                <button type="submit" name="btn-editar-orcamento" class="btn black">Atualizar</button>
+                <a href="../Consulta-Orcamento.php" class="btn black">Lista de orçamentos</a>
+            </div>
         </form>
     </div>
 </div>

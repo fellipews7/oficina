@@ -34,15 +34,13 @@ include_once '../assets/php/mensagem.php';
                     <td><?php echo $dados['cpf']?></td>
                     <td><?php echo $dados['cpf']?></td>
                     <td><?php echo $dados['login']?></td>
-                    <td><a href="editarFuncionario.php?matricula=<?php echo $dados['matricula']?>" class="btn black">Editar </a></td>
-                    <td></td>
-
                 </tr>
-
-                <?php endwhile; ?>
             </tbody>
         </table>
-        <br>
+        <div class="center-align margin top-20">
+            <a href="editarFuncionario.php?matricula=<?php echo $dados['matricula']?>" class="btn black">Editar</a>
+        </div>
+        <?php endwhile; ?>
     </div>
 </div>
 
