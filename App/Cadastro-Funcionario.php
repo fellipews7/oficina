@@ -16,16 +16,12 @@
   <body id="body">
   <?php
   include_once 'assets/php/mensagem.php';
+  include_once 'assets/php/sessoes.php';
 
   if(isset($_SESSION['setSessionFunc']) and $_SESSION['setSessionFunc'] = true){
 
   }else{
-      $_SESSION['nomeFunc']     = "";
-      $_SESSION['cpfFunc']      = "";
-      $_SESSION['telefoneFunc'] = "";
-      $_SESSION['cargoFunc']    = "";
-      $_SESSION['loginFunc']    = "";
-      $_SESSION['senhaFunc']    = "";
+      unsetSessaoFunc();
   }
   ?>
     <div class="container">
@@ -61,12 +57,26 @@
         </div>
 
               <input type="hidden" name="nTipoAcao" value="1">
-              <?php $_SESSION['setSessionFunc'] = true; ?>
+
+              <script>
+
+                  document.getElementById("Cadastrar").onclick = function (){
+                      <?php setSessaoFunc(); ?>
+
+                  }
+
+                  document.getElementById("Limpar").onclick = function (){
+                      <?php unsetSessaoFunc(); ?>
+
+                  }
+
+              </script>
+
 
         <div class="btn-group">
-          <button type="submit" name="nCadastrarFuncionarios" value="Cadastrar" class="btn">Cadastrar</button>
+          <button type="submit" name="nCadastrarFuncionarios" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
 
-          <button type="reset" name="nLimparFuncionarios" value="Limpar" class="btn">Limpar</button>
+          <button type="reset" name="nLimparFuncionarios" value="Limpar" id="Limpar" class="btn">Limpar</button>
         </div>
       </form>
     </div>

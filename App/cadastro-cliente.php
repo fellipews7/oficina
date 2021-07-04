@@ -19,26 +19,12 @@
   </head>
   <body id="body">
   <?php
-
+  include_once 'assets/php/sessoes.php';
   include_once 'assets/php/mensagem.php';
   if(isset($_SESSION['setSessionCliente']) and $_SESSION['setSessionCliente'] = true){
 
   }else{
-      $_SESSION['nomeCliente'] = null;
-      $_SESSION['telefoneCliente'] = null;
-      $_SESSION['dataNascimentoCliente'] = null;
-      $_SESSION['cpfCnpjCliente'] = null;
-      $_SESSION['emailCliente'] = null;
-      $_SESSION['municipioLogradouroCliente'] = null;
-      $_SESSION['numeroLogradouroCliente'] = null;
-      $_SESSION['estadoLogradouroCliente'] = null;
-      $_SESSION['logradouroCliente'] = null;
-      $_SESSION['cepLogradouroCliente'] = null;
-      $_SESSION['dataCadastroCliente'] = null;
-      $_SESSION['bairroLogradouroCliente'] = null;
-      $_SESSION['idCliente'] = null;
-      $_SESSION['tipoCadastroCliente'] = null;
-      $_SESSION['complementoLogradouroCliente'] = null;
+     unsetSessaoClientes();
   }
   ?>
     <div class="container">
@@ -143,14 +129,27 @@
         </div>
 
               <input type="hidden" name="nTipoAcao" value="1">
-            <?php $_SESSION['setSessionCliente'] = true; ?>
+
+              <script>
+
+                  document.getElementById("Cadastrar").onclick = function (){
+                      <?php setSessaoClientes(); ?>
+
+                  }
+
+                  document.getElementById("Limpar").onclick = function (){
+                      <?php unsetSessaoClientes(); ?>
+
+                  }
+
+              </script>
         <BR>
         <BR>
 
         <div class="btn-group">
-          <button type="submit" name="nCadastrarCliente" value="Cadastrar" class="btn">Cadastrar</button>
+          <button type="submit" name="nCadastrarCliente" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
 
-          <button type="reset" name="nLimparCliente" value="Limpar" class="btn">Limpar</button>
+          <button type="reset" name="nLimparCliente" value="Limpar" id="Limpar" class="btn">Limpar</button>
         </div>
 
         <br>
