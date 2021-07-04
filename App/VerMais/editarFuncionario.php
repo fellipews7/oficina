@@ -59,8 +59,10 @@ if(isset($_GET['matricula'])){
 
             <input type="hidden" name="nTipoAcao" value="2">
 
-            <button type="submit" name="btn-editar-funcionario" class="btn black">Atualizar</button>
-            <a href="funcionario.php" class="btn black">Lista de funcionários</a>
+            <div class="center-align">
+                <button type="submit" name="btn-editar-funcionario" class="btn black">Atualizar</button>
+                <a href="funcionario.php" class="btn black">Lista de funcionários</a>
+            </div>
         </form>
     </div>
 </div>

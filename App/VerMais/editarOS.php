@@ -92,8 +92,8 @@ if(isset($_GET['id'])){
             <div class="input-field col s12">
                 <label for="iKM">Quilometragem</label><br>
                 <input type="text" name="nKM" id="iKM" value="<?php echo $dados['km_atual']?>">
-            </div
-            div class="input-field col s12">
+            </div>
+            <div class="input-field col s12">
                 <label for="iMatFun">Matrícula Funcionário</label><br>
                 <input type="text" name="nMatriFun" id="iMatFun" value="<?php echo $dados['matricula_funcionarios']?>">
 
@@ -109,8 +109,10 @@ if(isset($_GET['id'])){
                 <input type="text" name="nTipoManu" id="iTipoManu" value="<?php /* echo $dados['tipomanutencao']*/?>">
             </div>
 
-            <button type="submit" name="btn-editar-os" class="btn black">Atualizar</button>
-            <a href="index.php" class="btn black">Lista de clientes</a>
+            <div class="center-align">
+                <button type="submit" name="btn-editar-os" class="btn black">Atualizar</button>
+                <a href="index.php" class="btn black">Lista de clientes</a>
+            </div>
         </form>
     </div>
 </div>

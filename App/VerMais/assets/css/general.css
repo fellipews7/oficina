@@ -5,6 +5,18 @@
     display: flex;
 }
 
+.big-table {
+    width: 85vw;
+}
+
+.big-table table {
+    font-size: .9rem;
+}
+
+.big-table table th {
+    padding: 5px;
+}
+
 table th {
     padding: 5px 20px;
 }
@@ -21,6 +33,10 @@ table td {
 }
 
 @media (max-width: 700px) {
+    .container-custom {
+        justify-content : left;
+    }
+
     h3 {
         text-align: center;
     }
