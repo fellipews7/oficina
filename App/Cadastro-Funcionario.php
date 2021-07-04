@@ -53,6 +53,13 @@
 
             <label for="iIDCargo">ID do Cargo</label>
             <input type="text" id="iIDCargo" name="nIDCargoFuncionarios" placeholder="Insira o ID do cargo do funcionario" value="<?php echo $_SESSION['cargoFunc']?>">
+
+            <label for="iUsuario">Usuário</label>
+            <input type="text" id="iUsuario" name="nUsuario" placaholder="Insira o nome do seu usuário" value>
+
+            <label for="iSenha">Senha</label>
+            <input type="password" id="iSenha" name="nSenha" placaholder="Insira a senha do usuário" value>
+
           </div>
         </div>
 

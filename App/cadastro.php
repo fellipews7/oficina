@@ -70,8 +70,8 @@ function insertFuncionario(){
     $cpfFuncionario      = limpaNumero($_POST['nCPFFuncionario']);
     $telefoneFuncionario = limpezaVariavel($_POST['nTelefoneFuncionario']);
     $idCargoFuncionario  = limpezaVariavel($_POST['nIDCargoFuncionarios']);
-    $senhaFuncionario    = limpezaVariavel('1');
-    $loginFuncionario    = limpezaVariavel('1');
+    $senhaFuncionario    = limpezaVariavel($_POST['nSenha']);
+    $loginFuncionario    = limpezaVariavel($_POST['nUsuario']);
 
     setSessaoFunc();
 
