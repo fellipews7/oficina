@@ -405,12 +405,16 @@ function cadastraFuncionarios($matriculaFuncionario, $nomeFuncionario, $cpfFunci
     $sql = ("INSERT INTO funcionarios (nome, cpf, telefone_contato, cargos_id, login, senha) VALUES (
         '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario', '$loginFuncionario', '".md5($senhaFuncionario)."')");
 
+
+    $sql = ("INSERT INTO funcionarios (nome, cpf, telefone_contato, cargos_id, login, senha) VALUES (
+          '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario', '$loginFuncionario', '$senhaFuncionario')");
+    var_dump($sql);
     conexaoBdInsert($sql);
 }
 
-function atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $matricula){
+function atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $matricula, $loginFuncionario, $senhaFuncionario){
     $sql = ("UPDATE funcionarios SET nome = '$nomeFuncionario', telefone_contato = '$telefoneFuncionario', cpf =  '$cpfFuncionario', 
-                                cargos_id = '$idCargoFuncionario' WHERE matricula = '$matricula'");
+                                cargos_id = '$idCargoFuncionario', login = '$loginFuncionario', senha = '$senhaFuncionario' WHERE matricula = '$matricula'");
 
 
     conexaoBdInsert($sql);
