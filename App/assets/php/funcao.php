@@ -353,7 +353,7 @@ function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
                 if($senhaFuncionario != "" or $loginFuncionario != "") {
 
                     if ($tipoAcao == "1") {
-                        cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $loginFuncionario, $senhaFuncionario);
+                        cadastraFuncionarios($matricula,$nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $loginFuncionario, $senhaFuncionario);
                     } elseif ($tipoAcao == "2") {
                         atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $matricula, $loginFuncionario, $senhaFuncionario);
                     }
@@ -400,10 +400,10 @@ function verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
     }
 }
 
-function cadastraFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $loginFuncionario, $senhaFuncionario){
+function cadastraFuncionarios($matriculaFuncionario, $nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $loginFuncionario, $senhaFuncionario){
 
-    $sql = ("INSERT INTO funcionarios (matricula, nome, cpf, telefone_contato, cargos_id, login, senha) VALUES (
-            '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario')");
+    $sql = ("INSERT INTO funcionarios (nome, cpf, telefone_contato, cargos_id, login, senha) VALUES (
+        '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario', '$loginFuncionario', '".md5($senhaFuncionario)."')");
 
     conexaoBdInsert($sql);
 }

@@ -237,7 +237,8 @@ include_once 'connection.php';
             </div>
             <div class="sidebar__logout">
                 <i class="fa fa-power-off"></i>
-                <a href="#">Log out</a>
+                <?php $_SESSION['logado'] = 0; ?>><a href="../index.php">Log out</a>
+                
             </div>
         </div>
     </div>
