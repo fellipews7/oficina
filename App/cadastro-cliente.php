@@ -15,6 +15,7 @@
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
     <title>Cadastro de Cliente</title>
   </head>
   <body id="body">
@@ -59,10 +60,39 @@
 
             <label for="iDataNasc">Data Nascimento</label>
             <input class="data" type="date" id="iDataNasc" name="nDataNascCliente" data-date=""
-              data-date-format="DD MMMM YYYY" value="2000-01-01" value="<?php echo $_SESSION['dataNascimentoCliente']?>">
+              data-date-format="DD MMMM YYYY" value="" value="<?php echo $_SESSION['dataNascimentoCliente']?>">
 
-            <label for="iEstado">Estado</label>
-            <input type="text" id="iEstado" name="nEstadoCliente" placeholder="Insira o estado" value="<?php echo $_SESSION['estadoLogradouroCliente']?>">
+            <label for="iEstado">Estado</label>            
+            <select name="nEstadoCliente" class="ls-select" style="width:300px">
+            	<option value="AC">Acre</option>
+            	<option value="AL">Alagoas</option>
+            	<option value="AP">Amapá</option>
+            	<option value="AM">Amazonas</option>
+            	<option value="BA">Bahia</option>
+            	<option value="CE">Ceará</option>
+            	<option value="DF">Distrito Federal</option>
+            	<option value="ES">Espírito Santo</option>
+            	<option value="GO">Goiás</option>
+            	<option value="MA">Maranhão</option>
+            	<option value="MT">Mato Grosso</option>
+            	<option value="MS">Mato Grosso do Sul</option>
+            	<option value="MG">Minas Gerais</option>
+            	<option value="PA">Pará</option>
+            	<option value="PB">Paraíba</option>
+            	<option value="PR">Paraná</option>
+            	<option value="PE">Pernambuco</option>
+            	<option value="PI">Piauí</option>
+            	<option value="RJ">Rio de Janeiro</option>
+            	<option value="RN">Rio Grande do Norte</option>
+            	<option value="RS">Rio Grande do Sul</option>
+            	<option value="RO">Rondônia</option>
+            	<option value="RR">Roraima</option>
+            	<option value="SC" selected>Santa Catarina</option>
+            	<option value="SP">São Paulo</option>
+            	<option value="SE">Sergipe</option>
+            	<option value="TO">Tocantins</option>
+            </select>
+            <?php echo $_SESSION['estadoLogradouroCliente']?><br>
 
             <label for="iBairro">Bairro</label>
             <input type="text" id="iBairro" name="nBairroCliente" placeholder="Insira o bairro" value="<?php echo $_SESSION['bairroLogradouroCliente']?>">

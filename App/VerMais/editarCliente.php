@@ -38,7 +38,7 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
-                <label for="iTelefone"></label><br>
+                <label for="iTelefone">Telefone</label><br>
                 <input type="text" name="nTelefoneCliente" id="iTelefone" value="<?php echo $dados['telefone']?>">
             </div>
 

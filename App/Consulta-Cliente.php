@@ -97,7 +97,7 @@
                       echo '<td>'. $dados['nome'] .'</td>';
                       echo '<td>'. $dados['logradouro']. ', ' .$dados['numero_logradouro'] .'</td>';
                       echo '<td>'. $dados['telefone'] .'</td>';
-                      echo '<td>'. $dados['cnpj'] .'</td>';
+                      echo '<td>'. $dados['cnpj'] . $dados['cpf'] . '</td>';
                       echo '<td id="iCantoBotao">';
                       echo '<a href="VerMais/cliente.php?id= '.$dados["id"].'" id="VerMaisCliente" name="nVerMaisCliente"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                       echo '</td>';
