@@ -404,11 +404,7 @@ function cadastraFuncionarios($matriculaFuncionario, $nomeFuncionario, $cpfFunci
 
     $sql = ("INSERT INTO funcionarios (nome, cpf, telefone_contato, cargos_id, login, senha) VALUES (
         '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario', '$loginFuncionario', '".md5($senhaFuncionario)."')");
-
-
-    $sql = ("INSERT INTO funcionarios (nome, cpf, telefone_contato, cargos_id, login, senha) VALUES (
-          '$nomeFuncionario', '$cpfFuncionario', '$telefoneFuncionario', '$idCargoFuncionario', '$loginFuncionario', '$senhaFuncionario')");
-    var_dump($sql);
+        
     conexaoBdInsert($sql);
 }
 
