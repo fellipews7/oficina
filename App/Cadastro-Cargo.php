@@ -38,13 +38,13 @@
           <div class="column">
 
             <label for="iNome">Nome</label>
-            <input type="text" id="iNome" name="nNomeCargo" placeholder="Insira o nome do cargo" value="<?php $_SESSION['NomeCargo']?>">
+            <input type="text" id="iNome" name="nNomeCargo" placeholder="Insira o nome do cargo">
 
           </div>
           <div class="column">
 
             <label for="iDescrição">Descrição</label>
-            <input type="text" id="iDescricao" name="nDescricaoCargo" placeholder="Insira a descrição" value="<?php $_SESSION['DesCargo']?>">
+            <input type="text" id="iDescricao" name="nDescricaoCargo" placeholder="Insira a descrição">
 
           </div>
 

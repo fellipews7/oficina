@@ -154,7 +154,10 @@
             <label for="iComplemento">Complemento</label>
             <input type="text" id="iComplemento" name="nComplementoCliente"
               placeholder="Insira o complemento (casa/apartamento)" value="<?php echo $_SESSION['complementoLogradouroCliente']?>">
-            
+            <?php 
+              var_dump($_SESSION);
+              die()
+            ?>
             </div>
         </div>
 
