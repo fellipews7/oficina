@@ -54,7 +54,7 @@
               <div>
                 <label for="iDataFin">Data Final</label>
                 <input class="data" type="date" id="iDataFin" name="nDataFimOS" data-date=""
-              data-date-format="DD MMMM YYYY" value="2020-01-01">
+              data-date-format="DD MMMM YYYY" value="<?php echo date("Y-m-d");?>">
               </div>
             </div>
 
@@ -66,6 +66,8 @@
               <label for="iAndamento">Andamento</label>
               <input type="radio" id="iAtraso" name="nSttsOS" value="3">
               <label for="iAtraso">Atraso</label>
+              <input type="radio" id="iTodos" name="nSttsOS" value="4">
+              <label for="iTodos">Todos</label>
             </div>
           </div>
         </div>

@@ -44,14 +44,14 @@
         <div class="inputs-form">
           <div class="column">
 
-            <label for="Placa">Placa</label>
-            <input type="text" id="Placa" name="nPlacaCarro" placeholder="Insira a placa do carro" value="<?php echo $_SESSION['placaCarros']?>">
+          <label for="Marca">Marca</label>
+            <input type="text" id="Marca" name="nMarcaCarro" placeholder="Insira a marca do carro" value="<?php echo $_SESSION['marcaCarros']?>">
 
             <label for="Modelo">Modelo</label>
             <input type="text" id="Modelo" name="nModeloCarro" placeholder="Insira o modelo do carro" value="<?php echo $_SESSION['modeloCarros']?>">
 
-            <label for="Marca">Marca</label>
-            <input type="text" id="Marca" name="nMarcaCarro" placeholder="Insira a marca do carro" value="<?php echo $_SESSION['marcaCarros']?>">
+            <label for="Placa">Placa</label>
+            <input type="text" id="Placa" name="nPlacaCarro" placeholder="Insira a placa do carro" value="<?php echo $_SESSION['placaCarros']?>">
 
           </div>
           <div class="column">

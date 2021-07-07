@@ -84,8 +84,10 @@
         <table rules=all>
           <tr>
             <th>ID Orçamento</th>
-            <th>ID Cliente</th>
-            <th>ID Carro</th> 
+            <th>Código Cliente</th>
+            <th>Nome Cliente</th>
+            <th>Código Carro</th>
+            <th>Placa do Carro</th> 
             <th>Descrição Serviço</th>
             <th>Preço Mão de Obra</th>
             <th>Preço Total</th> 
@@ -101,7 +103,7 @@
                   $dataFinal = limpezaVariavel($_GET['nDataFimOrc']);
                   $dataInicial = limpezaVariavel($_GET['nDataInOrc']);
                   $status = limpezaVariavel($_GET['nSttsOrcamento']);
-                  $sql = "SELECT orc.id as orcamento_id,cli.id as cliente_id,car.id as carro_id,orc.descricao_servicos,orc.valor_total_servicos,
+                  $sql = "SELECT orc.id as orcamento_id,cli.id as cliente_id,cli.nome AS cliente_nome,car.id AS carro_id,car.placa AS carro_placa,orc.descricao_servicos,orc.valor_total_produtos,orc.valor_total_servicos,orc.tipoManutencao,
                                 orc.data, orc.status FROM orcamentos orc
                                 INNER JOIN clientes cli ON orc.clientes_id = cli.id
                                 INNER JOIN carros car ON orc.carros_id = car.id
@@ -116,15 +118,18 @@
               {
                   global $connect;
                   $resultado = mysqli_query($connect, $sql);
-                  while ($dados = mysqli_fetch_array($resultado)):
+                  while ($dados = mysqli_fetch_array($resultado)):                  
                       echo '<td>'. $dados['orcamento_id'] .'</td>';
                       echo '<td>'. $dados['cliente_id'] .'</td>';
+                      echo '<td>'. $dados['cliente_nome'] .'</td>';
                       echo '<td>'. $dados['carro_id'] .'</td>';
-                      echo '<td></td>';
+                      echo '<td>'. $dados['carro_placa'] .'</td>';
                       echo '<td>'. $dados['descricao_servicos'] .'</td>';
-                      echo '<td>'. $dados['valor_total_servicos'] .'</td>';
+                      echo '<td>'. 'R$ ' . $dados['valor_total_servicos'] .'</td>';
+                      echo '<td>'. 'R$ ' .  $dados['valor_total_produtos'] .'</td>';
                       echo '<td>'. $dados['data'] .'</td>';
                       echo '<td>'. $dados['status'] .'</td>';
+                      echo '<td>'. $dados['tipoManutencao'] .'</td>';
                       echo '<td></td>';
 
 

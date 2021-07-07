@@ -104,7 +104,7 @@ function insertOrcamento(){
     $tipoManutencao        = limpezaVariavel($_POST['nTipoManu']);
     $valorTotalProduto     = limpezaVariavel(50.4);
 
-    $sql = ("INSERT INTO orcamentos(descricao_produtos,valor_total_produtos,descricao_servicos,valor_total_servicos,data,status,clientes_id,carros_id, tipo_de_manutencao) VALUES(
+    $sql = ("INSERT INTO orcamentos(descricao_produtos,valor_total_produtos,descricao_servicos,valor_total_servicos,data,status,clientes_id,carros_id, tipoManutencao) VALUES(
             '$descricaoProduto', '$valorTotalProduto', '$descricaoServico', '$precoMaoObraOrcamento', '$dataOrcamento', '$statusOrcamento', '$idCliente', '$idCarro', '$tipoManutencao')");
 
     conexaoBdInsert($sql);
