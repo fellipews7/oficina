@@ -52,17 +52,6 @@
             <label for="iMatriFun">Matrícula do Funcionário</label>
             <input type="text" id="iMatriFun" name="nMatriFunOS" placeholder="Insira a matrícula do funcionário">
 
-            <label for="nTipoManu">Tipo Manutenção</label>
-            <div id="classificacaoCliente">
-              <!-- Wrapper para trabalhar com input e label dentro de uma div  -->
-              <div class="wrapper">
-                <input type="radio" id="iCorretiva" name="nTipoManu" value="1">
-                <label for="iCorretiva">Corretiva</label>
-                <input type="radio" id="iPreventiva" name="nTipoManu" value="2">
-                <label for="iPreventiva">Preventiva</label>
-              </div>
-            </div> 
-
            </div>
                   
             </div>
