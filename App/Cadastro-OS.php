@@ -36,12 +36,12 @@
         <div class="inputs-form">
           <div class="column">
             
-            <label for="iIDOrcamento">ID Orçamento</label>
-            <input type="text" id="iIDOrcamento" name="nIDOrcamentoOS" placeholder="Insira o ID do orçamento">
+            <label for="iIDOrcamento">Nº Orçamento</label>
+            <input type="text" id="iIDOrcamento" name="nIDOrcamentoOS" value="<?php echo $_GET['id'];?>" placeholder="Insira o Nº do orçamento">
             
             <label for="iDataPrev">Data da Previsao de Entrega</label>
             <input class="data" type="date" id="iDataPrev" name="nDataPrevOS" data-date=""
-            data-date-format="DD MMMM YYYY" value="2000-01-01">
+            data-date-format="DD MMMM YYYY" value="<?php echo date("Y-m-d");?>">
 
             <label for="iValorTotalOS">Valor Total da Ordem de Serviço</label>
             <input type="text" id="iValorTotalOS" name="nValorTotalOS" placeholder="Insira o valor total da ordem de serviço">

@@ -10,7 +10,7 @@ require_once '../connection.php';
         <div class="responsive-table">
             <table class="table striped">
                 <thead>
-                    <th>ID</th>
+                    <th>Código</th>
                     <th>Placa</th> 
                     <th>Modelo</th>
                     <th>Marca</th>

@@ -10,7 +10,7 @@ require_once '../connection.php';
         <h3 class="light">Clientes</h3>
         <table class="striped responsive-table" id="table">
             <thead>
-                <th>Id</th>
+                <th>Código</th>
                 <th>Nome</th>
                 <th>Telefone</th>
                 <th>CPF/CNPJ</th>

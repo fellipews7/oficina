@@ -45,7 +45,7 @@
             <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
 
             <div class="wrapper">
-              <input type="radio" id="iPlaca" name="nTipoPalavraChave" value="Placa">
+              <input type="radio" id="iPlaca" name="nTipoPalavraChave" value="Placa" checked>
               <label for="iPlaca">Placa</label>
               <input type="radio" id="iModelo" name="nTipoPalavraChave" value="Modelo">
               <label for="iModelo">Modelo</label>
