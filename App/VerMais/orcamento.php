@@ -10,9 +10,9 @@ require_once '../connection.php';
         <a href="../Consulta-Orcamento.php" class="btn black">Retornar</a><h3 class="light">Orçamentos</h3>
             <table class="striped">
                 <thead>
-                    <th>ID Orçamento</th>
-                    <th>ID Cliente</th>
-                    <th>ID Carro</th>
+                    <th>Nº Orçamento</th>
+                    <th>Código Cliente</th>
+                    <th>Código Carro</th>
                     <th>Descrição Serviço</th>
                     <th>Preço Mão de Obra</th>
                     <th>Descrição Produto</th>

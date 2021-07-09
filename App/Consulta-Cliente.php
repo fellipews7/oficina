@@ -69,7 +69,7 @@
 
         <table rules=all>
           <thead>
-            <th>ID</th>
+            <th>Código</th>
             <th>Nome</th>
             <th>Endereço</th> 
             <th>Telefone</th>
