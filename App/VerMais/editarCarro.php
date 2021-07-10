@@ -22,11 +22,8 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
             <div class="input-field col s12">
-
                 <label for="iID">ID</label><br>
                 <input type="text" readonly name="nID" id="iID" value="<?php echo $dados['id']?>">
-
-
             </div>
 
             <div class="input-field col s12">
