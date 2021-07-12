@@ -66,7 +66,7 @@
               <label for="iAndamento">Andamento</label>
               <input type="radio" id="iAtraso" name="nSttsOS" value="3">
               <label for="iAtraso">Atraso</label>
-              <input type="radio" id="iTodos" name="nSttsOS" value="4">
+              <input type="radio" id="iTodos" name="nSttsOS" value="4" checked>
               <label for="iTodos">Todos</label>
             </div>
           </div>
@@ -129,8 +129,10 @@
                       echo '<td>'. $dados['so_data_cadastro'] .'</td>';
                       echo '<td>'. $dados['so_data_previsao'] .'</td>';
                       echo '<td>'. $dados['func_nome'] .'</td>';
-                      echo '<td>'. $dados['status'] .'</td>';
-
+                      
+                      if ($dados['status'] == 3){
+                        echo '<td> APROVADO </td>' ;
+                      }
 
                       echo '<td id="iCantoBotao">';
 
