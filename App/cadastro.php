@@ -100,9 +100,9 @@ function insertOrcamento(){
     $descricaoProduto      = limpezaVariavel($_POST['nDescricaoProduto']);
     $precoMaoObraOrcamento = limpezaVariavel($_POST['nPrecoMaoObraOrcamento']);
     $dataOrcamento         = date('Y/m/d');
-    $statusOrcamento       = limpezaVariavel($_POST['nSttsOrcamento']);
+    $statusOrcamento       = 3;
     $tipoManutencao        = limpezaVariavel($_POST['nTipoManu']);
-    $valorTotalProduto     = limpezaVariavel(50.4);
+    $valorTotalProduto     = limpezaVariavel($_POST['nPreçoTotalProOrcamento']);
 
     $sql = ("INSERT INTO orcamentos(descricao_produtos,valor_total_produtos,descricao_servicos,valor_total_servicos,data,status,clientes_id,carros_id, tipoManutencao) VALUES(
             '$descricaoProduto', '$valorTotalProduto', '$descricaoServico', '$precoMaoObraOrcamento', '$dataOrcamento', '$statusOrcamento', '$idCliente', '$idCarro', '$tipoManutencao')");
@@ -112,18 +112,20 @@ function insertOrcamento(){
 
 function insertOS(){
     $idOrcamento = limpezaVariavel($_POST['nIDOrcamentoOS']);
-    $dataCadastro = limpezaVariavel($_POST['nDataCadOS']);
+    $dataCadastro = date('Y/m/d');
     $dataPrevisaoEntrega = limpezaVariavel($_POST['nDataPrevOS']);
-    $dataEntregaOs = limpezaVariavel($_POST['nDataEntregaOS']);
-    $problemaRegistrado = limpezaVariavel($_POST['nProblemaOS']);
-    $valorOs = limpezaVariavel($_POST['nValorOS']);
+    $dataConclusapOs = date('2999-12-31');
     $kmCarro = limpezaVariavel($_POST['nKMOS']);
     $matriculaFuncionario = limpezaVariavel($_POST['nMatriFunOS']);
-    $statusOs = limpezaVariavel($_POST['nSttsOS']);
-    $desconto = limpezaVariavel(0);
+    $statusOs = 1;
+    $valorFinalOs = limpezaVariavel($_POST['nValorTotalOS']);
 
-    $sql = ("INSERT INTO ordem_de_servico(km_atual, problema_registrado, data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,desconto,valor_final) VALUES(
-    '$kmCarro', '$problemaRegistrado', '$dataCadastro', '$dataEntregaOs', '$dataPrevisaoEntrega', '$statusOs', '$idOrcamento', '$matriculaFuncionario', '$desconto', '$valorOs')");
+$sql = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final) VALUES(
+    '$kmCarro', '$dataCadastro','$dataConclusapOs','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs')");
+
+    conexaoBdInsert($sql);
+
+$sql = ("UPDATE orcamentos SET status='1' WHERE id='$idOrcamento'");
 
     conexaoBdInsert($sql);
 }

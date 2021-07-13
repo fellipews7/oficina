@@ -57,14 +57,14 @@
             <label for="nSttsOS" id="LabelsRadios">Status do Orçamento</label>
 
             <div class="wrapper" id="LabelsRadios">
-              <input type="radio" id="iCancelado" name="nSttsOrcamento" value="0" checked>
-              <label for="iCancelado">Todos</label>
+              <input type="radio" id="iTodos" name="nSttsOrcamento" value="">
+              <label for="iTodos">Todos</label>
               <input type="radio" id="iAprovado" name="nSttsOrcamento" value="1">
               <label for="iAprovado">Aprovado</label>
-              <input type="radio" id="iAguardando" name="nSttsOrcamento" value="2">
-              <label for="iAguardando">Aguardando</label>
-              <input type="radio" id="iCancelado" name="nSttsOrcamento" value="3">
-              <label for="iCancelado">Cancelado</label>
+              <input type="radio" id="iNaoAprovado" name="nSttsOrcamento" value="2">
+              <label for="iNaoAprovado">Não Aprovado</label>
+              <input type="radio" id="iAguardandoAprovacao" name="nSttsOrcamento" value="3"checked>
+              <label for="iAguardandoAprovacao">Aguardando aprovação</label>
 
             </div>
         </div>
@@ -128,10 +128,18 @@
                       echo '<td>'. 'R$ ' . $dados['valor_total_servicos'] .'</td>';
                       echo '<td>'. 'R$ ' .  $dados['valor_total_produtos'] .'</td>';
                       echo '<td>'. $dados['data'] .'</td>';
-                      echo '<td>'. $dados['status'] .'</td>';
-                      echo '<td>'. $dados['tipoManutencao'] .'</td>';
-                      echo '<td></td>';
-
+                      if ($dados['status'] == 1){
+                        echo '<td> Aprovado </td>';
+                      } elseif($dados['status'] == 2){
+                        echo '<td> Não Aprovado</td>';
+                      } elseif($dados['status'] == 3){
+                        echo '<td> Aguardando Aprovação</td>';
+                      }
+                      if ($dados['tipoManutencao'] == 1){
+                        echo '<td> Manutenção Corretiva </td>' ;
+                      }elseif ($dados['tipoManutencao'] == 2){ 
+                        echo '<td> Manutenção Preventiva </td>' ;
+                      }
 
                       echo '<td id="iCantoBotao">';
 
