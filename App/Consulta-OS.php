@@ -130,8 +130,12 @@
                       echo '<td>'. $dados['so_data_previsao'] .'</td>';
                       echo '<td>'. $dados['func_nome'] .'</td>';
                       
-                      if ($dados['status'] == 3){
-                        echo '<td> APROVADO </td>' ;
+                      if ($dados['status'] == 1){
+                        echo '<td> Em aberto</td>' ;
+                      }else if($dados['status'] == 2){
+                        echo '<td> Concluída </td>';
+                      }else if($dados['status'] == 3){
+                        echo '<td> Atrasada </td>';
                       }
 
                       echo '<td id="iCantoBotao">';

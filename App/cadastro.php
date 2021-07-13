@@ -123,6 +123,8 @@ function insertOS(){
 $sql = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final) VALUES(
     '$kmCarro', '$dataCadastro','$dataConclusapOs','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs')");
 
+    conexaoBdInsert($sql);
+
 $sql = ("UPDATE orcamentos SET status='1' WHERE id='$idOrcamento'");
 
     conexaoBdInsert($sql);
