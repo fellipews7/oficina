@@ -55,6 +55,7 @@ function insertCliente(){
 }
 
 function insertCargos(){
+    $_SESSION['tipoAcao'] = 1;
     $nomeCargo = limpezaVariavel($_POST['nNomeCargo']);
     $descricaoCargo = limpezaVariavel($_POST['nDescricaoCargo']);
 
@@ -94,6 +95,7 @@ function insertCarros(){
 
 function insertOrcamento(){
 
+    $_SESSION['tipoAcao'] = 1;
     $idCliente             = limpezaVariavel($_POST['nIDCLienteOrcamento']);
     $idCarro               = limpezaVariavel($_POST['nIDCarroOrcamento']);
     $descricaoServico      = limpezaVariavel($_POST['nDescricaoServico']);
@@ -102,7 +104,7 @@ function insertOrcamento(){
     $dataOrcamento         = date('Y/m/d');
     $statusOrcamento       = 3;
     $tipoManutencao        = limpezaVariavel($_POST['nTipoManu']);
-    $valorTotalProduto     = limpezaVariavel($_POST['nPreçoTotalProOrcamento']);
+    $valorTotalProduto     = limpezaVariavel($_POST['nPrecoTotalProOrcamento']);
 
     $sql = ("INSERT INTO orcamentos(descricao_produtos,valor_total_produtos,descricao_servicos,valor_total_servicos,data,status,clientes_id,carros_id, tipoManutencao) VALUES(
             '$descricaoProduto', '$valorTotalProduto', '$descricaoServico', '$precoMaoObraOrcamento', '$dataOrcamento', '$statusOrcamento', '$idCliente', '$idCarro', '$tipoManutencao')");
@@ -111,6 +113,8 @@ function insertOrcamento(){
 }
 
 function insertOS(){
+
+    $_SESSION['tipoAcao'] = 1;
     $idOrcamento = limpezaVariavel($_POST['nIDOrcamentoOS']);
     $dataCadastro = date('Y/m/d');
     $dataPrevisaoEntrega = limpezaVariavel($_POST['nDataPrevOS']);

@@ -1,3 +1,7 @@
+<?php 
+  require_once 'connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,8 +41,15 @@
           <div class="column one">
 
             <label for="iIDCLiente">Código do Cliente</label>
-            <input type="text" id="iIDCLiente" name="nIDCLienteOrcamento" placeholder="Insira o código do cliente">
+            <select id="iIDCLiente" name="nIDCLienteOrcamento">
+                <?php $sql = "SELECT id as id, nome as nome FROM clientes";
 
+                  $resultado = mysqli_query($connect, $sql);
+                  while ($dados = mysqli_fetch_array($resultado)) {  
+                      echo "<option value=".$dados['id'].">".$dados['nome']."</option>";
+                   }
+                ?>
+            </select><br>
             <label for="iDescricaoServico">Descrição do Serviço</label>
             <input type="text" id="iDescricaoServico" name="nDescricaoServico" placeholder="Insira a descrição do serviço feito">
 
@@ -60,14 +71,21 @@
 
           <div class="column two">
 
-            <label for="iIDCarro">Código do Carro</label>
-            <input type="text" id="iIDCarro" name="nIDCarroOrcamento" placeholder="Insira o código   do carro">
-
+            <label for="iIDCarro">Placa do Carro</label>
+            <select id="iIDCarro" name="nIDCarroOrcamento">
+            <?php $sql = "SELECT id as id, placa as placa FROM carros";
+              $resultado = mysqli_query($connect, $sql);
+              while ($dados = mysqli_fetch_array($resultado)) {  
+                  echo "<option value=".$dados['id'].">".$dados['placa']."</option>";
+               }
+            ?>
+            <!-- <input type="text" id="iIDCarro" name="nIDCarroOrcamento" placeholder="Insira o código   do carro"> -->
+            </select><br>
             <label for="iPrecoMaoObra">Preço Mão de Obra</label>
             <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" placeholder="Insira o preço da mão de obra">
 
             <label for="iPreçoTotalPro">Preço Total de Produtos</label>
-            <input type="text" id="iPreçoTotalPro" name="nPreçoTotalProOrcamento" placeholder="Insira o preço preço total dos produtos">
+            <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" placeholder="Insira o preço preço total dos produtos">
                           
           </div>
 
