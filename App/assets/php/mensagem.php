@@ -17,7 +17,7 @@ if(isset($_SESSION['mensagem'])){
         <script src="assets/js/jquery-3.1.1.min.js"></script>
         <link href="assets/css/toastr.min.css" rel="stylesheet"/>
         <script src="assets/js/toastr.min.js"></script>
-    <?php }else{?>
+    <?php }else if($_SESSION['tipoAcao'] == 3){?>
            <script src="app/assets/js/jquery-3.1.1.min.js"></script>
            <link href="app/assets/css/toastr.min.css" rel="stylesheet"/>
            <script src="app/assets/js/toastr.min.js"></script>

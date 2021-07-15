@@ -39,7 +39,6 @@ do{
     $resultado1 = mysqli_query($connect, $sql);
     while ($dados1 = mysqli_fetch_array($resultado1)){
         $qtdOrc[$mesTeste] = $dados1['contador1'];
-        $orcRejeitado[$mesTeste] = $dados1['status'];
     }
 
     if(isset($qtdOrc[$mesTeste])){
