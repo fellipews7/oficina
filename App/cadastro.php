@@ -60,6 +60,7 @@ function insertCargos(){
 
     $sql = ("INSERT INTO cargos (nome, descricao) VALUES ('$nomeCargo', '$descricaoCargo')");
 
+
     conexaoBdInsert($sql);
 }
 
