@@ -39,67 +39,65 @@
         <!-- MAIN CARDS STARTS HERE -->
         <div class="main__cards">
           <div class="form">
-            <form id="form-cadastro-cliente" action="cadastro.php" method="post">
-              <div class="inputs-form">
-                <div class="column">
-                  <label for="iNome">Nome</label>
-                  <input type="text" id="iNome" name="nNomeCliente" placeholder="Insira o nome do cliente" value="<?php echo $_SESSION['nomeCliente'] ?>">
+          <form id="form-cadastro-cliente" action="cadastro.php" method="post">
+        <div class="inputs-form">
+          <div class="column">
+            <label for="iNome">Nome</label>
+            <input type="text" id="iNome" name="nNomeCliente" placeholder="Insira o nome do cliente" value="<?php echo $_SESSION['nomeCliente']?>">
 
-                  <label for="iTelefone">Telefone</label>
-                  <input type="text" id="iTelefone" name="nTelefoneCliente" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneCliente'] ?>">
-                  <script type="text/javascript">
-                    $("#iTelefone").mask("" +
-                      "(00) 0-0000-0000");
-                  </script>
+            <label for="iTelefone">Telefone</label>
+            <input type="text" id="iTelefone" name="nTelefoneCliente" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneCliente']?>">
+            <script type="text/javascript">
 
-                  <label for="iDataNasc">Data Nascimento</label>
-                  <input class="data" type="date" id="iDataNasc" name="nDataNascCliente" data-date="" data-date-format="DD MMMM YYYY" value="" value="<?php echo $_SESSION['dataNascimentoCliente'] ?>">
+              $("#iTelefone").mask("" +
+                  "(00) 0-0000-0000");
 
-                  <label for="iEstado">Estado</label>
-                  <select name="nEstadoCliente" class="ls-select" style="width:300px">
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC" selected>Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
-                  </select>
-                  <?php echo $_SESSION['estadoLogradouroCliente'] ?><br>
+            </script>
 
-                  <label for="iBairro">Bairro</label>
-                  <input type="text" id="iBairro" name="nBairroCliente" placeholder="Insira o bairro" value="<?php echo $_SESSION['bairroLogradouroCliente'] ?>">
+            <label for="iDataNasc">Data Nascimento</label>
+            <input class="data" type="date" id="iDataNasc" name="nDataNascCliente" data-date=""
+              data-date-format="DD MMMM YYYY" value="" value="<?php echo $_SESSION['dataNascimentoCliente']?>">
 
-                  <label for="iNumero">Numero</label>
-                  <input type="text" id="iNumero" name="nNumeroCliente" placeholder="Insira o numero" value="<?php echo $_SESSION['numeroLogradouroCliente'] ?>">
+            <label for="iEstado">Estado</label>            
+            <select name="nEstadoCliente" class="ls-select select" style="width:300px">
+            	<option value="AC">Acre</option>
+            	<option value="AL">Alagoas</option>
+            	<option value="AP">Amapá</option>
+            	<option value="AM">Amazonas</option>
+            	<option value="BA">Bahia</option>
+            	<option value="CE">Ceará</option>
+            	<option value="DF">Distrito Federal</option>
+            	<option value="ES">Espírito Santo</option>
+            	<option value="GO">Goiás</option>
+            	<option value="MA">Maranhão</option>
+            	<option value="MT">Mato Grosso</option>
+            	<option value="MS">Mato Grosso do Sul</option>
+            	<option value="MG">Minas Gerais</option>
+            	<option value="PA">Pará</option>
+            	<option value="PB">Paraíba</option>
+            	<option value="PR">Paraná</option>
+            	<option value="PE">Pernambuco</option>
+            	<option value="PI">Piauí</option>
+            	<option value="RJ">Rio de Janeiro</option>
+            	<option value="RN">Rio Grande do Norte</option>
+            	<option value="RS">Rio Grande do Sul</option>
+            	<option value="RO">Rondônia</option>
+            	<option value="RR">Roraima</option>
+            	<option value="SC" selected>Santa Catarina</option>
+            	<option value="SP">São Paulo</option>
+            	<option value="SE">Sergipe</option>
+            	<option value="TO">Tocantins</option>
+            </select>
+            <?php echo $_SESSION['estadoLogradouroCliente']?><br>
 
-                  <BR>
-                  <BR>
+            <label for="iBairro">Bairro</label>
+            <input type="text" id="iBairro" name="nBairroCliente" placeholder="Insira o bairro" value="<?php echo $_SESSION['bairroLogradouroCliente']?>">
 
-
-                  <label for="nPessoaFJ">Classificação do Cliente</label>
-                  <div id="classificacaoCliente">
-                    <!-- Wrapper para trabalhar com input e label dentro de uma div  -->
+            <label for="iNumero">Numero</label>
+            <input type="text" id="iNumero" name="nNumeroCliente" placeholder="Insira o numero" value="<?php echo $_SESSION['numeroLogradouroCliente']?>"> 
+           
+                <label for="nPessoaFJ">Classificação do Cliente</label>
+                <div id="classificacaoCliente">
                     <div class="wrapper">
                       <input type="radio" id="iFisica" name="nPessoaFJ" value="cpf" form="form-cadastro-cliente" checked>
                       <label for="iFisica">Física</label>
