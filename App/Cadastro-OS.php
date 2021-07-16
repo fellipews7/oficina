@@ -62,18 +62,6 @@
                 <button type="reset" name="nLimparOS" value="Limpar" id="Limpar" class="btn">Limpar</button>
               </div>
 
-              <script>
-                document.getElementById("Cadastrar").onclick = function() {
-                  <?php setSessaoOs(); ?>
-
-                }
-
-                document.getElementById("Limpar").onclick = function() {
-                  <?php unsetSessaoOs(); ?>
-
-                }
-              </script>
-
           </div>
           </form>
         </div>
@@ -90,59 +78,8 @@
         <i onclick="closeSidebar()" class="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>
       </div>
 
+      <?php include_once 'assets/php/menu.php'; ?>
 
-      <div class="sidebar__menu">
-        <div class="sidebar__link active_menu_link">
-          <i class="fa fa-home"></i>
-          <a href="index.php">Dashboard</a>
-        </div>
-        <h2>Cadastros</h2>
-        <div class="sidebar__link">
-          <i class="fa fa-user" aria-hidden="true"></i>
-          <a href="Cadastro-Cliente.php">Cadastro Cliente</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-car" aria-hidden="true"></i>
-          <a href="Cadastro-Carro.php">Cadastro Carro</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-money" aria-hidden="true"></i>
-          <a href="Cadastro-Orcamento.php">Cadastro Orçamento</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-users" aria-hidden="true"></i>
-          <a href="Cadastro-Funcionario.php">Cadastro Funcionário</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-briefcase" aria-hidden="true"></i>
-          <a href="Cadastro-Cargo.php">Cadastro Cargo</a>
-        </div>
-        <h2>Consultas</h2>
-        <div class="sidebar__link">
-          <i class="fa fa-user" aria-hidden="true"></i>
-          <a href="Consulta-Cliente.php">Consulta Cliente</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-car" aria-hidden="true"></i>
-          <a href="Consulta-Carros.php">Consulta Carro</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-money" aria-hidden="true"></i>
-          <a href="Consulta-Orcamento.php">Consulta Orçamento</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-sitemap" aria-hidden="true"></i>
-          <a href="Consulta-OS.php">Consulta Ordem Serviço</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-users" aria-hidden="true"></i>
-          <a href="Consulta-Funcionarios.php">Consulta Funcionario</a>
-        </div>
-        <div class="sidebar__logout">
-          <i class="fa fa-power-off"></i>
-          <a href="#">Log out</a>
-        </div>
-      </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
