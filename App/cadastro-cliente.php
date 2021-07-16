@@ -63,7 +63,7 @@
               data-date-format="DD MMMM YYYY" value="" value="<?php echo $_SESSION['dataNascimentoCliente']?>">
 
             <label for="iEstado">Estado</label>            
-            <select name="nEstadoCliente" class="ls-select" style="width:300px">
+            <select name="nEstadoCliente" class="ls-select select" style="width:300px">
             	<option value="AC">Acre</option>
             	<option value="AL">Alagoas</option>
             	<option value="AP">Amapá</option>
@@ -99,14 +99,9 @@
 
             <label for="iNumero">Numero</label>
             <input type="text" id="iNumero" name="nNumeroCliente" placeholder="Insira o numero" value="<?php echo $_SESSION['numeroLogradouroCliente']?>"> 
-
-            <BR>
-            <BR>
-
            
                 <label for="nPessoaFJ">Classificação do Cliente</label>
                 <div id="classificacaoCliente">
-                    <!-- Wrapper para trabalhar com input e label dentro de uma div  -->
                     <div class="wrapper">
                         <input type="radio" id="iFisica" name="nPessoaFJ" value="cpf" form="form-cadastro-cliente" checked>
                         <label for="iFisica">Física</label>
