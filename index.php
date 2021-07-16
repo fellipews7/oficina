@@ -1,8 +1,3 @@
-<?php
-update_option('siteurl','http://exemplo.com/blog');
-update_option('home','http://exemplo.com/blog');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
