@@ -38,7 +38,7 @@ require_once 'connection.php';
                 <div class="column one">
 
                   <label for="iIDCLiente">Código do Cliente</label>
-                  <select id="iIDCLiente" name="nIDCLienteOrcamento">
+                  <select class="select" id="iIDCLiente" name="nIDCLienteOrcamento">
                     <?php $sql = "SELECT id as id, nome as nome FROM clientes";
 
                     $resultado = mysqli_query($connect, $sql);
@@ -67,16 +67,14 @@ require_once 'connection.php';
                 </div>
 
                 <div class="column two">
-
                   <label for="iIDCarro">Placa do Carro</label>
-                  <select id="iIDCarro" name="nIDCarroOrcamento">
+                  <select id="iIDCarro" class="select" name="nIDCarroOrcamento">
                     <?php $sql = "SELECT id as id, placa as placa FROM carros";
                     $resultado = mysqli_query($connect, $sql);
                     while ($dados = mysqli_fetch_array($resultado)) {
                       echo "<option value=" . $dados['id'] . ">" . $dados['placa'] . "</option>";
                     }
                     ?>
-                    <!-- <input type="text" id="iIDCarro" name="nIDCarroOrcamento" placeholder="Insira o código   do carro"> -->
                   </select><br>
                   <label for="iPrecoMaoObra">Preço Mão de Obra</label>
                   <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" placeholder="Insira o preço da mão de obra">
@@ -90,7 +88,6 @@ require_once 'connection.php';
 
               <div class="btn-group">
                 <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
-
                 <button type="reset" name="nLimparOrcamento" class="btn">Limpar</button>
               </div>
 

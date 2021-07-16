@@ -512,12 +512,18 @@ select::-ms-expand {
   display: none;
 }
 
+#iIDCarro {
+  color: white;
+}
+
 .select {
   width: 6vw;
   height: 2em;
   line-height: 2;
   background: #17191b;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   border-radius: .25em;
 }
 
