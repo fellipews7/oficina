@@ -1,7 +1,6 @@
 <div id="sidebar">
     <div class="sidebar__title">
         <div class="sidebar__img">
-            <img src="assets/logo.png" alt="logo" />
             <h2> Oficina Schulz </h2>
         </div>
         <br>
