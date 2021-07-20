@@ -17,7 +17,8 @@ if(isset($_GET['id'])) {
                           so.data_cadastro AS so_data_cadastro, so.data_previsao AS so_data_previsao, so.data_conclusao AS so_data_conclusao,
                           func.nome AS func_nome, so.status AS status, so.valor_final AS so_valor_final, cl.telefone AS cl_telefone,
                           cl.logradouro AS cl_logradouro, cl.numero_logradouro AS cl_numero_logradouro,
-                          orc.
+                          so.tipo_de_manutencao AS so_tipo_de_manutencao, orc.descricao_servicos AS orc_descricao_servicos, orc.valor_total_servicos AS orc_valor_total_servicos,
+                          
                           cl.bairro AS cl_bairro, cl.cpf AS cl_cpf, cl.cnpj AS cl_cnpj
                           FROM orcamentos AS orc 
                           INNER JOIN ordens_de_servicos AS so ON so.orcamentos_id = orc.id 
@@ -100,18 +101,17 @@ if(isset($_GET['id'])) {
                     <tr><th colspan="4"><h3>Serviço</h3></th></tr>
                 </thead>
                 <tr>
-                    <td colspan="2">Problema: ' . $dados1["ca_modelo"] .'</td>
-                    <td colspan="2">Tipo de Manutenção: ' . $dados1["ca_modelo"] .'</td>
+                   <td colspan="2">Tipo de Manutenção: ' . $dados1["so_tipo_de_manutencao"] .'</td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Serviço Feito: </td>
-                    <td colspan="2">Valor do Serviço Feito: ' . $dados1["ca_modelo"] .'</td>
+                    <td colspan="2">Descrição de serviços: '. $dados1["orc_descricao_servicos"] .'</td>
+                    <td colspan="2">Valor do Serviço Feito: ' . $dados1["orc_valor_total_servicos"] .'</td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Descrição de produtos: ' . $dados1["ca_modelo"] .'</td>
-                    <td colspan="2">Valor dos Produtos: ' . $dados1["ca_modelo"] .'</td>
+                    <td colspan="2">Descrição de produtos: ' . $dados1["orc_descricao_produtos"] .'</td>
+                    <td colspan="2">Valor dos Produtos: ' . $dados1["orc_valor_total_produtos"] .'</td>
                 </tr>
 
                 <tfoot style="background: gray">

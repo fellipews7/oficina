@@ -1,6 +1,7 @@
 <?php
-session_start();
-session_status();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
 if(isset($_SESSION['mensagem'])){
     if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2) ){

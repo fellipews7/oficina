@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once 'sessoes.php';
 
 function limpezaVariavel($value){
     global $connect;
@@ -418,6 +419,9 @@ function atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
 
 function conexaoBdInsert($sql){
     global $connect;
+
+    unsetSessoes();
+
     if(mysqli_query($connect, $sql)){
         $_SESSION['mensagem'] = "deu";
 
@@ -430,7 +434,7 @@ function conexaoBdInsert($sql){
             $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
             header('Location: index.php?deu');
         }
-        unsetSessoes();
+
     }else{
         $_SESSION['mensagem'] = "erro";
         $_SESSION['tipoErro'] = "Dados únicos duplicados!";

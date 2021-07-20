@@ -1,8 +1,3 @@
-<?php
-update_option('siteurl','http://exemplo.com/blog');
-update_option('home','http://exemplo.com/blog');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +35,7 @@ update_option('home','http://exemplo.com/blog');
 	</head>
 
 	<body>
-	<?php include_once "assets\php\mensagem.php";?>
+	<?php include_once "App\assets\php\mensagem.php";?>
 		<div class="limiter">
 			<div class="container-login100">
 				<div class="wrap-login100">
@@ -49,7 +44,7 @@ update_option('home','http://exemplo.com/blog');
 
 					</div>
 
-					<form method="POST" action="App/validaLogin.php">
+					<form method="POST" action="assets/php/validaLogin.php">
 					<?php $_SESSION['tipoAcao'] = "3" ?>
 						<span class="login100-form-title">
 							Login
