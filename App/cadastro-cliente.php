@@ -50,7 +50,7 @@
             <script type="text/javascript">
 
               $("#iTelefone").mask("" +
-                  "(00) 0-0000-0000");
+                  "(00) 0000-00000");
 
             </script>
 

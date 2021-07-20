@@ -48,7 +48,7 @@
                   <input type="text" id="iCPF" name="nCPFFuncionario" class="form-control" onkeypress="$(this).mask('000.000.000-00');" placeholder="Insira o CPF " value="<?php echo $_SESSION['cpfFunc'] ?>">
 
                   <label for="iTelefone">Telefone</label>
-                  <input type="text" id="iTelefone" name="nTelefoneFuncionario" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneFunc'] ?>">
+                  <input type="text" id="iTelefone" name="nTelefoneFuncionario" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneFunc'] ?>">
 
                   <label for="iIDCargo">ID do Cargo</label>
                   <input type="text" id="iIDCargo" name="nIDCargoFuncionarios" placeholder="Insira o ID do cargo do funcionario" value="<?php echo $_SESSION['cargoFunc'] ?>">
