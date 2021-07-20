@@ -1,3 +1,9 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -237,7 +243,7 @@ include_once 'connection.php';
             </div>
             <div class="sidebar__logout">
                 <i class="fa fa-power-off"></i>
-                <?php $_SESSION['logado'] = 0; ?>><a href="../index.php">Log out</a>
+                <a href="../index.php" id="iLogOut">Log out</a>
                 
             </div>
         </div>
@@ -345,3 +351,10 @@ include_once 'connection.php';
 </script>
 </body>
 </html>
+<?php
+
+}else if($_SESSION['login'] == 0){
+     header('location: ../index.php');
+     $_SESSION['tipoErro'] = 'Por favor faça login!';
+     $_SESSION['mensagem'] = 'erro';
+}

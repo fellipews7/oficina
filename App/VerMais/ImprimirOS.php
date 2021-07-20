@@ -1,4 +1,10 @@
 <?php
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (isset($_SESSION['login']) and $_SESSION['login'] == 1){
+
 require_once '../dompdf/autoload.inc.php';
 include_once '../connection.php';
 $dados=0;
@@ -141,6 +147,10 @@ $dompdf->stream(
     )
 );
 
-
+} else {
+    header('location: ../../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}
 
 ?>

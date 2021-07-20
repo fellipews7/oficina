@@ -1,3 +1,11 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
+    $_SESSION['logado'] = 1;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -71,19 +79,7 @@
 
           <input type="hidden" name="nTipoAcao" value="1">
 
-          <script>
 
-              document.getElementById("Cadastrar").onclick = function (){
-                  <?php setSessaoCarros(); ?>
-
-              }
-
-              document.getElementById("Limpar").onclick = function (){
-                  <?php unsetSessaoCarros(); ?>
-
-              }
-
-          </script>
         <div class="btn-group">
           <button type="submit" name="nCadastrarCarros" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
 
@@ -168,3 +164,9 @@
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+<?php
+}else{
+    header('location: ../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}

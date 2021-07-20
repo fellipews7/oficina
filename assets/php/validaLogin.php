@@ -5,7 +5,7 @@
         session_start();
     }
 
-    $_SESSION['logado'] = 0;
+    $_SESSION['login'] = 0;
 
     $login = $_POST["nLogin"];
     $senha = $_POST["nSenha"];
@@ -24,7 +24,7 @@
         
         foreach ($arrayLogin as $coluna) {
             
-            $_SESSION['logado'] = 1;
+            $_SESSION['login'] = 1;
             header('location: ../../App/index.php');
             
         }        
