@@ -77,7 +77,7 @@
 
               <table rules=all>
                 <tr>
-                  <th>ID Orçamento</th>
+                  <th>Nº Orçamento</th>
                   <th>Código Cliente</th>
                   <th>Nome Cliente</th>
                   <th>Código Carro</th>

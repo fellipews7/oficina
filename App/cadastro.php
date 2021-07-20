@@ -29,7 +29,7 @@ if(isset($_POST['nCadastrarOS'])){
 }
 
 function insertCliente(){
-
+    
     $id                         = null;
     $tipoAcao                   = limpezaVariavel($_POST['nTipoAcao']);
     $tipoCadastro               = limpezaVariavel($_POST['nPessoaFJ']);
@@ -43,7 +43,7 @@ function insertCliente(){
     $estadoLogradouroCliente    = limpezaVariavel($_POST['nEstadoCliente']);
     $bairroLogradouroCliente    = limpezaVariavel($_POST['nBairroCliente']);
     $ruaLogradouroCliente       = limpezaVariavel($_POST['nRuaCliente']);
-    $cepLogradouroCliente       = limpezaVariavel($_POST['nCEPCliente']);
+    $cepLogradouroCliente       = limpaNumero($_POST['nCEPCliente']);
     $dataCadastroCliente        = date('Y/m/d');
 
     setSessaoClientes();
