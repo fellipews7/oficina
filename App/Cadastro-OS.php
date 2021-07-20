@@ -34,7 +34,7 @@
                 <div class="column">
 
                   <label for="iIDOrcamento">Nº Orçamento</label>
-                  <input type="text" id="iIDOrcamento" name="nIDOrcamentoOS" value="<?php echo $_GET['id']; ?>" placeholder="Insira o Nº do orçamento">
+                  <input type="text" readonly id="iIDOrcamento" name="nIDOrcamentoOS" value="<?php echo $_GET['id']; ?>" placeholder="Insira o Nº do orçamento">
 
                   <label for="iDataPrev">Data da Previsao de Entrega</label>
                   <input class="data" type="date" id="iDataPrev" name="nDataPrevOS" data-date="" data-date-format="DD MMMM YYYY" value="<?php echo date("Y-m-d"); ?>">
