@@ -41,8 +41,11 @@
                   <label for="iNome">Nome</label>
                   <input type="text" id="iNome" name="nNomeFuncionario" placeholder="Insira o nome do funcionário" value="<?php echo $_SESSION['nomeFunc'] ?>">
 
+                  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
                   <label for="iCPF">CPF</label>
-                  <input type="text" id="iCPF" name="nCPFFuncionario" placeholder="Insira o CPF " value="<?php echo $_SESSION['cpfFunc'] ?>">
+                  <input type="text" id="iCPF" name="nCPFFuncionario" class="form-control" onkeypress="$(this).mask('000.000.000-00');" placeholder="Insira o CPF " value="<?php echo $_SESSION['cpfFunc'] ?>">
 
                   <label for="iTelefone">Telefone</label>
                   <input type="text" id="iTelefone" name="nTelefoneFuncionario" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneFunc'] ?>">
