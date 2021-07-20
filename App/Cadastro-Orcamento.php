@@ -37,13 +37,13 @@ require_once 'connection.php';
               <div class="inputs-form">
                 <div class="column one">
 
-                  <label for="iIDCLiente">Código do Cliente</label>
+                  <label for="iIDCLiente">Selecione o Cliente</label>
                   <select class="select" id="iIDCLiente" name="nIDCLienteOrcamento">
                     <?php $sql = "SELECT id as id, nome as nome FROM clientes";
 
                     $resultado = mysqli_query($connect, $sql);
                     while ($dados = mysqli_fetch_array($resultado)) {
-                      echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . "</option>";
+                      echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . ' - ' . $dados['id']. "</option>";
                     }
                     ?>
                   </select><br>
@@ -67,12 +67,12 @@ require_once 'connection.php';
                 </div>
 
                 <div class="column two">
-                  <label for="iIDCarro">Placa do Carro</label>
+                  <label for="iIDCarro">Selecione o Carro</label>
                   <select id="iIDCarro" class="select" name="nIDCarroOrcamento">
-                    <?php $sql = "SELECT id as id, placa as placa FROM carros";
+                    <?php $sql = "SELECT id as id, placa as placa,modelo as modelo, marca FROM carros";
                     $resultado = mysqli_query($connect, $sql);
                     while ($dados = mysqli_fetch_array($resultado)) {
-                      echo "<option value=" . $dados['id'] . ">" . $dados['placa'] . "</option>";
+                      echo "<option value=" . $dados['id'] . ">" . $dados['placa'] .' | ' . $dados['marca'] .' - ' . $dados['modelo'] .  "</option>";
                     }
                     ?>
                   </select><br>
