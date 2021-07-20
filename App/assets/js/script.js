@@ -92,4 +92,4 @@ function countChar(elementTextArea, counterID) {
 
 }
 
-const returnRestCaractere = (currentValue, limitValue) => limitValue - currentValue
+const returnRestCaractere = (currentValue, limitValue) => limitValue - currentValue;
