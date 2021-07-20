@@ -3,6 +3,7 @@ require_once 'dompdf/autoload.inc.php';
 $dados=0;
 $dompdf = new \Dompdf\Dompdf();
 
+
 $dompdf->loadHtml('<html xmlns="http://www.w3.org/1999/xhtml">
 
     <head>
@@ -17,7 +18,7 @@ $dompdf->loadHtml('<html xmlns="http://www.w3.org/1999/xhtml">
 
     <body>
         <form>
-            <table rules=all style="font-size: 18px;">
+            <table rules=all style="font-size: 20px;">
 
                 <thead style="background: gray">
                     <tr>
