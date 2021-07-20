@@ -22,18 +22,18 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
 
-                <label for="iIDOrcamento">ID Orçamento</label><br>
+                <label for="iIDOrcamento">Nº Orçamento</label><br>
                 <input type="text" reandoly name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['id']?>">
 
             </div>
 
             <div class="input-field col s12">
-                <label for="iIDCliente">ID Cliente</label><br>
+                <label for="iIDCliente">Código Cliente</label><br>
                 <input type="text" name="nIDCliente" id="iIDCliente" value="<?php echo $dados['clientes_id']?>">
             </div>
 
             <div class="input-field col s12">
-                <label for="iIDCarro">ID Carro</label><br>
+                <label for="iIDCarro">Código Carro</label><br>
                 <input type="text" name="nIDCarro" id="iIDCarro" value="<?php echo $dados['carros_id']?>">
             </div>
 
@@ -59,7 +59,7 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iDataOrc">Data do Orçamento</label><br>
-                <input type="text" name="nDataOrc" id="iDataOrc" value="<?php echo $dados['data']?>">
+                <input type="text" reandoly name="nDataOrc" id="iDataOrc" value="<?php echo $dados['data']?>">
             </div>
 
             <div class="input-field col s12">
