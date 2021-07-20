@@ -453,6 +453,10 @@ main {
   flex-direction: column;
 }
 
+.form.custom-class {
+  width: 150%;
+}
+
 .inputs-form{
     display: flex;
 }
@@ -513,24 +517,37 @@ select::-ms-expand {
 }
 
 #iIDCarro {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .select {
-  width: 6vw;
+  margin-top: .5rem;
   height: 2em;
   line-height: 2;
-  background: #17191b;
+  background: white;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   border-radius: .25em;
+  width: 100%;
+}
+
+textarea {
+  font-family: "Lato", sans-serif;
+  display: block;
+  margin: .5rem;
+  max-width: 680px;
+  max-height: 100px;
+  margin-left: -3px;
 }
 
 select {
+  margin-left: -3px;
+  display: block;
+  border: 1px solid black !important;
   flex: 1;
   padding: 0 .5em;
-  color: #fff;
+  color: black;
   cursor: pointer;
 }
 
@@ -542,6 +559,15 @@ select {
 
 .btn-group button {
     margin: 0 1rem;
+}
+
+.caracteresRestantes {
+  display: block;
+  padding: 5px 0;
+}
+
+.btn-group.custom-class {
+  margin-left: 20px;
 }
 
 .imprimirOS {

@@ -79,3 +79,17 @@ function closeSidebar() {
   }
 }
 
+function countChar(elementTextArea, counterID) {
+  const { value } = elementTextArea;
+  const counter = document.querySelector(`#${counterID}`);
+
+  const limit = 65500;
+  const limitResponse = "Você atingiu o limite de caracteres!"
+
+  const restCaractere = value.length >= limit ? limitResponse  : returnRestCaractere(value.length, limit);
+
+  counter.innerHTML = `Caracteres restantes ${restCaractere}`;
+
+}
+
+const returnRestCaractere = (currentValue, limitValue) => limitValue - currentValue

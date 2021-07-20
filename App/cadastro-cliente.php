@@ -58,8 +58,8 @@
             <input class="data" type="date" id="iDataNasc" name="nDataNascCliente" data-date=""
               data-date-format="DD MMMM YYYY" value="" value="<?php echo $_SESSION['dataNascimentoCliente']?>">
 
-            <label for="iEstado">Estado</label>            
-            <select name="nEstadoCliente" class="ls-select select" style="width:300px">
+            <label for="iEstado">Estado</label>  
+            <select name="nEstadoCliente" class="ls-select select">
             	<option value="AC">Acre</option>
             	<option value="AL">Alagoas</option>
             	<option value="AP">Amapá</option>

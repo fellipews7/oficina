@@ -32,7 +32,7 @@ require_once 'connection.php';
       <div class="main__container">
         <!-- MAIN CARDS STARTS HERE -->
         <div class="main__cards">
-          <div class="form">
+          <div class="form custom-class">
             <form action="cadastro.php" method="post">
               <div class="inputs-form">
                 <div class="column one">
@@ -46,16 +46,18 @@ require_once 'connection.php';
                       echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . "</option>";
                     }
                     ?>
-                  </select><br>
+                  </select></br>
                   <label for="iDescricaoServico">Descrição do Serviço</label>
-                  <input type="text" id="iDescricaoServico" name="nDescricaoServico" placeholder="Insira a descrição do serviço feito">
+                  <textarea name="nDescricaoServico" id="iDescricaoServico" placeholder="Insira a descrição do serviço feito" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterServico')"></textarea>
+                  <small id="counterServico" class="caracteresRestantes"></small>
+
 
                   <label for="iDescricaoProduto">Descrição dos Produtos</label>
-                  <input type="text" id="iDescricaoProduto" name="nDescricaoProduto" placeholder="Insira a descrição dos produtos usados">
+                  <textarea name="nDescricaoProduto" id="iDescricaoProduto" placeholder="Insira a descrição dos produtos usados" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterProduto')"></textarea>
+                  <small id="counterProduto" class="caracteresRestantes"></small>
 
                   <label for="nTipoManu">Tipo Manutenção</label>
                   <div id="classificacaoCliente">
-                    <!-- Wrapper para trabalhar com input e label dentro de uma div  -->
                     <div class="wrapper">
                       <input type="radio" id="iCorretiva" name="nTipoManu" value="1">
                       <label for="iCorretiva">Corretiva</label>
@@ -86,7 +88,7 @@ require_once 'connection.php';
 
               </div>
 
-              <div class="btn-group">
+              <div class="btn-group custom-class">
                 <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
                 <button type="reset" name="nLimparOrcamento" class="btn">Limpar</button>
               </div>
