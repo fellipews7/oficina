@@ -40,7 +40,7 @@
                   <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
 
                   <div class="wrapper">
-                    <input type="radio" id="Nome" name="nTipoPalavraChave" value="nome">
+                    <input type="radio" id="Nome" name="nTipoPalavraChave" value="nome" checked>
                     <label for="Nome">Nome</label>
                     <input type="radio" id="CPF" name="nTipoPalavraChave" value="cpf">
                     <label for="CPF">CPF</label>
