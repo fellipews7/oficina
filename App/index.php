@@ -1,3 +1,9 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,7 +168,6 @@
         </main>
 
         <?php include_once 'assets/php/menu.php'; ?>
-
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <?php include_once 'assets/php/graficoIndex.php'; ?>
         <script>
@@ -261,5 +266,12 @@
             }
         </script>
 </body>
-
 </html>
+<?php
+
+}else if($_SESSION['login'] == 0){
+     header('location: ../index.php');
+     $_SESSION['tipoErro'] = 'Por favor faça login!';
+     $_SESSION['mensagem'] = 'erro';
+}
+

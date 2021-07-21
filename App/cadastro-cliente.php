@@ -1,3 +1,11 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
+    $_SESSION['logado'] = 1;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -148,17 +156,8 @@
               </div>
 
               <input type="hidden" name="nTipoAcao" value="1">
+              <input type="hidden" name="nTipoAcao" value="1">
 
-              <script>
-                document.getElementById("Cadastrar").onclick = function() {
-                  <?php setSessaoClientes(); ?>
-
-                }
-
-                document.getElementById("Limpar").onclick = function() {
-                  <?php unsetSessaoClientes(); ?>
-
-                }
               </script>
               <BR>
               <BR>
@@ -187,5 +186,10 @@
   <script src="assets\js\verificaJuridicaFisica.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
-
-</html>
+</HTML>
+<?php
+}else{
+    header('location: ../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}

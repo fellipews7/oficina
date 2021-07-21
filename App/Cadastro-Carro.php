@@ -1,3 +1,11 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
+    $_SESSION['logado'] = 1;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,6 +71,7 @@
                   <input type="text" id="Renavam" name="nRenavamCarro" placeholder="Insira o renavam do carro" value="<?php echo $_SESSION['renavamCarros'] ?>">
 
                 </div>
+                
               </div>
 
               <input type="hidden" name="nTipoAcao" value="1">
@@ -80,7 +89,6 @@
               </script>
               <div class="btn-group">
                 <button type="submit" name="nCadastrarCarros" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
-
                 <button type="reset" name="nLimparCarros" value="Limpar" id="Limpar" class="btn">Limpar</button>
               </div>
             </form>
@@ -88,11 +96,18 @@
         </div>
       </div>
     </main>
-
+    
     <?php include_once 'assets/php/menu.php'; ?>
+    
   </div>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="assets/js/script.js"></script>
 </body>
 
 </html>
+<?php
+}else{
+    header('location: ../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}

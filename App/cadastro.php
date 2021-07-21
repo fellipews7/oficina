@@ -2,7 +2,9 @@
 include_once 'connection.php';
 include_once 'assets/php/funcao.php';
 include_once 'assets/php/sessoes.php';
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
 if(isset($_POST['nCadastrarCliente'])){
     insertCliente();
@@ -91,6 +93,8 @@ function insertCarros(){
     $anoModeloCarro     = limpezaVariavel($_POST['nAnodoModeloCarro']);
     $anoFabricacaoCarro = limpezaVariavel($_POST['nAnoFabricacaoCarro']);
 
+    setSessaoCarros();
+
     verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro, $tipoAcao, $id);
 }
 
@@ -134,3 +138,4 @@ $sql = ("UPDATE orcamentos SET status='1' WHERE id='$idOrcamento'");
 
     conexaoBdInsert($sql);
 }
+

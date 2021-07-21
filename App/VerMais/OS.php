@@ -1,5 +1,11 @@
 <?php
-include_once 'includes/header.php';
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
+
+    include_once 'includes/header.php';
 require_once '../connection.php';
 
 ?>
@@ -66,4 +72,8 @@ require_once '../connection.php';
 
 <?php
 include_once 'includes/footer.php';
-?>
+} else {
+    header('location: ../../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}

@@ -6,7 +6,7 @@ function setSessaoClientes(){
         $_SESSION['nomeCliente']                  = $_POST['nNomeCliente'];
         $_SESSION['telefoneCliente']              = $_POST['nTelefoneCliente'];
         $_SESSION['dataNascimentoCliente']        = $_POST['nDataNascCliente'];
-
+        $_SESSION['tipoAcao']                     = ($_POST['nTipoAcao']);
         $_SESSION['emailCliente']                 = $_POST['nEmailCliente'];
         $_SESSION['municipioLogradouroCliente']   = $_POST['nMunicipioCliente'];
         $_SESSION['numeroLogradouroCliente']      = $_POST['nNumeroCliente'];
@@ -27,6 +27,7 @@ function setSessaoClientes(){
 
 function unsetSessaoClientes(){
 
+    $_SESSION['tipoAcao']                     = null;
     $_SESSION['nomeCliente']                  = null;
     $_SESSION['telefoneCliente']              = null;
     $_SESSION['dataNascimentoCliente']        = null;
@@ -46,35 +47,37 @@ function unsetSessaoClientes(){
 }
 
 function setSessaoFunc(){
-
+    $_SESSION['tipoAcao']     =  ($_POST['nTipoAcao']);
     $_SESSION['nomeFunc']     =  ($_POST['nNomeFuncionario']);
     $_SESSION['cpfFunc']      =  ($_POST['nCPFFuncionario']);
     $_SESSION['telefoneFunc'] =  ($_POST['nTelefoneFuncionario']);
     $_SESSION['cargoFunc']    =  ($_POST['nIDCargoFuncionarios']);
     $_SESSION['loginFunc']    =  ('1');
     $_SESSION['senhaFunc']    =  ('1');
-
-}
-
-function unsetSessaoFunc(){
-    $_SESSION['nomeFunc']     = null;
-    $_SESSION['cpfFunc']      = null;
-    $_SESSION['telefoneFunc'] = null;
-    $_SESSION['cargoFunc']    = null;
-    $_SESSION['loginFunc']    = null;
-    $_SESSION['senhaFunc']    = null;
     $_SESSION['setSessionFunc'] = true;
 }
 
-function setSessaoCarros(){
+function unsetSessaoFunc(){
+    $_SESSION['tipoAcao']       = null;
+    $_SESSION['nomeFunc']       = null;
+    $_SESSION['cpfFunc']        = null;
+    $_SESSION['telefoneFunc']   = null;
+    $_SESSION['cargoFunc']      = null;
+    $_SESSION['loginFunc']      = null;
+    $_SESSION['senhaFunc']      = null;
+    $_SESSION['setSessionFunc'] = false;
+}
 
-    $_SESSION['setSessionCarros'] = true;
-    $_SESSION['placaCarros'] = ($_POST['nPlacaCarro']);
-    $_SESSION['modeloCarros'] = ($_POST['nModeloCarro']);
-    $_SESSION['marcaCarros'] = ($_POST['nMarcaCarro']);
-    $_SESSION['renavamCarros'] = ($_POST['nRenavamCarro']);
-    $_SESSION['anoModeloCarros'] = ($_POST['nAnodoModeloCarro']);
+function setSessaoCarros(){
+    $_SESSION['tipoAcao']            = ($_POST['nTipoAcao']);
+    $_SESSION['setSessionCarros']    = true;
+    $_SESSION['placaCarros']         = ($_POST['nPlacaCarro']);
+    $_SESSION['modeloCarros']        = ($_POST['nModeloCarro']);
+    $_SESSION['marcaCarros']         = ($_POST['nMarcaCarro']);
+    $_SESSION['renavamCarros']       = ($_POST['nRenavamCarro']);
+    $_SESSION['anoModeloCarros']     = ($_POST['nAnodoModeloCarro']);
     $_SESSION['anoFabricacaoCarros'] = ($_POST['nAnoFabricacaoCarro']);
+
 }
 
 function unsetSessaoCarros(){
