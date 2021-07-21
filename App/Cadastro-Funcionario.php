@@ -1,3 +1,7 @@
+<?php
+require_once 'connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,8 +51,15 @@
                   <label for="iTelefone">Telefone</label>
                   <input type="text" id="iTelefone" name="nTelefoneFuncionario" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneFunc'] ?>">
 
-                  <label for="iIDCargo">ID do Cargo</label>
-                  <input type="text" id="iIDCargo" name="nIDCargoFuncionarios" placeholder="Insira o ID do cargo do funcionario" value="<?php echo $_SESSION['cargoFunc'] ?>">
+                  <label for="iIDCargo">Cargo</label>
+                  <select id="iIDCargo" class="select" name="nIDCargoFuncionarios">
+                    <?php $sql = "SELECT id as id, nome as nome FROM cargos";
+                    $resultado = mysqli_query($connect, $sql);
+                    while ($dados = mysqli_fetch_array($resultado)) {
+                      echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . "</option>";
+                    }
+                    ?>
+                  </select><br> 
 
                   <label for="iUsuario">Usuário</label>
                   <input type="text" id="iUsuario" name="nUsuario" placaholder="Insira o nome do seu usuário" value>
