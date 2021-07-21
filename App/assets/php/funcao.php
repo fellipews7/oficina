@@ -173,7 +173,6 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                         echo '5';
                         if(isCEP($cepLogradouroCliente)){
 
-
                             if($tipoAcao == "1") {
                                 cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
                                     $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
