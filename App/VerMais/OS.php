@@ -15,17 +15,17 @@ require_once '../connection.php';
             <a href="../Consulta-OS.php" class="btn black">Retornar</a><h3 class="light">Ordem de serviços</h3>
                 <table class="striped responsive-table">
                     <thead>
-                        <th>ID Ordem de Serviço</th>
-                        <th>ID Orçamento</th>
-                        <th>ID Cliente</th>
-                        <th>ID Carro</th>
+                        <th>Nº Ordem de Serviço</th>
+                        <th>Nº Orçamento</th>
+                        <th>Código Cliente</th>
+                        <th>Código Carro</th>
                         <th>Descrição Produtos</th>
                         <th>Valor Produtos</th>
                         <th>Descrição Serviços</th>
                         <th>Valor Serviços</th>
                         <th>Data Cadastro</th>
                         <th>Data Previsão</th>
-                        <th>Data Entrega</th>
+                        <th>Data Conclusão</th>
                         <th>Valor total</th>
                         <th>Status</th>
                     </thead>
