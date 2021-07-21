@@ -54,10 +54,10 @@
 
 
                   <label for="AnodoModelo">Ano do Modelo</label>
-                  <input type="text" id="AnodoModelo" name="nAnodoModeloCarro" placeholder="Insira o ano do modelo" value="<?php echo $_SESSION['anoModeloCarros'] ?>">
+                  <input type="text" maxlength="4" id="AnodoModelo" name="nAnodoModeloCarro" placeholder="Insira o ano do modelo" value="<?php echo $_SESSION['anoModeloCarros'] ?>">
 
                   <label for="AnoFabricação">Ano Fabricação</label>
-                  <input type="text" id="AnoFabricação" name="nAnoFabricacaoCarro" placeholder="Insira o ano de fabricação" value="<?php echo $_SESSION['anoFabricacaoCarros'] ?>">
+                  <input type="text" maxlength="4" id="AnoFabricação" name="nAnoFabricacaoCarro" placeholder="Insira o ano de fabricação" value="<?php echo $_SESSION['anoFabricacaoCarros'] ?>">
 
                   <label for="Renavam">Renavam</label>
                   <input type="text" id="Renavam" name="nRenavamCarro" placeholder="Insira o renavam do carro" value="<?php echo $_SESSION['renavamCarros'] ?>">
