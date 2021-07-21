@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+include_once 'sessoes.php';
 
 function limpezaVariavel($value){
     global $connect;
@@ -169,7 +172,6 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                     if(isEmail($emailCliente)){
                         echo '5';
                         if(isCEP($cepLogradouroCliente)){
-
 
                             if($tipoAcao == "1") {
                                 cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
@@ -418,6 +420,9 @@ function atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
 
 function conexaoBdInsert($sql){
     global $connect;
+
+    unsetSessoes();
+
     if(mysqli_query($connect, $sql)){
         $_SESSION['mensagem'] = "deu";
 
@@ -430,7 +435,7 @@ function conexaoBdInsert($sql){
             $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
             header('Location: index.php?deu');
         }
-        unsetSessoes();
+
     }else{
         $_SESSION['mensagem'] = "erro";
         $_SESSION['tipoErro'] = "Dados únicos duplicados!";

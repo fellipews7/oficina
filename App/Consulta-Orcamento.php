@@ -1,3 +1,9 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +83,7 @@
 
               <table rules=all>
                 <tr>
-                  <th>ID Orçamento</th>
+                  <th>Nº Orçamento</th>
                   <th>Código Cliente</th>
                   <th>Nome Cliente</th>
                   <th>Código Carro</th>
@@ -169,3 +175,10 @@
 </body>
 
 </html>
+<?php
+
+}else{
+    header('location: ../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}

@@ -1,3 +1,10 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,7 +75,6 @@
                   <th>Modelo</th>
                   <th>Ano Modelo</th>
                   <th>Ano Fabricado</th>
-                  <th>Cliente Atual</th>
                   <th></th>
                 </thead>
 
@@ -93,7 +99,6 @@
                       echo '<td>' . $dados['modelo'] . '</td>';
                       echo '<td>' . $dados['ano_modelo'] . '</td>';
                       echo '<td>' . $dados['ano_fabricado'] . '</td>';
-                      echo '<td></td>';
                       echo '<td id="iCantoBotao">';
                       echo '<a href="VerMais/carro?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                       echo '</td>';
@@ -114,6 +119,7 @@
         </form>
 
       </div>
+      
     </main>
 
     <?php include_once 'assets/php/menu.php'; ?>
@@ -124,3 +130,10 @@
 </body>
 
 </html>
+<?php
+}else{
+    header('location: ../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}
+

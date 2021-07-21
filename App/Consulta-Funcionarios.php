@@ -1,3 +1,9 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +46,7 @@
                   <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
 
                   <div class="wrapper">
-                    <input type="radio" id="Nome" name="nTipoPalavraChave" value="nome">
+                    <input type="radio" id="Nome" name="nTipoPalavraChave" value="nome" checked>
                     <label for="Nome">Nome</label>
                     <input type="radio" id="CPF" name="nTipoPalavraChave" value="cpf">
                     <label for="CPF">CPF</label>
@@ -131,3 +137,11 @@
 </body>
 
 </html>
+<?php
+
+}else{
+    header('location: ../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}
+

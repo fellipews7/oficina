@@ -1,5 +1,11 @@
 <?php
-include_once 'includes/header.php';
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
+
+    include_once 'includes/header.php';
 require_once '../connection.php';
 
 ?>
@@ -9,17 +15,17 @@ require_once '../connection.php';
             <a href="../Consulta-OS.php" class="btn black">Retornar</a><h3 class="light">Ordem de serviços</h3>
                 <table class="striped responsive-table">
                     <thead>
-                        <th>ID Ordem de Serviço</th>
-                        <th>ID Orçamento</th>
-                        <th>ID Cliente</th>
-                        <th>ID Carro</th>
+                        <th>Nº Ordem de Serviço</th>
+                        <th>Nº Orçamento</th>
+                        <th>Código Cliente</th>
+                        <th>Código Carro</th>
                         <th>Descrição Produtos</th>
                         <th>Valor Produtos</th>
                         <th>Descrição Serviços</th>
                         <th>Valor Serviços</th>
                         <th>Data Cadastro</th>
                         <th>Data Previsão</th>
-                        <th>Data Entrega</th>
+                        <th>Data Conclusão</th>
                         <th>Valor total</th>
                         <th>Status</th>
                     </thead>
@@ -66,4 +72,8 @@ require_once '../connection.php';
 
 <?php
 include_once 'includes/footer.php';
-?>
+} else {
+    header('location: ../../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}

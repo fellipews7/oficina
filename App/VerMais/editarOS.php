@@ -1,4 +1,11 @@
 <?php
+
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (isset($_SESSION['login']) and $_SESSION['login'] == 1){
+
 include_once '../connection.php';
 include_once 'includes/header.php';
 
@@ -36,17 +43,17 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iIDOrcamento">Nº Orçamento</label><br>
-                <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['orcamento_id']?>" reandoly>
+                <input type="text" readonly name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['orcamento_id']?>" reandoly>
             </div>
 
             <div class="input-field col s12">
-                <label for="iCliente"> Cliente</label><br>
-                <input type="text" name="nCliente" id="iCliente" value="<?php echo $dados['clientes_id']?>" reandoly>
+                <label for="iCliente">Código Cliente</label><br>
+                <input type="text" readonly name="nCliente" id="iCliente" value="<?php echo $dados['clientes_id']?>" reandoly>
             </div>
 
             <div class="input-field col s12">
-                <label for="iCarro">Carro</label><br>
-                <input type="text" name="nCarro" id="iCarro" value="<?php echo $dados['carros_id']?>" reandoly>
+                <label for="iCarro">Código Carro</label><br>
+                <input type="text" readonlyname="nCarro" id="iCarro" value="<?php echo $dados['carros_id']?>" reandoly>
             </div>
 
             <div class="input-field col s12">
@@ -72,7 +79,7 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iDataOrc">Data do Cadastro Orçamento</label><br>
-                <input type="text" name="nDataCad" id="iDataOrc" value="<?php echo $dados['data_cadastro']?>">
+                <input type="text" readonly name="nDataCad" id="iDataOrc" value="<?php echo $dados['data_cadastro']?>">
             </div>
 
             <div class="input-field col s12">
@@ -111,7 +118,7 @@ if(isset($_GET['id'])){
 
             <div class="center-align">
                 <button type="submit" name="btn-editar-os" class="btn black">Atualizar</button>
-                <a href="index.php" class="btn black">Lista de clientes</a>
+                <a href="OS.php" class="btn black">Lista de ordens de serviço</a>
             </div>
         </form>
     </div>
@@ -119,6 +126,10 @@ if(isset($_GET['id'])){
 
 <?php
 include_once 'includes/footer.php';
-?>
+} else {
+    header('location: ../../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}
 
 

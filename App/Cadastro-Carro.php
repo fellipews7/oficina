@@ -1,3 +1,14 @@
+<?php
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+  session_start();
+}
+if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
+
+  require_once 'connection.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,15 +65,16 @@
 
 
                   <label for="AnodoModelo">Ano do Modelo</label>
-                  <input type="text" id="AnodoModelo" name="nAnodoModeloCarro" placeholder="Insira o ano do modelo" value="<?php echo $_SESSION['anoModeloCarros'] ?>">
+                  <input type="text" maxlength="4" id="AnodoModelo" name="nAnodoModeloCarro" placeholder="Insira o ano do modelo" value="<?php echo $_SESSION['anoModeloCarros'] ?>">
 
                   <label for="AnoFabricação">Ano Fabricação</label>
-                  <input type="text" id="AnoFabricação" name="nAnoFabricacaoCarro" placeholder="Insira o ano de fabricação" value="<?php echo $_SESSION['anoFabricacaoCarros'] ?>">
+                  <input type="text" maxlength="4" id="AnoFabricação" name="nAnoFabricacaoCarro" placeholder="Insira o ano de fabricação" value="<?php echo $_SESSION['anoFabricacaoCarros'] ?>">
 
                   <label for="Renavam">Renavam</label>
                   <input type="text" id="Renavam" name="nRenavamCarro" placeholder="Insira o renavam do carro" value="<?php echo $_SESSION['renavamCarros'] ?>">
 
                 </div>
+                
               </div>
 
               <input type="hidden" name="nTipoAcao" value="1">
@@ -80,7 +92,6 @@
               </script>
               <div class="btn-group">
                 <button type="submit" name="nCadastrarCarros" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
-
                 <button type="reset" name="nLimparCarros" value="Limpar" id="Limpar" class="btn">Limpar</button>
               </div>
             </form>
@@ -88,11 +99,18 @@
         </div>
       </div>
     </main>
-
+    
     <?php include_once 'assets/php/menu.php'; ?>
+    
   </div>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="assets/js/script.js"></script>
 </body>
 
 </html>
+<?php
+}else{
+    header('location: ../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}

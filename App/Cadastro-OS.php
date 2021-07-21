@@ -1,3 +1,11 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +42,7 @@
                 <div class="column">
 
                   <label for="iIDOrcamento">Nº Orçamento</label>
-                  <input type="text" id="iIDOrcamento" name="nIDOrcamentoOS" value="<?php echo $_GET['id']; ?>" placeholder="Insira o Nº do orçamento">
+                  <input type="text" readonly id="iIDOrcamento" name="nIDOrcamentoOS" value="<?php echo $_GET['id']; ?>" placeholder="Insira o Nº do orçamento">
 
                   <label for="iDataPrev">Data da Previsao de Entrega</label>
                   <input class="data" type="date" id="iDataPrev" name="nDataPrevOS" data-date="" data-date-format="DD MMMM YYYY" value="<?php echo date("Y-m-d"); ?>">
@@ -87,3 +95,9 @@
 </body>
 
 </html>
+<?php
+}else{
+    header('location: ../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}

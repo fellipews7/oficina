@@ -1,3 +1,14 @@
+<?php
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+  session_start();
+}
+if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
+
+  require_once 'connection.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,9 +51,6 @@
             <label for="iNome">Nome</label>
             <input type="text" id="iNome" name="nNomeCargo" placeholder="Insira o nome do cargo">
 
-          </div>
-          <div class="column">
-
             <label for="iDescrição">Descrição</label>
             <input type="text" id="iDescricao" name="nDescricaoCargo" placeholder="Insira a descrição">
 
@@ -73,3 +81,9 @@
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+<?php
+}else{
+    header('location: ../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}
