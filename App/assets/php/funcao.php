@@ -1,4 +1,9 @@
 <?php
+<<<<<<< HEAD
+=======
+session_start();
+
+>>>>>>> parent of de34d2c... merge
 function limpezaVariavel($value){
     global $connect;
     $value = mysqli_escape_string($connect, $value);
@@ -150,9 +155,24 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                 if(verificaCpfCnpj($cpfCnpjCliente)){
                     if(isEmail($emailCliente)){
                         if(isCEP($cepLogradouroCliente)){
+<<<<<<< HEAD
                             cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
                                 $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
                                 $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
+=======
+
+
+                            if($tipoAcao == "1") {
+                                cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
+                                    $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
+                                    $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
+                            }elseif ($tipoAcao == "2"){
+                                atualizaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
+                                    $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
+                                    $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id);
+
+                            }
+>>>>>>> parent of de34d2c... merge
                         }else{
                             $_SESSION['tipoErro'] = 'CEP incorreto!';
                             $_SESSION['mensagem'] = 'erro';
@@ -263,8 +283,22 @@ function conexaoBdInsert($sql){
     global $connect;
     if(mysqli_query($connect, $sql)){
         $_SESSION['mensagem'] = "deu";
+<<<<<<< HEAD
         $_SESSION['tipoErro'] = "sem";
         header('Location: index.php?deu');
+=======
+
+        if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
+            $_SESSION['tipoErro'] = "Atualização feita com sucesso!";
+            header('Location: ../../index.php');
+
+            $_SESSION['tipoAcao'] = null;
+        }else{
+            $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
+            header('Location: index.php?deu');
+        }
+        unsetSessoes();
+>>>>>>> parent of de34d2c... merge
     }else{
         $_SESSION['mensagem'] = "erro";
         $_SESSION['tipoErro'] = "Erro ao escrever no banco!";

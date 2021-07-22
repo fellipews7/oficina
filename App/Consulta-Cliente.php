@@ -121,8 +121,16 @@
           </tr>
         </table>
 
+<<<<<<< HEAD
     </div>
     <!--Acaba a coluna-->
+=======
+          </form>
+        </div>
+
+      </div>
+    </main>
+>>>>>>> parent of de34d2c... merge
 
   </form>
     </div>
@@ -144,6 +152,7 @@
           ></i>
         </div>
 
+<<<<<<< HEAD
     
         <div class="sidebar__menu">
             <div class="sidebar__link active_menu_link">
@@ -203,3 +212,6 @@
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+=======
+</html>
+>>>>>>> parent of de34d2c... merge

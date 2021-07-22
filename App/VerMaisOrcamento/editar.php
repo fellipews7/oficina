@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD:App/VerMaisOrcamento/editar.php
 include_once 'phpaction/db_connect.php';
+=======
+include_once '../connection.php';
+>>>>>>> parent of de34d2c... merge:App/VerMais/editarOrcamento.php
 include_once 'includes/header.php';
 require_once 'phpaction/db_connect.php';
 include_once 'includes/funcao.php';
@@ -22,6 +26,7 @@ if(isset($_GET['id'])){
             <input type="hidden" name="nId" value="<?php echo $dados['id']?>">
 
             <div class="input-field col s12">
+<<<<<<< HEAD:App/VerMaisOrcamento/editar.php
                 <label for="iIDOrcamento">ID Orçamento</label>
                 <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['IDorcamento']?>">
             </div>
@@ -34,6 +39,22 @@ if(isset($_GET['id'])){
             <div class="input-field col s12">
                 <label for="iIDCarro">ID Carro</label>
                 <input type="text" name="nIDCarro" id="iIDCarro" value="<?php echo $dados['IDcarro']?>">
+=======
+
+                <label for="iIDOrcamento">ID Orçamento</label><br>
+                <input type="text" reandoly name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['id']?>">
+
+            </div>
+
+            <div class="input-field col s12">
+                <label for="iIDCliente">ID Cliente</label><br>
+                <input type="text" name="nIDCliente" id="iIDCliente" value="<?php echo $dados['clientes_id']?>">
+            </div>
+
+            <div class="input-field col s12">
+                <label for="iIDCarro">ID Carro</label><br>
+                <input type="text" name="nIDCarro" id="iIDCarro" value="<?php echo $dados['carros_id']?>">
+>>>>>>> parent of de34d2c... merge:App/VerMais/editarOrcamento.php
             </div>
 
             <div class="input-field col s12">
@@ -57,8 +78,13 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
+<<<<<<< HEAD:App/VerMaisOrcamento/editar.php
                 <label for="iDataOrc">Data do Orçamento</label>
                 <input type="text" name="nDataOrc" id="iDataOrc" value="<?php echo $dados['dataorcamento']?>">
+=======
+                <label for="iDataOrc">Data do Orçamento</label><br>
+                <input type="text" name="nDataOrc" id="iDataOrc" value="<?php echo $dados['data']?>">
+>>>>>>> parent of de34d2c... merge:App/VerMais/editarOrcamento.php
             </div>
 
             <div class="input-field col s12">

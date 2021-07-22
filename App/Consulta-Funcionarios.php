@@ -33,6 +33,7 @@
           <!-- MAIN CARDS STARTS HERE -->
           <div class="main__cards">
           <div class="form">
+<<<<<<< HEAD
           <form>
         <!--Inicia a coluna-->
         <label for="iPalavraChave">Palavra Chave</label>
@@ -52,6 +53,83 @@
               <label for="iCargo">Cargo</label>
             </div>
           </div>
+=======
+            <form>
+              <!--Inicia a coluna-->
+              <label for="iPalavraChave">Palavra Chave</label>
+              <input type="text" id="iPalavraChave" name="nPalavraChaveFuncionarioCon" placeholder="Insira a palavra chave para pesquisa">
+              <div class="columns">
+
+                <div class="column 1">
+                  <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
+
+                  <div class="wrapper">
+                    <input type="radio" id="Nome" name="nTipoPalavraChave" value="nome">
+                    <label for="Nome">Nome</label>
+                    <input type="radio" id="CPF" name="nTipoPalavraChave" value="cpf">
+                    <label for="CPF">CPF</label>
+                    <input type="radio" id="iCargo" name="nTipoPalavraChave" value="cargo">
+                    <label for="iCargo">Cargo</label>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <br>
+              <br>
+
+              <div class="btn-group">
+                <button name="nPesquisarFuncionarioCon" value="Enviar" class="btn">Pesquisar</button>
+
+                <button type="reset" name="nLimparFuncionarioCon" value="Limpar" class="btn">Limpar</button>
+              </div>
+
+              <br>
+              <br>
+
+              <table rules=all>
+                <tr>
+                  <th>Matricula</th>
+                  <th>Cargo</th>
+                  <th>Nome</th>
+                  <th>Telefone</th>
+                  <th></th>
+                </tr>
+                <?php
+                if (isset($_GET['nPesquisarFuncionarioCon'])) {
+                  $tipoPalavraChave = limpezaVariavel($_GET['nTipoPalavraChave']);
+                  $palavraChave = limpezaVariavel($_GET['nPalavraChaveFuncionarioCon']);
+
+                  if ($tipoPalavraChave <> 'cargo') {
+                    $sql = "SELECT matricula, cargos.nome AS cargo, funcionarios.nome, telefone_contato AS telefone, cpf FROM funcionarios 
+                            INNER JOIN cargos ON cargos.id = funcionarios.cargos_id 
+                            WHERE funcionarios." . $tipoPalavraChave . " LIKE  '$palavraChave%'";
+                  } elseif ($tipoPalavraChave) {
+                    $sql = "SELECT func.matricula AS matricula, func.nome AS nome, func.telefone_contato AS telefone, func.cpf AS cpf, cargos.nome AS cargo 
+                            FROM cargos AS cargos
+                            INNER JOIN funcionarios AS func ON func.cargos_id = cargos.id
+                            WHERE cargos.nome  LIKE '$palavraChave%'";
+                  }
+
+                  insercaoDados($sql);
+                }
+
+                function insercaoDados($sql)
+                {
+                  global $connect;
+                  $resultado = mysqli_query($connect, $sql);
+                  while ($dados = mysqli_fetch_array($resultado)) :
+                    echo '<tr>';
+                    echo '<td>' . $dados['matricula'] . '</td>';
+                    echo '<td>' . $dados['cargo'] . '</td>';
+                    echo '<td>' . $dados['nome'] . '</td>';
+                    echo '<td>' . $dados['telefone'] . '</td>';
+                    echo '<td id="iCantoBotao">';
+                    echo '<a href="VerMais/funcionario.php?matricula= ' . $dados["matricula"] . '" id="VerMaisFuncionario" name="nVerMaisFuncionario"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                    echo '</td>';
+                    echo '</tr>';
+>>>>>>> parent of de34d2c... merge
 
 
         </div>
@@ -108,6 +186,7 @@
           </tr>
         </table>
 
+<<<<<<< HEAD
     </div>
 
   <br>
@@ -192,3 +271,6 @@
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+=======
+</html>
+>>>>>>> parent of de34d2c... merge

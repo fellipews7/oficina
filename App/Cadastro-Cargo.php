@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -6,6 +7,8 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
     $_SESSION['logado'] = 1;
 ?>
 
+=======
+>>>>>>> parent of de34d2c... merge
 <!DOCTYPE html>
 <html lang="en">
   <head>

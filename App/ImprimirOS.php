@@ -3,6 +3,10 @@ require_once 'dompdf/autoload.inc.php';
 $dados=0;
 $dompdf = new \Dompdf\Dompdf();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of de34d2c... merge
 $dompdf->loadHtml('<html xmlns="http://www.w3.org/1999/xhtml">
 
     <head>
@@ -17,7 +21,11 @@ $dompdf->loadHtml('<html xmlns="http://www.w3.org/1999/xhtml">
 
     <body>
         <form>
+<<<<<<< HEAD
             <table rules=all style="font-size: 18px;">
+=======
+            <table rules=all style="font-size: 20px;">
+>>>>>>> parent of de34d2c... merge
 
                 <thead style="background: gray">
                     <tr>

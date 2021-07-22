@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -8,6 +9,11 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 require_once 'connection.php';
 
 ?>
+=======
+require_once 'connection.php';
+?>
+
+>>>>>>> parent of de34d2c... merge
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -75,16 +81,26 @@ require_once 'connection.php';
                 </div>
 
                 <div class="column two">
+<<<<<<< HEAD
                   <label for="iIDCarro">Selecione o Carro</label>
                   <select id="iIDCarro" class="select" name="nIDCarroOrcamento">
                     <?php $sql = "SELECT id as id, placa as placa,modelo as modelo, marca FROM carros";
                     $resultado = mysqli_query($connect, $sql);
                     while ($dados = mysqli_fetch_array($resultado)) {
                       echo "<option value=" . $dados['id'] . ">" . $dados['placa'] .' | ' . $dados['marca'] .' - ' . $dados['modelo'] .  "</option>";
+=======
+                  <label for="iIDCarro">Placa do Carro</label>
+                  <select id="iIDCarro" class="select" name="nIDCarroOrcamento">
+                    <?php $sql = "SELECT id as id, placa as placa FROM carros";
+                    $resultado = mysqli_query($connect, $sql);
+                    while ($dados = mysqli_fetch_array($resultado)) {
+                      echo "<option value=" . $dados['id'] . ">" . $dados['placa'] . "</option>";
+>>>>>>> parent of de34d2c... merge
                     }
                     ?>
                   </select><br>
                   <label for="iPrecoMaoObra">Preço Mão de Obra</label>
+<<<<<<< HEAD
                   <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')"  placeholder="Insira o preço da mão de obra">
 
                   <label for="iPreçoTotalPro">Preço Total de Produtos</label>
@@ -92,14 +108,25 @@ require_once 'connection.php';
                   
                   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
                   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+=======
+                  <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" placeholder="Insira o preço da mão de obra">
+
+                  <label for="iPreçoTotalPro">Preço Total de Produtos</label>
+                  <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" placeholder="Insira o preço preço total dos produtos">
+>>>>>>> parent of de34d2c... merge
 
                 </div>
 
               </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of de34d2c... merge
               <div class="btn-group custom-class">
                 <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
                 <button type="reset" name="nLimparOrcamento" class="btn">Limpar</button>
               </div>
+<<<<<<< HEAD
                 <br>
                 <br>
 
@@ -109,12 +136,25 @@ require_once 'connection.php';
         </div>
     </main>
 
+=======
+
+              <br>
+              <br>
+
+            </form>
+          </div>
+
+        </div>
+    </main>
+
+>>>>>>> parent of de34d2c... merge
     <?php include_once 'assets/php/menu.php'; ?>
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="assets/js/script.js"></script>
 </body>
+<<<<<<< HEAD
     
         <div class="sidebar__menu">
             <div class="sidebar__link active_menu_link">
@@ -181,3 +221,7 @@ require_once 'connection.php';
     $_SESSION['tipoErro'] = 'Por favor faça login!';
     $_SESSION['mensagem'] = 'erro';
 }
+=======
+
+</html>
+>>>>>>> parent of de34d2c... merge

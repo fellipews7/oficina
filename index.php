@@ -10,7 +10,48 @@
             crossorigin="anonymous"
     />
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="assets/css/styles.css" />
+=======
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+			crossorigin="anonymous"
+		/>
+
+		<link rel="stylesheet" href="assets/css/styles.css" />
+		<title>Login Oficina Schulz</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--===============================================================================================-->	
+		<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+		<!--===============================================================================================-->	
+		<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="css/util.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<!--===============================================================================================-->
+	</head>
+
+	<body>
+	<?php include_once "assets\php\mensagem.php";?>
+		<div class="limiter">
+			<div class="container-login100">
+				<div class="wrap-login100">
+					<div class="login100-pic js-tilt" data-tilt>
+						<img src="images/img-01.png" alt="IMG">
+>>>>>>> parent of de34d2c... merge
 
     <title>CSS GRID DASHBOARD</title>
 </head>
@@ -25,6 +66,7 @@
         </div>
     </nav>
 
+<<<<<<< HEAD
     <main>
         <div class="main__container">
             <!-- MAIN TITLE STARTS HERE -->
@@ -112,6 +154,13 @@
                             <h1>Nome</h1>
                             <p>Valor</p>
                         </div>
+=======
+					<form method="POST" action="App/validaLogin.php">
+					<?php $_SESSION['tipoAcao'] = "3" ?>
+						<span class="login100-form-title">
+							Login
+						</span>
+>>>>>>> parent of de34d2c... merge
 
                         <div class="card2">
                             <h1>Nome</h1>
@@ -206,6 +255,7 @@
 				</form>
 			</div>
 		</div>
+<<<<<<< HEAD
 	</div>
 	
 	
@@ -231,3 +281,29 @@
 
 </body>
 </html>
+=======
+		
+		
+
+		
+		<!--===============================================================================================-->	
+		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="vendor/bootstrap/js/popper.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="vendor/select2/select2.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="vendor/tilt/tilt.jquery.min.js"></script>
+		<script >
+			$('.js-tilt').tilt({
+				scale: 1.1
+			})
+		</script>
+		<!--===============================================================================================-->
+		<script src="js/main.js"></script>
+
+
+	</body>
+</html>
+>>>>>>> parent of de34d2c... merge

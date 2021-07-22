@@ -1,9 +1,3 @@
-<?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
-if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,6 +167,7 @@ include_once 'connection.php';
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <!-- CHARTS ENDS HERE -->
         </div>
     </main>
@@ -250,3 +245,109 @@ include_once 'connection.php';
 <script src="assets/js/script.js"></script>
 </body>
 </html>
+=======
+        </main>
+
+        <?php include_once 'assets/php/menu.php'; ?>
+
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <?php include_once 'assets/php/graficoIndex.php'; ?>
+        <script>
+            // This is for able to see chart. We are using Apex Chart. U can check the documentation of Apex Charts too..
+            var options = {
+                series: [{
+                        name: "Quantidade de Ordens de Serviços",
+                        data: [<?php foreach ($qtdOs as $qtdOs) {
+                                    echo intval($qtdOs);
+                                    echo ',';
+                                }; ?>],
+                    },
+                    {
+                        name: "Quantidade de Orçamentos",
+                        data: [<?php foreach ($qtdOrc as $qtdOrc) {
+                                    echo intval($qtdOrc);
+                                    echo ',';
+                                }; ?>],
+                    },
+                    {
+                        name: "Orçamentos rejeitados",
+                        data: [<?php foreach ($orcRejeitado as $orcRejeitado) {
+                                    echo intval($orcRejeitado);
+                                    echo ',';
+                                }; ?>],
+                    },
+                ],
+                chart: {
+                    type: "bar",
+                    height: 250, // make this 250
+                    sparkline: {
+                        enabled: true, // make this true
+                    },
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: "55%",
+                        endingShape: "rounded",
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ["transparent"],
+                },
+                xaxis: {
+                    categories: [<?php foreach ($mesNome as $mesNome) {
+                                        echo '"';
+                                        echo $mesNome;
+                                        echo '"';
+                                        echo ',';
+                                    }; ?>],
+                },
+                yaxis: {
+                    title: {
+                        text: "",
+                    },
+                },
+                fill: {
+                    opacity: 1,
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(val) {
+                            return val;
+                        },
+                    },
+                },
+            };
+
+            var chart = new ApexCharts(document.querySelector("#apex1"), options);
+            chart.render();
+
+            // Sidebar Toggle Codes;
+
+            var sidebarOpen = false;
+            var sidebar = document.getElementById("sidebar");
+            var sidebarCloseIcon = document.getElementById("sidebarIcon");
+
+            function toggleSidebar() {
+                if (!sidebarOpen) {
+                    sidebar.classList.add("sidebar_responsive");
+                    sidebarOpen = true;
+                }
+            }
+
+            function closeSidebar() {
+                if (sidebarOpen) {
+                    sidebar.classList.remove("sidebar_responsive");
+                    sidebarOpen = false;
+                }
+            }
+        </script>
+</body>
+
+</html>
+>>>>>>> parent of de34d2c... merge

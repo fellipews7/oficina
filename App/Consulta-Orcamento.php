@@ -33,6 +33,7 @@
           <!-- MAIN CARDS STARTS HERE -->
           <div class="main__cards">
           <div class="form">
+<<<<<<< HEAD
           <form>
         <!--Inicia a coluna-->
         <label for="iClientePesq">Cliente</label>
@@ -103,6 +104,76 @@
                   $dataInicial = limpezaVariavel($_GET['nDataInOrc']);
                   $status = limpezaVariavel($_GET['nSttsOrcamento']);
                   $sql = "SELECT orc.id as orcamento_id,cli.id as cliente_id,car.id as carro_id,orc.descricao_servicos,orc.valor_total_servicos,
+=======
+            <form>
+              <!--Inicia a coluna-->
+              <label for="iClientePesq">Cliente</label>
+              <input type="text" id="iClientePesq" name="nClienteOrcamentoCon" placeholder="Insira o cliente para pesquisa">
+
+              <div class="columns">
+                <div class="dates">
+                  <div>
+                    <label for="LabelsRadios" id="LabelsRadios">Data Inicial</label><br>
+                    <input class="data" type="date" id="LabelsRadios" name="nDataInOrc" data-date="" data-date-format="DD MMMM YYYY" value="2021-01-01"><br>
+                  </div>
+
+                  <div>
+                    <label for="iDataFin">Data Final</label>
+                    <input class="data" type="date" id="iDataFin" name="nDataFimOrc" data-date="" data-date-format="DD MMM YYYY" value="<?php echo date("Y-m-d"); ?>">
+                  </div>
+                </div>
+
+                <label for="nSttsOS" id="LabelsRadios">Status do Orçamento</label>
+
+                <div class="wrapper" id="LabelsRadios">
+                  <input type="radio" id="iTodos" name="nSttsOrcamento" value=" ">
+                  <label for="iTodos">Todos</label>
+                  <input type="radio" id="iAprovado" name="nSttsOrcamento" value="1">
+                  <label for="iAprovado">Aprovado</label>
+                  <input type="radio" id="iNaoAprovado" name="nSttsOrcamento" value="2">
+                  <label for="iNaoAprovado">Não Aprovado</label>
+                  <input type="radio" id="iAguardandoAprovacao" name="nSttsOrcamento" value="3" checked>
+                  <label for="iAguardandoAprovacao">Aguardando aprovação</label>
+
+                </div>
+              </div>
+
+              <br>
+              <br>
+
+              <div class="btn-group">
+                <button name="nPesquisarOrcamentoCon" value="Enviar" class="btn">Pesquisar</button>
+
+                <button type="reset" name="nLimparOrcamentoCon" value="Limpar" class="btn">Limpar</button>
+              </div>
+
+              <br>
+              <br>
+
+              <table rules=all>
+                <tr>
+                  <th>ID Orçamento</th>
+                  <th>Código Cliente</th>
+                  <th>Nome Cliente</th>
+                  <th>Código Carro</th>
+                  <th>Placa do Carro</th>
+                  <th>Descrição Serviço</th>
+                  <th>Preço Mão de Obra</th>
+                  <th>Preço Total</th>
+                  <th>Data Orçamento</th>
+                  <th>Status</th>
+                  <th>Tipo Manutenção</th>
+                  <th id="IListaeProcurar"></th>
+                </tr>
+                <tr>
+                  <?php
+                  if (isset($_GET['nPesquisarOrcamentoCon'])) {
+                    $nomeCliente = limpezaVariavel($_GET['nClienteOrcamentoCon']);
+                    $dataFinal = limpezaVariavel($_GET['nDataFimOrc']);
+                    $dataInicial = limpezaVariavel($_GET['nDataInOrc']);
+                    $status = limpezaVariavel($_GET['nSttsOrcamento']);
+                    $sql = "SELECT orc.id as orcamento_id,cli.id as cliente_id,cli.nome AS cliente_nome,car.id AS carro_id,car.placa AS carro_placa,orc.descricao_servicos,orc.valor_total_produtos,orc.valor_total_servicos,orc.tipoManutencao,
+>>>>>>> parent of de34d2c... merge
                                 orc.data, orc.status FROM orcamentos orc
                                 INNER JOIN clientes cli ON orc.clientes_id = cli.id
                                 INNER JOIN carros car ON orc.carros_id = car.id
@@ -167,6 +238,7 @@
           ></i>
         </div>
 
+<<<<<<< HEAD
     
         <div class="sidebar__menu">
             <div class="sidebar__link active_menu_link">
@@ -226,3 +298,6 @@
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+=======
+</html>
+>>>>>>> parent of de34d2c... merge

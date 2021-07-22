@@ -1,6 +1,10 @@
 <?php
 include_once 'connection.php';
 include_once 'assets/php/funcao.php';
+<<<<<<< HEAD
+=======
+include_once 'assets/php/sessoes.php';
+>>>>>>> parent of de34d2c... merge
 session_start();
 
 if(isset($_POST['nCadastrarCliente'])){
@@ -28,6 +32,7 @@ if(isset($_POST['nCadastrarOS'])){
 }
 
 function insertCliente(){
+<<<<<<< HEAD
     $tipoCadastro = limpezaVariavel($_POST['nPessoaFJ']);
     $nomeCliente = limpezaVariavel($_POST['nNomeCliente']);
     $telefoneCliente = limpaNumero($_POST['nTelefoneCliente']);
@@ -41,6 +46,26 @@ function insertCliente(){
     $ruaLogradouroCliente = limpezaVariavel($_POST['nRuaCliente']);
     $cepLogradouroCliente = limpezaVariavel($_POST['nCEPCliente']); 
     $dataCadastroCliente = date('Y/m/d');
+=======
+
+    $id                         = null;
+    $tipoAcao                   = limpezaVariavel($_POST['nTipoAcao']);
+    $tipoCadastro               = limpezaVariavel($_POST['nPessoaFJ']);
+    $nomeCliente                = limpezaVariavel($_POST['nNomeCliente']);
+    $telefoneCliente            = limpaNumero($_POST['nTelefoneCliente']);
+    $dataNascimentoCliente      = limpezaVariavel($_POST['nDataNascCliente']);
+    $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicipioCliente']);
+    $numeroLogradouroCliente    = limpezaVariavel($_POST['nNumeroCliente']);
+    $cpfCnpjCliente             = limpaNumero(($_POST['nCpfCliente']) . ($_POST['nCnpjCliente']));
+    $emailCliente               = limpezaVariavel($_POST['nEmailCliente']);
+    $estadoLogradouroCliente    = limpezaVariavel($_POST['nEstadoCliente']);
+    $bairroLogradouroCliente    = limpezaVariavel($_POST['nBairroCliente']);
+    $ruaLogradouroCliente       = limpezaVariavel($_POST['nRuaCliente']);
+    $cepLogradouroCliente       = limpezaVariavel($_POST['nCEPCliente']);
+    $dataCadastroCliente        = date('Y/m/d');
+
+    setSessaoClientes();
+>>>>>>> parent of de34d2c... merge
 
     verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
         $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
@@ -93,7 +118,12 @@ function insertCarros(){
     $renavamCarro = limpaNumero($_POST['nRenavamCarro']);
     $anoModeloCarro = limpezaVariavel($_POST['nAnodoModeloCarro']);
     $anoFabricacaoCarro = limpezaVariavel($_POST['nAnoFabricacaoCarro']);
+<<<<<<< HEAD
     verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro);
+=======
+
+    verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro, $tipoAcao, $id);
+>>>>>>> parent of de34d2c... merge
 }
 
 function insertOrcamento(){
@@ -132,4 +162,12 @@ function insertOS(){
 '$kmCarro', '$problemaRegistrado', '$dataCadastro', '$dataEntregaOs', '$dataPrevisaoEntrega', '$statusOs', '$idOrcamento', '$matriculaFuncionario', '$desconto', '$valorOs')");
 
     conexaoBdInsert($sql);
+<<<<<<< HEAD
 }
+=======
+
+$sql = ("UPDATE orcamentos SET status='1' WHERE id='$idOrcamento'");
+
+    conexaoBdInsert($sql);
+}
+>>>>>>> parent of de34d2c... merge

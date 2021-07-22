@@ -34,6 +34,7 @@
           <!-- MAIN CARDS STARTS HERE -->
           <div class="main__cards">
           <div class="form">
+<<<<<<< HEAD
           <form>
         <!--Inicia a coluna-->
         <label for="iPalavraChave">Palavra Chave</label>
@@ -98,6 +99,71 @@
                       echo "<td>" . $dados['ano_modelo'] . "</td>";
                       echo "<td>" . $dados['ano_fabricado'] . "</td>";
                       echo "<td></td>";
+=======
+            <form>
+              <!--Inicia a coluna-->
+              <label for="iPalavraChave">Palavra Chave</label>
+              <input type="text" id="iPalavraChave" name="nPalavraChaveCarroCon" placeholder="Insira a palavra chave para pesquisa">
+              <div class="columns">
+
+                <div class="column 1">
+                  <label for="nTipoPalavraChave" id="LabelsRadios">Tipo da Palavra Chave</label>
+
+                  <div class="wrapper">
+                    <input type="radio" id="iPlaca" name="nTipoPalavraChave" value="Placa" checked>
+                    <label for="iPlaca">Placa</label>
+                    <input type="radio" id="iModelo" name="nTipoPalavraChave" value="Modelo">
+                    <label for="iModelo">Modelo</label>
+                  </div>
+                </div>
+              </div>
+
+              <br>
+              <br>
+
+              <div class="btn-group">
+                <button name="nPesquisarCarroCon" value="Enviar" class="btn">Pesquisar</button>
+
+                <button type="reset" name="nLimparCarroCon" value="Limpar" class="btn">Limpar</button>
+              </div>
+
+              <br>
+              <br>
+
+              <table rules=all>
+                <thead>
+                  <th>ID</th>
+                  <th>Placa</th>
+                  <th>Modelo</th>
+                  <th>Ano Modelo</th>
+                  <th>Ano Fabricado</th>
+                  <th>Cliente Atual</th>
+                  <th></th>
+                </thead>
+
+                <tr>
+                  <?php
+                  if (isset($_GET['nPesquisarCarroCon'])) {
+                    $palavraChave = limpezaVariavel($_GET['nPalavraChaveCarroCon']);
+                    $tipoPalavraChave = limpezaVariavel($_GET['nTipoPalavraChave']);
+
+                    $sql = "SELECT id, placa, modelo, ano_modelo, ano_fabricado FROM carros WHERE " . $tipoPalavraChave . " LIKE '$palavraChave%'";
+                    insercaoDados($sql);
+                  }
+                  function insercaoDados($sql)
+                  {
+                    global $connect;
+                    $resultado = mysqli_query($connect, $sql);
+                    while ($dados = mysqli_fetch_array($resultado)) :
+
+                      echo '<tr>';
+                      echo '<td> ' . $dados['id'] . '</td>';
+                      echo '<td>' . $dados['placa'] . '</td>';
+                      echo '<td>' . $dados['modelo'] . '</td>';
+                      echo '<td>' . $dados['ano_modelo'] . '</td>';
+                      echo '<td>' . $dados['ano_fabricado'] . '</td>';
+                      echo '<td></td>';
+>>>>>>> parent of de34d2c... merge
                       echo '<td id="iCantoBotao">';
 
                       echo '<a href="VerMaisCarro/index?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
@@ -122,6 +188,7 @@
         </div>
      </main>
 
+<<<<<<< HEAD
       <div id="sidebar">
         <div class="sidebar__title">
           <div class="sidebar__img">
@@ -195,3 +262,18 @@
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+=======
+        </form>
+
+      </div>
+    </main>
+
+    <?php include_once 'assets/php/menu.php'; ?>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
+>>>>>>> parent of de34d2c... merge

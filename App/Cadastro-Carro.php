@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -5,6 +6,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
     $_SESSION['logado'] = 1;
 ?>t #78 from fellipews7/douglasVinicius
+=======
+>>>>>>> parent of de34d2c... merge
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -46,18 +49,31 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
             <label for="Placa">Placa</label>
             <input type="text" id="Placa" name="nPlacaCarro" placeholder="Insira a placa do carro">
 
+<<<<<<< HEAD
             <label for="Modelo">Modelo</label>
             <input type="text" id="Modelo" name="nModeloCarro" placeholder="Insira o modelo do carro">
 
             <label for="Marca">Marca</label>
             <input type="text" id="Marca" name="nMarcaCarro" placeholder="Insira a marca do carro">
+=======
+                  <label for="AnodoModelo">Ano do Modelo</label>
+                  <input type="text" id="AnodoModelo" name="nAnodoModeloCarro" placeholder="Insira o ano do modelo" value="<?php echo $_SESSION['anoModeloCarros'] ?>">
+
+                  <label for="AnoFabricação">Ano Fabricação</label>
+                  <input type="text" id="AnoFabricação" name="nAnoFabricacaoCarro" placeholder="Insira o ano de fabricação" value="<?php echo $_SESSION['anoFabricacaoCarros'] ?>">
+>>>>>>> parent of de34d2c... merge
 
           </div>
           <div class="column">
             
 
+<<<<<<< HEAD
             <label for="AnodoModelo">Ano do Modelo</label>
             <input type="text" id="AnodoModelo" name="nAnodoModeloCarro" placeholder="Insira o ano do modelo">
+=======
+                </div>
+              </div>
+>>>>>>> parent of de34d2c... merge
 
             <label for="AnoFabricação">Ano Fabricação</label>
             <input type="text" id="AnoFabricação" name="nAnoFabricacaoCarro" placeholder="Insira o ano de fabricação">
@@ -79,11 +95,22 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
         </div>
      </main>
 
+<<<<<<< HEAD
       <div id="sidebar">
         <div class="sidebar__title">
           <div class="sidebar__img">
             <img src="assets/logo.png" alt="logo" />
             <h2>Oficina Schulz</h2>
+=======
+                }
+              </script>
+              <div class="btn-group">
+                <button type="submit" name="nCadastrarCarros" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
+
+                <button type="reset" name="nLimparCarros" value="Limpar" id="Limpar" class="btn">Limpar</button>
+              </div>
+            </form>
+>>>>>>> parent of de34d2c... merge
           </div>
           <i
             onclick="closeSidebar()"
@@ -92,6 +119,7 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
             aria-hidden="true"
           ></i>
         </div>
+<<<<<<< HEAD
 
     
         <div class="sidebar__menu">
@@ -152,3 +180,15 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+=======
+      </div>
+    </main>
+
+    <?php include_once 'assets/php/menu.php'; ?>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
+>>>>>>> parent of de34d2c... merge

@@ -27,6 +27,7 @@
         </div>
       </nav>
 
+<<<<<<< HEAD
        <main>
         <div class="main__container">
           <!-- MAIN CARDS STARTS HERE -->
@@ -56,6 +57,10 @@
             
             <label for="iValorTotalSer">Valor Total Serviços</label>
             <input type="text" id="iValorTotalSer" name="nValorTotalSer" placeholder="Insira o valor total dos serviços">
+=======
+                  <label for="iIDOrcamento">Nº Orçamento</label>
+                  <input type="text" id="iIDOrcamento" name="nIDOrcamentoOS" value="<?php echo $_GET['id']; ?>" placeholder="Insira o Nº do orçamento">
+>>>>>>> parent of de34d2c... merge
 
           </div>
 
@@ -178,8 +183,16 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="assets/js/script.js"></script>
   </body>
+=======
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+
+>>>>>>> parent of de34d2c... merge
 </html>

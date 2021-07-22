@@ -32,11 +32,41 @@
           <!-- MAIN CARDS STARTS HERE -->
           <div class="main__cards">
           <div class="form">
+<<<<<<< HEAD
           <form action="cadastro.php" method="post">
         <div class="inputs-form">
           <div class="column">
             <label for="iNome">Nome</label>
             <input type="text" id="iNome" name="nNomeFuncionario" placeholder="Insira o nome do funcionário">
+=======
+            <form action="cadastro.php" method="post">
+              <div class="inputs-form">
+                <div class="column">
+                  <label for="iNome">Nome</label>
+                  <input type="text" id="iNome" name="nNomeFuncionario" placeholder="Insira o nome do funcionário" value="<?php echo $_SESSION['nomeFunc'] ?>">
+
+                  <label for="iCPF">CPF</label>
+                  <input type="text" id="iCPF" name="nCPFFuncionario" placeholder="Insira o CPF " value="<?php echo $_SESSION['cpfFunc'] ?>">
+
+                  <label for="iTelefone">Telefone</label>
+                  <input type="text" id="iTelefone" name="nTelefoneFuncionario" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneFunc'] ?>">
+
+                  <label for="iIDCargo">Cargo</label>
+                  <select id="iIDCargo" class="select" name="nIDCargoFuncionarios">
+                    <?php $sql = "SELECT id as id, nome as nome FROM cargos";
+                    $resultado = mysqli_query($connect, $sql);
+                    while ($dados = mysqli_fetch_array($resultado)) {
+                      echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . "</option>";
+                    }
+                    ?>
+                  </select><br> 
+
+                  <label for="iUsuario">Usuário</label>
+                  <input type="text" id="iUsuario" name="nUsuario" placaholder="Insira o nome do seu usuário" value>
+
+                  <label for="iSenha">Senha</label>
+                  <input type="password" id="iSenha" name="nSenha" placaholder="Insira a senha do usuário" value>
+>>>>>>> parent of de34d2c... merge
 
             <label for="iCPF">CPF</label>
             <input type="text" id="iCPF" name="nCPFFuncionario" placeholder="Insira o CPF ">
@@ -60,6 +90,7 @@
         </div>
      </main>
 
+<<<<<<< HEAD
       <div id="sidebar">
         <div class="sidebar__title">
           <div class="sidebar__img">
@@ -133,3 +164,6 @@
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+=======
+</html>
+>>>>>>> parent of de34d2c... merge

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -5,6 +6,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
     $_SESSION['logado'] = 1;
 ?>
+=======
+>>>>>>> parent of de34d2c... merge
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -46,7 +49,17 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
             <input type="text" id="iNome" name="nNomeCliente" placeholder="Insira o nome do cliente">
 
             <label for="iTelefone">Telefone</label>
+<<<<<<< HEAD
             <input type="text" id="iTelefone" name="nTelefoneCliente" placeholder="Insira o telefone">
+=======
+            <input type="text" id="iTelefone" name="nTelefoneCliente" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneCliente']?>">
+            <script type="text/javascript">
+
+              $("#iTelefone").mask("" +
+                  "(00) 0-0000-0000");
+
+            </script>
+>>>>>>> parent of de34d2c... merge
 
             <label for="iDataNasc">Data Nascimento</label>
             <input class="data" type="date" id="iDataNasc" name="nDataNascCliente" data-date=""
@@ -84,11 +97,29 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
             <label for="iCPFCNPJ">CPF/CNPJ</label>
             <input type="text" id="iCPFCNPJ" name="nCPFCNPJCliente" placeholder="Insira o CPF ou CNPJ">
 
+<<<<<<< HEAD
             <label for="iEmail">Email</label>
             <input type="text" id="iEmail" name="nEmailCliente" placeholder="Insira o email">
 
             <label for="iCEP">CEP</label>
             <input type="text" id="iCEP" name="nCEPCliente" placeholder="Insira o CEP">
+=======
+              <input type="hidden" name="nTipoAcao" value="1">
+
+              <script>
+                document.getElementById("Cadastrar").onclick = function() {
+                  <?php setSessaoClientes(); ?>
+
+                }
+
+                document.getElementById("Limpar").onclick = function() {
+                  <?php unsetSessaoClientes(); ?>
+
+                }
+              </script>
+              <BR>
+              <BR>
+>>>>>>> parent of de34d2c... merge
 
             <label for="iMunicípio">Município</label>
             <input type="text" id="iMunicípio" name="nMunicípioCliente" placeholder="Insira o município">
@@ -121,6 +152,7 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
         </div>
      </main>
 
+<<<<<<< HEAD
      <div id="sidebar">
         <div class="sidebar__title">
           <div class="sidebar__img">
@@ -198,4 +230,12 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="assets/js/script.js"></script>
   </body>
+=======
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="assets\js\verificaJuridicaFisica.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+
+>>>>>>> parent of de34d2c... merge
 </html>

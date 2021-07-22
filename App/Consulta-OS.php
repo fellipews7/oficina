@@ -150,7 +150,15 @@
     </div>
  
         </div>
+<<<<<<< HEAD
      </main>
+=======
+
+      </div>
+    </main>
+
+    <?php include_once 'assets/php/menu.php'; ?>
+>>>>>>> parent of de34d2c... merge
 
       <div id="sidebar">
         <div class="sidebar__title">
@@ -166,6 +174,7 @@
           ></i>
         </div>
 
+<<<<<<< HEAD
     
         <div class="sidebar__menu">
             <div class="sidebar__link active_menu_link">
@@ -225,3 +234,6 @@
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+=======
+</html>
+>>>>>>> parent of de34d2c... merge
