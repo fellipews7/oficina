@@ -75,7 +75,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                   <th>Modelo</th>
                   <th>Ano Modelo</th>
                   <th>Ano Fabricado</th>
-                  <th>Cliente Atual</th>
+                  <th>Renavam</th>
                   <th></th>
                 </thead>
 
@@ -93,7 +93,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                                         echo '<td>' . $dados['modelo'] . '</td>';
                                         echo '<td>' . $dados['ano_modelo'] . '</td>';
                                         echo '<td>' . $dados['ano_fabricado'] . '</td>';
-                                        echo '<td></td>';
+                                        echo '<td>' . $dados['renavam'] . '</td>';
                                         echo '<td id="iCantoBotao">';
                                         echo '<a href="VerMais/carro?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                                         echo '</td>';
@@ -105,7 +105,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                     $palavraChave = limpezaVariavel($_GET['nPalavraChaveCarroCon']);
                     $tipoPalavraChave = limpezaVariavel($_GET['nTipoPalavraChave']);
 
-                    $sql = "SELECT id, placa, modelo, ano_modelo, ano_fabricado FROM carros WHERE " . $tipoPalavraChave . " LIKE '$palavraChave%'";
+                    $sql = "SELECT id, placa, modelo, ano_modelo, ano_fabricado,renavam FROM carros WHERE " . $tipoPalavraChave . " LIKE '$palavraChave%'";
                     insercaoDados($sql);
                   }
 
