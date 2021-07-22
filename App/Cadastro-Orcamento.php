@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -9,11 +8,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 require_once 'connection.php';
 
 ?>
-=======
-require_once 'connection.php';
-?>
 
->>>>>>> parent of de34d2c... merge
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -45,31 +40,30 @@ require_once 'connection.php';
       <div class="main__container">
         <!-- MAIN CARDS STARTS HERE -->
         <div class="main__cards">
-          <div class="form custom-class">
+          <div class="form">
             <form action="cadastro.php" method="post">
               <div class="inputs-form">
                 <div class="column one">
+
                   <label for="iIDCLiente">Selecione o Cliente</label>
                   <select class="select" id="iIDCLiente" name="nIDCLienteOrcamento">
                     <?php $sql = "SELECT id as id, nome as nome FROM clientes";
 
                     $resultado = mysqli_query($connect, $sql);
                     while ($dados = mysqli_fetch_array($resultado)) {
-                      echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . "</option>";
+                      echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . ' - ' . $dados['id']. "</option>";
                     }
                     ?>
-                  </select></br>
+                  </select><br>
                   <label for="iDescricaoServico">Descrição do Serviço</label>
-                  <textarea name="nDescricaoServico" id="iDescricaoServico" placeholder="Insira a descrição do serviço feito" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterServico')"></textarea>
-                  <small id="counterServico" class="caracteresRestantes"></small>
-
+                  <input type="text" id="iDescricaoServico" name="nDescricaoServico" placeholder="Insira a descrição do serviço feito">
 
                   <label for="iDescricaoProduto">Descrição dos Produtos</label>
-                  <textarea name="nDescricaoProduto" id="iDescricaoProduto" placeholder="Insira a descrição dos produtos usados" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterProduto')"></textarea>
-                  <small id="counterProduto" class="caracteresRestantes"></small>
+                  <input type="text" id="iDescricaoProduto" name="nDescricaoProduto" placeholder="Insira a descrição dos produtos usados">
 
                   <label for="nTipoManu">Tipo Manutenção</label>
                   <div id="classificacaoCliente">
+                    <!-- Wrapper para trabalhar com input e label dentro de uma div  -->
                     <div class="wrapper">
                       <input type="radio" id="iCorretiva" name="nTipoManu" value="1">
                       <label for="iCorretiva">Corretiva</label>
@@ -81,26 +75,16 @@ require_once 'connection.php';
                 </div>
 
                 <div class="column two">
-<<<<<<< HEAD
                   <label for="iIDCarro">Selecione o Carro</label>
                   <select id="iIDCarro" class="select" name="nIDCarroOrcamento">
                     <?php $sql = "SELECT id as id, placa as placa,modelo as modelo, marca FROM carros";
                     $resultado = mysqli_query($connect, $sql);
                     while ($dados = mysqli_fetch_array($resultado)) {
                       echo "<option value=" . $dados['id'] . ">" . $dados['placa'] .' | ' . $dados['marca'] .' - ' . $dados['modelo'] .  "</option>";
-=======
-                  <label for="iIDCarro">Placa do Carro</label>
-                  <select id="iIDCarro" class="select" name="nIDCarroOrcamento">
-                    <?php $sql = "SELECT id as id, placa as placa FROM carros";
-                    $resultado = mysqli_query($connect, $sql);
-                    while ($dados = mysqli_fetch_array($resultado)) {
-                      echo "<option value=" . $dados['id'] . ">" . $dados['placa'] . "</option>";
->>>>>>> parent of de34d2c... merge
                     }
                     ?>
                   </select><br>
                   <label for="iPrecoMaoObra">Preço Mão de Obra</label>
-<<<<<<< HEAD
                   <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')"  placeholder="Insira o preço da mão de obra">
 
                   <label for="iPreçoTotalPro">Preço Total de Produtos</label>
@@ -108,35 +92,15 @@ require_once 'connection.php';
                   
                   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
                   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-=======
-                  <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" placeholder="Insira o preço da mão de obra">
-
-                  <label for="iPreçoTotalPro">Preço Total de Produtos</label>
-                  <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" placeholder="Insira o preço preço total dos produtos">
->>>>>>> parent of de34d2c... merge
 
                 </div>
 
               </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> parent of de34d2c... merge
-              <div class="btn-group custom-class">
+              <div class="btn-group">
                 <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
                 <button type="reset" name="nLimparOrcamento" class="btn">Limpar</button>
               </div>
-<<<<<<< HEAD
-                <br>
-                <br>
-
-            </form>
-          </div>
-
-        </div>
-    </main>
-
-=======
 
               <br>
               <br>
@@ -147,14 +111,12 @@ require_once 'connection.php';
         </div>
     </main>
 
->>>>>>> parent of de34d2c... merge
     <?php include_once 'assets/php/menu.php'; ?>
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="assets/js/script.js"></script>
 </body>
-<<<<<<< HEAD
     
         <div class="sidebar__menu">
             <div class="sidebar__link active_menu_link">
@@ -221,7 +183,3 @@ require_once 'connection.php';
     $_SESSION['tipoErro'] = 'Por favor faça login!';
     $_SESSION['mensagem'] = 'erro';
 }
-=======
-
-</html>
->>>>>>> parent of de34d2c... merge

@@ -2,7 +2,9 @@
 require_once '../../connection.php';
 include_once '../../assets/php/funcao.php';
 
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
 if(isset($_POST['btn-editar-cliente'])){
     updateCliente();

@@ -1,4 +1,3 @@
-
 var divCPF = document.getElementById("divCPF");
 var divCNPJ = document.getElementById("divCNPJ");
 var ocultaPessoaFisica = document.getElementById("iFisica");
