@@ -1,10 +1,7 @@
 <?php
 include_once 'connection.php';
 include_once 'assets/php/funcao.php';
-include_once 'assets/php/sessoes.php';
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
+session_start();
 
 if(isset($_POST['nCadastrarCliente'])){
     insertCliente();
@@ -31,111 +28,108 @@ if(isset($_POST['nCadastrarOS'])){
 }
 
 function insertCliente(){
-    
-    $id                         = null;
-    $tipoAcao                   = limpezaVariavel($_POST['nTipoAcao']);
-    $tipoCadastro               = limpezaVariavel($_POST['nPessoaFJ']);
-    $nomeCliente                = limpezaVariavel($_POST['nNomeCliente']);
-    $telefoneCliente            = limpaNumero($_POST['nTelefoneCliente']);
-    $dataNascimentoCliente      = limpezaVariavel($_POST['nDataNascCliente']);
-    $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicipioCliente']);
-    $numeroLogradouroCliente    = limpezaVariavel($_POST['nNumeroCliente']);
-    $cpfCnpjCliente             = limpaNumero(($_POST['nCpfCliente']) . ($_POST['nCnpjCliente']));
-    $emailCliente               = limpezaVariavel($_POST['nEmailCliente']);
-    $estadoLogradouroCliente    = limpezaVariavel($_POST['nEstadoCliente']);
-    $bairroLogradouroCliente    = limpezaVariavel($_POST['nBairroCliente']);
-    $ruaLogradouroCliente       = limpezaVariavel($_POST['nRuaCliente']);
-    $cepLogradouroCliente       = limpaNumero($_POST['nCEPCliente']);
-    $dataCadastroCliente        = date('Y/m/d');
-
-    setSessaoClientes();
+    $tipoCadastro = limpezaVariavel($_POST['nPessoaFJ']);
+    $nomeCliente = limpezaVariavel($_POST['nNomeCliente']);
+    $telefoneCliente = limpaNumero($_POST['nTelefoneCliente']);
+    $dataNascimentoCliente = limpezaVariavel($_POST['nDataNascCliente']);
+    $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicípioCliente']);
+    $numeroLogradouroCliente = limpezaVariavel($_POST['nNumeroCliente']);
+    $cpfCnpjCliente = limpezaVariavel($_POST['nCPFCNPJCliente']);
+    $emailCliente = limpezaVariavel($_POST['nEmailCliente']);
+    $estadoLogradouroCliente = limpezaVariavel($_POST['nEstadoCliente']);
+    $bairroLogradouroCliente = limpezaVariavel('bairro');
+    $ruaLogradouroCliente = limpezaVariavel($_POST['nRuaCliente']);
+    $cepLogradouroCliente = limpezaVariavel($_POST['nCEPCliente']); 
+    $dataCadastroCliente = date('Y/m/d');
 
     verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
         $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
-        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id);
+        $dataCadastroCliente, $bairroLogradouroCliente);
+}
 
+function insertClienteCNPJ(){
+    $nomeCliente = limpezaVariavel($_POST['nNomeCliente']);
+    $telefoneCliente = limpaNumero($_POST['nTelefoneCliente']);
+    $dataNascimentoCliente = limpezaVariavel($_POST['nDataNascCliente']);
+    $municipioLogradouroCliente = limpezaVariavel($_POST['nMunicípioCliente']);
+    $numeroLogradouroCliente = limpezaVariavel($_POST['nNumeroCliente']);
+    $cnpjCliente = limpaNumero($_POST['nCPFCNPJCliente']);
+    $emailCliente = limpezaVariavel($_POST['nEmailCliente']);
+    $estadoLogradouroCliente = limpezaVariavel($_POST['nEstadoCliente']);
+    $bairroLogradouroCliente = limpezaVariavel('bairro');
+    $ruaLogradouroCliente = limpezaVariavel($_POST['nRuaCliente']);
+    $cepLogradouroCliente = limpaNumero($_POST['nCEPCliente']);
+    $dataCadastroCliente = date('Y/m/d');
+
+    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, cnpj, email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
+            '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cnpjCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
+            '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
+
+    conexaoBdInsert($sql);
 }
 
 function insertCargos(){
-    $_SESSION['tipoAcao'] = 1;
     $nomeCargo = limpezaVariavel($_POST['nNomeCargo']);
     $descricaoCargo = limpezaVariavel($_POST['nDescricaoCargo']);
 
     $sql = ("INSERT INTO cargos (nome, descricao) VALUES ('$nomeCargo', '$descricaoCargo')");
 
-
     conexaoBdInsert($sql);
 }
 
 function insertFuncionario(){
-    $matricula           = null;
-    $tipoAcao            = limpezaVariavel($_POST['nTipoAcao']);
-    $nomeFuncionario     = limpezaVariavel($_POST['nNomeFuncionario']);
-    $cpfFuncionario      = limpaNumero($_POST['nCPFFuncionario']);
+    $nomeFuncionario = limpezaVariavel($_POST['nNomeFuncionario']);
+    $cpfFuncionario = limpezaVariavel($_POST['nCPFFuncionario']);
     $telefoneFuncionario = limpezaVariavel($_POST['nTelefoneFuncionario']);
-    $idCargoFuncionario  = limpezaVariavel($_POST['nIDCargoFuncionarios']);
-    $senhaFuncionario    = limpezaVariavel($_POST['nSenha']);
-    $loginFuncionario    = limpezaVariavel($_POST['nUsuario']);
+    $idCargoFuncionario = limpezaVariavel($_POST['nIDCargoFuncionarios']);
 
-    setSessaoFunc();
-
-    verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario, $tipoAcao, $matricula, $loginFuncionario, $senhaFuncionario);
-
+    verificaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncionario, $idCargoFuncionario);
 }
 
 function insertCarros(){
-    $id                 = null;
-    $tipoAcao           = limpezaVariavel($_POST['nTipoAcao']);
-    $placaCarro         = limpaPlaca($_POST['nPlacaCarro']);
-    $modeloCarro        = limpezaVariavel($_POST['nModeloCarro']);
-    $marcaCarro         = limpezaVariavel($_POST['nMarcaCarro']);
-    $renavamCarro       = limpaNumero($_POST['nRenavamCarro']);
-    $anoModeloCarro     = limpezaVariavel($_POST['nAnodoModeloCarro']);
+    $placaCarro = limpaPlaca($_POST['nPlacaCarro']);
+    $modeloCarro = limpezaVariavel($_POST['nModeloCarro']);
+    $marcaCarro = limpezaVariavel($_POST['nMarcaCarro']);
+    $renavamCarro = limpaNumero($_POST['nRenavamCarro']);
+    $anoModeloCarro = limpezaVariavel($_POST['nAnodoModeloCarro']);
     $anoFabricacaoCarro = limpezaVariavel($_POST['nAnoFabricacaoCarro']);
-
-    setSessaoCarros();
-
-    verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro, $tipoAcao, $id);
+    verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $anoModeloCarro, $anoFabricacaoCarro);
 }
 
 function insertOrcamento(){
 
-    $_SESSION['tipoAcao'] = 1;
-    $idCliente             = limpezaVariavel($_POST['nIDCLienteOrcamento']);
-    $idCarro               = limpezaVariavel($_POST['nIDCarroOrcamento']);
-    $descricaoServico      = limpezaVariavel($_POST['nDescricaoServico']);
-    $descricaoProduto      = limpezaVariavel($_POST['nDescricaoProduto']);
+    $idCliente = limpezaVariavel($_POST['nIDCLienteOrcamento']);
+    $idCarro = limpezaVariavel($_POST['nIDCarroOrcamento']);
+    $descricaoServico = limpezaVariavel($_POST['nDescricaoServico']);
+    $descricaoProduto = limpezaVariavel($_POST['nDescricaoProduto']);
     $precoMaoObraOrcamento = limpezaVariavel($_POST['nPrecoMaoObraOrcamento']);
-    $dataOrcamento         = date('Y/m/d');
-    $statusOrcamento       = 3;
-    $tipoManutencao        = limpezaVariavel($_POST['nTipoManu']);
-    $valorTotalProduto     = limpezaVariavel($_POST['nPrecoTotalProOrcamento']);
+    $dataOrcamento = date('Y/m/d');
+    $statusOrcamento = limpezaVariavel($_POST['nSttsOrcamento']);
+    $valorTotalProduto = limpezaVariavel(50.4);
 
-    $sql = ("INSERT INTO orcamentos(descricao_produtos,valor_total_produtos,descricao_servicos,valor_total_servicos,data,status,clientes_id,carros_id, tipoManutencao) VALUES(
-            '$descricaoProduto', '$valorTotalProduto', '$descricaoServico', '$precoMaoObraOrcamento', '$dataOrcamento', '$statusOrcamento', '$idCliente', '$idCarro', '$tipoManutencao')");
+    $sql = ("INSERT INTO orcamentos(descricao_produtos,valor_total_produtos,descricao_servicos,valor_total_servicos,data,status,clientes_id,carros_id) VALUES(
+'$descricaoProduto', '$valorTotalProduto', '$descricaoServico', '$precoMaoObraOrcamento', '$dataOrcamento', '$statusOrcamento', '$idCliente', '$idCarro')");
 
     conexaoBdInsert($sql);
 }
 
 function insertOS(){
-
-    $_SESSION['tipoAcao'] = 1;
     $idOrcamento = limpezaVariavel($_POST['nIDOrcamentoOS']);
-    $dataCadastro = date('Y/m/d');
+    $idCliente = limpezaVariavel($_POST['nIDClienteOS']);
+    $idCarro = limpezaVariavel($_POST['nIDCarroOS']);
+    $dataCadastro = limpezaVariavel($_POST['nDataCadOS']);
     $dataPrevisaoEntrega = limpezaVariavel($_POST['nDataPrevOS']);
-    $dataConclusapOs = date('2999-12-31');
+    $dataEntregaOs = limpezaVariavel($_POST['nDataEntregaOS']);
+    $problemaRegistrado = limpezaVariavel($_POST['nProblemaOS']);
+    $valorOs = limpezaVariavel($_POST['nValorOS']);
     $kmCarro = limpezaVariavel($_POST['nKMOS']);
     $matriculaFuncionario = limpezaVariavel($_POST['nMatriFunOS']);
-    $statusOs = 1;
-    $valorFinalOs = limpezaVariavel($_POST['nValorTotalOS']);
+    $servicos = limpezaVariavel($_POST['nServicosOS']);
+    $statusOs = limpezaVariavel($_POST['nSttsOS']);
+    $desconto = limpezaVariavel(0);
 
-$sql = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final) VALUES(
-    '$kmCarro', '$dataCadastro','$dataConclusapOs','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs')");
-
-    conexaoBdInsert($sql);
-
-$sql = ("UPDATE orcamentos SET status='1' WHERE id='$idOrcamento'");
+    $sql = ("INSERT INTO ordem_de_servico(km_atual, problema_registrado, data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,desconto,valor_final) VALUES(
+'$kmCarro', '$problemaRegistrado', '$dataCadastro', '$dataEntregaOs', '$dataPrevisaoEntrega', '$statusOs', '$idOrcamento', '$matriculaFuncionario', '$desconto', '$valorOs')");
 
     conexaoBdInsert($sql);
 }
-

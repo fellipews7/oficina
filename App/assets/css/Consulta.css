@@ -435,28 +435,9 @@ main {
 
 /*------------------------------------------------------------------------*/
 
-table, table th {
-  border: 1px solid black;
-  border-collapse: collapse;
-  width: 11vw;
-}
-
-table th:last-child {
-  width: 80px;
-}
-
-table td {
-  height: 40px;
-}
-
-table .fa {
-  color: black;
-}
-
-
 .form {
   margin-top: 0rem;
-	width: 70vw;
+	width: 200%;
 	height: 75%;
 	border: 2px solid rgb(255, 255, 255);
 	border-radius: 0px;
@@ -467,6 +448,16 @@ table .fa {
 	padding: 50px 20px;
   display: flex;
   flex-direction: column;
+}
+
+.columns {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+.column:nth-child(2) {
+  padding-left: 50px;
 }
 
 .inputs-form{
@@ -484,7 +475,7 @@ table .fa {
 }
 
 .wrapper label {
-    margin: 0 .3rem;
+    margin: 0 .5rem;
 }
 
 /* Aparencia do botão rádio classificação cliente */
@@ -503,8 +494,8 @@ table .fa {
 
 .btn-group {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .btn-group button {
@@ -545,10 +536,10 @@ h1 {
 }
 
 .form input {
-  display: block;
-	width: 60vw;
+	width: 100%;
 	margin-bottom: 21px;
-  margin-bottom: 2rem;
+
+    margin-bottom: 2rem;
 }
 
 label {
@@ -577,9 +568,23 @@ button.btn {
 	background: rgb(0, 0, 0);
 	border-radius: 20px;
 	transition: 0.2s;
-  cursor: pointer;
-  transition: all ease-out .2s;
+    cursor: pointer;
+}
 
+#VerMaisCLiente{
+  text-decoration: none;
+  background-color: #000000;
+  display: block;
+  color: rgb(255, 255, 255);
+  height: 35px;
+  width: 80px;
+  padding: 9px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  border-radius: 20px;
+transition: 0.2s;
+  cursor: pointer;
 }
 
 /*Aparencia dos Inputs com foco*/
@@ -590,12 +595,12 @@ button.btn {
 	color: rgb(0, 0, 0);
 }
 
-table {
-  width: 70vw;
+table{
+  width: 90%;
+  table-layout: fixed;
   word-wrap: break-word;
   border: 1px solid rgb(0, 0, 0);
   color: rgb(0, 0, 0);
-  text-align: center;
 }
 
 /*Aparencia dos botoes com o mouse*/
@@ -603,118 +608,39 @@ button.btn:hover {
 	cursor: pointer;
 	background: rgb(255, 0, 0);
 	transition: 0.2s;
-  transform: scale(1.02);
 }
 
-#VerMaisCliente i,
-#VerMaisCarro i,
-#VerMaisFuncionario i,
-#VerMaisOrcamento i,
-#GerarOS i {
-  transition: all ease-out .2s;
+#VerMaisCliente:hover{
+cursor: pointer;
+background: rgb(255, 0, 0);
+transition: 0.2s;
 }
 
-#VerMaisCliente i:hover ,
-#VerMaisCarro i:hover,
-#VerMaisFuncionario i:hover,
-#VerMaisOrcamento i:hover,
-#GerarOS i:hover {
-  transform: scale(1.15);
-  color: red;
-}
-
-#IListaeProcurar {
-  display: flex;
+#iCantoBotao{
+  padding-left: 50px;
   border: none;
-  height: 50px;
-  justify-content: center;
-  align-items: center;
 }
 
-#IListaeProcurar i:last-child,
-#VerMaisOrcamento {
-    padding-left: 25px;
-}
+@media (max-width: 912px) {
+    .inputs-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-@media (max-width: 980px) {
-  .form input[type="text"], .form input[type="date"] {
-    width: 70vw;
-    display: block;
-  }
+        flex-direction: column;
 
-  .inputs-form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin-bottom: 1rem;
-  }
-
-  .btn-group {
-      margin-bottom: 3rem;
-      justify-content: unset;
-      align-items: unset;
-  }
-
-  .wrapper label {
-    margin: 0;
-  }
-}
-
-.dates {
-  display: flex;
-  gap: 30px;
-}
-
-#os-title {
-  font-size: .9rem;
-}
-
-.dates input {
-  width: 300px;
-  max-width: 350px;
-  display: block;
-}
-
-@media (max-width: 810px) {
-  .dates {
-    display: block;
-  }
-}
-
-@media (max-width: 645px) {
-    .form input[type="text"], .form input[type="date"] {
-      width: 70vw;
-      display: block;
+        margin-bottom: 1rem;
     }
 
+    .btn-group {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 640px) {
     .form {
-      width: 100vw;
+        width: 100%;
     }
-
-    table {
-     width: 220vw;
-    }
-
-    table th {
-      width: 90px;
-    }    
-}
-
-
-@media (max-width: 515px) {
-  .btn-group {
-    flex-direction: column;
-  }
-
-  .btn-group button {
-    margin: 0;
-    width: 75vw;
-  }
-
-  .btn-group button:first-child {
-    margin-bottom: 3vh;
-  }
 }
 
 @media (max-width: 400px) {

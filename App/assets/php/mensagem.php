@@ -1,33 +1,19 @@
 <?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
+session_start();
+session_status();
 
 if(isset($_SESSION['mensagem'])){
-    if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2) ){
-
     ?>
-    <script src="../assets/js/jquery-3.1.1.min.js"></script>
-    <link href="../assets/css/toastr.min.css" rel="stylesheet"/>
-    <script src="../assets/js/toastr.min.js"></script>
+    <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <link href="assets/css/toastr.min.css" rel="stylesheet"/>
+    <script src="assets/js/toastr.min.js"></script>
 
 
     <?php
-        $_SESSION['tipoAcao'] = null;
-    }else if($_SESSION['tipoAcao'] == 1){?>
-        <script src="assets/js/jquery-3.1.1.min.js"></script>
-        <link href="assets/css/toastr.min.css" rel="stylesheet"/>
-        <script src="assets/js/toastr.min.js"></script>
-    <?php }else if($_SESSION['tipoAcao'] == 3){?>
-           <script src="app/assets/js/jquery-3.1.1.min.js"></script>
-           <link href="app/assets/css/toastr.min.css" rel="stylesheet"/>
-           <script src="app/assets/js/toastr.min.js"></script>
-    <?php }
-
     if($_SESSION['mensagem'] == 'deu'){
         ?>
         <script>
-            toastr["success"]("<?php echo ($_SESSION['tipoErro'])?>", "Sucesso!")
+            toastr["success"]("Sucesso!", "Cadastro feito com sucesso!")
 
             toastr.options = {
                 "closeButton": true,
@@ -48,13 +34,10 @@ if(isset($_SESSION['mensagem'])){
             }
         </script>
         <?php
-        $_SESSION['mensagem'] = null;
-        $_SESSION['tipoErro'] = null;
     }
     if($_SESSION['mensagem'] == 'erro'){
         ?>
         <script>
-
             toastr["error"]("<?php echo ($_SESSION['tipoErro'])?>", "Erro!")
 
             toastr.options = {
@@ -76,9 +59,7 @@ if(isset($_SESSION['mensagem'])){
             }
         </script>
         <?php
-        $_SESSION['deu'] = null;
-        $_SESSION['tipoErro'] = null;
     }
 }
-
+session_unset();
 ?>
