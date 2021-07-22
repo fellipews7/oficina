@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -190,7 +189,6 @@
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
-					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Senha Inválida!">
 						<input class="input100" type="password" name="pass" placeholder="Password">
