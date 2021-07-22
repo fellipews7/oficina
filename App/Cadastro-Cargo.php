@@ -2,10 +2,8 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
-    $_SESSION['logado'] = 1;
-?>
-
+if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
+    ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +17,7 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/Cadastro.css"/>
-    <title>CSS GRID DASHBOARD</title>
+    <title>Cadastro Cargos</title>
   </head>
   <body id="body">
   <?php
@@ -48,9 +46,6 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
             <label for="iNome">Nome</label>
             <input type="text" id="iNome" name="nNomeCargo" placeholder="Insira o nome do cargo">
 
-          </div>
-          <div class="column">
-
             <label for="iDescrição">Descrição</label>
             <input type="text" id="iDescricao" name="nDescricaoCargo" placeholder="Insira a descrição">
 
@@ -75,76 +70,15 @@ if(isset($_SESSION['logado']) AND $_SESSION['logado'] == 1){
         </div>
      </main>
 
-      <div id="sidebar">
-        <div class="sidebar__title">
-          <div class="sidebar__img">
-            <img src="assets/logo.png" alt="logo" />
-            <h2>Oficina Schulz</h2>
-          </div>
-          <i
-            onclick="closeSidebar()"
-            class="fa fa-times"
-            id="sidebarIcon"
-            aria-hidden="true"
-          ></i>
-        </div>
+    <?php include_once 'assets/php/menu.php';?>    
 
-    
-        <div class="sidebar__menu">
-            <div class="sidebar__link active_menu_link">
-                <i class="fa fa-home"></i>
-                <a href="index.php">Dashboard</a>
-            </div>
-            <h2>Cadastros</h2>
-            <div class="sidebar__link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <a href="Cadastro-Cliente.php">Cadastro Cliente</a>
-            </div>
-            <div class="sidebar__link">
-                <i class="fa fa-car" aria-hidden="true"></i>
-                <a href="Cadastro-Carro.php">Cadastro Carro</a>
-            </div>
-            <div class="sidebar__link">
-                <i class="fa fa-money" aria-hidden="true"></i>
-                <a href="Cadastro-Orcamento.php">Cadastro Orçamento</a>
-            </div>
-            <div class="sidebar__link">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                <a href="Cadastro-Funcionario.php">Cadastro Funcionário</a>
-            </div>
-            <div class="sidebar__link">
-                <i class="fa fa-briefcase" aria-hidden="true"></i>
-                <a href="Cadastro-Cargo.php">Cadastro Cargo</a>
-            </div>
-            <h2>Consultas</h2>
-            <div class="sidebar__link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <a href="Consulta-Cliente.php">Consulta Cliente</a>
-            </div>
-            <div class="sidebar__link">
-                <i class="fa fa-car" aria-hidden="true"></i>
-                <a href="Consulta-Carros.php">Consulta Carro</a>
-            </div>
-            <div class="sidebar__link">
-                <i class="fa fa-money" aria-hidden="true"></i>
-                <a href="Consulta-Orcamento.php">Consulta Orçamento</a>
-            </div>
-            <div class="sidebar__link">
-                <i class="fa fa-sitemap" aria-hidden="true"></i>
-                <a href="Consulta-OS.php">Consulta Ordem Serviço</a>
-            </div>
-            <div class="sidebar__link">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                <a href="Consulta-Funcionarios.php">Consulta Funcionario</a>
-            </div>
-            <div class="sidebar__logout">
-                <i class="fa fa-power-off"></i>
-                <a href="#">Log out</a>
-            </div>
-        </div>
-    </div>
-</div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
+<?php
+}else{
+    header('location: ../index.php');
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+}

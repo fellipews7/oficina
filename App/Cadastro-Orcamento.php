@@ -8,6 +8,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 require_once 'connection.php';
 
 ?>
+
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -39,31 +40,30 @@ require_once 'connection.php';
       <div class="main__container">
         <!-- MAIN CARDS STARTS HERE -->
         <div class="main__cards">
-          <div class="form custom-class">
+          <div class="form">
             <form action="cadastro.php" method="post">
               <div class="inputs-form">
                 <div class="column one">
+
                   <label for="iIDCLiente">Selecione o Cliente</label>
                   <select class="select" id="iIDCLiente" name="nIDCLienteOrcamento">
                     <?php $sql = "SELECT id as id, nome as nome FROM clientes";
 
                     $resultado = mysqli_query($connect, $sql);
                     while ($dados = mysqli_fetch_array($resultado)) {
-                      echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . "</option>";
+                      echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . ' - ' . $dados['id']. "</option>";
                     }
                     ?>
-                  </select></br>
+                  </select><br>
                   <label for="iDescricaoServico">Descrição do Serviço</label>
-                  <textarea name="nDescricaoServico" id="iDescricaoServico" placeholder="Insira a descrição do serviço feito" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterServico')"></textarea>
-                  <small id="counterServico" class="caracteresRestantes"></small>
-
+                  <input type="text" id="iDescricaoServico" name="nDescricaoServico" placeholder="Insira a descrição do serviço feito">
 
                   <label for="iDescricaoProduto">Descrição dos Produtos</label>
-                  <textarea name="nDescricaoProduto" id="iDescricaoProduto" placeholder="Insira a descrição dos produtos usados" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterProduto')"></textarea>
-                  <small id="counterProduto" class="caracteresRestantes"></small>
+                  <input type="text" id="iDescricaoProduto" name="nDescricaoProduto" placeholder="Insira a descrição dos produtos usados">
 
                   <label for="nTipoManu">Tipo Manutenção</label>
                   <div id="classificacaoCliente">
+                    <!-- Wrapper para trabalhar com input e label dentro de uma div  -->
                     <div class="wrapper">
                       <input type="radio" id="iCorretiva" name="nTipoManu" value="1">
                       <label for="iCorretiva">Corretiva</label>
@@ -96,12 +96,14 @@ require_once 'connection.php';
                 </div>
 
               </div>
-              <div class="btn-group custom-class">
+
+              <div class="btn-group">
                 <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
                 <button type="reset" name="nLimparOrcamento" class="btn">Limpar</button>
               </div>
-                <br>
-                <br>
+
+              <br>
+              <br>
 
             </form>
           </div>
