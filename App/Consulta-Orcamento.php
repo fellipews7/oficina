@@ -57,7 +57,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                 <label for="nSttsOS" id="LabelsRadios">Status do Orçamento</label>
 
                 <div class="wrapper" id="LabelsRadios">
-                  <input type="radio" id="iTodos" name="nSttsOrcamento" value="">
+                  <input type="radio" id="iTodos" name="nSttsOrcamento" value=" ">
                   <label for="iTodos">Todos</label>
                   <input type="radio" id="iAprovado" name="nSttsOrcamento" value="1">
                   <label for="iAprovado">Aprovado</label>
