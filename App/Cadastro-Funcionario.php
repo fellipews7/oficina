@@ -1,4 +1,5 @@
 <?php
+require_once 'connection.php';
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -57,9 +58,15 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                   <label for="iTelefone">Telefone</label>
                   <input type="text" id="iTelefone" name="nTelefoneFuncionario" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneFunc'] ?>">
 
-                  <label for="iIDCargo">Selecione o Código do Cargo</label><br>
-                  <select class="select" id="iIDCargo" name="nIDCargoFuncionarios" placeholder="Insira o ID do cargo do funcionario" value="<?php echo $_SESSION['cargoFunc'] ?>">
-                  </select><br>
+                  <label for="iIDCargo">Cargo</label>
+                  <select id="iIDCargo" class="select" name="nIDCargoFuncionarios">
+                    <?php $sql = "SELECT id as id, nome as nome FROM cargos";
+                    $resultado = mysqli_query($connect, $sql);
+                    while ($dados = mysqli_fetch_array($resultado)) {
+                      echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . "</option>";
+                    }
+                    ?>
+                  </select><br> 
 
                   <label for="iUsuario">Usuário</label>
                   <input type="text" id="iUsuario" name="nUsuario" placaholder="Insira o nome do seu usuário" value>
