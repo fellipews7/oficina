@@ -115,7 +115,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
 <?php
 
 } else {
-  header('location: ../index.php');
-  $_SESSION['tipoErro'] = 'Por favor faça login!';
-  $_SESSION['mensagem'] = 'erro';
+    $_SESSION['tipoErro'] = 'Por favor faça login!';
+    $_SESSION['mensagem'] = 'erro';
+    header('location: ../index.php');
 }
