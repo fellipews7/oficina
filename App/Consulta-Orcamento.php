@@ -98,6 +98,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                 </tr>
                 <tr>
                   <?php
+
                   if (isset($_GET['nPesquisarOrcamentoCon']) and $_GET['nSttsOrcamento'] > 0) {
                     $nomeCliente = limpezaVariavel($_GET['nClienteOrcamentoCon']);
                     $dataFinal = limpezaVariavel($_GET['nDataFimOrc']);
@@ -158,6 +159,22 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                       echo '</td>';
                       echo '</tr>';
                     endwhile;
+                  }
+
+                  if (isset($_GET['nPesquisarOrcamentoCon'])) {
+                    $nomeCliente = limpezaVariavel($_GET['nClienteOrcamentoCon']);
+                    $dataFinal = limpezaVariavel($_GET['nDataFimOrc']);
+                    $dataInicial = limpezaVariavel($_GET['nDataInOrc']);
+                    $status = limpezaVariavel($_GET['nSttsOrcamento']);
+                    $sql = "SELECT orc.id as orcamento_id,cli.id as cliente_id,cli.nome AS cliente_nome,car.id AS carro_id,car.placa AS carro_placa,orc.descricao_servicos,orc.valor_total_produtos,orc.valor_total_servicos,orc.tipoManutencao,
+                                orc.data, orc.status FROM orcamentos orc
+                                INNER JOIN clientes cli ON orc.clientes_id = cli.id
+                                INNER JOIN carros car ON orc.carros_id = car.id
+                                WHERE orc.data BETWEEN '$dataInicial' AND '$dataFinal'
+                                AND orc.status = '$status'
+                                AND cli.nome LIKE '%$nomeCliente%'";
+
+                    insercaoDados($sql);
                   }
 
                   ?>

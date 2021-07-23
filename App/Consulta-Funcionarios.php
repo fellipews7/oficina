@@ -79,6 +79,25 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                   <th></th>
                 </tr>
                 <?php
+
+                function insercaoDados($sql)
+                {
+                  global $connect;
+                  $resultado = mysqli_query($connect, $sql);
+                  while ($dados = mysqli_fetch_array($resultado)) :
+                    echo '<tr>';
+                    echo '<td>' . $dados['matricula'] . '</td>';
+                    echo '<td>' . $dados['cargo'] . '</td>';
+                    echo '<td>' . $dados['nome'] . '</td>';
+                    echo '<td>' . $dados['telefone'] . '</td>';
+                    echo '<td id="iCantoBotao">';
+                    echo '<a href="VerMais/funcionario.php?matricula= ' . $dados["matricula"] . '" id="VerMaisFuncionario" name="nVerMaisFuncionario"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                    echo '</td>';
+                    echo '</tr>';
+                  
+                  endwhile;
+                }
+
                 if (isset($_GET['nPesquisarFuncionarioCon'])) {
                   $tipoPalavraChave = limpezaVariavel($_GET['nTipoPalavraChave']);
                   $palavraChave = limpezaVariavel($_GET['nPalavraChaveFuncionarioCon']);
@@ -95,24 +114,6 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                   }
 
                   insercaoDados($sql);
-                }
-
-                function insercaoDados($sql)
-                {
-                  global $connect;
-                  $resultado = mysqli_query($connect, $sql);
-                  while ($dados = mysqli_fetch_array($resultado)) :
-                    echo '<tr>';
-                    echo '<td>' . $dados['matricula'] . '</td>';
-                    echo '<td>' . $dados['cargo'] . '</td>';
-                    echo '<td>' . $dados['nome'] . '</td>';
-                    echo '<td>' . $dados['telefone'] . '</td>';
-                    echo '<td id="iCantoBotao">';
-                    echo '<a href="VerMais/funcionario.php?matricula= ' . $dados["matricula"] . '" id="VerMaisFuncionario" name="nVerMaisFuncionario"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
-                    echo '</td>';
-                    echo '</tr>';
-
-                  endwhile;
                 }
                 ?>
                 </tr>

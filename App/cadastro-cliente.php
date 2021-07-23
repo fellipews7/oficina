@@ -1,11 +1,12 @@
 <?php
-
 if (session_status() !== PHP_SESSION_ACTIVE) {
-  session_start();
+    session_start();
 }
+
 if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

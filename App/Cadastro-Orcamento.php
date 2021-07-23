@@ -19,8 +19,6 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/Cadastro.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
     <title>Cadastro de Orçamentos</title>
   </head>
 
@@ -89,30 +87,11 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                     <label for="iPrecoMaoObra">Preço Mão de Obra</label>
                     <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço da mão de obra">
 
-                      <script>
-                          $(function precoMaoObra(){
-                              $('#iPrecoMaoObra').maskMoney({
-                                  prefix:'R$ ',
-                                  allowNegative: true,
-                                  thousands:'.', decimal:',',
-                                  affixesStay: true});
-                          })
-                      </script>
-
-
-
                     <label for="iPreçoTotalPro">Preço Total de Produtos</label>
                     <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço preço total dos produtos">
 
-                      <script>
-                          $(function precoProdutos(){
-                              $('#iPreçoTotalPro').maskMoney({
-                                  prefix:'R$ ',
-                                  allowNegative: true,
-                                  thousands:'.', decimal:',',
-                                  affixesStay: true});
-                          })
-                      </script>
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
                   </div>
 

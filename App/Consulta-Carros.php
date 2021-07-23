@@ -75,37 +75,40 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                   <th>Modelo</th>
                   <th>Ano Modelo</th>
                   <th>Ano Fabricado</th>
+                  <th>Renavam</th>
                   <th></th>
                 </thead>
 
                 <tr>
                   <?php
+                                    function insercaoDados($sql)
+                                    {
+                                      global $connect;
+                                      $resultado = mysqli_query($connect, $sql);
+                                      while ($dados = mysqli_fetch_array($resultado)) :
+                  
+                                        echo '<tr>';
+                                        echo '<td> ' . $dados['id'] . '</td>';
+                                        echo '<td>' . $dados['placa'] . '</td>';
+                                        echo '<td>' . $dados['modelo'] . '</td>';
+                                        echo '<td>' . $dados['ano_modelo'] . '</td>';
+                                        echo '<td>' . $dados['ano_fabricado'] . '</td>';
+                                        echo '<td>' . $dados['renavam'] . '</td>';
+                                        echo '<td id="iCantoBotao">';
+                                        echo '<a href="VerMais/carro?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+                                        echo '</td>';
+                                        echo '</tr>';
+                  
+                                      endwhile;
+                                    }
                   if (isset($_GET['nPesquisarCarroCon'])) {
                     $palavraChave = limpezaVariavel($_GET['nPalavraChaveCarroCon']);
                     $tipoPalavraChave = limpezaVariavel($_GET['nTipoPalavraChave']);
 
-                    $sql = "SELECT id, placa, modelo, ano_modelo, ano_fabricado FROM carros WHERE " . $tipoPalavraChave . " LIKE '$palavraChave%'";
+                    $sql = "SELECT id, placa, modelo, ano_modelo, ano_fabricado,renavam FROM carros WHERE " . $tipoPalavraChave . " LIKE '$palavraChave%'";
                     insercaoDados($sql);
                   }
-                  function insercaoDados($sql)
-                  {
-                    global $connect;
-                    $resultado = mysqli_query($connect, $sql);
-                    while ($dados = mysqli_fetch_array($resultado)) :
 
-                      echo '<tr>';
-                      echo '<td> ' . $dados['id'] . '</td>';
-                      echo '<td>' . $dados['placa'] . '</td>';
-                      echo '<td>' . $dados['modelo'] . '</td>';
-                      echo '<td>' . $dados['ano_modelo'] . '</td>';
-                      echo '<td>' . $dados['ano_fabricado'] . '</td>';
-                      echo '<td id="iCantoBotao">';
-                      echo '<a href="VerMais/carro?id=' . $dados['id'] . '" id="VerMaisCarro"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
-                      echo '</td>';
-                      echo '</tr>';
-
-                    endwhile;
-                  }
 
                   ?>
                 </tr>
