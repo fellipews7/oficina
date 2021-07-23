@@ -90,7 +90,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                     <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço da mão de obra">
 
                       <script>
-                          $(function teste(){
+                          $(function precoMaoObra(){
                               $('#iPrecoMaoObra').maskMoney({
                                   prefix:'R$ ',
                                   allowNegative: true,
@@ -105,7 +105,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                     <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço preço total dos produtos">
 
                       <script>
-                          $(function teste1(){
+                          $(function precoProdutos(){
                               $('#iPreçoTotalPro').maskMoney({
                                   prefix:'R$ ',
                                   allowNegative: true,
