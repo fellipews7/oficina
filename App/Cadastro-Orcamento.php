@@ -38,7 +38,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
         <div class="main__container">
           <!-- MAIN CARDS STARTS HERE -->
           <div class="main__cards">
-            <div class="form">
+            <div class="form custom-class">
               <form action="cadastro.php" method="post">
                 <div class="inputs-form">
                   <div class="column one">
@@ -53,11 +53,15 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                       }
                       ?>
                     </select><br>
-                    <label for="iDescricaoServico">Descrição do Serviço</label>
-                    <input type="text" id="iDescricaoServico" name="nDescricaoServico" placeholder="Insira a descrição do serviço feito">
 
-                    <label for="iDescricaoProduto">Descrição dos Produtos</label>
-                    <input type="text" id="iDescricaoProduto" name="nDescricaoProduto" placeholder="Insira a descrição dos produtos usados">
+                    <label for="iDescricaoServico">Descrição do Serviço</label>
+                  <textarea name="nDescricaoServico" id="iDescricaoServico" placeholder="Insira a descrição do serviço feito" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterServico')"></textarea>
+                  <small id="counterServico" class="caracteresRestantes"></small>
+
+
+                  <label for="iDescricaoProduto">Descrição dos Produtos</label>
+                  <textarea name="nDescricaoProduto" id="iDescricaoProduto" placeholder="Insira a descrição dos produtos usados" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterProduto')"></textarea>
+                  <small id="counterProduto" class="caracteresRestantes"></small>
 
                     <label for="nTipoManu">Tipo Manutenção</label>
                     <div id="classificacaoCliente">
@@ -93,7 +97,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
 
                   </div>
 
-                  <div class="btn-group">
+                  <div class="btn-group custom-class">
                     <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
                     <button type="reset" name="nLimparOrcamento" class="btn">Limpar</button>
                   </div>

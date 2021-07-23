@@ -494,19 +494,7 @@ main {
   padding: 0 0 0 40px;
 }
 
-select {
-  margin-left: .5vw;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  box-shadow: none;
-  border: 0 !important;
-  background: #2c3e50;
-  background-image: none;
-  margin-bottom: 2vh;
-}
+
 
 select::-ms-expand {
   display: none;
@@ -520,7 +508,6 @@ select::-ms-expand {
   width: 6vw;
   height: 2em;
   line-height: 2;
-  background: #17191b;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -530,8 +517,30 @@ select::-ms-expand {
 select {
   flex: 1;
   padding: 0 .5em;
-  color: #fff;
+  color: black;
   cursor: pointer;
+  margin-left: .5vw;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 1px solid black !important;
+  margin-bottom: 2vh;
+}
+
+
+textarea {
+  font-family: "Lato", sans-serif;
+  display: block;
+  margin: .5rem;
+  max-width: 680px;
+  max-height: 100px;
+  margin-left: -3px;
+}
+
+.form.custom-class {
+  width: 150%;
 }
 
 .btn-group {
@@ -542,6 +551,15 @@ select {
 
 .btn-group button {
     margin: 0 1rem;
+}
+
+.caracteresRestantes {
+  display: block;
+  padding: 5px 0;
+}
+
+.btn-group.custom-class {
+  margin-left: 20px;
 }
 
 .imprimirOS {
