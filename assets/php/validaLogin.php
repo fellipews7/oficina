@@ -32,7 +32,7 @@
 
         $_SESSION['tipoErro'] = "Login Incorreto!";
         $_SESSION['mensagem'] = "erro";
-        //header('location: ../index.php');
+        header('location: ../../index.php');
     } 
 
     
