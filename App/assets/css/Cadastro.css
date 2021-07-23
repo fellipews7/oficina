@@ -501,7 +501,13 @@ select::-ms-expand {
 }
 
 #iIDCarro {
-  color: white;
+  color: rgb(0, 0, 0);
+}
+
+#iEstadoCliente{
+  width: 100%;
+	margin-bottom: 21px;
+  margin-bottom: 2rem;
 }
 
 .select {
@@ -534,8 +540,11 @@ textarea {
   font-family: "Lato", sans-serif;
   display: block;
   margin: .5rem;
+  width: 420px;
   max-width: 680px;
+  min-width: 300px;
   max-height: 100px;
+  min-height: 50px;
   margin-left: -3px;
 }
 
