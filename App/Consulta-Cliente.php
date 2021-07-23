@@ -80,16 +80,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                   <th></th>
                 </thead>
                 <tr>
-                  <?php
-                  if (isset($_GET['nPesquisarClienteCon'])) {
-                    $tipoPalavraChave = limpezaVariavel($_GET['nTipoPalavraChave']);
-                    $palavraChave = limpezaVariavel($_GET['nPalavraChaveClienteCon']);
-
-                    $sql = "SELECT id, nome, logradouro, numero_logradouro, telefone, cpf, cnpj FROM clientes 
-                                WHERE " . $tipoPalavraChave . " LIKE '$palavraChave%'";
-                    insercaoDados($sql);
-                  }
-
+                <?php
                   function insercaoDados($sql)
                   {
                     global $connect;
@@ -106,6 +97,15 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                       echo '</td>';
                       echo '</tr>';
                     endwhile;
+                  }
+                  
+                  if (isset($_GET['nPesquisarClienteCon'])) {
+                    $tipoPalavraChave = limpezaVariavel($_GET['nTipoPalavraChave']);
+                    $palavraChave = limpezaVariavel($_GET['nPalavraChaveClienteCon']);
+
+                    $sql = "SELECT id, nome, logradouro, numero_logradouro, telefone, cpf, cnpj FROM clientes 
+                                WHERE " . $tipoPalavraChave . " LIKE '$palavraChave%'";
+                    insercaoDados($sql);
                   }
                   ?>
                 </tr>

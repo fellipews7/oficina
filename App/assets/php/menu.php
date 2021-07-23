@@ -56,7 +56,7 @@
         </div>
         <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-            <?php $_SESSION['logado'] = 0; ?>><a href="../index.php">Log out</a>
+            <a href="../index.php">Log out</a>
 
         </div>
     </div>
