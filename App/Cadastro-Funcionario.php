@@ -59,7 +59,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                   <input type="text" id="iTelefone" name="nTelefoneFuncionario" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneFunc'] ?>">
 
                   <label for="iIDCargo">Cargo</label>
-                  <select id="iIDCargo" class="select" name="nIDCargoFuncionarios">
+                  <select id="iIDCargo" class="select" name="nIDCargoFuncionarios" style="width: 200px;">
                     <?php $sql = "SELECT id as id, nome as nome FROM cargos";
                     $resultado = mysqli_query($connect, $sql);
                     while ($dados = mysqli_fetch_array($resultado)) {
