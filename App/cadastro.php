@@ -72,7 +72,7 @@ function insertFuncionario(){
     $tipoAcao            = limpezaVariavel($_POST['nTipoAcao']);
     $nomeFuncionario     = limpezaVariavel($_POST['nNomeFuncionario']);
     $cpfFuncionario      = limpaNumero($_POST['nCPFFuncionario']);
-    $telefoneFuncionario = limpezaVariavel($_POST['nTelefoneFuncionario']);
+    $telefoneFuncionario = limpaTelefone($_POST['nTelefoneFuncionario']);
     $idCargoFuncionario  = limpezaVariavel($_POST['nIDCargoFuncionarios']);
     $senhaFuncionario    = limpezaVariavel($_POST['nSenha']);
     $loginFuncionario    = limpezaVariavel($_POST['nUsuario']);
@@ -120,17 +120,17 @@ function insertOrcamento(){
 function insertOS(){
 
     $_SESSION['tipoAcao'] = 1;
-    $idOrcamento = limpezaVariavel($_POST['nIDOrcamentoOS']);
-    $dataCadastro = date('Y/m/d');
-    $dataPrevisaoEntrega = limpezaVariavel($_POST['nDataPrevOS']);
-    $dataConclusapOs = date('2999-12-31');
-    $kmCarro = limpezaVariavel($_POST['nKMOS']);
+    $idOrcamento          = limpezaVariavel($_POST['nIDOrcamentoOS']);
+    $dataCadastro         = date('Y/m/d');
+    $dataPrevisaoEntrega  = limpezaVariavel($_POST['nDataPrevOS']);
+    $dataConclusaoOs      = (date('y-m-d') + 7);
+    $kmCarro              = limpezaVariavel($_POST['nKMOS']);
     $matriculaFuncionario = limpezaVariavel($_POST['nMatriFunOS']);
-    $statusOs = 1;
-    $valorFinalOs = limpezaVariavel($_POST['nValorTotalOS']);
+    $statusOs             = 1;
+    $valorFinalOs         = limpezaVariavel($_POST['nValorTotalOS']);
 
 $sql = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final) VALUES(
-    '$kmCarro', '$dataCadastro','$dataConclusapOs','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs')");
+    '$kmCarro', '$dataCadastro','$dataConclusaoOs','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs')");
 
     conexaoBdInsert($sql);
 

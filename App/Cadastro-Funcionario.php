@@ -71,19 +71,6 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 
               <input type="hidden" name="nTipoAcao" value="1">
 
-              <script>
-                document.getElementById("Cadastrar").onclick = function() {
-                  <?php setSessaoFunc(); ?>
-
-                }
-
-                document.getElementById("Limpar").onclick = function() {
-                  <?php unsetSessaoFunc(); ?>
-
-                }
-              </script>
-
-
               <div class="btn-group">
                 <button type="submit" name="nCadastrarFuncionarios" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
 

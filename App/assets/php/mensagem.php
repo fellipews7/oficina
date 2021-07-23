@@ -14,7 +14,7 @@ if(isset($_SESSION['mensagem'])){
 
     <?php
         $_SESSION['tipoAcao'] = null;
-    }else if($_SESSION['tipoAcao'] == 1){?>
+    }else if(isset($_SESSION['tipoAcao']) and $_SESSION['tipoAcao'] == 1){?>
         <script src="assets/js/jquery-3.1.1.min.js"></script>
         <link href="assets/css/toastr.min.css" rel="stylesheet"/>
         <script src="assets/js/toastr.min.js"></script>

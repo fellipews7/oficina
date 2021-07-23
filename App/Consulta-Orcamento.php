@@ -57,7 +57,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                 <label for="nSttsOS" id="LabelsRadios">Status do Orçamento</label>
 
                 <div class="wrapper" id="LabelsRadios">
-                  <input type="radio" id="iTodos" name="nSttsOrcamento" value="">
+                  <input type="radio" id="iTodos" name="nSttsOrcamento" value="0">
                   <label for="iTodos">Todos</label>
                   <input type="radio" id="iAprovado" name="nSttsOrcamento" value="1">
                   <label for="iAprovado">Aprovado</label>
@@ -98,7 +98,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                 </tr>
                 <tr>
                   <?php
-                  if (isset($_GET['nPesquisarOrcamentoCon'])) {
+                  if (isset($_GET['nPesquisarOrcamentoCon']) and $_GET['nSttsOrcamento'] > 0) {
                     $nomeCliente = limpezaVariavel($_GET['nClienteOrcamentoCon']);
                     $dataFinal = limpezaVariavel($_GET['nDataFimOrc']);
                     $dataInicial = limpezaVariavel($_GET['nDataInOrc']);
@@ -112,6 +112,14 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                                 AND cli.nome LIKE '%$nomeCliente%'";
 
                     insercaoDados($sql);
+                  }else if(isset($_GET['nPesquisarOrcamentoCon']) and $_GET['nSttsOrcamento'] == 0){
+                      $sql = "SELECT orc.id as orcamento_id,cli.id as cliente_id,cli.nome AS cliente_nome,car.id AS carro_id,car.placa AS carro_placa,orc.descricao_servicos,orc.valor_total_produtos,orc.valor_total_servicos,orc.tipoManutencao,
+                                orc.data, orc.status FROM orcamentos orc
+                                INNER JOIN clientes cli ON orc.clientes_id = cli.id
+                                INNER JOIN carros car ON orc.carros_id = car.id
+                                ";
+
+                      insercaoDados($sql);
                   }
 
                   function insercaoDados($sql)

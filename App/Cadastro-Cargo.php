@@ -5,8 +5,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
 
-  require_once 'connection.php';
-
 ?>
 
 <!DOCTYPE html>

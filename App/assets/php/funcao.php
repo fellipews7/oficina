@@ -34,7 +34,18 @@ function isEmail($valor){
 function limpaNumero($valor){
 
     $valor = preg_replace('/[^0-9]/', '', $valor);
-       return $valor;
+    return $valor;
+
+}
+
+function limpaTelefone($valor){
+    $valor = trim($valor);
+    $valor = str_replace("(", "", $valor);
+    $valor = str_replace(" ", "", $valor);
+    $valor = str_replace(")", "", $valor);
+    $valor = str_replace("-", "", $valor);
+
+    return $valor;
 
 }
 
@@ -92,9 +103,11 @@ function isCEP($valor){
 }
 
 function isTelefone($valor){
+    var_dump($valor);
     if (preg_match('/[0-9]{2}[0-9]{4,5}[0-9]{4}$/', $valor)):
         return true;
     else:
+        var_dump($valor);
         return false;
     endif;
 }
@@ -162,15 +175,15 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                           $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id){
 
     if(isNome($nomeCliente)){
-        echo '1';
+
         if(isTelefone($telefoneCliente)){
-            echo '2';
+
             if(isData($dataNascimentoCliente)){
-                echo $tipoAcao;
+
                 if(verificaCpfCnpj($cpfCliente)){
-                    echo '4';
+
                     if(isEmail($emailCliente)){
-                        echo '5';
+
                         if(isCEP($cepLogradouroCliente)){
 
                             if($tipoAcao == "1") {
@@ -223,7 +236,7 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                 $_SESSION['mensagem'] = 'erro';
 
                 if($tipoAcao == "1") {
-                    header('Location: Consultar-Cliente.php?errodata');
+                    header('Location: cadastro-cliente.php?errodata');
                 }elseif ($tipoAcao == "2"){
                     header('Location: ../editarCliente.php?id='.$id);
 
