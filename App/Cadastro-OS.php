@@ -3,6 +3,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
+  require_once 'connection.php';
 ?>
 
 
@@ -46,10 +47,33 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                   <input type="text" readonly id="iIDOrcamento" name="nIDOrcamentoOS" value="<?php echo $_GET['id']; ?>" placeholder="Insira o Nº do orçamento">
 
                   <label for="iDataPrev">Data da Previsao de Entrega</label>
-                  <input class="data" type="date" id="iDataPrev" name="nDataPrevOS" data-date="" data-date-format="DD MMMM YYYY" value="<?php echo date("Y-m-d"); ?>">
+                  <?php  $dataAtual =  date("Y-m-d"); 
+                    $dataPrevisao = date('Y/m/d', strtotime("+14 days",strtotime($dataAtual)));
+                  ?>
+                  <input class="data" type="text" id="iDataPrev" name="nDataPrevOS" data-date="" data-date-format="DD MMMM YYYY" value="<?php echo $dataPrevisao ; ?>">
 
                   <label for="iValorTotalOS">Valor Total da Ordem de Serviço</label>
-                  <input type="text" id="iValorTotalOS" name="nValorTotalOS" placeholder="Insira o valor total da ordem de serviço">
+
+                  <input type="text" id="iValorTotalOS" name="nValorTotalOS" placeholder="Insira o valor total da ordem de serviço" 
+                  value="<?php 
+
+                    function insercaoDados($sql)
+                    {
+                      global $connect;
+                      $resultado = mysqli_query($connect, $sql);
+                      while ($dados = mysqli_fetch_array($resultado)) :
+                        $valorServicos =  $dados['valor_total_servicos'];
+                        $valorProdutos =  $dados['valor_total_produtos'];
+                      endwhile;
+                      $valorTotalOrcamento = $valorServicos + $valorProdutos;
+                    
+                      echo $valorTotalOrcamento;
+                    }
+                    $sql = "SELECT valor_total_servicos, valor_total_produtos FROM orcamentos  WHERE id = " . $_GET['id'] ;
+
+                    insercaoDados($sql);
+
+                    ?>">
 
                   <label for="iKM">Quilometragem</label>
                   <input type="text" id="iKM" name="nKMOS" placeholder="Insira a quilometragem">

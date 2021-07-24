@@ -68,7 +68,7 @@ if(isset($_GET['matricula'])){
 
             <div class="center-align">
                 <button type="submit" name="btn-editar-funcionario" class="btn black">Atualizar</button>
-                <a href="funcionario.php" class="btn black">Lista de funcionários</a>
+                <a href="../Consulta-Funcionarios.php" class="btn black">Lista de funcionários</a>
             </div>
         </form>
     </div>
