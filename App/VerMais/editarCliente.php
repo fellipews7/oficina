@@ -103,7 +103,7 @@ if(isset($_GET['id'])){
 
             <div class="center-align">
                 <button type="submit" name="btn-editar-cliente" class="btn black">Atualizar</button>
-                <a href="../Consulta-Carros.php" class="btn black">Lista de carros</a>
+                <a href="../Consulta-Cliente.php" class="btn black">Lista de Clientes</a>
             </div>
         </form>
     </div>
