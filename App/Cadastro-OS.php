@@ -21,6 +21,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 <body id="body">
   <?php
   include_once 'assets/php/mensagem.php';
+  include_once 'connection.php';
   ?>
   <div class="container">
     <nav class="navbar">
@@ -55,7 +56,15 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 
                   <label for="iMatriFun">Matrícula do Funcionário</label><br>
                   <select class="select" id="iMatriFun" name="nMatriFunOS" placeholder="Insira a matrícula do funcionário">
-                  </select><br>
+                      <?php $sql = "SELECT matricula as id, nome as nome FROM funcionarios";
+
+                      $resultado = mysqli_query($connect, $sql);
+                      var_dump($resultado);
+                      while ($dados = mysqli_fetch_array($resultado)) {
+                          echo "<option value=" . $dados['id'] . ">" . $dados['nome'] . ' - ' . $dados['id'] . "</option>";
+                      }
+                      ?>
+                  </select>
 
                 </div>
 

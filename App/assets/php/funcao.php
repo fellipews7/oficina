@@ -434,19 +434,22 @@ function atualizaFuncionarios($nomeFuncionario, $cpfFuncionario, $telefoneFuncio
 function conexaoBdInsert($sql){
     global $connect;
 
-    unsetSessoes();
+
 
     if(mysqli_query($connect, $sql)){
         $_SESSION['mensagem'] = "deu";
 
         if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
             $_SESSION['tipoErro'] = "Atualização feita com sucesso!";
+            unsetSessoes();
             header('Location: ../../index.php');
 
-            $_SESSION['tipoAcao'] = null;
+
         }else{
             $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
+            unsetSessoes();
             header('Location: index.php?deu');
+
         }
 
     }else{
@@ -454,7 +457,6 @@ function conexaoBdInsert($sql){
         $_SESSION['tipoErro'] = "Dados únicos duplicados!";
 
         if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
-
             header('Location: ../../index.php');
 
         }else{
