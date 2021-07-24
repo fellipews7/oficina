@@ -2,8 +2,11 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
-    ?>
+
+if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,8 +68,8 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
             <input class="data" type="date" id="iDataNasc" name="nDataNascCliente" data-date=""
               data-date-format="DD MMMM YYYY" value="" value="<?php echo $_SESSION['dataNascimentoCliente']?>">
 
-            <label for="iEstado">Estado</label>            
-            <select name="nEstadoCliente" class="ls-select select" style="width:300px">
+            <label for="iEstado">Estado</label> <br>
+            <select id="iEstadoCliente" name="nEstadoCliente" class="ls-select select" style="width:100%">
             	<option value="AC">Acre</option>
             	<option value="AL">Alagoas</option>
             	<option value="AP">Amapá</option>

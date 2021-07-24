@@ -77,8 +77,9 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                   <label for="iKM">Quilometragem</label>
                   <input type="text" id="iKM" name="nKMOS" placeholder="Insira a quilometragem">
 
-                  <label for="iMatriFun">Matrícula do Funcionário</label>
-                  <input type="text" id="iMatriFun" name="nMatriFunOS" placeholder="Insira a matrícula do funcionário">
+                  <label for="iMatriFun">Matrícula do Funcionário</label><br>
+                  <select class="select" id="iMatriFun" name="nMatriFunOS" placeholder="Insira a matrícula do funcionário">
+                  </select><br>
 
                 </div>
 

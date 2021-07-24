@@ -97,7 +97,34 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                 </tr>
                 <tr>
                   <?php
-                  
+
+                  if (isset($_POST['nPesquisarOSCon']) and $_GET['nSttsOs'] != 4) {
+                    $cliente = limpezaVariavel($_POST['nClienteOSCon']);
+                    $funcionario = limpezaVariavel($_POST['nFuncionarioOSCon']);
+                    $data_cadastro_ini = limpezaVariavel($_POST['nDataInOS']);
+                    $data_cadastro_fim = limpezaVariavel($_POST['nDataFimOS']);
+                    $status = limpezaVariavel($_POST['nSttsOS']);
+                    $sql = "SELECT so.id AS so_id, so.orcamentos_id AS orc_id, cl.nome AS cl_nome, ca.modelo AS ca_modelo, 
+                          so.data_cadastro AS so_data_cadastro, so.data_previsao AS so_data_previsao, func.nome AS func_nome, 
+                          so.status AS status FROM orcamentos AS orc 
+                          INNER JOIN ordens_de_servicos AS so ON so.orcamentos_id = orc.id 
+                          INNER JOIN clientes AS cl ON orc.clientes_id = cl.id 
+                          INNER JOIN funcionarios AS func ON so.funcionarios_matricula = func.matricula 
+                          INNER JOIN carros AS ca ON orc.carros_id = ca.id
+                          WHERE cl.nome LIKE '%$cliente%' AND func.nome LIKE '%$funcionario%' 
+                          AND so.data_cadastro BETWEEN '$data_cadastro_ini' and '$data_cadastro_fim'";
+                    insercaoDados($sql);
+                  }else if(isset($_POST['nPesquisarOSCon']) and $_GET['nSttsOs'] == 4){
+                      $sql = "SELECT so.id AS so_id, so.orcamentos_id AS orc_id, cl.nome AS cl_nome, ca.modelo AS ca_modelo, 
+                          so.data_cadastro AS so_data_cadastro, so.data_previsao AS so_data_previsao, func.nome AS func_nome, 
+                          so.status AS status FROM orcamentos AS orc 
+                          INNER JOIN ordens_de_servicos AS so ON so.orcamentos_id = orc.id 
+                          INNER JOIN clientes AS cl ON orc.clientes_id = cl.id 
+                          INNER JOIN funcionarios AS func ON so.funcionarios_matricula = func.matricula 
+                          INNER JOIN carros AS ca ON orc.carros_id = ca.id"
+
+                  }
+
                   function insercaoDados($sql)
                   {
                     global $connect;

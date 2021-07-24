@@ -2,8 +2,10 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
-  require_once 'connection.php';
+
+if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +50,8 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
             <input type="text" id="iNome" name="nNomeCargo" placeholder="Insira o nome do cargo">
 
             <label for="iDescrição">Descrição</label>
-            <input type="text" id="iDescricao" name="nDescricaoCargo" placeholder="Insira a descrição">
+            <textarea  type="text" id="iDescricao" name="nDescricaoCargo" placeholder="Insira a descrição" cols="90" rows="5" maxlength="100" onkeydown="countChar(this, 'counterDes')"></textarea>
+            <small id="counterDes" class="caracteresRestantes"></small>
 
           </div>
 
