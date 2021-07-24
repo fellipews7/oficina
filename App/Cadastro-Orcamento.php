@@ -4,7 +4,9 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
   session_start();
 }
 if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
+
   require_once 'connection.php';
+
 ?>
 
   <!DOCTYPE html>
@@ -73,7 +75,21 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                         <label for="iPreventiva">Preventiva</label>
                       </div>
                     </div>
+
                   </div>
+
+                  <div class="column two">
+                    <label for="iIDCarro">Selecione o Carro</label>
+                    <select id="iIDCarro" class="select" name="nIDCarroOrcamento">
+                      <?php $sql = "SELECT id as id, placa as placa,modelo as modelo, marca FROM carros";
+                      $resultado = mysqli_query($connect, $sql);
+                      while ($dados = mysqli_fetch_array($resultado)) {
+                        echo "<option value=" . $dados['id'] . ">" . $dados['placa'] . ' | ' . $dados['marca'] . ' - ' . $dados['modelo'] .  "</option>";
+                      }
+                      ?>
+                    </select><br>
+                    <label for="iPrecoMaoObra">Preço Mão de Obra</label>
+                    <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço da mão de obra">
 
                     <div class="column two">
                       <label for="iIDCarro">Selecione o Carro</label>
@@ -85,20 +101,39 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                         }
                         ?>
                       </select><br>
+
                       <label for="iPrecoMaoObra">Preço Mão de Obra</label><br>
                       <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" placeholder="Insira o preço da mão de obra" style="width: 420px;"><br>
 
                       <label for="iPreçoTotalPro">Preço Total de Produtos</label><br>
                       <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" placeholder="Insira o preço preço total dos produtos" style="width: 420px;">
 
+
                     </div>
 
-                  </div>
+
+                    <label for="iPreçoTotalPro">Preço Total de Produtos</label>
+                    <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço preço total dos produtos">
+
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
 
                   <div class="btn-group custom-class">
                     <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
                     <button type="reset" name="nLimparOrcamento" class="btn">Limpar</button>
+
                   </div>
+
+                </div>
+
+                <div class="btn-group">
+                  <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
+                  <button type="reset" name="nLimparOrcamento" class="btn">Limpar</button>
+                </div>
+
+                <br>
+                <br>
 
               </form>
             </div>

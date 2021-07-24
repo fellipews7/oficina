@@ -97,13 +97,14 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                 </tr>
                 <tr>
                   <?php
-
-                  if (isset($_POST['nPesquisarOSCon']) and $_GET['nSttsOs'] != 4) {
+                  $sql = "";
+                  if (isset($_POST['nPesquisarOSCon']) and (isset($_POST['nSttsOS']) and $_POST['nSttsOS'] != 4)){
                     $cliente = limpezaVariavel($_POST['nClienteOSCon']);
                     $funcionario = limpezaVariavel($_POST['nFuncionarioOSCon']);
                     $data_cadastro_ini = limpezaVariavel($_POST['nDataInOS']);
                     $data_cadastro_fim = limpezaVariavel($_POST['nDataFimOS']);
                     $status = limpezaVariavel($_POST['nSttsOS']);
+
                     $sql = "SELECT so.id AS so_id, so.orcamentos_id AS orc_id, cl.nome AS cl_nome, ca.modelo AS ca_modelo, 
                           so.data_cadastro AS so_data_cadastro, so.data_previsao AS so_data_previsao, func.nome AS func_nome, 
                           so.status AS status FROM orcamentos AS orc 
@@ -113,66 +114,74 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                           INNER JOIN carros AS ca ON orc.carros_id = ca.id
                           WHERE cl.nome LIKE '%$cliente%' AND func.nome LIKE '%$funcionario%' 
                           AND so.data_cadastro BETWEEN '$data_cadastro_ini' and '$data_cadastro_fim'";
-                    insercaoDados($sql);
-                  }else if(isset($_POST['nPesquisarOSCon']) and $_GET['nSttsOs'] == 4){
+
+                      global $connect;
+                      $resultado = mysqli_query($connect, $sql);
+                      while ($dados = mysqli_fetch_array($resultado)) :
+                          echo '<tr>';
+                          echo '<td>' . $dados['so_id'] . '</td>';
+                          echo '<td>' . $dados['orc_id'] . '</td>';
+                          echo '<td>' . $dados['cl_nome'] . '</td>';
+                          echo '<td>' . $dados['ca_modelo'] . '</td>';
+                          echo '<td>' . $dados['so_data_cadastro'] . '</td>';
+                          echo '<td>' . $dados['so_data_previsao'] . '</td>';
+                          echo '<td>' . $dados['func_nome'] . '</td>';
+
+                          if ($dados['status'] == 1) {
+                              echo '<td> Em aberto</td>';
+                          } else if ($dados['status'] == 2) {
+                              echo '<td> Concluída </td>';
+                          } else if ($dados['status'] == 3) {
+                              echo '<td> Atrasada </td>';
+                          }
+
+                          echo '<td id="iCantoBotao">';
+
+                          echo '<a href="VerMais/OS.php?id=' . $dados['so_id'] . '" id="VerMaisOS"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+
+                          echo '</td>';
+                          echo '</tr>';
+                      endwhile;
+
+                  }else if(isset($_POST['nPesquisarOSCon']) and ($_POST['nSttsOS'] == 4)){
                       $sql = "SELECT so.id AS so_id, so.orcamentos_id AS orc_id, cl.nome AS cl_nome, ca.modelo AS ca_modelo, 
                           so.data_cadastro AS so_data_cadastro, so.data_previsao AS so_data_previsao, func.nome AS func_nome, 
                           so.status AS status FROM orcamentos AS orc 
                           INNER JOIN ordens_de_servicos AS so ON so.orcamentos_id = orc.id 
                           INNER JOIN clientes AS cl ON orc.clientes_id = cl.id 
                           INNER JOIN funcionarios AS func ON so.funcionarios_matricula = func.matricula 
-                          INNER JOIN carros AS ca ON orc.carros_id = ca.id"
+                          INNER JOIN carros AS ca ON orc.carros_id = ca.id";
+
+                      global $connect;
+                      $resultado = mysqli_query($connect, $sql);
+                      while ($dados = mysqli_fetch_array($resultado)) :
+                          echo '<tr>';
+                          echo '<td>' . $dados['so_id'] . '</td>';
+                          echo '<td>' . $dados['orc_id'] . '</td>';
+                          echo '<td>' . $dados['cl_nome'] . '</td>';
+                          echo '<td>' . $dados['ca_modelo'] . '</td>';
+                          echo '<td>' . $dados['so_data_cadastro'] . '</td>';
+                          echo '<td>' . $dados['so_data_previsao'] . '</td>';
+                          echo '<td>' . $dados['func_nome'] . '</td>';
+
+                          if ($dados['status'] == 1) {
+                              echo '<td> Em aberto</td>';
+                          } else if ($dados['status'] == 2) {
+                              echo '<td> Concluída </td>';
+                          } else if ($dados['status'] == 3) {
+                              echo '<td> Atrasada </td>';
+                          }
+
+                          echo '<td id="iCantoBotao">';
+
+                          echo '<a href="VerMais/OS.php?id=' . $dados['so_id'] . '" id="VerMaisOS"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
+
+                          echo '</td>';
+                          echo '</tr>';
+                      endwhile;
 
                   }
 
-                  function insercaoDados($sql)
-                  {
-                    global $connect;
-                    $resultado = mysqli_query($connect, $sql);
-                    while ($dados = mysqli_fetch_array($resultado)) :
-                      echo '<tr>';
-                      echo '<td>' . $dados['so_id'] . '</td>';
-                      echo '<td>' . $dados['orc_id'] . '</td>';
-                      echo '<td>' . $dados['cl_nome'] . '</td>';
-                      echo '<td>' . $dados['ca_modelo'] . '</td>';
-                      echo '<td>' . $dados['so_data_cadastro'] . '</td>';
-                      echo '<td>' . $dados['so_data_previsao'] . '</td>';
-                      echo '<td>' . $dados['func_nome'] . '</td>';
-
-                      if ($dados['status'] == 1) {
-                        echo '<td> Em aberto</td>';
-                      } else if ($dados['status'] == 2) {
-                        echo '<td> Concluída </td>';
-                      } else if ($dados['status'] == 3) {
-                        echo '<td> Atrasada </td>';
-                      }
-
-                      echo '<td id="iCantoBotao">';
-
-                      echo '<a href="VerMais/OS.php?id=' . $dados['so_id'] . '" id="VerMaisOS"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
-
-                      echo '</td>';
-                      echo '</tr>';
-                    endwhile;
-                  }
-
-                  if (isset($_POST['nPesquisarOSCon'])) {
-                    $cliente = limpezaVariavel($_POST['nClienteOSCon']);
-                    $funcionario = limpezaVariavel($_POST['nFuncionarioOSCon']);
-                    $data_cadastro_ini = limpezaVariavel($_POST['nDataInOS']);
-                    $data_cadastro_fim = limpezaVariavel($_POST['nDataFimOS']);
-                    $status = limpezaVariavel($_POST['nSttsOS']);
-                    $sql = "SELECT so.id AS so_id, so.orcamentos_id AS orc_id, cl.nome AS cl_nome, ca.modelo AS ca_modelo, 
-                          so.data_cadastro AS so_data_cadastro, so.data_previsao AS so_data_previsao, func.nome AS func_nome, 
-                          so.status AS status FROM orcamentos AS orc 
-                          INNER JOIN ordens_de_servicos AS so ON so.orcamentos_id = orc.id 
-                          INNER JOIN clientes AS cl ON orc.clientes_id = cl.id 
-                          INNER JOIN funcionarios AS func ON so.funcionarios_matricula = func.matricula 
-                          INNER JOIN carros AS ca ON orc.carros_id = ca.id
-                          WHERE cl.nome LIKE '%$cliente%' AND func.nome LIKE '%$funcionario%' 
-                          AND so.data_cadastro BETWEEN '$data_cadastro_ini' and '$data_cadastro_fim'";
-                    insercaoDados($sql);
-                  }
                   ?>
                 </tr>
               </table>

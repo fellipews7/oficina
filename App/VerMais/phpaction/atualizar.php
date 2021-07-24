@@ -28,7 +28,7 @@ if(isset($_POST['btn-editar-os'])){
 
 function updateCliente(){
     $id                         = limpezaVariavel($_POST['nId']);
-    $_SESSION['tipoAcao']       = limpezaVariavel($_POST['nTipoAcaoCliente']);
+    $_SESSION['tipoAcao']       = 2;
     $tipoAcao                   = limpezaVariavel($_POST['nTipoAcaoCliente']);
     $tipoCadastro               = limpezaVariavel($_POST['nTipoCadastroCliente']);
     $nomeCliente                = limpezaVariavel($_POST['nNomeCliente']);
@@ -52,7 +52,7 @@ function updateCliente(){
 
 function updateFuncionario(){
     $matricula                  = limpezaVariavel($_POST['nMatricula']);
-    $_SESSION['tipoAcao']       = limpezaVariavel($_POST['nTipoAcao']);
+    $_SESSION['tipoAcao']       = 2;
     $tipoAcao                   = limpezaVariavel($_POST['nTipoAcao']);
     $nomeFuncionario            = limpezaVariavel($_POST['nNome']);
     $cpfFuncionario             = limpaNumero($_POST['nCpf']);
@@ -67,7 +67,7 @@ function updateFuncionario(){
 
 function updateCarro(){
     $id                   = limpezaVariavel($_POST['nId']);
-    $tipoAcao             = limpezaVariavel($_POST['nTipoAcao']);
+    $tipoAcao             = 2;
     $_SESSION['tipoAcao'] = limpezaVariavel($_POST['nTipoAcao']);
     $placaCarro           = limpaPlaca($_POST['nPlaca']);
     $modeloCarro          = limpezaVariavel($_POST['nModelo']);
