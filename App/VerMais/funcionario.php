@@ -19,16 +19,15 @@ include_once '../assets/php/mensagem.php';
                 <th>Nome</th>
                 <th>Telefone</th>
                 <th>Login</th>
-                <th>cpf</th>
+                <th>CPF</th>
             </thead>
 
             <tbody>
                 <?php
                     $matricula = $_GET['matricula'];
-                    $sql = "SELECT funcionarios.matricula AS matricula, cargos.nome AS cargo, funcionarios.cpf AS cpf,
-                            funcionarios.login AS login, funcionarios.telefone_contato AS telefone FROM funcionarios 
-                            INNER JOIN cargos ON cargos.id = funcionarios.cargos_id 
-                            WHERE matricula = '$matricula'";
+                    $sql = "SELECT funcionarios.matricula AS matricula, cargos.nome AS cargo, funcionarios.nome AS nome,
+                            funcionarios.cpf AS cpf, funcionarios.login AS login, funcionarios.telefone_contato AS telefone FROM funcionarios 
+                            INNER JOIN cargos ON cargos.id = funcionarios.cargos_id WHERE matricula = '$matricula'";
 
                     $resultado = mysqli_query($connect, $sql);
                     while($dados = mysqli_fetch_array($resultado)):
@@ -36,9 +35,10 @@ include_once '../assets/php/mensagem.php';
                 <tr>
                     <td><?php echo $dados['matricula']?></td>
                     <td><?php echo $dados['cargo']?></td>
-                    <td><?php echo $dados['cpf']?></td>
-                    <td><?php echo $dados['cpf']?></td>
+                    <td><?php echo $dados['nome']?></td>
+                    <td><?php echo $dados['telefone']?></td>
                     <td><?php echo $dados['login']?></td>
+                    <td><?php echo $dados['cpf']?></td>
                 </tr>
             </tbody>
         </table>
