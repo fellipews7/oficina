@@ -85,11 +85,13 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                         }
                         ?>
                       </select><br>
+
                       <label for="iPrecoMaoObra">Preço Mão de Obra</label><br>
                       <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" placeholder="Insira o preço da mão de obra" style="width: 420px;"><br>
 
                       <label for="iPreçoTotalPro">Preço Total de Produtos</label><br>
                       <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" placeholder="Insira o preço preço total dos produtos" style="width: 420px;">
+
 
                     </div>
 
