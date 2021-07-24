@@ -82,10 +82,10 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                         ?>
                       </select><br>
                       <label for="iPrecoMaoObra">Preço Mão de Obra</label>
-                      <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço da mão de obra">
+                      <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" class="form-control" placeholder="Insira o preço da mão de obra">
 
                       <label for="iPreçoTotalPro">Preço Total de Produtos</label>
-                      <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço preço total dos produtos">
+                      <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" class="form-control" placeholder="Insira o preço preço total dos produtos">
 
                       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
                       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
