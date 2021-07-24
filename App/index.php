@@ -1,7 +1,10 @@
 <?php
+
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
+$_SESSION['login'] = 1;
+
 if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 ?>
 <!DOCTYPE html>
