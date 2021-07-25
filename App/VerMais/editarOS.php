@@ -118,7 +118,6 @@ if(isset($_GET['id'])){
 
             <div class="center-align">
                 <button type="submit" name="btn-editar-os" class="btn black">Atualizar</button>
-                <button type="submit" name="btn-concluir-os" class="btn black">Concluir O.S.</button>
                 <a href="../Consulta-OS.php" class="btn black">Lista de ordens de serviço</a>
             </div>
         </form>
