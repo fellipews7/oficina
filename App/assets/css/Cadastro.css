@@ -487,6 +487,7 @@ main {
 
 .column {
     padding: 0 0 0 40px;
+    width: 400px;
 }
 
 .column-os {
@@ -494,7 +495,9 @@ main {
   padding: 0 0 0 40px;
 }
 
-
+.column.cadastro-orcamento {
+  width: 30%;
+}
 
 select::-ms-expand {
   display: none;
@@ -510,7 +513,9 @@ select::-ms-expand {
 }
 
 .select {
-  width: 6vw;
+  display: block;
+  width: 100%;
+  margin: 10px 0;
   height: 2em;
   line-height: 2;
   overflow: hidden;
@@ -539,7 +544,7 @@ textarea {
   font-family: "Lato", sans-serif;
   display: block;
   margin: .5rem;
-  width: 420px;
+  width: 400px;
   max-width: 680px;
   min-width: 300px;
   max-height: 100px;
@@ -557,6 +562,12 @@ textarea {
     align-items: center;
 }
 
+.btn-group.cadastro-cliente {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 13%;
+}
+
 .btn-group button {
     margin: 0 1rem;
 }
@@ -567,12 +578,26 @@ textarea {
 }
 
 .btn-group.custom-class {
-  margin-left: 20px;
+  position: absolute;
+  margin-top: 100px;
+  margin-left: -20%;
+}
+
+.funcionarios-content {
+  width: 40%;
 }
 
 .imprimirOS {
   text-align: center;
   padding-bottom: 2vw;
+}
+
+.btn-group-carro {
+  margin-left: 235px;
+}
+
+.btn-group-carro button {
+  margin-left: 20px;
 }
 
 .imprimirOS a {
@@ -704,6 +729,10 @@ button.btn:hover {
 }
 
 @media (max-width: 645px) {
+  #iSenha {
+    width: 260px;
+  }
+  
   .wrapper input[type=radio] {
       width: 60px;
   }
@@ -753,12 +782,32 @@ button.btn:hover {
   }
 
   #iEstadoCliente {
-    width: 95% !important;
+    width: 265px !important;
   }
 
   textarea {
-    width: 200px;
-    margin: .7rem;
+    width: 265px;
+    min-width: 200px;
+  }
+
+  .select {
+    width: 265px;
+    display: block;
+    margin-top: 10px;
+    margin-left: -2px;
+  }
+
+  .form input {
+    margin-bottom: 1rem;
+  }
+
+  .column.cadastro-orcamento {
+    width: auto;
+  }
+
+  .btn-group.custom-class,
+  .btn-group.cadastro-cliente {
+    margin-left: 3%;
   }
 }
 

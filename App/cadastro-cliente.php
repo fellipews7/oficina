@@ -169,7 +169,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
 
                 }
               </script>
-              <div class="btn-group">
+              <div class="btn-group cadastro-cliente">
                 <button type="submit" name="nCadastrarCliente" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
 
                 <button type="reset" name="nLimparCliente" value="Limpar" id="Limpar" class="btn">Limpar</button>
