@@ -41,12 +41,30 @@ if(isset($_GET['id'])){
             <div class="input-field col s12">
                 <label for="iCpfCnpj">CPF/CNPJ</label><br>
                 <input type="text" name="nCPFCNPJCLiente" id="iCpf" value="<?php echo $dados['cpf'].$dados['cnpj']?>">
+                <script>
 
+                    <?php
+                        if ($dados['cpf'] == ""){
+                            ?>
+
+                                $("#iCpfCnpj").mask("00.000.000/0000-00");
+
+                           <?php
+                        }else{
+                           ?>
+                            $('#iCpfCnpj').mask = ('000.000.000-00');
+
+
+                    <?php
+                    }
+                    ?>
+
+                </script>
             </div>
 
             <div class="input-field col s12">
                 <label for="iTelefone">Telefone</label><br>
-                <input type="text" name="nTelefoneCliente" id="iTelefone" value="<?php echo $dados['telefone']?>">
+                <input type="text" name="nTelefoneCliente" id="iTelefone" value="<?php echo $dados['telefone']?>" onkeypress="$(this).mask('(00) 0-0000-0000')">
             </div>
 
             <div class="input-field col s12">
@@ -72,7 +90,7 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iCep">CEP</label><br>
-                <input type="text" name="nCEPCliente" id="iCep" value="<?php echo $dados['cep']?>">
+                <input type="text" name="nCEPCliente" id="iCep" value="<?php echo $dados['cep']?>" onkeypress="$(this).mask('00000-000')">
             </div>
 
             <div class="input-field col s12">
@@ -97,7 +115,8 @@ if(isset($_GET['id'])){
 
 
             <input type="hidden" name="nTipoAcaoCliente" value="2">
-            <input type="hidden" name="nTipoCadastroCliente" value="<?php if($dados['cpf'] == ''){ echo 'cnpj';
+            <input type="hidden" name="nTipoCadastroCliente" value="<?php if($dados['cpf'] == ''){
+                                                                                 echo 'cnpj';
                                                                           }else{ echo 'cpf';
                                                                           } ?>">
 
