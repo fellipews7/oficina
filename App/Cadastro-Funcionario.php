@@ -56,7 +56,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                   <input type="text" id="iCPF" name="nCPFFuncionario" class="form-control" onkeypress="$(this).mask('000.000.000-00');" placeholder="Insira o CPF " value="<?php echo $_SESSION['cpfFunc'] ?>">
 
                   <label for="iTelefone">Telefone</label>
-                  <input type="text" id="iTelefone" name="nTelefoneFuncionario" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneFunc'] ?>">
+                  <input type="text" id="iTelefone" name="nTelefoneFuncionario" class="form-control" onkeypress="$(this).mask('(00) 0-0000-0000')" placeholder="Insira o telefone" value="<?php echo $_SESSION['telefoneFunc'] ?>">
 
                   <label for="iIDCargo">Cargo</label>
                   <select id="iIDCargo" class="select" name="nIDCargoFuncionarios" style="width: 200px;">

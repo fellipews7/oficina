@@ -43,17 +43,17 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 <label for="iIDOrcamento">Nº Orçamento</label><br>
-                <input type="text" readonly name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['orcamento_id']?>" reandoly>
+                <input type="text" readonly name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['orcamento_id']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iCliente">Código Cliente</label><br>
-                <input type="text" readonly name="nCliente" id="iCliente" value="<?php echo $dados['clientes_id']?>" reandoly>
+                <input type="text" readonly name="nCliente" id="iCliente" value="<?php echo $dados['clientes_id']?>">
             </div>
 
             <div class="input-field col s12">
                 <label for="iCarro">Código Carro</label><br>
-                <input type="text" readonlyname="nCarro" id="iCarro" value="<?php echo $dados['carros_id']?>" reandoly>
+                <input type="text" readonly name="nCarro" id="iCarro" value="<?php echo $dados['carros_id']?>">
             </div>
 
             <div class="input-field col s12">
@@ -118,7 +118,7 @@ if(isset($_GET['id'])){
 
             <div class="center-align">
                 <button type="submit" name="btn-editar-os" class="btn black">Atualizar</button>
-                <a href="OS.php" class="btn black">Lista de ordens de serviço</a>
+                <a href="../Consulta-OS.php" class="btn black">Lista de ordens de serviço</a>
             </div>
         </form>
     </div>

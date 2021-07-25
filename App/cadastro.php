@@ -129,13 +129,27 @@ function insertOS(){
     $statusOs             = 1;
     $valorFinalOs         = limpezaVariavel($_POST['nValorTotalOS']);
 
-$sql = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final) VALUES(
+$sql1 = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final) VALUES(
     '$kmCarro', '$dataCadastro','$dataConclusaoOs','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs')");
 
-    conexaoBdInsert($sql);
 
-$sql = ("UPDATE orcamentos SET status='1' WHERE id='$idOrcamento'");
 
-    conexaoBdInsert($sql);
+$sql2 = ("UPDATE orcamentos SET status='1' WHERE id='$idOrcamento'");
+
+if(mysqli_query($connect, $sql1)){
+    $_SESSION['mensagem'] = "deu";
+    $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
+    if(mysqli_query($connect, $sql2)) {
+        unsetSessoes();
+        header('Location: index.php?deu');
+    }
+}else{
+    $_SESSION['mensagem'] = "erro";
+    $_SESSION['tipoErro'] = "Dados únicos duplicados!";
+    header('Location: index.php?errofinal');
+}
+
+
+
 }
 
