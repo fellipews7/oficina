@@ -22,9 +22,9 @@ if(isset($_GET['id'])) {
     $sql = "SELECT so.id AS so_id, so.orcamentos_id AS orc_id, cl.nome AS cl_nome, ca.modelo AS ca_modelo, so.km_atual AS so_km_atual,
                           so.data_cadastro AS so_data_cadastro, so.data_previsao AS so_data_previsao, so.data_conclusao AS so_data_conclusao,
                           func.nome AS func_nome, so.status AS status, so.valor_final AS so_valor_final, cl.telefone AS cl_telefone,
-                          cl.logradouro AS cl_logradouro, cl.numero_logradouro AS cl_numero_logradouro,
-                          so.tipo_de_manutencao AS so_tipo_de_manutencao, orc.descricao_servicos AS orc_descricao_servicos, orc.valor_total_servicos AS orc_valor_total_servicos,
-                          
+                          orc.tipoManutencao AS orc_tipo_de_manutencao, cl.logradouro AS cl_logradouro, cl.numero_logradouro AS cl_numero_logradouro,
+                          orc.descricao_servicos AS orc_descricao_servicos, orc.valor_total_servicos AS orc_valor_total_servicos,
+                          orc.valor_total_produtos AS orc_valor_total_produtos, orc.descricao_produtos AS orc_descricao_produtos,
                           cl.bairro AS cl_bairro, cl.cpf AS cl_cpf, cl.cnpj AS cl_cnpj
                           FROM orcamentos AS orc 
                           INNER JOIN ordens_de_servicos AS so ON so.orcamentos_id = orc.id 
@@ -95,7 +95,7 @@ if(isset($_GET['id'])) {
 
                 <tr>
                     <td colspan="2">Endereço: ' . $dados1["cl_logradouro"] . ',' . $dados1["cl_numero_logradouro"] . ',' . $dados1['cl_bairro'] .'</td>
-                    <td colspan="2">CPF/CNPJ: ' . $dados1["cl_cpf"] . ',' . $dados1['cl_cnpj'] . '</td>
+                    <td colspan="2">CPF/CNPJ: ' . $dados1["cl_cpf"] . $dados1['cl_cnpj'] . '</td>
                 </tr>
 
                 <tr>
@@ -107,7 +107,7 @@ if(isset($_GET['id'])) {
                     <tr><th colspan="4"><h3>Serviço</h3></th></tr>
                 </thead>
                 <tr>
-                   <td colspan="2">Tipo de Manutenção: ' . $dados1["so_tipo_de_manutencao"] .'</td>
+                   <td colspan="2">Tipo de Manutenção: ' . $dados1["orc_tipo_de_manutencao"] .'</td>
                 </tr>
 
                 <tr>
@@ -117,7 +117,7 @@ if(isset($_GET['id'])) {
 
                 <tr>
                     <td colspan="2">Descrição de produtos: ' . $dados1["orc_descricao_produtos"] .'</td>
-                    <td colspan="2">Valor dos Produtos: ' . $dados1["orc_valor_total_produtos"] .'</td>
+                    <td colspan="2">Valor dos Produtos: '. $dados1["orc_valor_total_produtos"] .'</td>
                 </tr>
 
                 <tfoot style="background: gray">
