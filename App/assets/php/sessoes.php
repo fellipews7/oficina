@@ -1,26 +1,23 @@
 <?php
 
 function setSessaoClientes(){
+    $_SESSION['nomeCliente']                  = ($_POST['nNomeCliente']);
+    $_SESSION['telefoneCliente']              = ($_POST['nTelefoneCliente']);
+    $_SESSION['dataNascimentoCliente']        = ($_POST['nDataNascCliente']);
+    $_SESSION['tipoAcao']                     = ($_POST['nTipoAcao']);
+    $_SESSION['emailCliente']                 = ($_POST['nEmailCliente']);
+    $_SESSION['municipioLogradouroCliente']   = ($_POST['nMunicipioCliente']);
+    $_SESSION['numeroLogradouroCliente']      = ($_POST['nNumeroCliente']);
+    $_SESSION['estadoLogradouroCliente']      = ($_POST['nEstadoCliente']);
+    $_SESSION['logradouroCliente']            = ($_POST['nRuaCliente']);
+    $_SESSION['cepLogradouroCliente']         = ($_POST['nCEPCliente']);
+    $_SESSION['bairroLogradouroCliente']      = ($_POST['nBairroCliente']);
+    $_SESSION['complementoLogradouroCliente'] = ($_POST['nComplementoCliente']);
 
-    if($_SESSION['setSession']){
-        $_SESSION['nomeCliente']                  = $_POST['nNomeCliente'];
-        $_SESSION['telefoneCliente']              = $_POST['nTelefoneCliente'];
-        $_SESSION['dataNascimentoCliente']        = $_POST['nDataNascCliente'];
-        $_SESSION['tipoAcao']                     = ($_POST['nTipoAcao']);
-        $_SESSION['emailCliente']                 = $_POST['nEmailCliente'];
-        $_SESSION['municipioLogradouroCliente']   = $_POST['nMunicipioCliente'];
-        $_SESSION['numeroLogradouroCliente']      = $_POST['nNumeroCliente'];
-        $_SESSION['estadoLogradouroCliente']      = $_POST['nEstadoCliente'];
-        $_SESSION['logradouroCliente']            = $_POST['nRuaCliente'];
-        $_SESSION['cepLogradouroCliente']         = $_POST['nCEPCliente'];
-        $_SESSION['bairroLogradouroCliente']      = $_POST['nBairroCliente'];
-        $_SESSION['complementoLogradouroCliente'] = $_POST['nComplementoCliente'];
-
-        if ($_POST['nCpfCliente'] = "") {
-            $_SESSION['cpfCnpjCliente'] = $_POST['nCnpjCliente'];
-        }else{
-            $_SESSION['cpfCnpjCliente'] = $_POST['nCpfCliente'];
-        }
+    if ($_POST['nCpfCliente'] = "") {
+        $_SESSION['cpfCnpjCliente'] = $_POST['nCnpjCliente'];
+    }else{
+        $_SESSION['cpfCnpjCliente'] = $_POST['nCpfCliente'];
     }
 }
 
@@ -81,8 +78,6 @@ function setSessaoCarros(){
 }
 
 function unsetSessaoCarros(){
-
-
     $_SESSION['placaCarros']         = null;
     $_SESSION['modeloCarros']        = null;
     $_SESSION['marcaCarros']         = null;
@@ -91,6 +86,14 @@ function unsetSessaoCarros(){
     $_SESSION['anoFabricacaoCarros'] = null;
 }
 
+function setPesqCliente() {
+    $_SESSION['setSessaoPesquisaCliente']    = true;
+    $_SESSION['palavraChave']                = ($_POST['nPalavraChaveClienteCon']);
+}
+
+function unsetPesqCliente() {
+    $_SESSION['palavraChave']   = null;
+}
 
 function unsetSessoes(){
     unsetSessaoFunc();

@@ -65,20 +65,10 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                   <textarea name="nDescricaoProduto" id="iDescricaoProduto" placeholder="Insira a descrição dos produtos usados" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterProduto')"></textarea>
                   <small id="counterProduto" class="caracteresRestantes"></small>
 
-                    <label for="nTipoManu">Tipo Manutenção</label>
-                    <div id="classificacaoCliente">
-                      <!-- Wrapper para trabalhar com input e label dentro de uma div  -->
-                      <div class="wrapper">
-                        <input type="radio" id="iCorretiva" name="nTipoManu" value="1">
-                        <label for="iCorretiva">Corretiva</label>
-                        <input type="radio" id="iPreventiva" name="nTipoManu" value="2">
-                        <label for="iPreventiva">Preventiva</label>
-                      </div>
-                    </div>
-
+                    
                   </div>
 
-                  <div class="column two">
+                  <div class="column cadastro-orcamento">
                     <label for="iIDCarro">Selecione o Carro</label>
                     <select id="iIDCarro" class="select" name="nIDCarroOrcamento">
                       <?php $sql = "SELECT id as id, placa as placa,modelo as modelo, marca FROM carros";
@@ -88,36 +78,22 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                       }
                       ?>
                     </select><br>
+
                     <label for="iPrecoMaoObra">Preço Mão de Obra</label>
                     <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço da mão de obra">
-
-                    <div class="column two">
-                      <label for="iIDCarro">Selecione o Carro</label>
-                      <select id="iIDCarro" class="select" name="nIDCarroOrcamento" style="width:250px">
-                        <?php $sql = "SELECT id as id, placa as placa,modelo as modelo, marca FROM carros";
-                        $resultado = mysqli_query($connect, $sql);
-                        while ($dados = mysqli_fetch_array($resultado)) {
-                          echo "<option value=" . $dados['id'] . ">" . $dados['placa'] . ' | ' . $dados['marca'] . ' - ' . $dados['modelo'] .  "</option>";
-                        }
-                        ?>
-                      </select><br>
-
-                      <label for="iPrecoMaoObra">Preço Mão de Obra</label><br>
-                      <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" placeholder="Insira o preço da mão de obra" style="width: 420px;"><br>
-
-                      <label for="iPreçoTotalPro">Preço Total de Produtos</label><br>
-                      <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" placeholder="Insira o preço preço total dos produtos" style="width: 420px;">
-
-
-                    </div>
-
 
                     <label for="iPreçoTotalPro">Preço Total de Produtos</label>
                     <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço preço total dos produtos">
 
-                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-
+                    <label for="nTipoManu">Tipo Manutenção</label>
+                    <div id="classificacaoCliente">
+                      <div class="wrapper">
+                        <input type="radio" id="iCorretiva" name="nTipoManu" value="1">
+                        <label for="iCorretiva">Corretiva</label>
+                        <input type="radio" id="iPreventiva" name="nTipoManu" value="2">
+                        <label for="iPreventiva">Preventiva</label>
+                      </div>
+                    </div>
 
                   <div class="btn-group custom-class">
                     <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
@@ -125,15 +101,6 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
 
                   </div>
 
-                </div>
-
-                <div class="btn-group">
-                  <button type="submit" name="nCadastrarOrcamento" class="btn">Cadastrar</button>
-                  <button type="reset" name="nLimparOrcamento" class="btn">Limpar</button>
-                </div>
-
-                <br>
-                <br>
 
               </form>
             </div>
@@ -144,6 +111,9 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
       <?php include_once 'assets/php/menu.php'; ?>
 
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="assets/js/script.js"></script>
   </body>

@@ -33,6 +33,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
   } else {
     unsetSessaoClientes();
   }
+
   ?>
   <div class="container">
     <nav class="navbar">
@@ -115,8 +116,6 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                       <label for="iJuridica">Jurídica</label>
                     </div>
                   </div>
-
-
                 </div>
 
                 <div class="column">
@@ -158,13 +157,19 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
               </div>
 
               <input type="hidden" name="nTipoAcao" value="1">
-              <input type="hidden" name="nTipoAcao" value="1">
 
+              <script>
+                document.getElementById("Cadastrar").onclick = function() {
+                  <?php setSessaoClientes(); ?>
+
+                }
+
+                document.getElementById("Limpar").onclick = function() {
+                  <?php unsetSessaoClientes(); ?>
+
+                }
               </script>
-              <BR>
-              <BR>
-
-              <div class="btn-group">
+              <div class="btn-group cadastro-cliente">
                 <button type="submit" name="nCadastrarCliente" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
 
                 <button type="reset" name="nLimparCliente" value="Limpar" id="Limpar" class="btn">Limpar</button>

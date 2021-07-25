@@ -45,7 +45,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
           <div class="form">
             <form action="cadastro.php" method="post">
               <div class="inputs-form">
-                <div class="column">
+                <div class="funcionarios-content">
                   <label for="iNome">Nome</label>
                   <input type="text" id="iNome" name="nNomeFuncionario" placeholder="Insira o nome do funcionário" value="<?php echo $_SESSION['nomeFunc'] ?>">
 
