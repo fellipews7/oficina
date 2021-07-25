@@ -94,7 +94,6 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                     echo '<a href="VerMais/funcionario.php?matricula= ' . $dados["matricula"] . '" id="VerMaisFuncionario" name="nVerMaisFuncionario"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
                     echo '</td>';
                     echo '</tr>';
-                  
                   endwhile;
                 }
 

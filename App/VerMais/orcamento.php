@@ -42,7 +42,10 @@ require_once '../connection.php';
                         <td><?php echo $dados['descricao_produtos']?></td>
                         <td><?php echo $dados['valor_total_produtos']?></td>
                         <td><?php echo $dados['data']?></td>
-                        <td><?php echo $dados['status']?></td>
+                        <td><?php $status = $dados['status'];
+                            if($status == 1){ echo 'Aprovado';
+                            }else if($status == 2){ echo 'Não aprovado';
+                            }else{ echo 'Aguardando aprovação';}?></td>
                     </tr>
                 </tbody>
             </table>
