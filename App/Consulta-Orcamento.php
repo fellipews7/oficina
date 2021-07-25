@@ -139,7 +139,9 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 
                           echo '<td id="iCantoBotao">';
 
-                          echo '<a href="Cadastro-OS.php?id=' . $dados['orcamento_id'] . '" id="GerarOS"><i class="fa fa-list" aria-hidden="true"></i></a>';
+                          if ($dados['status'] != 1) {
+                            echo '<a href="Cadastro-OS.php?id=' . $dados['orcamento_id'] . '" id="GerarOS"><i class="fa fa-list " aria-hidden="true"></i></a>';
+                          }
                           echo '<a href="VerMais/orcamento.php?id=' . $dados['orcamento_id'] . '" id="VerMaisOrcamento"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
 
 
@@ -180,7 +182,9 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 
                           echo '<td id="iCantoBotao">';
 
-                          echo '<a href="Cadastro-OS.php?id=' . $dados['orcamento_id'] . '" id="GerarOS"><i class="fa fa-list" aria-hidden="true"></i></a>';
+                          if ($dados['status'] != 1) {
+                            echo '<a href="Cadastro-OS.php?id=' . $dados['orcamento_id'] . '" id="GerarOS" style="padding-right: 25px;"><i class="fa fa-list" aria-hidden="true"></i></a>';
+                          }
                           echo '<a href="VerMais/orcamento.php?id=' . $dados['orcamento_id'] . '" id="VerMaisOrcamento"><i class="fa fa-search-plus" aria-hidden="true"></i></a>';
 
 
