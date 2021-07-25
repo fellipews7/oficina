@@ -64,6 +64,7 @@ require_once '../connection.php';
 
                 <div class="center-align margin top-20">
                     <a href="editarOS.php?id=<?php echo $dados['id']?>" class="btn black">Editar </a>
+                    <a href="#" class="btn black">Concluir O.S.</a>
                     <a href="ImprimirOS.php?id=<?php echo $dados['id']?>" class="btn black">Imprimir </a>
                 </div>
                 <?php endwhile; ?>
