@@ -42,14 +42,15 @@ if(isset($_GET['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="assets/css/ImprimirOS.css" rel="stylesheet" />
+    <link href="assets/css/general.css" rel="stylesheet" />
+    <link href=".assets/css/ImprimirOS.css" rel="stylesheet"/>
 
     <title>Mecanica Schulz</title>
     </head>
 
     <body>
-        <form>
-            <table rules=all style="font-size: 20px;">
+        <form style="width: 1000px; height: 80%;">
+            <table rules=all style="font-size: 15px; width: 725px;">
 
                 <thead style="background: gray">
                     <tr>
@@ -60,27 +61,27 @@ if(isset($_GET['id'])) {
                 </thead>
 
                 <tr>
-                    <td colspan="2">Empresa: Oficina Schulz</td>
+                    <td colspan="2" height="30">Empresa: Oficina Schulz</td>
                     <td colspan="2">Telefone: </td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Endereço: </td>
+                    <td colspan="2" height="30">Endereço: </td>
                     <td colspan="2">CNPJ: </td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Data Cadastro: ' . $dados1["so_data_cadastro"] .'</td>
+                    <td colspan="2" height="30">Data Cadastro: ' . $dados1["so_data_cadastro"] .'</td>
                     <td colspan="2">Data Prevista: ' . $dados1["so_data_previsao"] .'</td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Data Entrega: ' . $dados1["so_data_conclusao"] .'</td>
+                    <td colspan="2" height="30">Data Entrega: ' . $dados1["so_data_conclusao"] .'</td>
                     <td colspan="2">Funcionário: ' . $dados1["func_nome"] .'</td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Status: ' . $dados1["status"] .'</td>
+                    <td colspan="2" height="30">Status: ' . $dados1["status"] .'</td>
                     <td colspan="2">Valor total: ' . $dados1["so_valor_final"] .'</td>
                 </tr>
 
@@ -89,17 +90,17 @@ if(isset($_GET['id'])) {
                 </thead>
 
                 <tr>
-                    <td colspan="2">Nome: ' . $dados1["cl_nome"] .'</td>
+                    <td colspan="2" height="30">Nome: ' . $dados1["cl_nome"] .'</td>
                     <td colspan="2">Telefone: ' . $dados1["cl_telefone"] .'</td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Endereço: ' . $dados1["cl_logradouro"] . ',' . $dados1["cl_numero_logradouro"] . ',' . $dados1['cl_bairro'] .'</td>
+                    <td colspan="2" height="30">Endereço: ' . $dados1["cl_logradouro"] . ',' . $dados1["cl_numero_logradouro"] . ',' . $dados1['cl_bairro'] .'</td>
                     <td colspan="2">CPF/CNPJ: ' . $dados1["cl_cpf"] . $dados1['cl_cnpj'] . '</td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Carro: ' . $dados1["ca_modelo"] .'</td>
+                    <td colspan="2" height="30">Carro: ' . $dados1["ca_modelo"] .'</td>
                     <td colspan="2">Quilometragem: ' . $dados1["so_km_atual"] .'</td>
                 </tr>
 
@@ -107,25 +108,25 @@ if(isset($_GET['id'])) {
                     <tr><th colspan="4"><h3>Serviço</h3></th></tr>
                 </thead>
                 <tr>
-                   <td colspan="2">Tipo de Manutenção: ' . $dados1["orc_tipo_de_manutencao"] .'</td>
+                   <td colspan="4" height="30">Tipo de Manutenção: ' . $dados1["orc_tipo_de_manutencao"] .'</td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Descrição de serviços: '. $dados1["orc_descricao_servicos"] .'</td>
+                    <td colspan="2" height="30">Descrição de serviços: '. $dados1["orc_descricao_servicos"] .'</td>
                     <td colspan="2">Valor do Serviço Feito: ' . $dados1["orc_valor_total_servicos"] .'</td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Descrição de produtos: ' . $dados1["orc_descricao_produtos"] .'</td>
+                    <td colspan="2" height="30">Descrição de produtos: ' . $dados1["orc_descricao_produtos"] .'</td>
                     <td colspan="2">Valor dos Produtos: '. $dados1["orc_valor_total_produtos"] .'</td>
                 </tr>
 
                 <tfoot style="background: gray">
                     <tr>
-                        <td colspan="4">Ass. Cliente: </td>
+                        <td colspan="4" height="30">Ass. Cliente: </td>
                     </tr>
                     <tr>
-                        <td colspan="4">Ass. Empresa: </td>
+                        <td colspan="4" height="30">Ass. Empresa: </td>
                     </tr>
                 </tfoot>
             </table>
