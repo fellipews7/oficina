@@ -102,6 +102,24 @@ function isCEP($valor){
     endif;
 }
 
+
+function verificaSeNaoExisteCpf($cpf) {
+    global $connect;
+
+    $sql = ("SELECT * FROM clientes where cpf = '$cpf'");
+
+
+    $result = mysqli_query($connect, $sql);
+
+    if(mysqli_num_rows($result) == 0){
+        return true;
+    } else {
+        return false;
+    }
+
+};
+
+
 function isTelefone($valor){
     var_dump($valor);
     if (preg_match('/[0-9]{2}[0-9]{4,5}[0-9]{4}$/', $valor)):
@@ -180,48 +198,61 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
 
             if(isData($dataNascimentoCliente)){
 
-                if(verificaCpfCnpj($cpfCliente)){
+                if(verificaSeNaoExisteCpf($cpfCliente)){
 
-                    if(isEmail($emailCliente)){
+                    if(verificaCpfCnpj($cpfCliente)){
 
-                        if(isCEP($cepLogradouroCliente)){
+                        if(isEmail($emailCliente)){
 
-                            if($tipoAcao == "1") {
-                                cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
-                                    $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
-                                    $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
-                            }elseif ($tipoAcao == "2"){
-                                atualizaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
-                                    $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
-                                    $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id);
+                            if(isCEP($cepLogradouroCliente)){
 
+                                if($tipoAcao == "1") {
+                                    cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
+                                        $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
+                                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
+                                }elseif ($tipoAcao == "2"){
+                                    atualizaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
+                                        $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
+                                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id);
+
+                                }
+                            }else{
+                                $_SESSION['tipoErro'] = 'CEP incorreto!';
+                                $_SESSION['mensagem'] = 'erro';
+
+                                if($tipoAcao == "1") {
+                                    header('Location: cadastro-cliente.php?errocep');
+                                }elseif ($tipoAcao = "2"){
+                                    header('Location: ../editarCliente.php?id='.$id);
+
+                                }
                             }
                         }else{
-                            $_SESSION['tipoErro'] = 'CEP incorreto!';
+                            $_SESSION['tipoErro'] = 'Email incorreto!';
                             $_SESSION['mensagem'] = 'erro';
 
+
                             if($tipoAcao == "1") {
-                                header('Location: cadastro-cliente.php?errocep');
-                            }elseif ($tipoAcao = "2"){
+                                header('Location: cadastro-cliente.php?erroemail');
+                            }elseif ($tipoAcao == "2"){
                                 header('Location: ../editarCliente.php?id='.$id);
 
                             }
+
                         }
                     }else{
-                        $_SESSION['tipoErro'] = 'Email incorreto!';
+                        $_SESSION['tipoErro'] = 'CPF incorreto!';
                         $_SESSION['mensagem'] = 'erro';
 
-
                         if($tipoAcao == "1") {
-                            header('Location: cadastro-cliente.php?erroemail');
+                            header('Location: cadastro-cliente.php?errocpf');
                         }elseif ($tipoAcao == "2"){
                             header('Location: ../editarCliente.php?id='.$id);
 
                         }
-
                     }
-                }else{
-                    $_SESSION['tipoErro'] = 'CPF incorreto!';
+                } else {
+                    $_SESSION['tipoErro'] = 'CPF já existe!';
                     $_SESSION['mensagem'] = 'erro';
 
                     if($tipoAcao == "1") {

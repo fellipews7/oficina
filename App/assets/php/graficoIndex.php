@@ -1,6 +1,6 @@
 
 <?php
-include_once '../../connection.php';
+include_once 'connection.php';
 $dataConta = 0;
 $mesTeste = 0;
 $mesAtual = date('m');

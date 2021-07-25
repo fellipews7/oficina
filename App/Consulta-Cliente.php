@@ -23,6 +23,15 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 </head>
 
 <body id="body">
+<?php
+  include_once 'assets/php/mensagem.php';
+  include_once 'assets/php/sessoes.php';
+
+  if (isset($_SESSION['setPesqCliente']) and $_SESSION['setPsqCliente'] = true) {
+  } else {
+    unsetPesqCliente();
+  }
+  ?>
   <div class="container">
     <nav class="navbar">
       <div class="nav_icon" onclick="toggleSidebar()">
@@ -41,7 +50,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
             <form>
               <!--Inicia a coluna-->
               <label for="iPalavraChave">Palavra Chave</label>
-              <input type="text" id="iPalavraChave" name="nPalavraChaveClienteCon" placeholder="Insira a palavra chave para pesquisa">
+              <input type="text" id="iPalavraChave" name="nPalavraChaveClienteCon" placeholder="Insira a palavra chave para pesquisa" value="<?php echo $_SESSION['palavraChave'] ?>">
               <div class="columns">
 
                 <div class="column 1">
@@ -60,6 +69,17 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 
               <br>
               <br>
+              <script>
+                document.getElementById("Cadastrar").onclick = function() {
+                  <?php setPesqCliente(); ?>
+
+                }
+
+                document.getElementById("Limpar").onclick = function() {
+                  <?php unsetPesqCliente(); ?>
+
+                }
+              </script>
 
               <div class="btn-group">
                 <button name="nPesquisarClienteCon" value="Enviar" class="btn">Pesquisar</button>
