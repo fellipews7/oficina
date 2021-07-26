@@ -57,15 +57,13 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                     </select><br>
 
                     <label for="iDescricaoServico">Descrição do Serviço</label>
-                  <textarea name="nDescricaoServico" id="iDescricaoServico" placeholder="Insira a descrição do serviço feito" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterServico')"></textarea>
+                  <textarea name="nDescricaoServico" id="iDescricaoServico" placeholder="Insira a descrição do serviço feito" cols="90" rows="5" maxlength="300" onkeydown="countChar(this, 'counterServico')"></textarea>
                   <small id="counterServico" class="caracteresRestantes"></small>
 
-
                   <label for="iDescricaoProduto">Descrição dos Produtos</label>
-                  <textarea name="nDescricaoProduto" id="iDescricaoProduto" placeholder="Insira a descrição dos produtos usados" cols="90" rows="5" maxlength="65500" onkeydown="countChar(this, 'counterProduto')"></textarea>
+                  <textarea name="nDescricaoProduto" id="iDescricaoProduto" placeholder="Insira a descrição dos produtos usados" cols="90" rows="5" maxlength="300" onkeydown="countChar(this, 'counterProduto')"></textarea>
                   <small id="counterProduto" class="caracteresRestantes"></small>
 
-                    
                   </div>
 
                   <div class="column cadastro-orcamento">
