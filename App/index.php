@@ -55,7 +55,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                     <div class="card">
                         <i class="fa fa-money fa-2x text-green" aria-hidden="true"></i>
                         <?php
-                        $sql1 = "SELECT * FROM ordens_de_servicos WHERE status = 1";
+                        $sql1 = "SELECT * FROM orcamentos WHERE status = 3";
                         $calculoOsAberto = 0;
                         $resultado = mysqli_query($connect, $sql1);
                         while ($dados = mysqli_fetch_array($resultado)) {
@@ -63,7 +63,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                         }
                         ?>
                         <div class="card_inner">
-                            <p class="text-primary-p">Orçamentos em Aberto</p>
+                            <p class="text-primary-p">Orçamentos aguardando aprovação</p>
                             <span class="font-bold text-title"><?php echo $calculoOsAberto; ?></span>
                         </div>
                     </div>
@@ -71,7 +71,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                     <div class="card">
                         <i class="fa fa-calendar-check-o fa-2x text-lightblue" aria-hidden="true"></i>
                         <?php
-                        $sql2 = "SELECT * FROM ordens_de_servicos WHERE status = 3";
+                        $sql2 = "SELECT * FROM ordens_de_servicos WHERE status = 2";
                         $calculoOsConcluida = 0;
                         $resultado = mysqli_query($connect, $sql2);
                         while ($dados = mysqli_fetch_array($resultado)) {
@@ -87,7 +87,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                     <div class="card">
                         <i class="fa fa-wrench fa-2x text-yellow" aria-hidden="true"></i>
                         <?php
-                        $sql3 = "SELECT * FROM ordens_de_servicos WHERE status = 3";
+                        $sql3 = "SELECT * FROM ordens_de_servicos WHERE status = 1";
                         $calculoOsAndamento = 0;
                         $resultado = mysqli_query($connect, $sql3);
                         while ($dados = mysqli_fetch_array($resultado)) {
@@ -106,7 +106,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                     $calculoOsAtraso = 0;
                     $resultado = mysqli_query($connect, $sql4);
                     while ($dados = mysqli_fetch_array($resultado)) {
-                        if ($dados['data_previsao'] < date('y/m/d') and $dados['status'] != 3) {
+                        if ($dados['data_previsao'] < date('y/m/d') and $dados['status'] != 2) {
                             $calculoOsAtraso++;
                         }
                     }
