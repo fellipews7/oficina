@@ -2,7 +2,6 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-
 if(isset($_SESSION['mensagem'])){
     if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2) ){
 
@@ -13,7 +12,7 @@ if(isset($_SESSION['mensagem'])){
 
 
     <?php
-        $_SESSION['tipoAcao'] = null;
+
     }else if(isset($_SESSION['tipoAcao']) and $_SESSION['tipoAcao'] == 1){?>
         <script src="assets/js/jquery-3.1.1.min.js"></script>
         <link href="assets/css/toastr.min.css" rel="stylesheet"/>
