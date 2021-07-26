@@ -75,6 +75,10 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 
                     ?>">
 
+                  <label for="iInfoAdicionais">Informações Adicionais</label>
+                  <textarea name="nInfoAdicionais" id="iInfoAdicionais" placeholder="Insira as informações adicionais" cols="90" rows="5" maxlength="200" onkeydown="countChar(this, 'counterInfo')"></textarea>
+                  <small id="counterInfo" class="caracteresRestantes"></small>
+
                   <label for="iKM">Quilometragem</label>
                   <input type="text" id="iKM" name="nKMOS" placeholder="Insira a quilometragem">
 
