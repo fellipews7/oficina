@@ -23,6 +23,7 @@ require_once '../connection.php';
                         <th>Valor Produtos</th>
                         <th>Descrição Serviços</th>
                         <th>Valor Serviços</th>
+                        <th>Informações Adicionais</th>
                         <th>Data Cadastro</th>
                         <th>Data Previsão</th>
                         <th>Data Conclusão</th>
