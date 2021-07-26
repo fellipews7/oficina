@@ -194,7 +194,7 @@ main {
 }
 
 .charts__left {
-  padding: 25px;
+  padding: 80px;
   border-radius: 5px;
   background: #000000;
 }
@@ -231,7 +231,7 @@ main {
 .charts__right {
   padding: 25px;
   border-radius: 5px;
-  background: #000000;
+  background: #ffffff;
 }
 
 .charts__right__title {
