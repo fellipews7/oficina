@@ -83,7 +83,7 @@ function countChar(elementTextArea, counterID) {
   const { value } = elementTextArea;
   const counter = document.querySelector(`#${counterID}`);
 
-  const limit = 65500;
+  const limit = 300;
   const limitResponse = "Você atingiu o limite de caracteres!"
 
   const restCaractere = value.length >= limit ? limitResponse  : returnRestCaractere(value.length, limit);
