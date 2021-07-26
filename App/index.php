@@ -3,6 +3,8 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
+include_once 'assets/php/sessoes.php';
+
 $_SESSION['login'] = 1;
 
 if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
@@ -25,6 +27,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
     <?php
     require_once 'assets/php/mensagem.php';
     include_once 'connection.php';
+    unsetSessoes();
     ?>
     <div class="container">
         <nav class="navbar">

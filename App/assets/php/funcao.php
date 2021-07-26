@@ -472,13 +472,11 @@ function conexaoBdInsert($sql){
 
         if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
             $_SESSION['tipoErro'] = "Atualização feita com sucesso!";
-            unsetSessoes();
             header('Location: ../../index.php');
 
 
         }else{
             $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
-            unsetSessoes();
             header('Location: index.php?deu');
 
         }
