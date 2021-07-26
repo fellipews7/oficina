@@ -49,7 +49,6 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                 </div>
 
                 <!-- MAIN TITLE ENDS HERE -->
-
                 <!-- MAIN CARDS STARTS HERE -->
                 <div class="main__cards">
                     <div class="card">
@@ -120,10 +119,9 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                     </div>
                 </div>
                 <!-- MAIN CARDS ENDS HERE -->
-
                 <!-- CHARTS STARTS HERE -->
-                <div class="charts">
-                    <div class="charts__left">
+                <div class="charts" style="padding-top: -20px;">
+                    <div class="charts__left" style="width: 600px; height: 350px;">
                         <div class="charts__left__title">
                             <div>
                                 <h1>Grafico</h1>
@@ -134,36 +132,87 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                         <div id="apex1"></div>
                     </div>
 
-                    <div class="charts__right">
-                        <div class="charts__right__title">
-                            <div>
-                                <h1>Contagem</h1>
-                                <p>Joinville, Santa Catarina, Brasil</p>
-                            </div>
-                            <i class="fa fa-usd" aria-hidden="true"></i>
-                        </div>
-
-                        <div class="charts__right__cards">
-                            <div class="card1">
-                                <h1>Nome</h1>
-                                <p>Valor</p>
-                            </div>
-
-                            <div class="card2">
-                                <h1>Nome</h1>
-                                <p>Valor</p>
-                            </div>
-
-                            <div class="card3">
-                                <h1>Nome</h1>
-                                <p>Valor</p>
-                            </div>
-
-                            <div class="card4">
-                                <h1>Nome</h1>
-                                <p>Valor</p>
-                            </div>
-                        </div>
+                    <div class="charts__right" style="background: white; width: 400px; height: 460px; padding-top: 0px;">
+                        <table style="padding-top: 0px;">
+                            <tr>
+                                <td style="width: 500px; padding-top: 0px;">
+                                    <div class="card">
+                                        <i class="fa fa-money fa-2x text-green" aria-hidden="true"></i>
+                                        <?php
+                                        $sql1 = "SELECT * FROM ordens_de_servicos WHERE status = 1";
+                                        $calculoOsAberto = 0;
+                                        $resultado = mysqli_query($connect, $sql1);
+                                        while ($dados = mysqli_fetch_array($resultado)) {
+                                            $calculoOsAberto++;
+                                        }
+                                        ?>
+                                        <div class="card_inner">
+                                            <p class="text-primary-p">Orçamentos em Aberto</p>
+                                            <span class="font-bold text-title"><?php echo $calculoOsAberto; ?></span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="card">
+                                        <i class="fa fa-calendar-check-o fa-2x text-lightblue" aria-hidden="true"></i>
+                                        <?php
+                                        $sql2 = "SELECT * FROM ordens_de_servicos WHERE status = 3";
+                                        $calculoOsConcluida = 0;
+                                        $resultado = mysqli_query($connect, $sql2);
+                                        while ($dados = mysqli_fetch_array($resultado)) {
+                                            $calculoOsConcluida++;
+                                        }
+                                        ?>
+                                        <div class="card_inner">
+                                            <p class="text-primary-p">OS Consluidas</p>
+                                            <span class="font-bold text-title"><?php echo $calculoOsConcluida; ?></span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="card">
+                                        <i class="fa fa-wrench fa-2x text-yellow" aria-hidden="true"></i>
+                                        <?php
+                                        $sql3 = "SELECT * FROM ordens_de_servicos WHERE status = 3";
+                                        $calculoOsAndamento = 0;
+                                        $resultado = mysqli_query($connect, $sql3);
+                                        while ($dados = mysqli_fetch_array($resultado)) {
+                                            $calculoOsAndamento++;
+                                        }
+                                        ?>
+                                        <div class="card_inner">
+                                            <p class="text-primary-p">OS em Andamento</p>
+                                            <span class="font-bold text-title"><?php echo $calculoOsAndamento; ?></span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <?php
+                                        $sql4 = "SELECT * FROM ordens_de_servicos";
+                                        $calculoOsAtraso = 0;
+                                        $resultado = mysqli_query($connect, $sql4);
+                                        while ($dados = mysqli_fetch_array($resultado)) {
+                                            if ($dados['data_previsao'] < date('y/m/d') and $dados['status'] != 3) {
+                                                $calculoOsAtraso++;
+                                            }
+                                        }
+                                    ?>
+                                    <div class="card">
+                                        <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
+                                        <div class="card_inner">
+                                            <p class="text-primary-p">OS em Atraso</p>
+                                            <span class="font-bold text-title"><?php echo $calculoOsAtraso; ?></span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 <!-- CHARTS ENDS HERE -->

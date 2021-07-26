@@ -96,6 +96,13 @@ if(isset($_GET['id'])){
                 <label for="iVT">Valor Total</label><br>
                 <input type="text" name="nValor" id="iVT" value="<?php echo $dados['valor_final']?>">
             </div>
+
+            <div class="input-field col s12">
+            <label for="iInfoAdicionais">Informações Adicionais</label><br><br>
+                  <textarea name="nInfoAdicionais" id="iInfoAdicionais" placeholder="Insira as informações adicionais" cols="90" rows="5" maxlength="200" onkeydown="countChar(this, 'counterInfo')"></textarea>
+                  <small id="counterInfo" class="caracteresRestantes"></small>
+            </div>
+
             <div class="input-field col s12">
                 <label for="iKM">Quilometragem</label><br>
                 <input type="text" name="nKM" id="iKM" value="<?php echo $dados['km_atual']?>">
