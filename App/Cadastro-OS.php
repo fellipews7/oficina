@@ -17,6 +17,9 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/Cadastro.css" />
   <title>Cadastro de Ordem de Serviços</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+
 </head>
 
 <body id="body">
@@ -24,6 +27,9 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
   include_once 'assets/php/mensagem.php';
   include_once 'connection.php';
   ?>
+  <script>
+      maskMoney();
+  </script>
   <div class="container">
     <nav class="navbar">
       <div class="nav_icon" onclick="toggleSidebar()">
@@ -65,7 +71,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                         $valorServicos =  $dados['valor_total_servicos'];
                         $valorProdutos =  $dados['valor_total_produtos'];
                       endwhile;
-                      $valorTotalOrcamento = $valorServicos + $valorProdutos;
+                      $valorTotalOrcamento = ($valorServicos + $valorProdutos) * 100;
                     
                       echo $valorTotalOrcamento;
                     }
@@ -74,6 +80,18 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                     insercaoDados($sql);
 
                     ?>">
+
+                    <script>
+                        $(function maskMoney(){
+                            $('#iValorTotalOS').maskMoney({
+                                prefix:'R$ ',
+                                allowNegative: true,
+                                thousands:'.', decimal:',',
+                                affixesStay: true});
+                        })
+
+                    </script>
+
 
                   <label for="iInfoAdicionais">Informações Adicionais</label>
                   <textarea name="nInfoAdicionais" id="iInfoAdicionais" placeholder="Insira as informações adicionais" cols="90" rows="5" maxlength="200" onkeydown="countChar(this, 'counterInfo')"></textarea>
