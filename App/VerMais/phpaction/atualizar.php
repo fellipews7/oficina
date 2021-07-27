@@ -113,11 +113,12 @@ function updateOS()
     //$servicos             = limpezaVariavel($_POST['nServicos']);
     $statusOs             = limpezaVariavel($_POST['nStatus']);
     //$desconto             = limpezaVariavel(0);
+    $infoAdicionais       = limpezaVariavel($_POST['nInfoAdicionais']);
 
     $sql = ("UPDATE ordens_de_servicos SET data_cadastro = '$dataCadastro', data_previsao = '$dataPrevisaoEntrega', 
                                            data_conclusao =  '$dataEntregaOs', 
                                            valor_final = '$valorOs', km_atual = '$kmCarro', funcionarios_matricula = '$matriculaFuncionario',
-                                           status = '$statusOs', orcamentos_id = '$idOrcamento' 
+                                           status = '$statusOs', orcamentos_id = '$idOrcamento', informacoes_adicionais = '$infoAdicionais' 
                                            WHERE id = '$id'");
     conexaoBdInsert($sql);
 
