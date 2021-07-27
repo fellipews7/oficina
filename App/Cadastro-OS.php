@@ -98,10 +98,6 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 
               </div>
 
-              <div class="imprimirOS">
-                <a href="ImprimirOS.php" target="_blank" id="ImprimirOS"><i class="fa fa-print fa-2x"></i></a>
-              </div>
-
               <div class="btn-group">
                 <button type="submit" name="nCadastrarOS" value="Cadastrar" id="Cadastrar" class="btn">Cadastrar</button>
 
