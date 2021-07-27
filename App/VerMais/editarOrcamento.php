@@ -33,7 +33,7 @@ if(isset($_GET['id'])){
                 <input type="text" reandoly name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['id']?>">
 
             </div>
-
+                    
             <div class="input-field col s12">
                 <label for="iIDCliente">Código Cliente</label><br>
                 <input type="text" name="nIDCliente" id="iIDCliente" value="<?php echo $dados['clientes_id']?>">
@@ -70,9 +70,16 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
-
-                <label for="iStatus">Status</label><br>
-                <input type="text" name="nStatus" id="iStatus" value="<?php echo $dados['status']?>">
+                
+                <label>Status</label><br>
+                <div>
+                        <input type="radio" id="iAprovado" name="nStatus" value="1">
+                        <label for="iCorretiva">Aprovado</label>
+                        <input type="radio" id="iNaoAprovado" name="nStatus" value="2">
+                        <label for="iPreventiva">Não Aprovado</label>
+                        <input type="radio" id="iAguardandoAprovacao" name="nStatus" value="3">
+                        <label for="iPreventiva">Aguardando Aprovação</label>
+                </div>
 
             </div>
 
