@@ -3,11 +3,10 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-include_once 'assets/php/sessoes.php';
-
-$_SESSION['login'] = 1;
 
 if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
+
+include_once 'assets/php/sessoes.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
