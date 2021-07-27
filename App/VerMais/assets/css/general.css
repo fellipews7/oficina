@@ -9,6 +9,32 @@
     width: 85vw;
 }
 
+[type="radio"]:not(:checked), [type="radio"]:checked {
+    position: static;
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+.custom-label {
+    font-size: 1rem;
+    color: black;
+}
+
+.radio-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.radio-buttons div {
+    padding-bottom: 10px;
+    padding-right: 15px;
+}
+
+.status-label {
+    position: initial !important;
+}
+
 .big-table table {
     font-size: .9rem;
 }

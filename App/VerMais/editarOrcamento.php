@@ -71,14 +71,22 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
                 
-                <label>Status</label><br>
-                <div>
+                <label class="status-label">Status</label>
+                <div class="radio-buttons">
+                    <div>
                         <input type="radio" id="iAprovado" name="nStatus" value="1">
-                        <label for="iCorretiva">Aprovado</label>
+                        <label for="iAprovado" class="custom-label">Aprovado</label>
+                    </div>
+
+                    <div>
                         <input type="radio" id="iNaoAprovado" name="nStatus" value="2">
-                        <label for="iPreventiva">Não Aprovado</label>
+                        <label for="iNaoAprovado" class="custom-label">Não Aprovado</label>
+                    </div>
+
+                    <div>
                         <input type="radio" id="iAguardandoAprovacao" name="nStatus" value="3">
-                        <label for="iPreventiva">Aguardando Aprovação</label>
+                        <label for="iAguardandoAprovacao" class="custom-label">Aguardando Aprovação</label>
+                    </div>
                 </div>
 
             </div>
