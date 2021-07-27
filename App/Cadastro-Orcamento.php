@@ -19,6 +19,8 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/Cadastro.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
     <title>Cadastro de Orçamentos</title>
   </head>
 
@@ -77,13 +79,36 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                       ?>
                     </select><br>
 
-                    <label for="iPrecoMaoObra">Preço Mão de Obra</label>
-                    <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço da mão de obra">
+                      <label for="iPrecoMaoObra">Preço Mão de Obra</label>
+                      <input type="text" id="iPrecoMaoObra" name="nPrecoMaoObraOrcamento" class="form-control" placeholder="Insira o preço da mão de obra" maxlength="13">
 
-                    <label for="iPreçoTotalPro">Preço Total de Produtos</label>
-                    <input type="text" id="iPreçoTotalPro" name="nPrecoTotalProOrcamento" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="Insira o preço preço total dos produtos">
+                      <script>
+                          $(function(){
+                              $('#iPrecoMaoObra').maskMoney({
+                                  prefix:'R$ ',
+                                  allowNegative: true,
+                                  thousands:'.', decimal:',',
+                                  affixesStay: true});
+                          })
+                      </script>
 
-                    <label for="nTipoManu">Tipo Manutenção</label>
+
+
+                      <label for="iPrecoTotalPro">Preço Total de Produtos</label>
+                      <input type="text" id="iPrecoTotalPro" name="nPrecoTotalProOrcamento" class="form-control" placeholder="Insira o preço preço total dos produtos" maxlength="13">
+
+                      <script>
+                          $(function(){
+                              $('#iPrecoTotalPro').maskMoney({
+                                  prefix:'R$ ',
+                                  allowNegative: true,
+                                  thousands:'.', decimal:',',
+                                  affixesStay: true});
+                          })
+                      </script>
+
+
+                      <label for="nTipoManu">Tipo Manutenção</label>
                     <div id="classificacaoCliente">
                       <div class="wrapper">
                         <input type="radio" id="iCorretiva" name="nTipoManu" value="1">
@@ -110,10 +135,10 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <!--<script src="assets/js/script.js"></script> -->
   </body>
 
   </html>
