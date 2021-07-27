@@ -190,7 +190,7 @@ function isPlaca($placa){
 
 function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
-                          $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id){
+                          $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id, $complementoLogradouro){
 
     if(isNome($nomeCliente)){
 
@@ -209,11 +209,11 @@ function verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente
                                 if($tipoAcao == "1") {
                                     cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
                                         $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
-                                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro);
+                                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $complementoLogradouro);
                                 }elseif ($tipoAcao == "2"){
                                     atualizaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCliente, $emailCliente, $municipioLogradouroCliente,
                                         $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
-                                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id);
+                                        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id, $complementoLogradouro);
 
                                 }
                             }else{
@@ -308,25 +308,24 @@ function verificaCpfCnpj($cpfCnpj){
 
 function cadastraClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
                           $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
-                          $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro){
+                          $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $complementoLogradouro){
 
-    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, ".$tipoCadastro.", email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro) VALUES (
+    $sql = ("INSERT INTO clientes (nome, telefone, data_nascimento, ".$tipoCadastro.", email, municipio, numero_logradouro, estado, logradouro, cep,data_cadastro,bairro, complemento_logradouro) VALUES (
 
             '$nomeCliente', '$telefoneCliente', '$dataNascimentoCliente', '$cpfCnpjCliente','$emailCliente', '$municipioLogradouroCliente', '$numeroLogradouroCliente', 
-            '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente')");
+            '$estadoLogradouroCliente', '$ruaLogradouroCliente','$cepLogradouroCliente','$dataCadastroCliente', '$bairroLogradouroCliente', '$complementoLogradouro')");
 
     conexaoBdInsert($sql);
 }
 
 function atualizaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente, $emailCliente, $municipioLogradouroCliente,
                        $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente, $cepLogradouroCliente,
-                       $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id){
+                       $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $id, $complementoLogradouro){
 
     $sql = ("UPDATE clientes SET nome = '$nomeCliente', telefone = '$telefoneCliente', data_nascimento = '$dataNascimentoCliente',
             ".$tipoCadastro." = '$cpfCnpjCliente', email = '$emailCliente', municipio = '$municipioLogradouroCliente',
             numero_logradouro = '$numeroLogradouroCliente', estado = '$estadoLogradouroCliente', logradouro = '$ruaLogradouroCliente',
-
-            cep = '$cepLogradouroCliente', data_cadastro = '$dataCadastroCliente', bairro = '$bairroLogradouroCliente'
+            cep = '$cepLogradouroCliente', data_cadastro = '$dataCadastroCliente', bairro = '$bairroLogradouroCliente', complemento_logradouro = '$complementoLogradouro'
             WHERE id = '$id'");
 
     conexaoBdInsert($sql);
