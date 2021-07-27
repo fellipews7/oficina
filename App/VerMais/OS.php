@@ -36,7 +36,7 @@ require_once '../connection.php';
                             $id = $_GET['id'];
                             $sql = "SELECT os.id AS id, os.orcamentos_id AS orcamentos_id, orc.clientes_id AS clientes_id,
                                     orc.carros_id AS carros_id, orc.descricao_produtos AS descricao_produtos, orc.valor_total_produtos AS valor_total_produtos,
-                                    orc.descricao_servicos AS descricao_servicos, orc.valor_total_servicos AS valor_total_servicos,
+                                    orc.descricao_servicos AS descricao_servicos, os.informacoes_adicionais AS informacoes_adicionais, orc.valor_total_servicos AS valor_total_servicos,
                                     os.data_cadastro AS data_cadastro, os.data_previsao AS data_previsao, os.data_conclusao AS data_entrega,
                                     os.valor_final AS valor_final, os.status AS status FROM ordens_de_servicos AS os 
                                     INNER JOIN orcamentos AS orc ON orc.id = os.orcamentos_id
@@ -54,6 +54,7 @@ require_once '../connection.php';
                             <td><?php echo $dados['valor_total_produtos']?></td>
                             <td><?php echo $dados['descricao_servicos']?></td>
                             <td><?php echo $dados['valor_total_servicos']?></td>
+                            <td><?php echo $dados['informacoes_adicionais']?></td>
                             <td><?php echo $dados['data_cadastro']?></td>
                             <td><?php echo $dados['data_previsao']?></td>
                             <td><?php echo $dados['data_entrega']?></td>
