@@ -55,7 +55,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                 
                 <!-- CHARTS STARTS HERE -->
                 <div class="charts" style="padding-top: -20px;">
-                    <div class="charts__left" style="width: 600px; height: 457px; padding: 30px;">
+                    <div class="charts__left" style="width: 600px; height: 400px; padding: 30px;">
                         <div class="charts__left__title">
                             <div>
                                 <h1>Grafico</h1>
@@ -63,7 +63,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                             </div>
                             <i class="fa fa-usd" aria-hidden="true"></i>
                         </div>
-                        <div id="apex1"></div>
+                        <div id="apex1" style="padding-top: 80px;"></div>
                     </div>
 
                     <div class="charts__right" style="background: white; width: 400px; height: 460px; padding-top: 0px;">
