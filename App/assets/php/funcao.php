@@ -38,6 +38,18 @@ function limpaNumero($valor){
 
 }
 
+function limpaDinheiro($valor){
+    $valor = str_replace(".", "", $valor);
+    $valor = str_replace(",", ".", $valor);
+    $valor = str_replace("R$", "", $valor);
+    $valor = trim($valor);
+
+    var_dump($valor);
+
+    return $valor;
+
+}
+
 function limpaTelefone($valor){
     $valor = trim($valor);
     $valor = str_replace("(", "", $valor);
