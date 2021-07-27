@@ -17,11 +17,13 @@ if(isset($_GET['id'])){
             orc.descricao_servicos AS descricao_servicos, orc.valor_total_servicos AS valor_total_servicos,
             orc.descricao_produtos ,orc.valor_total_produtos AS valor_total_produtos, so.data_cadastro AS data_cadastro,
             so.data_previsao AS data_previsao, so.data_conclusao AS data_entrega, so.valor_final AS valor_final,
-            so.km_atual AS km_atual, so.funcionarios_matricula AS matricula_funcionarios, so.status AS status,
-            so.informacoes_adicionais AS informacoes_adicionais
+            so.km_atual AS km_atual, so.funcionarios_matricula AS matricula_funcionarios, so.status AS status
+            so.informacoes_adicionais AS informacoes_adicionais, orc.tipoManutencao AS tipomanutencao
             FROM ordens_de_servicos AS so 
             INNER JOIN orcamentos AS orc ON orc.id = so.orcamentos_id
             WHERE so.id = '$id'";
+            var_dump($sql);
+            die();
     $resultado = mysqli_query($connect, $sql);
     $dados = mysqli_fetch_array($resultado);
 }
@@ -100,7 +102,7 @@ if(isset($_GET['id'])){
 
             <div class="input-field col s12">
             <label for="iInfoAdicionais">Informações Adicionais</label><br><br>
-                  <textarea name="nInfoAdicionais" id="iInfoAdicionais" placeholder="Insira as informações adicionais" value="<?php echo $dados['informacoes_adicionais']?>" cols="90" rows="5" maxlength="200" onkeydown="countChar(this, 'counterInfo')"></textarea>
+                  <textarea name="nInfoAdicionais" id="iInfoAdicionais" placeholder="Insira as informações adicionais" value="<?php echo $dados['informacoes_adicionais'];?>" cols="90" rows="5" maxlength="200" onkeydown="countChar(this, 'counterInfo')"></textarea>
                   <small id="counterInfo" class="caracteresRestantes"></small>
             </div>
 
@@ -137,7 +139,7 @@ if(isset($_GET['id'])){
             </div>
             <div class="input-field col s12">
                 <label for="iTipoManu">Tipo Manutenção</label><br>
-                <input type="text" name="nTipoManu" id="iTipoManu" value="<?php /* echo $dados['tipomanutencao']*/?>">
+                <input type="text" name="nTipoManu" id="iTipoManu" value="<?php echo $dados['tipomanutencao'];?>">
             </div>
 
             <div class="center-align">
