@@ -129,9 +129,10 @@ function insertOS(){
     $matriculaFuncionario = limpezaVariavel($_POST['nMatriFunOS']);
     $statusOs             = 1;
     $valorFinalOs         = limpezaVariavel($_POST['nValorTotalOS']);
+    $infoAdicionais       = limpezaVariavel($_POST['nInfoAdicionais']);
 
-$sql1 = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final) VALUES(
-    '$kmCarro', '$dataCadastro','$dataConclusaoOs','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs')");
+$sql1 = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final, informacoes_adicionais) VALUES(
+    '$kmCarro', '$dataCadastro','$dataConclusaoOs','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs', '$infoAdicionais')");
 
 global $connect;
 
@@ -141,7 +142,6 @@ if(mysqli_query($connect, $sql1)){
     $_SESSION['mensagem'] = "deu";
     $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
     if(mysqli_query($connect, $sql2)) {
-        unsetSessoes();
         header('Location: index.php?deu');
     }
 }else{
