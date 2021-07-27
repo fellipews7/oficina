@@ -3,6 +3,8 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
+include_once 'assets/php/sessoes.php';
+
 $_SESSION['login'] = 1;
 
 if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
@@ -25,6 +27,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
     <?php
     require_once 'assets/php/mensagem.php';
     include_once 'connection.php';
+    unsetSessoes();
     ?>
     <div class="container">
         <nav class="navbar">
@@ -49,10 +52,10 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                 </div>
 
                 <!-- MAIN TITLE ENDS HERE -->
-
+                
                 <!-- CHARTS STARTS HERE -->
                 <div class="charts" style="padding-top: -20px;">
-                    <div class="charts__left" style="width: 600px; height: 350px;">
+                    <div class="charts__left" style="width: 600px; height: 457px; padding: 30px;">
                         <div class="charts__left__title">
                             <div>
                                 <h1>Grafico</h1>
@@ -66,7 +69,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                     <div class="charts__right" style="background: white; width: 400px; height: 460px; padding-top: 0px;">
                         <table style="padding-top: 0px;">
                             <tr>
-                                <td style="width: 500px; padding-top: 0px;">
+                                <td style="width: 500px; heigth: 300px; padding-bottom: 10px; padding-top: 0px;">
                                     <div class="card">
                                         <i class="fa fa-money fa-2x text-green" aria-hidden="true"></i>
                                         <?php
@@ -85,7 +88,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom: 10px;">
                                     <div class="card">
                                         <i class="fa fa-calendar-check-o fa-2x text-lightblue" aria-hidden="true"></i>
                                         <?php
@@ -104,7 +107,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom: 10px;">
                                     <div class="card">
                                         <i class="fa fa-wrench fa-2x text-yellow" aria-hidden="true"></i>
                                         <?php
@@ -123,7 +126,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="padding-bottom: 10px;">
                                     <?php
                                         $sql4 = "SELECT * FROM ordens_de_servicos";
                                         $calculoOsAtraso = 0;
