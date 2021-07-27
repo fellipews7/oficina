@@ -47,12 +47,13 @@ function insertCliente(){
     $ruaLogradouroCliente       = limpezaVariavel($_POST['nRuaCliente']);
     $cepLogradouroCliente       = limpaNumero($_POST['nCEPCliente']);
     $dataCadastroCliente        = date('Y/m/d');
+    $complementoCliente         = limpezaVariavel($_POST['nComplementoCliente']);
 
     setSessaoClientes();
 
     verificaClientes($nomeCliente, $telefoneCliente, $dataNascimentoCliente, $cpfCnpjCliente,$emailCliente, $municipioLogradouroCliente,
         $numeroLogradouroCliente, $estadoLogradouroCliente, $ruaLogradouroCliente,$cepLogradouroCliente,
-        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id);
+        $dataCadastroCliente, $bairroLogradouroCliente, $tipoCadastro, $tipoAcao, $id, $complementoCliente);
 
 }
 
