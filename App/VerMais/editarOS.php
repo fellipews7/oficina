@@ -115,10 +115,26 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
-                <label for="iStatus">Status</label><br>
-                <input type="text" name="nStatus" id="iStatus" value="<?php echo $dados['status']?>">
-            </div>
+                
+                <label class="status-label">Status</label>
+                <div class="radio-buttons">
+                    <div>
+                        <input type="radio" id="iAprovado" name="nStatus" value="1">
+                        <label for="iAprovado" class="custom-label">Aprovado</label>
+                    </div>
 
+                    <div>
+                        <input type="radio" id="iNaoAprovado" name="nStatus" value="2">
+                        <label for="iNaoAprovado" class="custom-label">Não Aprovado</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="iAguardandoAprovacao" name="nStatus" value="3">
+                        <label for="iAguardandoAprovacao" class="custom-label">Aguardando Aprovação</label>
+                    </div>
+                </div>
+
+            </div>
             <div class="input-field col s12">
                 <label for="iTipoManu">Tipo Manutenção</label><br>
                 <input type="text" name="nTipoManu" id="iTipoManu" value="<?php /* echo $dados['tipomanutencao']*/?>">

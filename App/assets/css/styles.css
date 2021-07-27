@@ -447,6 +447,8 @@ main {
     padding: 0;
   }
 
+
+
   .main__cards {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -456,5 +458,33 @@ main {
   .charts {
     grid-template-columns: 1fr;
     margin-top: 30px;
+  }
+}
+
+@media (max-width: 645px) {
+  .charts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .main__container {
+    padding: 10px;
+  } 
+
+  .charts__left {
+    width: 83vw !important;
+    height: 350px;
+    padding: 25px 20px;
+  }
+
+  .card {
+    width: 81vw;
+  }
+
+  .charts__right {
+    padding: 0;
+    width: auto !important;
   }
 }
