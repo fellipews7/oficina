@@ -115,7 +115,7 @@ function insertOrcamento(){
     $sql = ("INSERT INTO orcamentos(descricao_produtos,valor_total_produtos,descricao_servicos,valor_total_servicos,data,status,clientes_id,carros_id, tipoManutencao) VALUES(
             '$descricaoProduto', '$valorTotalProduto', '$descricaoServico', '$precoMaoObraOrcamento', '$dataOrcamento', '$statusOrcamento', '$idCliente', '$idCarro', '$tipoManutencao')");
 
-    //conexaoBdInsert($sql);
+    conexaoBdInsert($sql);
 }
 
 function insertOS(){
