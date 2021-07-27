@@ -124,7 +124,6 @@ function insertOS(){
     $idOrcamento          = limpezaVariavel($_POST['nIDOrcamentoOS']);
     $dataCadastro         = date('Y/m/d');
     $dataPrevisaoEntrega  = limpezaVariavel($_POST['nDataPrevOS']);
-    $dataConclusaoOs      = (date('y-m-d'));
     $kmCarro              = limpezaVariavel($_POST['nKMOS']);
     $matriculaFuncionario = limpezaVariavel($_POST['nMatriFunOS']);
     $statusOs             = 1;
@@ -132,7 +131,7 @@ function insertOS(){
     $infoAdicionais       = limpezaVariavel($_POST['nInfoAdicionais']);
 
 $sql1 = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final, informacoes_adicionais) VALUES(
-    '$kmCarro', '$dataCadastro','$dataConclusaoOs','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs', '$infoAdicionais')");
+    '$kmCarro', '$dataCadastro','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs', '$infoAdicionais')");
 
 global $connect;
 
