@@ -60,7 +60,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
 
                   <label for="iValorTotalOS">Valor Total da Ordem de Serviço</label>
 
-                  <input type="text" id="iValorTotalOS" name="nValorTotalOS" placeholder="Insira o valor total da ordem de serviço" 
+                  <input type="text" id="iValorTotalOS" onkeydown="maskMoney(this)" name="nValorTotalOS" placeholder="Insira o valor total da ordem de serviço" 
                   value="<?php 
 
                     function insercaoDados($sql)
@@ -80,18 +80,6 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                     insercaoDados($sql);
 
                     ?>">
-
-                    <script>
-                        $(function maskMoney(){
-                            $('#iValorTotalOS').maskMoney({
-                                prefix:'R$ ',
-                                allowNegative: true,
-                                thousands:'.', decimal:',',
-                                affixesStay: true});
-                        })
-
-                    </script>
-
 
                   <label for="iInfoAdicionais">Informações Adicionais</label>
                   <textarea name="nInfoAdicionais" id="iInfoAdicionais" placeholder="Insira as informações adicionais" cols="90" rows="5" maxlength="200" onkeydown="countChar(this, 'counterInfo')"></textarea>
