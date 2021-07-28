@@ -74,17 +74,17 @@ if(isset($_GET['id'])){
                 <label class="status-label">Status</label>
                 <div class="radio-buttons">
                     <div>
-                        <input type="radio" id="iAprovado" name="nStatus" value="1">
+                        <input type="radio" id="iAprovado" name="nStatus" value="1"<?php if ($dados['status'] == 1) {echo "checked";} ?>>
                         <label for="iAprovado" class="custom-label">Aprovado</label>
                     </div>
 
                     <div>
-                        <input type="radio" id="iNaoAprovado" name="nStatus" value="2">
+                        <input type="radio" id="iNaoAprovado" name="nStatus" value="2"<?php if ($dados['status'] == 2) {echo "checked";} ?>>
                         <label for="iNaoAprovado" class="custom-label">Não Aprovado</label>
                     </div>
 
                     <div>
-                        <input type="radio" id="iAguardandoAprovacao" name="nStatus" value="3">
+                        <input type="radio" id="iAguardandoAprovacao" name="nStatus" value="3"<?php if ($dados['status'] == 3) {echo "checked";} ?>>
                         <label for="iAguardandoAprovacao" class="custom-label">Aguardando Aprovação</label>
                     </div>
                 </div>
