@@ -93,3 +93,23 @@ function countChar(elementTextArea, counterID) {
 }
 
 const returnRestCaractere = (currentValue, limitValue) => limitValue - currentValue;
+
+
+function maskMoney(element) {
+  let valor = element.value;
+  
+  valor = valor + '';
+  valor = parseInt(valor.replace(/[\D]+/g,''));
+  valor = valor + '';
+  valor = valor.replace(/([0-9]{2})$/g, ",$1");
+
+  if (valor.length > 6) {
+    valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+  }
+
+  console.log(valor)
+  element.value = `R$${valor}`;
+}
+
+const valorTotalOS = document.querySelector('#iValorTotalOS');
+maskMoney(valorTotalOS);
