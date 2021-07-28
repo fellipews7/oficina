@@ -130,12 +130,13 @@ function insertOS(){
     $valorFinalOs         = limpezaVariavel($_POST['nValorTotalOS']);
     $infoAdicionais       = limpezaVariavel($_POST['nInfoAdicionais']);
 
-$sql1 = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_conclusao,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final, informacoes_adicionais) VALUES(
+$sql1 = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final, informacoes_adicionais) VALUES(
     '$kmCarro', '$dataCadastro','$dataPrevisaoEntrega','$statusOs', '$idOrcamento', '$matriculaFuncionario','$valorFinalOs', '$infoAdicionais')");
 
 global $connect;
 
 $sql2 = ("UPDATE orcamentos SET status='1' WHERE id='$idOrcamento'");
+
 
 if(mysqli_query($connect, $sql1)){
     $_SESSION['mensagem'] = "deu";
@@ -149,7 +150,6 @@ if(mysqli_query($connect, $sql1)){
     header('Location: index.php?errofinal');
 }
 
-
-
 }
+
 
