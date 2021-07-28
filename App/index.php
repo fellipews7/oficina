@@ -72,16 +72,14 @@ include_once 'assets/php/sessoes.php';
                                     <div class="card">
                                         <i class="fa fa-money fa-2x text-green" aria-hidden="true"></i>
                                         <?php
-                                        $sql1 = "SELECT * FROM ordens_de_servicos WHERE status = 1";
-                                        $calculoOsAberto = 0;
+                                        $sql1 = "SELECT count(*) as contador0 FROM ordens_de_servicos WHERE status = 1";
                                         $resultado = mysqli_query($connect, $sql1);
-                                        while ($dados = mysqli_fetch_array($resultado)) {
-                                            $calculoOsAberto++;
-                                        }
+                                        $dados = mysqli_fetch_array($resultado);
+
                                         ?>
                                         <div class="card_inner">
                                             <p class="text-primary-p">Orçamentos em Aberto</p>
-                                            <span class="font-bold text-title"><?php echo $calculoOsAberto; ?></span>
+                                            <span class="font-bold text-title"><?php echo $dados['contador0']; ?></span>
                                         </div>
                                     </div>
                                 </td>
@@ -91,16 +89,14 @@ include_once 'assets/php/sessoes.php';
                                     <div class="card">
                                         <i class="fa fa-calendar-check-o fa-2x text-lightblue" aria-hidden="true"></i>
                                         <?php
-                                        $sql2 = "SELECT * FROM ordens_de_servicos WHERE status = 3";
-                                        $calculoOsConcluida = 0;
+                                        $sql2 = "SELECT count(*) as contador2 FROM ordens_de_servicos WHERE status = 2";
                                         $resultado = mysqli_query($connect, $sql2);
-                                        while ($dados = mysqli_fetch_array($resultado)) {
-                                            $calculoOsConcluida++;
-                                        }
+                                        $dados = mysqli_fetch_array($resultado);
+
                                         ?>
                                         <div class="card_inner">
                                             <p class="text-primary-p">OS Consluidas</p>
-                                            <span class="font-bold text-title"><?php echo $calculoOsConcluida; ?></span>
+                                            <span class="font-bold text-title"><?php echo $dados['contador2']; ?></span>
                                         </div>
                                     </div>
                                 </td>
@@ -110,16 +106,13 @@ include_once 'assets/php/sessoes.php';
                                     <div class="card">
                                         <i class="fa fa-wrench fa-2x text-yellow" aria-hidden="true"></i>
                                         <?php
-                                        $sql3 = "SELECT * FROM ordens_de_servicos WHERE status = 3";
-                                        $calculoOsAndamento = 0;
+                                        $sql3 = "SELECT count(*) as contador1 FROM ordens_de_servicos WHERE status = 1";
                                         $resultado = mysqli_query($connect, $sql3);
-                                        while ($dados = mysqli_fetch_array($resultado)) {
-                                            $calculoOsAndamento++;
-                                        }
+                                        $dados = mysqli_fetch_array($resultado);
                                         ?>
                                         <div class="card_inner">
                                             <p class="text-primary-p">OS em Andamento</p>
-                                            <span class="font-bold text-title"><?php echo $calculoOsAndamento; ?></span>
+                                            <span class="font-bold text-title"><?php echo $dados['contador1']; ?></span>
                                         </div>
                                     </div>
                                 </td>
@@ -127,20 +120,16 @@ include_once 'assets/php/sessoes.php';
                             <tr>
                                 <td style="padding-bottom: 10px;">
                                     <?php
-                                        $sql4 = "SELECT * FROM ordens_de_servicos";
-                                        $calculoOsAtraso = 0;
+                                        $sql4 = "SELECT count(*) as contador FROM ordens_de_servicos where data_previsao < DATE(NOW()) and status <> 2";
                                         $resultado = mysqli_query($connect, $sql4);
-                                        while ($dados = mysqli_fetch_array($resultado)) {
-                                            if ($dados['data_previsao'] < date('y/m/d') and $dados['status'] != 3) {
-                                                $calculoOsAtraso++;
-                                            }
-                                        }
+                                        $dados = mysqli_fetch_array($resultado);
+
                                     ?>
                                     <div class="card">
                                         <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
                                         <div class="card_inner">
                                             <p class="text-primary-p">OS em Atraso</p>
-                                            <span class="font-bold text-title"><?php echo $calculoOsAtraso; ?></span>
+                                            <span class="font-bold text-title"><?php echo $dados['contador']; ?></span>
                                         </div>
                                     </div>
                                 </td>
