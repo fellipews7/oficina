@@ -363,7 +363,7 @@ function verificaCarros($placaCarro, $renavamCarro, $marcaCarro, $modeloCarro, $
             if($tipoAcao == "1") {
                 header('Location: Cadastro-Carro.php?erroplaca');
             }elseif ($tipoAcao == "2") {
-                //header('Location: ../editarCarro.php?id=' . $id);
+                header('Location: ../editarCarro.php?id=' . $id);
             }
 
         }
@@ -483,8 +483,8 @@ function conexaoBdInsert($sql){
 
         if(isset($_SESSION['tipoAcao']) and ($_SESSION['tipoAcao'] == 2)){
             $_SESSION['tipoErro'] = "Atualização feita com sucesso!";
+            $_SESSION['tipoAcao'] = 1;
             header('Location: ../../index.php');
-
 
         }else{
             $_SESSION['tipoErro'] = "Cadastro feito com sucesso!";
