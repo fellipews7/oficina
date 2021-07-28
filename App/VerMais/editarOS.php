@@ -124,19 +124,13 @@ if(isset($_GET['id'])){
                 <label class="status-label">Status</label>
                 <div class="radio-buttons">
                     <div>
-                        <input type="radio" id="iAprovado" name="nStatus" value="1">
-                        <label for="iAprovado" class="custom-label">Aprovado</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" id="iNaoAprovado" name="nStatus" value="2">
-                        <label for="iNaoAprovado" class="custom-label">Não Aprovado</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" id="iAguardandoAprovacao" name="nStatus" value="3">
-                        <label for="iAguardandoAprovacao" class="custom-label">Aguardando Aprovação</label>
-                    </div>
+                        <?php if ($dados['status'] == 1) {
+                              echo '<td> Em Aberto </td>';
+                          } elseif ($dados['status'] == 2) {
+                              echo '<td> Concluída</td>';
+                          } elseif ($dados['status'] == 3) {
+                              echo '<td> Atrasada</td>';
+                          }?>
                 </div>
 
             </div>
