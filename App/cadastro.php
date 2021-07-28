@@ -127,7 +127,7 @@ function insertOS(){
     $kmCarro              = limpezaVariavel($_POST['nKMOS']);
     $matriculaFuncionario = limpezaVariavel($_POST['nMatriFunOS']);
     $statusOs             = 1;
-    $valorFinalOs         = limpezaVariavel($_POST['nValorTotalOS']);
+    $valorFinalOs         = limpaNumero($_POST['nValorTotalOS']);
     $infoAdicionais       = limpezaVariavel($_POST['nInfoAdicionais']);
 
 $sql1 = ("INSERT INTO ordens_de_servicos(km_atual,  data_cadastro,data_previsao,status,orcamentos_id,funcionarios_matricula,valor_final, informacoes_adicionais) VALUES(

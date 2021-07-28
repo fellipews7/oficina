@@ -53,8 +53,8 @@ include_once 'assets/php/sessoes.php';
                 <!-- MAIN TITLE ENDS HERE -->
                 
                 <!-- CHARTS STARTS HERE -->
-                <div class="charts" style="padding-top: -20px;">
-                    <div class="charts__left" style="width: 600px; height: 400px; padding: 30px;">
+                <div class="charts" style="padding-top: 0px;">
+                    <div class="charts__left" style="width: 500px; height: 390px; padding: 25px;">
                         <div class="charts__left__title">
                             <div>
                                 <h1>Grafico</h1>
@@ -65,14 +65,14 @@ include_once 'assets/php/sessoes.php';
                         <div id="apex1" style="padding-top: 80px;"></div>
                     </div>
 
-                    <div class="charts__right" style="background: white; width: 400px; height: 460px; padding-top: 0px;">
+                    <div class="charts__right" style="background: white; width: 350px; height: 300px; padding-top: 0px;">
                         <table style="padding-top: 0px;">
                             <tr>
-                                <td style="width: 500px; heigth: 300px; padding-bottom: 10px; padding-top: 0px;">
-                                    <div class="card">
+                                <td style="width: 500px; padding-bottom: 10px; padding-top: 0px;">
+                                    <div class="card" style="height: 50px;">
                                         <i class="fa fa-money fa-2x text-green" aria-hidden="true"></i>
                                         <?php
-                                        $sql1 = "SELECT count(*) as contador0 FROM ordens_de_servicos WHERE status = 1";
+                                        $sql1 = "SELECT count(*) as contador0 FROM orcamentos WHERE status = 3";
                                         $resultado = mysqli_query($connect, $sql1);
                                         $dados = mysqli_fetch_array($resultado);
 
@@ -86,7 +86,7 @@ include_once 'assets/php/sessoes.php';
                             </tr>
                             <tr>
                                 <td style="padding-bottom: 10px;">
-                                    <div class="card">
+                                    <div class="card" style="height: 50px;">
                                         <i class="fa fa-calendar-check-o fa-2x text-lightblue" aria-hidden="true"></i>
                                         <?php
                                         $sql2 = "SELECT count(*) as contador2 FROM ordens_de_servicos WHERE status = 2";
@@ -103,7 +103,7 @@ include_once 'assets/php/sessoes.php';
                             </tr>
                             <tr>
                                 <td style="padding-bottom: 10px;">
-                                    <div class="card">
+                                    <div class="card" style="height: 50px;">
                                         <i class="fa fa-wrench fa-2x text-yellow" aria-hidden="true"></i>
                                         <?php
                                         $sql3 = "SELECT count(*) as contador1 FROM ordens_de_servicos WHERE status = 1";
@@ -120,12 +120,12 @@ include_once 'assets/php/sessoes.php';
                             <tr>
                                 <td style="padding-bottom: 10px;">
                                     <?php
-                                        $sql4 = "SELECT count(*) as contador FROM ordens_de_servicos where data_previsao < DATE(NOW()) and status <> 2";
+                                        $sql4 = "SELECT count(*) as contador FROM ordens_de_servicos where status = 3";
                                         $resultado = mysqli_query($connect, $sql4);
                                         $dados = mysqli_fetch_array($resultado);
 
                                     ?>
-                                    <div class="card">
+                                    <div class="card" style="height: 50px;">
                                         <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
                                         <div class="card_inner">
                                             <p class="text-primary-p">OS em Atraso</p>
