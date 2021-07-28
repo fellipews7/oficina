@@ -59,9 +59,11 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
+                <label for="iDescServ">Descrição do Serviço</label>
+                <textarea name="nDescServ" id="iDescServ" placeholder="Insira a descrição do serviço feito" cols="90" rows="5" maxlength="300" onkeydown="countChar(this, 'counterServico')"><?php echo $dados['descricao_servicos']?></textarea>
+                <small id="counterServico" class="caracteresRestantes"></small>
 
-                <label for="iDescServ">Descrição do Serviço</label><br>
-                <input type="text" name="nDescServ" id="iDescServ" value="<?php echo $dados['descricao_servicos']?>">
+
             </div>
 
             <div class="input-field col s12">
@@ -70,8 +72,10 @@ if(isset($_GET['id'])){
             </div>
 
             <div class="input-field col s12">
-                <label for="iDescPro">Descrição dos Produtos</label><br>
-                <input type="text" name="nDescPro" id="iDescPro" value="<?php echo $dados['descricao_produtos']?>">
+                <label for="iDescPro">Descrição dos Produtos</label>
+                <textarea name="nDescPro" id="iDescPro" placeholder="Insira a descrição dos produtos usados" cols="90" rows="5" maxlength="300" onkeydown="countChar(this, 'counterProduto')"><?php echo $dados['descricao_produtos']?></textarea>
+                <small id="counterProduto" class="caracteresRestantes"></small>
+
             </div>
 
             <div class="input-field col s12">

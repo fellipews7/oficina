@@ -130,11 +130,15 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
                               echo '<td> Não Aprovado</td>';
                           } elseif ($dados['status'] == 3) {
                               echo '<td> Aguardando Aprovação</td>';
+                          }else{
+                              echo '<td></td>';
                           }
                           if ($dados['tipoManutencao'] == 1) {
                               echo '<td> Manutenção Corretiva </td>';
                           } elseif ($dados['tipoManutencao'] == 2) {
                               echo '<td> Manutenção Preventiva </td>';
+                          }else{
+                              echo '<td></td>';
                           }
 
                           echo '<td id="iCantoBotao">';

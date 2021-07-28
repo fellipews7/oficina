@@ -150,7 +150,6 @@ if(mysqli_query($connect, $sql1)){
     header('Location: index.php?errofinal');
 }
 
-
-
 }
+
 
