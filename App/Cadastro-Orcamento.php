@@ -111,7 +111,7 @@ if (isset($_SESSION['login']) and $_SESSION['login'] == 1) {
                       <label for="nTipoManu">Tipo Manutenção</label>
                     <div id="classificacaoCliente">
                       <div class="wrapper">
-                        <input type="radio" id="iCorretiva" name="nTipoManu" value="1">
+                        <input type="radio" id="iCorretiva" name="nTipoManu" value="1" checked>
                         <label for="iCorretiva">Corretiva</label>
                         <input type="radio" id="iPreventiva" name="nTipoManu" value="2">
                         <label for="iPreventiva">Preventiva</label>
