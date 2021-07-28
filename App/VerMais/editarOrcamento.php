@@ -30,18 +30,18 @@ if(isset($_GET['id'])){
             <div class="input-field col s12">
 
                 <label for="iIDOrcamento">Nº Orçamento</label><br>
-                <input type="text" reandoly name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['id']?>">
+                <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['id']?>" readonly>
 
             </div>
                     
             <div class="input-field col s12">
                 <label for="iIDCliente">Código Cliente</label><br>
-                <input type="text" name="nIDCliente" id="iIDCliente" value="<?php echo $dados['clientes_id']?>">
+                <input type="text" name="nIDCliente" id="iIDCliente" value="<?php echo $dados['clientes_id']?>" readonly>
             </div>
 
             <div class="input-field col s12">
                 <label for="iIDCarro">Código Carro</label><br>
-                <input type="text" name="nIDCarro" id="iIDCarro" value="<?php echo $dados['carros_id']?>">
+                <input type="text" name="nIDCarro" id="iIDCarro" value="<?php echo $dados['carros_id']?>" readonly>
             </div>
 
             <div class="input-field col s12">
