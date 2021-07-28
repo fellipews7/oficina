@@ -117,18 +117,7 @@ if(isset($_SESSION['login']) AND $_SESSION['login'] == 1){
       </div>
     </main>
 
-    <div id="sidebar">
-      <div class="sidebar__title">
-        <div class="sidebar__img">
-          <img src="assets/logo.png" alt="logo" />
-          <h2>Oficina Schulz</h2>
-        </div>
-        <i onclick="closeSidebar()" class="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>
-      </div>
-
-      <?php include_once 'assets/php/menu.php'; ?>
-
-    </div>
+    <?php include_once 'assets/php/menu.php'; ?>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="assets/js/script.js"></script>
