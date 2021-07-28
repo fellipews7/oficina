@@ -30,18 +30,18 @@ if(isset($_GET['id'])){
             <div class="input-field col s12">
 
                 <label for="iIDOrcamento">Nº Orçamento</label><br>
-                <input type="text" reandoly name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['id']?>">
+                <input type="text" name="nIDOrcamento" id="iIDOrcamento" value="<?php echo $dados['id']?>" readonly>
 
             </div>
                     
             <div class="input-field col s12">
                 <label for="iIDCliente">Código Cliente</label><br>
-                <input type="text" name="nIDCliente" id="iIDCliente" value="<?php echo $dados['clientes_id']?>">
+                <input type="text" name="nIDCliente" id="iIDCliente" value="<?php echo $dados['clientes_id']?>" readonly>
             </div>
 
             <div class="input-field col s12">
                 <label for="iIDCarro">Código Carro</label><br>
-                <input type="text" name="nIDCarro" id="iIDCarro" value="<?php echo $dados['carros_id']?>">
+                <input type="text" name="nIDCarro" id="iIDCarro" value="<?php echo $dados['carros_id']?>" readonly>
             </div>
 
             <div class="input-field col s12">
@@ -74,17 +74,17 @@ if(isset($_GET['id'])){
                 <label class="status-label">Status</label>
                 <div class="radio-buttons">
                     <div>
-                        <input type="radio" id="iAprovado" name="nStatus" value="1">
+                        <input type="radio" id="iAprovado" name="nStatus" value="1"<?php if ($dados['status'] == 1) {echo "checked";} ?>>
                         <label for="iAprovado" class="custom-label">Aprovado</label>
                     </div>
 
                     <div>
-                        <input type="radio" id="iNaoAprovado" name="nStatus" value="2">
+                        <input type="radio" id="iNaoAprovado" name="nStatus" value="2"<?php if ($dados['status'] == 2) {echo "checked";} ?>>
                         <label for="iNaoAprovado" class="custom-label">Não Aprovado</label>
                     </div>
 
                     <div>
-                        <input type="radio" id="iAguardandoAprovacao" name="nStatus" value="3">
+                        <input type="radio" id="iAguardandoAprovacao" name="nStatus" value="3"<?php if ($dados['status'] == 3) {echo "checked";} ?>>
                         <label for="iAguardandoAprovacao" class="custom-label">Aguardando Aprovação</label>
                     </div>
                 </div>
